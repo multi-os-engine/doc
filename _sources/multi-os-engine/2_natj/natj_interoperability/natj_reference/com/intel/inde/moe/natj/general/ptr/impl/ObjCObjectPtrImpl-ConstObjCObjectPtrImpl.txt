@@ -1,0 +1,93 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general NatJ
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr Ptr
+
+.. java:import:: com.intel.inde.moe.natj.objc ObjCObject
+
+.. java:import:: com.intel.inde.moe.natj.objc ObjCRuntime
+
+ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+========================================
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: static class ConstObjCObjectPtrImpl<T extends ObjCObject> extends ObjCObjectPtrImpl<T>
+   :outertype: ObjCObjectPtrImpl
+
+Constructors
+------------
+ConstObjCObjectPtrImpl
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstObjCObjectPtrImpl(Class<T> type, Pointer peer)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+ConstObjCObjectPtrImpl
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor::  ConstObjCObjectPtrImpl(Class<T> type, int capacity, boolean owned)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(T[] src)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(T[] src, int destOffset)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(T[] src, int destOffset, int length)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(T[] src, int srcOffset, int destOffset, int length)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public Ptr<T> getGuarded(int fromIndex, int toIndex)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public final Ptr<T> ofs(int elemOffset)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public final void set(T value)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public final void set(int idx, T value)
+   :outertype: ObjCObjectPtrImpl.ConstObjCObjectPtrImpl
+

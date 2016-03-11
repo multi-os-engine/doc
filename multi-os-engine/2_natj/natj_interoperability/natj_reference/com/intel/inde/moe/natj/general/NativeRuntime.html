@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NativeRuntime &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../../../../../../../../index.html"/>
+        <link rel="up" title="com.intel.inde.moe.natj.general" href="package-index.html"/>
+        <link rel="next" title="NilException" href="NilException.html"/>
+        <link rel="prev" title="NativeObject" href="NativeObject.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44947646-4', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+  
+  <script src="../../../../../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../../../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../1_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../../../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../../NatJ_How_to.html">Nat/J: How-to</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../../NatJ_CornerCases.html">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../../../packages.html">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../3_iOS_app_development/iOS_app_development.html">iOS apps development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../6_moe_architecture/MOE_Architecture.html">Multi-OS Engine Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../7_Troubleshooting/troubleshooting.html">Known issues and troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../../../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a> &raquo;</li>
+      
+          <li><a href="../../../../../../packages.html">Nat/J: Reference</a> &raquo;</li>
+      
+          <li><a href="package-index.html">com.intel.inde.moe.natj.general</a> &raquo;</li>
+      
+    <li>NativeRuntime</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nativeruntime">
+<h1>NativeRuntime<a class="headerlink" href="#nativeruntime" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime">
+public abstract class <code class="descname">NativeRuntime</code><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parent of every NativeRuntime.</p>
+<p>The runtimes are responsible for handling language environments like C, Objective-C and others. The runtimes have three kinds of default <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper"><code class="xref java java-ref docutils literal"><span class="pre">Mapper</span></code></a> implementations: object, string and callback mappers. Whenever a native method or one of its arguments has no explicitly given mapper specified with the <a class="reference internal" href="ann/MappedReturn.html#com.intel.inde.moe.natj.general.ann.MappedReturn" title="com.intel.inde.moe.natj.general.ann.MappedReturn"><code class="xref java java-ref docutils literal"><span class="pre">com.intel.inde.moe.natj.general.ann.MappedReturn</span></code></a> or <a class="reference internal" href="ann/Mapped.html#com.intel.inde.moe.natj.general.ann.Mapped" title="com.intel.inde.moe.natj.general.ann.Mapped"><code class="xref java java-ref docutils literal"><span class="pre">com.intel.inde.moe.natj.general.ann.Mapped</span></code></a> annotations, then NatJ will use one of these default mappers of the determined responsible runtime instance.</p>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="callbackmapper">
+<h3>callbackMapper<a class="headerlink" href="#callbackmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.callbackMapper">
+protected <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">callbackMapper</code><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.callbackMapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default mapper for handling callbacks.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="objectmapper">
+<h3>objectMapper<a class="headerlink" href="#objectmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.objectMapper">
+protected <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">objectMapper</code><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.objectMapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default mapper for handling objects.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="stringmapper">
+<h3>stringMapper<a class="headerlink" href="#stringmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.stringMapper">
+protected <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">stringMapper</code><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.stringMapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default mapper for handling strings.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>NativeRuntime<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.NativeRuntime(Class, Class, Class)">
+protected <code class="descname">NativeRuntime</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> objectMapperClass</em>, <a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> stringMapperClass</em>, <a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> callbackMapperClass</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.NativeRuntime(Class, Class, Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs the runtime and registers the default mappers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>objectMapperClass</strong> &#8211; The default mapper for objects</li>
+<li><strong>stringMapperClass</strong> &#8211; The default mapper for strings</li>
+<li><strong>callbackMapperClass</strong> &#8211; The default mapper for callbacks</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="createmapper">
+<h3>createMapper<a class="headerlink" href="#createmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.createMapper(Class)">
+protected <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">createMapper</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> mapperClass</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.createMapper(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a mapper of the given <code class="docutils literal"><span class="pre">mapperClass</span></code> class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mapperClass</strong> &#8211; The mapper class we want to instantiate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="doregistration">
+<h3>doRegistration<a class="headerlink" href="#doregistration" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.doRegistration(Class)">
+protected abstract void <code class="descname">doRegistration</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> type</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.doRegistration(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> &#8211; The type we want to register.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcallbackmapper">
+<h3>getCallbackMapper<a class="headerlink" href="#getcallbackmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.getCallbackMapper()">
+public <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">getCallbackMapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.getCallbackMapper()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the default mapper for callbacks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The default callback mapper.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdefaultunboxpolicy">
+<h3>getDefaultUnboxPolicy<a class="headerlink" href="#getdefaultunboxpolicy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.getDefaultUnboxPolicy()">
+public abstract byte <code class="descname">getDefaultUnboxPolicy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.getDefaultUnboxPolicy()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the default unbox policy for variadic arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The default unbox policy.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmapper">
+<h3>getMapper<a class="headerlink" href="#getmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.getMapper(Class)">
+public <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">getMapper</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> mapperClass</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.getMapper(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance of a the given <code class="docutils literal"><span class="pre">mapperClass</span></code> class.</p>
+<p>The instances are cached in the <code class="xref java java-ref docutils literal"><span class="pre">class2mapper</span></code> collection, so every class will have only one instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mapperClass</strong> &#8211; The mapper class we want to get an instance of</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getobjectmapper">
+<h3>getObjectMapper<a class="headerlink" href="#getobjectmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.getObjectMapper()">
+public <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">getObjectMapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.getObjectMapper()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the default mapper for objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The default object mapper.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getstringmapper">
+<h3>getStringMapper<a class="headerlink" href="#getstringmapper" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.getStringMapper()">
+public <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">getStringMapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.getStringMapper()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the default mapper for strings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The default string mapper.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="trytodisposecallback">
+<h3>tryToDisposeCallback<a class="headerlink" href="#trytodisposecallback" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NativeRuntime.tryToDisposeCallback(Object)">
+public abstract void <code class="descname">tryToDisposeCallback</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> callback</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NativeRuntime.tryToDisposeCallback(Object)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disposes the callbacks created for the given object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>callback</strong> &#8211; The callback we want to dispose.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NilException.html" class="btn btn-neutral float-right" title="NilException" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="NativeObject.html" class="btn btn-neutral" title="NativeObject" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../../../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

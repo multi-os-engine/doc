@@ -1,0 +1,129 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr ShortPtr
+
+ShortPtrImpl.ConstShortPtrImpl
+==============================
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: static class ConstShortPtrImpl extends ShortPtrImpl
+   :outertype: ShortPtrImpl
+
+Constructors
+------------
+ConstShortPtrImpl
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstShortPtrImpl(Pointer peer)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+ConstShortPtrImpl
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstShortPtrImpl(long peer, Object bufferOwner)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+ConstShortPtrImpl
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor::  ConstShortPtrImpl(int capacity, boolean owned)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Short[] src)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Short[] src, int destOffset)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Short[] src, int destOffset, int length)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Short[] src, int srcOffset, int destOffset, int length)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(short[] src)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(short[] src, int destOffset)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(short[] src, int destOffset, int length)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(short[] src, int srcOffset, int destOffset, int length)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public ShortPtr getGuarded(int fromIndex, int toIndex)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public final ShortPtr ofs(int elemOffset)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Short obj)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Short obj)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(short value)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(int idx, short value)
+   :outertype: ShortPtrImpl.ConstShortPtrImpl
+

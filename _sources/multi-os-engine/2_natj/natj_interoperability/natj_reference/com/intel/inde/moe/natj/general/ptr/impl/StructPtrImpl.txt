@@ -1,0 +1,90 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.c StructObject
+
+.. java:import:: com.intel.inde.moe.natj.general NatJ
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr Ptr
+
+StructPtrImpl
+=============
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type::  class StructPtrImpl<T extends StructObject> extends AbstractNativeObjectPtr<T>
+
+Fields
+------
+sizeof
+^^^^^^
+
+.. java:field:: protected final long sizeof
+   :outertype: StructPtrImpl
+
+   The native size of the concrete type.
+
+   Used for calculating the offsets for the indexes.
+
+Constructors
+------------
+StructPtrImpl
+^^^^^^^^^^^^^
+
+.. java:constructor:: protected StructPtrImpl(Class<T> type, Pointer peer)
+   :outertype: StructPtrImpl
+
+StructPtrImpl
+^^^^^^^^^^^^^
+
+.. java:constructor::  StructPtrImpl(Class<T> type, int capacity, boolean owned)
+   :outertype: StructPtrImpl
+
+Methods
+-------
+get
+^^^
+
+.. java:method:: @Override public T get(int idx)
+   :outertype: StructPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public Ptr<T> getGuarded(int fromIndex, int toIndex)
+   :outertype: StructPtrImpl
+
+getRef
+^^^^^^
+
+.. java:method:: final T getRef(int idx)
+   :outertype: StructPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: StructPtrImpl
+
+isGuarded
+^^^^^^^^^
+
+.. java:method:: @Override public boolean isGuarded()
+   :outertype: StructPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public Ptr<T> ofs(int elemOffset)
+   :outertype: StructPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, T obj)
+   :outertype: StructPtrImpl
+

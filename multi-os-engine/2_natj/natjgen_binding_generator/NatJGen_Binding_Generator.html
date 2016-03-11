@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nat/J Binding Generator &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Nat/J library for Java to native binding" href="../NatJ.html"/>
+        <link rel="next" title="Working with Pointers" href="../working_with_pointers/Working_With_Pointers.html"/>
+        <link rel="prev" title="Type" href="../natj_interoperability/natj_reference/com/intel/inde/moe/natj/org/objectweb/asm/Type.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44947646-4', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../natj_interoperability/NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_iOS_app_development/iOS_app_development.html">iOS apps development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_moe_architecture/MOE_Architecture.html">Multi-OS Engine Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_Troubleshooting/troubleshooting.html">Known issues and troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+    <li>Nat/J Binding Generator</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nat-j-binding-generator">
+<h1>Nat/J Binding Generator<a class="headerlink" href="#nat-j-binding-generator" title="Permalink to this headline">¶</a></h1>
+<p>One of the useful features of Multi-OS Engine is the generation of Java bindings. NatJGen is a command line tool which implements this feature.  NatJGen allows generate Java bindings based on special configuration file. NatJGen tool configuration file is quite complicated so why wrapnatjgen wrapper was created to simply the tool using.</p>
+<p>Wrapnatjgen is a wrapper of NatJGen which provides a useful command line interface and avoids the need of writing configuration files with special format. Wrapnatjgen tool helps to generate Java bindings for selected native header files. Tool also allows for frameworks or libraries to create JAR files with precompiled Java bindings, resources (if needed), additional linker flags and frameworks or libraries itself. This approach is very useful because once compiled, such JAR files can be used in different projects on different machines. Build procedure in Android Studio allows to easily link frameworks/libraries contained in JAR to Xcode project and  also all the specified resources necessary for the framework of libraries will be copied to the final app file.</p>
+<p>Wrapnatjgen may be used as command line tool with appropriate arguments or as a context menu item in Android Studio where all the functions of the tool are integrated.</p>
+<p><strong>1.&nbsp;&nbsp;&nbsp; Integration with Android Studio</strong></p>
+<p>All functions of wrapnatjgen tool presented in Android Studio as sub-item of “MOE Actions” context menu item.</p>
+<p>&#8220;MOE Actions&#8221; context menu item contains a list of sub-items:</p>
+<ul class="simple">
+<li><strong>Generate Bindings</strong> - Generates or updates Java classes/interfaces/enums based on Objective-C code. All methods in Java marked as native.</li>
+<li><strong>Synchronize to Java</strong> – Generates or updates Java UI controller based on changes made in Objective-C stub via Xcode.</li>
+<li><strong>Link third party framework to Xcode</strong> – Automatically generates JAR file which contains Java bindings &amp; framework. Framework is linked to Xcode project during the build of the App.</li>
+<li><strong>Link third party library to Xcode</strong> – Automatically generates JAR file which contains Java bindings &amp; static library. Static library is linked to Xcode project during the build of the App.</li>
+<li><strong>Link CocoaPods to Xcode</strong> - Automatically generates JAR file which contains Java bindings &amp; libraries for certain pods.</li>
+</ul>
+<img alt="../../../_images/image001.png" src="../../../_images/image001.png" />
+<p>Img.1 “MOE Actions” context menu item</p>
+<p><strong>1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Generate Bindings</strong></p>
+<p>This sub menu item helps to generate Java binding for a native header or
+for a list of headers or for all native headers in the folder. Allows to
+specify the package name. Generated Java bindings will be placed in
+&lt;Path to MOE module&gt;/src/main/java/&lt;package name&gt;.</p>
+<img alt="../../../_images/image002.png" src="../../../_images/image002.png" />
+<p>Img.2 “Generate Bindings” sub menu item for single native header</p>
+<img alt="../../../_images/image003.png" src="../../../_images/image003.png" />
+<p>Img.3 “Generate Bindings” sub menu item for list of native headers</p>
+<img alt="../../../_images/image004.png" src="../../../_images/image004.png" />
+<p>Img.4 “Generate Bindings” sub menu item for all native headers in folder</p>
+<p><strong>1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Synchronize to Java</strong></p>
+<p>This sub menu item helps to generate Java bindings for a prototype
+native header, list of headers or for native interfaces specified in
+.xib and .storyboard files. Allows to specify package name. Generated
+Java bindings will be placed in &lt;Path to MOE
+module&gt;/src/main/java/&lt;package name&gt;.</p>
+<img alt="../../../_images/image005.png" src="../../../_images/image005.png" />
+<p>Img.5 “Synchronize to Java” sub menu item for a single native header</p>
+<img alt="../../../_images/image006.png" src="../../../_images/image006.png" />
+<p>Img.6 “Synchronize to Java” sub menu item for list of native headers</p>
+<img alt="../../../_images/image007.png" src="../../../_images/image007.png" />
+<p>Img.7 “Synchronize to Java” sub menu item for all interfaces in .xib and
+.storyboard files</p>
+<p><strong>1.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Link third party framework to Xcode</strong></p>
+<p>This sub menu item helps to generate a special JAR file for a specified
+framework. This JAR file will contain Java bindings, resources (if
+needed), framework itself and manifest file with special parameters.
+Such organization of JAR file allows link framework to Xcode project,
+copy resources to final .app file and specify additional flags for
+linker during build procedure. All generated JARs will be placed in &lt;MOE
+module path&gt;/lib.</p>
+<p>Sub menu item “Link third party framework to Xcode” is available
+everywhere in MOE module.</p>
+<img alt="../../../_images/image008.png" src="../../../_images/image008.png" />
+<p>Img.8 “Link third party framework to Xcode” sub menu item</p>
+<p>When the above option is clicked, a pop up window appears with three
+tabs: “Framework”, “Dependency” and “Copy bundle resources”. “Framework”
+tab to specify the framework which will be packed in JAR file.</p>
+<img alt="../../../_images/image009.png" src="../../../_images/image009.png" />
+<p>Img.9 “Framework” tab</p>
+<p>“Force load” load check box allows add linker flag –force_load for
+specified framework.</p>
+<p>“Dependency” tab allows specify additional flags for linker. “Framework”
+list contains all necessary system frameworks. “Linker flags” list
+contains additional flags for linker.</p>
+<img alt="../../../_images/image010.png" src="../../../_images/image010.png" />
+<p>Img.10 “Dependency” tab</p>
+<p>“Copy bundle resources” tab allows to specify all the resources which
+will be copied to final .app file.</p>
+<img alt="../../../_images/image011.png" src="../../../_images/image011.png" />
+<p>Img.11 “Copy bundle resources” tab</p>
+<p><strong>1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Link third party library to Xcode</strong></p>
+<p>This sub menu item helps to generate special JAR file for a specified
+library. This JAR file will contain Java bindings, resources (if
+needed), library itself and manifest file with special parameters. Such
+organization of JAR file links the framework to Xcode project, copies
+resources to final .app file and specifies additional flags for linker
+during the build procedure. All generated JARs will be placed in &lt;MOE
+module path&gt;/lib.</p>
+<p>Sub menu item “Link third party framework to Xcode” is available
+everywhere in MOE module.</p>
+<img alt="../../../_images/image012.png" src="../../../_images/image012.png" />
+<p>Img.12 “Link third party library to Xcode” sub menu item</p>
+<p>When the above menu item is clicked, a pop up window appears with these
+tabs as shown below. “Library” tab allows to specify library and folder
+with header files. Generated Java bindings and libraries will be
+packaged in the JAR file.</p>
+<img alt="../../../_images/image013.png" src="../../../_images/image013.png" />
+<p>Img.13 “Library” tab</p>
+<p>“Dependency” tab and “Copy bundle resources” tab have the same design
+and purposes what such tabs in “Link third party framework to Xcode” pop
+up window.</p>
+<p><strong>1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Link CocoaPods to Xcode</strong></p>
+<p>This sub menu item helps to generate special JAR file for a specified
+pod. All necessary information about additional linker flags, resources
+and so on is already available in the pod spec.</p>
+<p>Note that the cocoapods should be installed.</p>
+<p>All generated JARs will be placed in &lt;MOE module path&gt;/lib.</p>
+<p>Sub menu item “Link CocoaPods to Xcode” is available everywhere in MOE
+module.</p>
+<img alt="../../../_images/image014.png" src="../../../_images/image014.png" />
+<p>Img.14 “Link CocoaPods to Xcode” sub menu item</p>
+<p>When the above menu item is clicked, a pop up window appears “Link
+CocoaPods to Xcode” which allows to specify pod spec name and Subspec
+(optional).</p>
+<img alt="../../../_images/image015.png" src="../../../_images/image015.png" />
+<p>Img.15 “Link CocoaPods to Xcode” pop up window</p>
+<p><strong>2.&nbsp;&nbsp;&nbsp; Command line interface</strong></p>
+<p>Command line interface of wrapnatjgen provides the ability to generate
+Java bindings, create special JAR files for libraries, frameworks and
+pods through the Multi-OS Engine terminal window.</p>
+<p>Available flags for wrapnatjgen:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>java -jar wrapnatjgen.jar --help
+
+usage: natjwrap [flags]
+
+options:
+
+--path-to-project &lt;path&gt;            Specify path to project. Path to generated files will be constructed as: &lt;path-to-project&gt;/src/main/java/&lt;package-name&gt;
+--package-name &lt;name of package&gt;    Set package name for generated files. By default - &#39;com.intel&#39;
+--output-file-path &lt;path&gt;           Specify path to output .jar file with generated bindings &amp; input library
+--framework &lt;path to framework&gt;     Specify input framework
+--library &lt;path to library&gt;         Specify input library
+--headers &lt;header&gt;                  Specify path to folder/file with API header files
+--ld-flags &lt;path to file&gt;           Specify additional flags which will be passed to linker during link step for final application
+--create-from-prototype             Indicate what bindings will be generated for native stubs
+--bundle &lt;bundle&gt;                   Specify path to resources which will be copy to final application
+--pod                               Specify path to file with pod name, version and subspec
+--help                              Print a synopsis of standard options
+</pre></div>
+</div>
+<p><strong>Binding generation</strong></p>
+<p>Tool helps to generate bindings for single native header or for a list native headers or for each native header in folder:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ java -jar wrapnatjgen.jar --path-to-project &lt;path to output dir&gt;  [--package-name &lt;package.name&gt;] --headers &lt;path to native headers&gt;
+
+--path-to-project – specify path to output directory, generated file/files will be placed in &lt; path-to-project&gt;/src/main/java/&lt;package/name&gt;
+--package-name – optional parameter, by default package name is “com.intel”
+
+--headers – specify file/files/directory for each Java binding will be generated. Possible variants::
+
+--headers &lt;path/to/file&gt;
+--headers &lt;path/to/file1&gt;:&lt;path/to/file2&gt;
+--headers &lt;path/to/dir&gt;
+</pre></div>
+</div>
+<p><strong>Binding generation from prototype</strong></p>
+<p>$ java -jar wrapnatjgen.jar &#8211;path-to-project &lt;path to output dir&gt; [&#8211;package-name &lt;package.name&gt;] &#8211;headers &lt;path to native headers&gt; &#8211;create-from-prototype &#8211;create-from-prototype – allows generate Java bindings for prototype native headers</p>
+<p><strong>Creating JAR for frameworks</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ java -jar wrapnatjgen.jar --framework &lt;path to framework&gt; [--package-name &lt;package.name&gt;] [--headers &lt;path to native headers&gt;] [--bundle &lt;path to resources&gt;] --output-file-path &lt;path to jar file&gt;
+
+--framework – specify path to framework/frameworks. Possible variants:
+
+--framework &lt;path/to/framework&gt;
+--framework &lt;path/to/framework1&gt;:&lt;path/to/framework2&gt;
+
+--package-name – optional parameter, by default package name is “com.intel”
+--headers – optional parameter, by default for each framework from “--framework” parameter will be selected Headers folder
+--output-file-path – specify path to output jar file
+</pre></div>
+</div>
+<p><strong>Creating JAR for libraries</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ java -jar wrapnatjgen.jar --library &lt;path to library&gt; --headers &lt;path to native headers&gt; [--package-name &lt;package.name&gt;] [--bundle &lt;path to resources&gt;] --output-file-path &lt;path to jar file&gt;
+
+--library – specify path to framework/frameworks. Possible variants:
+--library &lt;path/to/library &gt;
+--library &lt;path/to/library &gt;:&lt;path/to/library &gt;
+
+--package-name – optional parameter, by default package name is “com.intel”
+
+--headers – path to header/headers file. Possible variants:
+--headers &lt;path/to/file&gt;
+--headers &lt;path/to/file1&gt;:&lt;path/to/file2&gt;
+--headers &lt;path/to/dir&gt;
+
+--output-file-path – specify path to output jar file
+</pre></div>
+</div>
+<p><strong>Creating JAR for Cocoapods</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ java -jar wrapnatjgen.jar --pod &lt;path to special file with pod name&gt; --output-file-path &lt;path to jar file&gt; --pod – specify path to special file with pod name
+
+File format::
+
+        pod:&lt;pod name&gt;
+        subspec:[&lt;subspec name&gt;]
+
+
+--output-file-path – specify path to output jar file
+</pre></div>
+</div>
+<p>USEFUL TIPS</p>
+<p><strong>Additional linker flags</strong></p>
+<p>Some compilation errors may be caused by absence of linker flags or
+duplicate of the same flags. Such errors may be thrown during
+compilation process of MOE application with linked third party
+frameworks or libraries.</p>
+<p>The solution of such problems is to specify all the necessary linker
+flags. There are different ways to do that, below described being more
+useful:</p>
+<ul class="simple">
+<li>Via Xcode IDE (by updating “Other linker flags” in Build Settings)</li>
+<li>Via Android Studio(by updating custom.xcconfig file)</li>
+</ul>
+<img alt="../../../_images/image016.jpg" src="../../../_images/image016.jpg" />
+<p>Сustom.xcconfig file contains special variable with different flags.
+Each flag is separated from others by a whitespace delimiter.</p>
+<p><strong>Local build application with dynamic framework</strong></p>
+<p>For successful local build of MOE application with dynamic framework
+should specify signing identity name. Signing identity name specified in
+xrt section in build.gradle file in MOE module. Find below example of
+build.gradle with specified signing identity name:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>buildscript {
+        repositories {
+                mavenCentral()
+
+                maven {
+                        url uri(System.getenv(&quot;INTEL_MULTI_OS_ENGINE_HOME&quot;) + &quot;/gradle&quot;)
+                }
+        }
+        dependencies {
+                classpath &#39;org.intel.gradle:xRTGradlePlugin:1.0&#39;
+        }
+}
+
+apply plugin: &#39;xrt&#39;
+
+dependencies {
+        compile fileTree(dir: &#39;lib&#39;, include: &#39;*.jar&#39;)
+}
+
+xrt {
+        signingIdentityName &#39;&lt;name of signing identity&gt;&#39;
+}
+</pre></div>
+</div>
+<p>Mac users can print all signing identity names using ‘gradle
+showIdentities’ command in terminal.</p>
+<p>In case of signing identity name was not specified, attempt of installing final app on device will end with error – “A valid provisioning profile for this executable was not found.”</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../working_with_pointers/Working_With_Pointers.html" class="btn btn-neutral float-right" title="Working with Pointers" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../natj_interoperability/natj_reference/com/intel/inde/moe/natj/org/objectweb/asm/Type.html" class="btn btn-neutral" title="Type" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

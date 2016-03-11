@@ -1,0 +1,50 @@
+.. java:import:: java.lang.reflect Constructor
+
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.c OpaquePtr
+
+.. java:import:: com.intel.inde.moe.natj.general Mapper
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general NatJ.JavaObjectConstructionInfo
+
+.. java:import:: com.intel.inde.moe.natj.general NatJ.NativeObjectConstructionInfo
+
+.. java:import:: com.intel.inde.moe.natj.general.ann ReferenceInfo
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr ConstPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr ConstVoidPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr.impl PtrImplementer
+
+ReferenceMapper
+===============
+
+.. java:package:: com.intel.inde.moe.natj.general.map
+   :noindex:
+
+.. java:type:: public class ReferenceMapper implements Mapper
+
+   Mapper for references.
+
+Methods
+-------
+toJava
+^^^^^^
+
+.. java:method:: @Override public Object toJava(long peer, JavaObjectConstructionInfo info)
+   :outertype: ReferenceMapper
+
+   Creates a reference from the pointer.
+
+toNative
+^^^^^^^^
+
+.. java:method:: @Override public long toNative(Object instance, NativeObjectConstructionInfo info)
+   :outertype: ReferenceMapper
+
+   Returns the native pointer of the reference.
+

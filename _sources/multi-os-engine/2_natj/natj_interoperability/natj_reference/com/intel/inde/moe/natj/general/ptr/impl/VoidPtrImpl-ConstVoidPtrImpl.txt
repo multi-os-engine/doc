@@ -1,0 +1,57 @@
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr BoolPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr BytePtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr CharPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr DoublePtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr FloatPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IntPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr LongPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr NFloatPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr NIntPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr NUIntPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr ShortPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr VoidPtr
+
+VoidPtrImpl.ConstVoidPtrImpl
+============================
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: static class ConstVoidPtrImpl extends VoidPtrImpl
+   :outertype: VoidPtrImpl
+
+Constructors
+------------
+ConstVoidPtrImpl
+^^^^^^^^^^^^^^^^
+
+.. java:constructor::  ConstVoidPtrImpl(Pointer peer)
+   :outertype: VoidPtrImpl.ConstVoidPtrImpl
+
+ConstVoidPtrImpl
+^^^^^^^^^^^^^^^^
+
+.. java:constructor::  ConstVoidPtrImpl(long peer, boolean owned, Object bufferOwner)
+   :outertype: VoidPtrImpl.ConstVoidPtrImpl
+
+Methods
+-------
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: VoidPtrImpl.ConstVoidPtrImpl
+

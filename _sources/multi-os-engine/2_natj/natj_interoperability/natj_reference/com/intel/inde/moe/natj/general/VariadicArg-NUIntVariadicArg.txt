@@ -1,0 +1,19 @@
+.. java:import:: com.intel.inde.moe.natj.c StructObject
+
+VariadicArg.NUIntVariadicArg
+============================
+
+.. java:package:: com.intel.inde.moe.natj.general
+   :noindex:
+
+.. java:type:: public static final class NUIntVariadicArg extends VariadicArg
+   :outertype: VariadicArg
+
+Methods
+-------
+getNUInt
+^^^^^^^^
+
+.. java:method:: public long getNUInt()
+   :outertype: VariadicArg.NUIntVariadicArg
+

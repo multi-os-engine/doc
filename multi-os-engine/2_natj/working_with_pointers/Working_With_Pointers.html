@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with Pointers &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Nat/J library for Java to native binding" href="../NatJ.html"/>
+        <link rel="next" title="Toll-Free Bridging" href="../toll_free_bridging/Toll_Free_Bridging.html"/>
+        <link rel="prev" title="Nat/J Binding Generator" href="../natjgen_binding_generator/NatJGen_Binding_Generator.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44947646-4', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../natj_interoperability/NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Working with Pointers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-are-pointers">What are pointers?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_iOS_app_development/iOS_app_development.html">iOS apps development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_moe_architecture/MOE_Architecture.html">Multi-OS Engine Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_Troubleshooting/troubleshooting.html">Known issues and troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+    <li>Working with Pointers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-pointers">
+<h1>Working with Pointers<a class="headerlink" href="#working-with-pointers" title="Permalink to this headline">¶</a></h1>
+<p>In this guide we will explain the usage of pointers.</p>
+<div class="section" id="what-are-pointers">
+<h2>What are pointers?<a class="headerlink" href="#what-are-pointers" title="Permalink to this headline">¶</a></h2>
+<p>In C, C++, Objective-C and some other programming languages pointers are values which contains an address that refers to another value in memory. In the aforementioned languages pointers usually appear in a syntax similar to:</p>
+<div class="highlight-objective-c"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">values</span><span class="p">;</span> <span class="c1">// Pointer to an integer type</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">string</span><span class="p">;</span> <span class="c1">// Pointer to an NSString object</span>
+</pre></div>
+</div>
+<p>Pointers are generally constructed with <code class="docutils literal"><span class="pre">malloc</span></code> and destructed with <code class="docutils literal"><span class="pre">free</span></code>:</p>
+<div class="highlight-objective-c"><div class="highlight"><pre><span></span><span class="kt">float</span> <span class="o">*</span><span class="n">vars</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+<span class="n">read_values</span><span class="p">(</span><span class="n">vars</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="kt">float</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">calculate_avg</span><span class="p">(</span><span class="n">vars</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">vars</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Because Multi-OS Engine has bindings for almost the complete C and Objective-C APIs in the iOS SDK, using pointers is inevitable. NatJ supports pointer usage and has the following pre-defined pointer types:</p>
+<ul class="simple">
+<li><em>VoidPtr</em> representing a <code class="docutils literal"><span class="pre">void</span> <span class="pre">*</span></code></li>
+<li><em>BoolPtr</em> representing a <code class="docutils literal"><span class="pre">BOOL</span> <span class="pre">*</span></code>, element size is 1 byte</li>
+<li><em>BytePtr</em> representing a <code class="docutils literal"><span class="pre">char</span> <span class="pre">*</span></code>, element size is 1 byte</li>
+<li><em>CharPtr</em> representing a <code class="docutils literal"><span class="pre">unsigned</span> <span class="pre">short</span> <span class="pre">*</span></code>, element size is 2 bytes</li>
+<li><em>ShortPtr</em> representing a <code class="docutils literal"><span class="pre">short</span> <span class="pre">*</span></code>, element size is 2 bytes</li>
+<li><em>IntPtr</em> representing a <code class="docutils literal"><span class="pre">int</span> <span class="pre">*</span></code>, element size is 4 bytes</li>
+<li><em>LongPtr</em> representing a <code class="docutils literal"><span class="pre">long</span> <span class="pre">long</span> <span class="pre">*</span></code>, element size is 8 bytes</li>
+<li><em>FloatPtr</em> representing a <code class="docutils literal"><span class="pre">float</span> <span class="pre">*</span></code>, element size is 4 bytes</li>
+<li><em>DoublePtr</em> representing a <code class="docutils literal"><span class="pre">double</span> <span class="pre">*</span></code>, element size is 8 bytes</li>
+<li><em>NIntPtr</em> representing a <code class="docutils literal"><span class="pre">NSInteger</span> <span class="pre">*</span></code>, element size is architecture dependent</li>
+<li><em>NUIntPtr</em> representing a <code class="docutils literal"><span class="pre">NSUInteger</span> <span class="pre">*</span></code>, element size is architecture dependent</li>
+<li><em>NFloatPtr</em> representing a <code class="docutils literal"><span class="pre">CGFloat</span> <span class="pre">*</span></code>, element size is architecture dependent</li>
+<li>And additional types for handling pointers to C structures and Objective-C objects (discussed later)</li>
+</ul>
+<p>All pointers in Java are created with the <em>PtrFactory</em> class&#8217; static methods. The following sections will explain the different types of pointers.</p>
+<div class="section" id="strong-non-guarded-pointers">
+<h3>Strong Non-guarded Pointers<a class="headerlink" href="#strong-non-guarded-pointers" title="Permalink to this headline">¶</a></h3>
+<p>PtrFactory method prefix: <code class="docutils literal"><span class="pre">new&lt;type&gt;...(...)</span></code></p>
+<p>These are the most commonly used pointers. Memory to the pointed area is managed by Java&#8217;s GC.</p>
+<p>Let&#8217;s look at the following problem: we want to create an NSIndexPath by using its init method which uses an NSUInteger pointer as its first argument:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a NUIntPtr object with an allocated memory size of one NSUInteger</span>
+<span class="n">NUIntPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newNUIntReference</span><span class="o">();</span>
+
+<span class="c1">// Set the referenced memory&#39;s value to 10</span>
+<span class="n">ptr</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">10L</span><span class="o">);</span>
+
+<span class="c1">// Create the NSIndexPath object</span>
+<span class="n">NSIndexPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">NSIndexPath</span><span class="o">.</span><span class="na">indexPathWithIndexesLength</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Path is &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>This code should output <code class="docutils literal"><span class="pre">Path</span> <span class="pre">is</span> <span class="pre">&lt;NSIndexPath:</span> <span class="pre">0x7c234280&gt;</span> <span class="pre">{length</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">path</span> <span class="pre">=</span> <span class="pre">10}</span></code></p>
+<p>Another way to do this is by using another factory method, which uses the initial value as argument:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a NUIntPtr object with an allocated memory size of one NSUInteger</span>
+<span class="c1">// and the referenced memory&#39;s value to 10</span>
+<span class="n">NUIntPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newNUIntReference</span><span class="o">(</span><span class="mi">10L</span><span class="o">);</span>
+
+<span class="c1">// Create the NSIndexPath object</span>
+<span class="n">NSIndexPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">NSIndexPath</span><span class="o">.</span><span class="na">indexPathWithIndexesLength</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Path is &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="o">.</span><span class="na">description</span><span class="o">());</span>
+</pre></div>
+</div>
+<p>This should have the same result <code class="docutils literal"><span class="pre">Path</span> <span class="pre">is</span> <span class="pre">&lt;NSIndexPath:</span> <span class="pre">0x7c234370&gt;</span> <span class="pre">{length</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">path</span> <span class="pre">=</span> <span class="pre">10}</span></code></p>
+<p>This was good for a small introduction, but let&#8217;s look at a more likely situation, that is when there are more than one elements:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a NUIntPtr object with an allocated memory size of 3 NSUIntegers</span>
+<span class="n">NUIntPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newNUIntArray</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+<span class="c1">// Set the referenced memory&#39;s value</span>
+<span class="n">ptr</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">10L</span><span class="o">);</span>
+<span class="n">ptr</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">20L</span><span class="o">);</span>
+
+<span class="c1">// Create the NSIndexPath object</span>
+<span class="n">NSIndexPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">NSIndexPath</span><span class="o">.</span><span class="na">indexPathWithIndexesLength</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Path is &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>This code should output <code class="docutils literal"><span class="pre">Path</span> <span class="pre">is</span> <span class="pre">&lt;NSIndexPath:</span> <span class="pre">0x7c081d10&gt;</span> <span class="pre">{length</span> <span class="pre">=</span> <span class="pre">3,</span> <span class="pre">path</span> <span class="pre">=</span> <span class="pre">10</span> <span class="pre">-</span> <span class="pre">20</span> <span class="pre">-</span> <span class="pre">0}</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Allocated memory returned from PtrFactory is zero&#8217;d out. This is why the third element in the path above is zero.</p>
+</div>
+<p>As this was a more life-like scenario, for a Java programmer this is very uncomfortable, this is why we support the following solution as well:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a NUIntPtr object with an allocated memory size of 2 NSUIntegers</span>
+<span class="c1">// and set the referenced memory&#39;s value</span>
+<span class="n">NUIntPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newNUIntArray</span><span class="o">(</span><span class="k">new</span> <span class="kt">long</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">10L</span><span class="o">,</span> <span class="mi">20L</span> <span class="o">});</span>
+
+<span class="c1">// Create the NSIndexPath object</span>
+<span class="n">NSIndexPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">NSIndexPath</span><span class="o">.</span><span class="na">indexPathWithIndexesLength</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Path is &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Output looks like this <code class="docutils literal"><span class="pre">Path</span> <span class="pre">is</span> <span class="pre">&lt;NSIndexPath:</span> <span class="pre">0x7c08af40&gt;</span> <span class="pre">{length</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">path</span> <span class="pre">=</span> <span class="pre">10</span> <span class="pre">-</span> <span class="pre">20}</span></code></p>
+<p>While the creation of this pointer was simpler, the results were not exactly the same. In the previous example the referenced memory size was 3 NSUIntegers while in this one it was only 2 NSUIntegers.</p>
+<p>The achieve the exact results we can use the <code class="docutils literal"><span class="pre">copyFrom</span></code> method:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a NUIntPtr object with an allocated memory size of 3 NSUIntegers</span>
+<span class="n">NUIntPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newNUIntArray</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+<span class="c1">// Set the referenced memory&#39;s value</span>
+<span class="n">ptr</span><span class="o">.</span><span class="na">copyFrom</span><span class="o">(</span><span class="k">new</span> <span class="kt">long</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">10L</span><span class="o">,</span> <span class="mi">20L</span> <span class="o">});</span>
+
+<span class="c1">// Create the NSIndexPath object</span>
+<span class="n">NSIndexPath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">NSIndexPath</span><span class="o">.</span><span class="na">indexPathWithIndexesLength</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Path is &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Output is <code class="docutils literal"><span class="pre">Path</span> <span class="pre">is</span> <span class="pre">&lt;NSIndexPath:</span> <span class="pre">0x7c081c20&gt;</span> <span class="pre">{length</span> <span class="pre">=</span> <span class="pre">3,</span> <span class="pre">path</span> <span class="pre">=</span> <span class="pre">10</span> <span class="pre">-</span> <span class="pre">20</span> <span class="pre">-</span> <span class="pre">0}</span></code></p>
+</div>
+<div class="section" id="strong-guarded-pointers">
+<h3>Strong Guarded Pointers<a class="headerlink" href="#strong-guarded-pointers" title="Permalink to this headline">¶</a></h3>
+<p>PtrFactory method prefix: <code class="docutils literal"><span class="pre">newGuarded&lt;type&gt;...(...)</span></code></p>
+<p>Guarded pointers add some safety to pointers (on the Java side). Accessing Non-guarded pointers are a bit faster, but those require much more attention at indexing, because indexing outside the memory&#8217;s bounds will not throw an exception rather the application will most likely crash due to a segmentation fault.
+Guarded pointers however will do an index check and will throw an <code class="docutils literal"><span class="pre">IndexOutOfBoundsException</span></code> when needed.</p>
+<p>Here&#8217;s a simple example where the guard saved us:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a ShortPtr object with an allocated memory size of 5 shorts</span>
+<span class="n">ShortPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newGuardedShortArray</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+
+<span class="k">try</span> <span class="o">{</span>
+        <span class="c1">// Index outside of the allocated memory</span>
+        <span class="n">ptr</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="o">(</span><span class="kt">short</span><span class="o">)</span> <span class="mi">100</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IndexOutOfBoundsException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Index was out of bounds!&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The output is <code class="docutils literal"><span class="pre">Index</span> <span class="pre">was</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">bounds!</span></code> instead of an embarrassing application crash.</p>
+<p>Guarded pointers can be created from Non-guarded pointers via the <code class="docutils literal"><span class="pre">getGuarded</span></code> method, but NatJ relies on the programmer to specify the bounds correctly.</p>
+</div>
+<div class="section" id="weak-non-guarded-pointers">
+<h3>Weak Non-guarded Pointers<a class="headerlink" href="#weak-non-guarded-pointers" title="Permalink to this headline">¶</a></h3>
+<p>PtrFactory method prefix: <code class="docutils literal"><span class="pre">newWeak&lt;type&gt;...(...)</span></code></p>
+<p>Weak pointers differ from strong pointers in only one way, memory management is completely manual. This is useful when doing optimizations, for example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a CharPtr object with an allocated memory size of 5 chars</span>
+<span class="c1">// and set the referenced memory&#39;s value to &#39;Hello&#39;</span>
+<span class="n">CharPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newWeakCharArray</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">());</span>
+
+<span class="c1">// Create an NSString object from the pointer and make NSString responsible</span>
+<span class="c1">// for deallocation the pointer</span>
+<span class="n">NSString</span> <span class="n">string</span> <span class="o">=</span> <span class="n">NSString</span><span class="o">.</span><span class="na">alloc</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">initWithCharactersNoCopyLengthFreeWhenDone</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;My value is &quot;</span> <span class="o">+</span> <span class="n">string</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>The code should print <code class="docutils literal"><span class="pre">My</span> <span class="pre">value</span> <span class="pre">is</span> <span class="pre">Hello</span></code></p>
+<p>In this scenario this was useful because we didn&#8217;t copy the entire string when the NSString was initialized, rather we simply passed the pointer to it. When working with large amounts of data this could save a lot of time and memory!</p>
+</div>
+<div class="section" id="weak-guarded-pointers">
+<h3>Weak Guarded Pointers<a class="headerlink" href="#weak-guarded-pointers" title="Permalink to this headline">¶</a></h3>
+<p>PtrFactory method prefix: <code class="docutils literal"><span class="pre">newGuardedWeak&lt;type&gt;..(...)</span></code></p>
+<p>Weak Non-guarded pointers have the same relation with weak guarded pointers as strong non-guarded with strong guarded pointers.</p>
+</div>
+<div class="section" id="retrieving-values">
+<h3>Retrieving Values<a class="headerlink" href="#retrieving-values" title="Permalink to this headline">¶</a></h3>
+<p>Retrieving values can be done in multiple ways, of which the simplest are the <code class="docutils literal"><span class="pre">get</span></code> and <code class="docutils literal"><span class="pre">toArray</span></code> method variants.</p>
+<p>Here is a simple example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a green UIColor</span>
+<span class="n">UIColor</span> <span class="n">color</span> <span class="o">=</span> <span class="n">UIColor</span><span class="o">.</span><span class="na">greenColor</span><span class="o">();</span>
+
+<span class="c1">// Create a pointer where the hue value will be stored</span>
+<span class="n">NFloatPtr</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newNFloatReference</span><span class="o">();</span>
+
+<span class="c1">// Retrieve the hue value</span>
+<span class="n">color</span><span class="o">.</span><span class="na">getHueSaturationBrightnessAlpha</span><span class="o">(</span><span class="n">hue</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hue of color is &quot;</span> <span class="o">+</span> <span class="n">hue</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+</pre></div>
+</div>
+<p>The code will print something like this <code class="docutils literal"><span class="pre">Hue</span> <span class="pre">of</span> <span class="pre">color</span> <span class="pre">is</span> <span class="pre">0.3333333432674408</span></code></p>
+</div>
+<div class="section" id="pointer-offsetting">
+<h3>Pointer Offsetting<a class="headerlink" href="#pointer-offsetting" title="Permalink to this headline">¶</a></h3>
+<p>Offsetting pointers can be useful in various ways that we will not go into, but instead show how to actually do it. The most important thing to know is that <strong>offsetted pointers still point to the memory region of the original pointer!</strong></p>
+<p>Let&#8217;s look at the next example where we want to copy &#8216;Hello&#8217; five times after each other. One solution to this would be using the correct <code class="docutils literal"><span class="pre">copyFrom</span></code> method which can specify the target offset. The other solution is using pointer offsets:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a CharPtr object with an allocated memory size of 25 chars</span>
+<span class="n">CharPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newCharArray</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>
+
+<span class="c1">// Set the offsetted memory&#39;s value &#39;Hello&#39;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="o">;</span> <span class="n">idx</span> <span class="o">+=</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ptr</span><span class="o">.</span><span class="na">ofs</span><span class="o">(</span><span class="n">idx</span><span class="o">).</span><span class="na">copyFrom</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="c1">// Create an NSString object from the pointer</span>
+<span class="n">NSString</span> <span class="n">string</span> <span class="o">=</span> <span class="n">NSString</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">initWithCharactersLength</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">25</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;5 * &#39;Hello&#39; = &quot;</span> <span class="o">+</span> <span class="n">string</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>The output is <code class="docutils literal"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">'Hello'</span> <span class="pre">=</span> <span class="pre">HelloHelloHelloHelloHello</span></code></p>
+<p>Because the offsetted pointer always points to the original memory region, this code is also valid:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a CharPtr object with an allocated memory size of 25 chars</span>
+<span class="n">CharPtr</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newCharArray</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>
+
+<span class="c1">// Set the offsetted memory&#39;s value &#39;Hello&#39; and re-offset the pointer</span>
+<span class="n">CharPtr</span> <span class="n">ofs</span> <span class="o">=</span> <span class="n">ptr</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="o">++</span><span class="n">idx</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ofs</span><span class="o">.</span><span class="na">copyFrom</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">());</span>
+        <span class="n">ofs</span> <span class="o">=</span> <span class="n">ofs</span><span class="o">.</span><span class="na">ofs</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// Create an NSString object from the pointer</span>
+<span class="n">NSString</span> <span class="n">string</span> <span class="o">=</span> <span class="n">NSString</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">initWithCharactersLength</span><span class="o">(</span><span class="n">ptr</span><span class="o">,</span> <span class="mi">25</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;5 * &#39;Hello&#39; = &quot;</span> <span class="o">+</span> <span class="n">string</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Again, the output will be <code class="docutils literal"><span class="pre">5</span> <span class="pre">*</span> <span class="pre">'Hello'</span> <span class="pre">=</span> <span class="pre">HelloHelloHelloHelloHello</span></code></p>
+<p>Here&#8217;s an example of using pointer offsetting instead of four NFloatPtrs:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a blue UIColor</span>
+<span class="n">UIColor</span> <span class="n">color</span> <span class="o">=</span> <span class="n">UIColor</span><span class="o">.</span><span class="na">blueColor</span><span class="o">();</span>
+
+<span class="c1">// Create a pointer where the 4 components of HSBA will be stored</span>
+<span class="n">NFloatPtr</span> <span class="n">cmps</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newNFloatArray</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+
+<span class="c1">// Retrieve the HSBA values</span>
+<span class="n">color</span><span class="o">.</span><span class="na">getHueSaturationBrightnessAlpha</span><span class="o">(</span><span class="n">cmps</span><span class="o">,</span> <span class="n">cmps</span><span class="o">.</span><span class="na">ofs</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">cmps</span><span class="o">.</span><span class="na">ofs</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">cmps</span><span class="o">.</span><span class="na">ofs</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;HSBA values are &quot;</span> <span class="o">+</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">cmps</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="mi">4</span><span class="o">)));</span>
+</pre></div>
+</div>
+<p>Output is <code class="docutils literal"><span class="pre">HSBA</span> <span class="pre">values</span> <span class="pre">are</span> <span class="pre">[0.6666666865348816,</span> <span class="pre">1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></code></p>
+</div>
+<div class="section" id="c-structure-pointers">
+<h3>C Structure Pointers<a class="headerlink" href="#c-structure-pointers" title="Permalink to this headline">¶</a></h3>
+<p>C structure pointers are bound a bit differently than other pointers because the interpretation of how the code should be bound relies on the context it is used in. It can be either a reference to a single structure or a pointer to multiple structures.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The binding code for some of these methods will be changed to better reflect the function of them!</p>
+</div>
+<p>In the next example we will show you how structure references work:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a CGRect object representing {{0, 0}, {200, 100}}</span>
+<span class="n">CGRect</span> <span class="n">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CGRect</span><span class="o">(</span><span class="n">CoreGraphics</span><span class="o">.</span><span class="na">CGPointZero</span><span class="o">(),</span> <span class="k">new</span> <span class="n">CGSize</span><span class="o">(</span><span class="mf">200.0</span><span class="o">,</span> <span class="mf">100.0</span><span class="o">));</span>
+
+<span class="c1">// Create two more rects for the slice and remainder</span>
+<span class="n">CGRect</span> <span class="n">slice</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CGRect</span><span class="o">();</span>
+<span class="n">CGRect</span> <span class="n">remainder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CGRect</span><span class="o">();</span>
+
+<span class="c1">// Divide the rect</span>
+<span class="n">CoreGraphics</span><span class="o">.</span><span class="na">CGRectDivide</span><span class="o">(</span><span class="n">rect</span><span class="o">,</span> <span class="n">slice</span><span class="o">,</span> <span class="n">remainder</span><span class="o">,</span> <span class="mf">50.0</span><span class="o">,</span> <span class="n">CGRectEdge</span><span class="o">.</span><span class="na">MinXEdge</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Slice is &quot;</span> <span class="o">+</span> <span class="n">UIKit</span><span class="o">.</span><span class="na">NSStringFromCGRect</span><span class="o">(</span><span class="n">slice</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Remainder is &quot;</span> <span class="o">+</span> <span class="n">UIKit</span><span class="o">.</span><span class="na">NSStringFromCGRect</span><span class="o">(</span><span class="n">remainder</span><span class="o">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="objective-c-object-pointers">
+<h3>Objective-C Object Pointers<a class="headerlink" href="#objective-c-object-pointers" title="Permalink to this headline">¶</a></h3>
+<p>These pointers are often not too useful, but there are some very good exceptions. The iOS SDK usually does not use exceptions for error handling, rather it uses pointers to NSError objects. Here is an example for how error handling can be implemented with error information provided by NSError:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Create a NSURL to a non-existent website</span>
+<span class="n">NSURL</span> <span class="n">url</span> <span class="o">=</span> <span class="n">NSURL</span><span class="o">.</span><span class="na">URLWithString</span><span class="o">(</span><span class="s">&quot;https://www.invalid.url/nothinghere&quot;</span><span class="o">);</span>
+
+<span class="c1">// Create the NSError pointer</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">NSError</span><span class="o">&gt;</span> <span class="n">error</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newObjectReference</span><span class="o">(</span><span class="n">NSError</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+<span class="c1">// Try to create a NSString from the bad URL</span>
+<span class="n">NSString</span> <span class="n">string</span> <span class="o">=</span> <span class="n">NSString</span><span class="o">.</span><span class="na">stringWithContentsOfURLEncodingError</span><span class="o">(</span><span class="n">url</span><span class="o">,</span>
+                <span class="n">Enums</span><span class="o">.</span><span class="na">NSUTF8StringEncoding</span><span class="o">,</span> <span class="n">error</span><span class="o">);</span>
+
+<span class="c1">// Handle error</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">string</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">error</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">localizedDescription</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Output will be something like: <code class="docutils literal"><span class="pre">The</span> <span class="pre">operation</span> <span class="pre">couldn’t</span> <span class="pre">be</span> <span class="pre">completed.</span> <span class="pre">(Cocoa</span> <span class="pre">error</span> <span class="pre">256.)</span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../toll_free_bridging/Toll_Free_Bridging.html" class="btn btn-neutral float-right" title="Toll-Free Bridging" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../natjgen_binding_generator/NatJGen_Binding_Generator.html" class="btn btn-neutral" title="Nat/J Binding Generator" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

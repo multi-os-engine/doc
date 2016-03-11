@@ -1,0 +1,131 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general NatJ
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr NUIntPtr
+
+NUIntPtrImpl.ConstNUIntPtrImpl
+==============================
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: static class ConstNUIntPtrImpl extends NUIntPtrImpl
+   :outertype: NUIntPtrImpl
+
+Constructors
+------------
+ConstNUIntPtrImpl
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstNUIntPtrImpl(Pointer peer)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+ConstNUIntPtrImpl
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstNUIntPtrImpl(long peer, Object bufferOwner)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+ConstNUIntPtrImpl
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor::  ConstNUIntPtrImpl(int capacity, boolean owned)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Long[] src)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Long[] src, int destOffset)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Long[] src, int destOffset, int length)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Long[] src, int srcOffset, int destOffset, int length)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(long[] src)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(long[] src, int destOffset)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(long[] src, int destOffset, int length)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(long[] src, int srcOffset, int destOffset, int length)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public NUIntPtr getGuarded(int fromIndex, int toIndex)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public final NUIntPtr ofs(int elemOffset)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Long obj)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Long obj)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(long value)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(int idx, long value)
+   :outertype: NUIntPtrImpl.ConstNUIntPtrImpl
+

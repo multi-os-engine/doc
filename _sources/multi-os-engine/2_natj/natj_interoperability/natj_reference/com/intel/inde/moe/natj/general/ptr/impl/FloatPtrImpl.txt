@@ -1,0 +1,244 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr FloatPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+FloatPtrImpl
+============
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type::  class FloatPtrImpl extends VoidPtrImpl implements FloatPtr
+
+Fields
+------
+ELEM_SIZE
+^^^^^^^^^
+
+.. java:field:: protected static final int ELEM_SIZE
+   :outertype: FloatPtrImpl
+
+Constructors
+------------
+FloatPtrImpl
+^^^^^^^^^^^^
+
+.. java:constructor:: protected FloatPtrImpl(Pointer peer)
+   :outertype: FloatPtrImpl
+
+FloatPtrImpl
+^^^^^^^^^^^^
+
+.. java:constructor:: protected FloatPtrImpl(long peer, Object bufferOwner)
+   :outertype: FloatPtrImpl
+
+FloatPtrImpl
+^^^^^^^^^^^^
+
+.. java:constructor::  FloatPtrImpl(int capacity, boolean owned)
+   :outertype: FloatPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Float[] src)
+   :outertype: FloatPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Float[] src, int destOffset)
+   :outertype: FloatPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Float[] src, int destOffset, int length)
+   :outertype: FloatPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Float[] src, int srcOffset, int destOffset, int length)
+   :outertype: FloatPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(float[] src)
+   :outertype: FloatPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(float[] src, int destOffset)
+   :outertype: FloatPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(float[] src, int destOffset, int length)
+   :outertype: FloatPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(float[] src, int srcOffset, int destOffset, int length)
+   :outertype: FloatPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Float[] dest)
+   :outertype: FloatPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Float[] dest, int length)
+   :outertype: FloatPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, Float[] dest, int destOffset, int length)
+   :outertype: FloatPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(float[] dest)
+   :outertype: FloatPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(float[] dest, int length)
+   :outertype: FloatPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, float[] dest, int destOffset, int length)
+   :outertype: FloatPtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Float get()
+   :outertype: FloatPtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Float get(int idx)
+   :outertype: FloatPtrImpl
+
+getGuardHigh
+^^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardHigh()
+   :outertype: FloatPtrImpl
+
+getGuardLow
+^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardLow()
+   :outertype: FloatPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public final FloatPtr getGuarded(int length)
+   :outertype: FloatPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public FloatPtr getGuarded(int fromIndex, int toIndex)
+   :outertype: FloatPtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public final float getValue()
+   :outertype: FloatPtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public float getValue(int idx)
+   :outertype: FloatPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: FloatPtrImpl
+
+isGuarded
+^^^^^^^^^
+
+.. java:method:: @Override public boolean isGuarded()
+   :outertype: FloatPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public FloatPtr ofs(int elemOffset)
+   :outertype: FloatPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Float obj)
+   :outertype: FloatPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Float obj)
+   :outertype: FloatPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(float value)
+   :outertype: FloatPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(int idx, float value)
+   :outertype: FloatPtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public final Float[] toArray(int length)
+   :outertype: FloatPtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public Float[] toArray(int fromIndex, int toIndex)
+   :outertype: FloatPtrImpl
+
+toFloatArray
+^^^^^^^^^^^^
+
+.. java:method:: @Override public final float[] toFloatArray(int length)
+   :outertype: FloatPtrImpl
+
+toFloatArray
+^^^^^^^^^^^^
+
+.. java:method:: @Override public float[] toFloatArray(int fromIndex, int toIndex)
+   :outertype: FloatPtrImpl
+

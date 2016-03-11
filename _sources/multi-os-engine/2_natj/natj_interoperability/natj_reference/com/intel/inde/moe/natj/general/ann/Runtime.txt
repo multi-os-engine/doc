@@ -1,0 +1,22 @@
+.. java:import:: java.lang.annotation ElementType
+
+.. java:import:: java.lang.annotation Inherited
+
+.. java:import:: java.lang.annotation Retention
+
+.. java:import:: java.lang.annotation RetentionPolicy
+
+.. java:import:: java.lang.annotation Target
+
+.. java:import:: com.intel.inde.moe.natj.general NativeRuntime
+
+Runtime
+=======
+
+.. java:package:: com.intel.inde.moe.natj.general.ann
+   :noindex:
+
+.. java:type:: @Target @Retention @Inherited public @interface Runtime
+
+   Specifies which runtime to use when handling a class.
+

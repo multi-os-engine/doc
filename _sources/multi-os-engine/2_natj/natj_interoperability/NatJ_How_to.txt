@@ -1,0 +1,532 @@
+..
+	Copyright 2015 Intel Corporation
+
+
+.. highlight:: java
+
+=============
+Nat/J: How-to
+=============
+
+This section describes the main features of Nat/J and how to use them in general.
+
+**Binding C Functions to Java**
+
+To bind C functions at first you need to create an enclosing class definition in which
+you can add binding method definitions::
+
+    @Runtime(CRuntime.class)
+    class MyCFunctions {
+
+        @CFunction("myfunction")
+        public native void method(NSSomething nsSomething);
+
+    }
+
+As you can see, this class is marked with the ``@Runtime(CRuntime.class)`` annotation, that tells
+NatJ that this class belongs to the C runtime and will be handled as such. The annotation can be inherited,
+so descendants don't need to be marked. Binding of the C function is done by marking an appropriately typed
+native function definition with the ``@CFunction`` annotation in which you can specify the symbol name of
+the original C function.
+
+.. note::
+    NatJ has an internal heuristics to determine what runtime a definition belongs to, so in most
+    cases adding the ``@Runtime(...)`` annotation won't be needed. For example, in the previous code sample
+    the ``method`` method is marked with ``@CFunction(...)`` and that annotation belongs to the C runtime, so
+    NatJ will default to it when processing that method.
+
+**Binding Native Global Variables**
+
+You can also bind global variables with the ``@CVariable`` annotation::
+
+    @CVariable(name = "nativeInteger", isGetter = true)
+    int getNativeInteger();
+
+    @CVariable(name = "nativeInteger", isGetter = false)
+    void setNativeInteger(int newVal);
+
+The ``name`` argument of the ``@CVariable`` annotation specifies the
+native symbol name and the ``isGetter`` argument specifies whether
+the method is a getter or a setter.
+
+**Binding Objective-C Classes to Java**
+
+An existing Objective-C class is bound to Java as a (possibly indirect) subclass of ``ObjCObject``.
+The Objective-C class hierarchy should be retained, e.g. ``ObjCObject > NSObject > NSArray`` is the
+right hierarchy.
+
+The ``ObjCObject`` class is a subclass of ``NativeObject`` that represents Java objects
+that have a native counterpart, which we call `peer`.
+
+The binding code of an imaginary class ``NSSomething`` will look like this::
+
+    @ObjCClassBinding
+    class NSSomething extends NSObject implements NSCopying {
+
+        static {
+            NatJ.register(); // registers the type with the NatJ system
+        }
+
+        //The constructor is only used inside the NatJ code
+        protected NSSomething(Pointer peer) {
+            super(peer);
+        }
+
+        // Allocates an uninitalized object
+        @Selector("alloc")
+        public static native NSSomething alloc();
+
+        // Initializes an object with the default
+        @Selector("init")
+        public native NSSomething init();
+
+        // A method binding corresponding to the defined selector
+        @Selector("aMethod:::")
+        public native void aMethod(int x, int y, int z);
+
+    }
+
+The ``@ObjCClassBinding`` annotation tells NatJ to handle the class as a binding class. Classes without
+this annotation will be considered as inherited classes. By default, binding classes will represent
+Objective-C classes with the same unqualified name the Java class has, on the other hand, inherited
+classes will have the qualified name at the Objective-C side. These native-side names can be explicitly
+definied by adding the ``@ObjCClassName`` annotation to the Java class definition and filling it's single
+argument that specifies the actual name we want to assign to this class on the Objective-C side. The native
+methods are bound by marking them with the ``@Selector`` annotation, of which the argument specifies the
+selector of the Objective-C method.
+
+**Passing Object References as Regular Java References**
+
+You can easily pass object references as arguments, NatJ will convert them for you::
+
+    class CustomClass extends NSObject {
+
+        //...
+
+        @Selector("setReceiver:")
+        public void setReceiver(NSObject receiver)
+
+        //...
+
+    }
+
+    //...
+
+    NSObject obj = NSObject.alloc().init();
+    CustomClass anotherObj = CustomClass.alloc().init();
+    anotherObj.setReceiver(obj);
+
+You don't have to worry about memory management, because NatJ will do all retain/release calls needed.
+
+**Passing Regular Java Objects to the Objective-C Side**
+
+NatJ will generate the Objective-C Proxy objects automatically. So if you have::
+
+    class X {
+
+        @Selector("aMethod:")
+        public void aMethod();
+
+    }
+
+and you pass a reference to this object to the Objective-C side, then the Objective-C code will be able
+to call the ``aMethod:`` selector. This feature come in handy when we want to inline implement a native
+interface with an anonymous class.
+
+**Automatic Conversion Between Java Strings and Native Strings**
+
+If you want to bind an Objective-C method with an NSString argument or return value, you can bind it as
+Java's String class, for example the following Objective-C method:
+
+.. code-block:: objc
+
+    - (NSString *)someMethod:(NSString *)aParam;
+
+can be bound in Java as::
+
+    @Selector("someMethod:")
+    String bindOfSomeMethodA(String aParam);
+
+    //or
+
+    @Selector("someMethod:")
+    String bindOfSomeMethodB(NSString aParam);
+
+Or any other variation. Notice that you can bind the same native Objective-C method with multiple binding
+methods by specifying the same selector string in the ``@Selector(...)`` annotations.
+
+Automatic string conversion also works for C, for example the system function ``getenv`` can be bound like
+this::
+
+    @CFunction("getenv")
+    String getenv(String env);
+
+**Passing Struct by Value as a Method Argument**
+
+With NatJ you can pass and return structure objects by value::
+
+    @Selector("substringWithRange:")
+    public native String substringWithRange(@ByValue NSRange range);
+
+Passing or returning a value by-value means it is passed on the stack. This is not supported by default
+in JNI specifications, because in Java every object is in the heap.
+
+**Objective-C Protocols as Java Interfaces**
+
+Objective-C protocols correspond to Java interfaces. Each method is decorated with a ``@Selector``
+annotation to mark the correct selector the method corresponds to. The Objective-C name of the
+protocol can be specified in an ``@ObjCProtocolName("SomeName")`` annotation, otherwise it is the
+simple name of the class::
+
+    @ObjCProtocolName("UIApplicationDelegate") // Optional
+    interface UIApplicationDelegate {
+
+        // ...
+
+        @Selector("applicationDidBecomeActive:")
+        public native void applicationDidBecomeActive(UIApplication application);
+
+    }
+
+
+**Objective-C Classes Extended in Java**
+
+It is possible to extend or define an Objective-C class in pure Java code, for example to define a
+new ``MyApplicationDelegate`` class that can be instantiated from regular Objective-C code you can
+write this::
+
+    @ObjCClassName("MyApplicationDelegate")
+    class MyApplicationDelegate extends NSObject implements UIApplicationDelegate {
+
+        static {
+            NatJ.register(); // Register the custom type
+        }
+
+        @Selector("alloc")
+        public static native MyApplicationDelegate alloc();
+
+        //Implement methods ...
+
+        @Override
+        @Selector("applicationDidBecomeActive:")
+        public void applicationDidBecomeActive(UIApplication application) {
+            // Custom code
+        }
+
+    }
+
+When registered, NatJ registers the class object with the Objective-C Runtime, thus definitions will
+accessible from Objective-C code.
+
+If a class is already present with the same name in the Objective-C Runtime, then NatJ will switch
+into hybrid mode and it will inject every Java side implementation into the native class. In this case
+you probably want your implementations to be used from the start of your application and fow which you
+just have to add an another annotation to your class: ``@RegisterOnStartup``. This annotation will cause
+a pre-main initialization of your Java class, so your implementations will be injected before the native
+class get invoked.
+
+.. warning::
+    If your hybrid class contains a selector implementation at native side that is not represented in
+    the interface definition, then NatJ can not guarantee that you can invoke that implementation from
+    Java code.
+
+**Binding Objective-C Categories in Java**
+
+Because Java doesn't support class extensions binding categories can be done only with a specific trade-off.
+New methods can be bound by adding them not to the class that the original category extends, but to a new
+category binding class. For example to bind a category extending the NSString class use the following::
+
+    @ObjCCategory(NSString.class)
+    class MyApplicationDelegate extends NSObject implements UIApplicationDelegate {
+
+        static {
+            NatJ.register(); // Register the category methods
+        }
+
+        @Selector("countChar:")
+        public static native int countChar(NSString str, char chr);
+
+        @Selector("countChar:")
+        public static native int countChar(String str, char chr);
+
+        @Selector("repeatString:times:")
+        @CategoryClassMethod //Annotate class category methods with the this annotation.
+        public static native String repeatString(String str, int times);
+
+    }
+
+As one can assume by the example, the first argument of the non-class category methods are the objects that
+the method call will happen upon, also, explicit and implicit mappings are free to use even with the first
+arguments.
+
+.. note::
+    You only have to bind a category in this manner, when the original class the category extends has an uneditable
+    code, otherwise NatJGen will append every category method to the appropriate classes.
+
+**Binding Variadic Methods in Java**
+
+You can bind varadic C functions with the ``@Variadic()`` annotation. It has an optional ``unboxPolicy`` field
+that specifies the policy how primitives are handled and it can have three different value:
+
+* ``Variadic.Runtime``, default value, this will use runtime specific default policy
+* ``Variadic.Box``, default policy for Objective-C, this will leave every boxed variadic argument as it is
+* ``Variadic.Unbox``, default policy for C, this will unbox every boxed variadic argument and pass them as primitive ones
+
+An exmaple for ``printf``::
+
+    @Variadic()
+    @CFunction
+    public static native int printf(String arg1, Object... varargs);
+
+    // ...
+
+    printf("%d %f", 3, 3.0f);
+
+Because this is a C function, every (auto)boxed value will be passed as primitive values. In case of a selector
+these two arguments would be incorrectly passed as a proxied ``java.lang.Integer`` and ``java.lang.Float`` objects.
+
+If a method has heterogeneous primitive variadic arguments, then we can bind it with a primitive variadic method::
+
+    @Variadic()
+    @Selector("sum::")
+    public static native float sum(int c, float... varargs);
+
+    // ...
+
+    sum(3, 1.0f, 2.0f, 3.0f);
+
+This kind of bindings will always use unboxing policy regardless of the actual runtime. If you want to pass
+the values as objects then you can bind it as ``Float...``, because the actual runtime is Objective-C, so by
+default, no unboxing will happen in that case.
+
+Becase the variadic values can not be annotated one-by-one, explicit mapper or any other modifier need to be
+specified by a dedicated ``VariadicArg`` wrapper object that can be constructed with the appropriate factory methods:
+
+* ``createMap(Object, Class<? extends Mapper>)``, will use the specified mapper for mapping the object
+* ``createBox(Object)``, will force boxing for an object
+* ``createUnbox(Object)``, will force unboxing for a boxed primitive object
+* ``createNFloat(Double)``, will force unboxing for a ``Float`` object and pass it as a native sized floating point value
+* ``createNUInt(Long)``, will force unboxing for a ``Long`` object and pass it as a native sized unsigned integer value
+* ``createNInt(Long)``, will force unboxing for a ``Long`` object and pass it as a native sized signed integer value
+* ``createByValue(StructObject)``, will force by-value passing for a ``StructObject`` object
+
+An example for these::
+
+    @Variadic()
+    @Selector("someVariadic::")
+    public static native void someVariadic(int c, Object... varargs);
+
+    // ...
+
+    someVariadic(4,
+        VariadicArg.createMap(myCallbackInstace, CCallbackMapper.class),
+        VariadicArg.createUnbox(42),
+        VariadicArg.createNFloat(42.0f),
+        VariadicArg.createByValue(new CGPoint(0.0, 0.0)));
+
+**Unified Java Api**
+
+Some native methods may have argument or return type, of which width depends on the actual platform and need to be bound somehow.
+For this a new solution have been introduced, called *Unified Java Api*. This extension includes three specific types that take
+four bytes on 32bit platforms and eight bytes on 64bit platforms. To tell NatJ that an argument or return value have a type of
+this kind we need to mark it with one of the following annotations:
+
+* ``@NUInt`` for unsigned integers, on Java side this is a long
+* ``@NInt`` for signed integers, on Java side this is a long
+* ``@NFloat`` for floating point values, on Java side this is a double
+
+An example for this::
+
+    @Selector("arrayWithCapacity:")
+    public static native NSMutableArray arrayWithCapacity(@NUInt long numItems);
+
+**Regular Java Classes to Objective-C**
+
+You are free to pass any kind of Java object to native methods, NatJ will automatically map them, let it be a
+String or anything else. For mapping object types NatJ use Mappers. Mappers can be explicitly specified at a
+method or one of its arguments and NatJ will use that when converting between the two sides.
+
+You are free to extend the NatJ by implementing new Mappers. For example, you can create a mapper that will be
+used for converting String[] objects to native ``const char**``::
+
+    public class CStringArrayMapper implements Mapper {
+
+        public Map<String[], Pointer> strings2addr = new WeakHashMap<String[], Pointer>();
+
+        @Override
+        public long toNative(Object instance, NativeObjectConstructionInfo info) {
+            if(instance == null) return 0;
+            String[] strings = (String[])instance;
+            Pointer pointer;
+            synchronized(strings2addr) {
+                pointer = strings2addr.get(strings);
+                if(pointer == null) {
+                    long peer = CRuntime.createNativeStringArray(strings);
+                    pointer = CRuntime.createStrongPointer(peer, true);
+                    strings2addr.put(strings, pointer);
+                }
+            }
+            return pointer.getPeer();
+        }
+
+        @Override
+        public Object toJava(long peer, JavaObjectConstructionInfo info) {
+            throw new RuntimeException("Converting native string array is not supported!");
+        }
+
+    }
+
+The info parameters contain every information needed for the memory management and for the conversion itself.
+After you have implemented your new mapper you can use that when writing binding code::
+
+        native void parseStrings(@Mapped(CStringArrayMapper.class) strings);
+
+        //..
+
+        parseStrings(new String[]{"string1", "string2"});
+
+**Callback Support**
+
+NatJ supports Objective-C blocks and C callbacks. With this feature you can pass Java implementations to the native side.
+You can even invoke Objective-C blocks originating from native side by calling the appropriate method of it.
+
+For C callbacks use the ``@FunctionPtr`` annotation::
+
+    class Test {
+
+        private Object __natjCache;
+
+        static {
+            NatJ.register();
+        }
+
+        @Selector("countChar:")
+        public static native void useCallback(
+            @FunctionPtr(name = "call_useCallback") Block_useCallback object);
+
+        static public interface Block_useCallback {
+            public void call_useCallback();
+        }
+
+    }
+
+    //...
+
+    Test o = new Test;
+    o.useCallback(new Block_useCallback() {
+        @Override
+        void call_useCallback() {
+            //do stuffs
+        }
+    });
+
+With the ``@FunctionPtr`` annotation you can specify optionally the name and the argument types of the
+method that will be used as a target for callback invocations, NatJ will use the first match. The
+``__natjCache`` field is optional, NatJ can use that field for caching. When using the C callback support,
+you have to use the ``NatJ.disposeFunctionPtr(Object callback)`` method to release the callback created by
+NatJ, when you are sure the callback is not needed anymore.
+
+Using Objective-C blocks differs only in the name of the annotation and the memory management::
+
+    //...
+
+    public static native void useCallback(
+        @ObjCBlock(name = "method") Block_useCallback object);
+
+    //...
+
+Instead of the ``@FunctionPtr`` you have to use an another one, ``@ObjCBlock``. It has the same arguments
+and everything said before about the C callbacks applies here, as well, with one exception: because Objective-C
+has a memory management mechanism, disposal of blocks is done automatically and any explicit initiations will
+be ignored.
+
+.. warning::
+    Callback objects can not be bound by multiple different types and doing so will result in an exception.
+
+**Other Objective-C Support Features**
+
+You also can create Objective-C Class::
+
+    new Class("classname");
+
+and ``SEL`` objects::
+
+    new SEL("selector:");
+
+Because Objective-C has a proper memory management you don't have to do manual retaining, releasing or
+autoreleasing (assuming that every binding is valid).
+
+**References**
+
+There are reference classes for ``StructObject``, ``ObjCObject`` and for every primitive types. When using
+References NatJ will automatically use the right mapper::
+
+    native void addTwoInts(int lhs, int rhs, IntePtr result);
+
+    //...
+
+    IntPtr ref = PtrFactory.newIntPtr(1, true, true);
+    addTwoInts(2, 3, ref);
+    int result = ref.getValue();
+
+Any kind of reference can be constructed using the ``PtrFactory``. The references are desinged in a way that
+enables you to express any kind of pointer::
+
+    IntPtr //int*
+    Ptr<IntPtr> //int**
+    Ptr<Ptr<IntPtr>> // int***
+    ConstPtr<IntPtr> //int * const *
+    Ptr<NSObject> //NSObject**, single indirection, because it's an id
+    Ptr<NSRange> //NSRange*, single indirection, because it's a structure
+
+**Binding Structures**
+
+Binding code of structures look like this::
+
+    @Structure
+    public class CGPoint extends StructObject {
+
+        private static long __natjCache; //Used by NatJ for optimizations
+
+        static {
+            NatJ.register();
+        }
+
+        protected CGPoint(Pointer peer) {
+            super(peer);
+        }
+
+        public CGPoint(float x, float y) {
+            super(CGPoint.class);
+            setX(x);
+            setY(y);
+        }
+
+        @StructureField(order = 0, isGetter = true)
+        public native float x();
+
+        @StructureField(order = 0, isGetter = false)
+        public native void setX(float x);
+
+        @StructureField(order = 1, isGetter = true)
+        public native float y();
+
+        @StructureField(order = 1, isGetter = false)
+        public native void setY(float y);
+
+        @StructureField(order = 1, isGetter = true, count=2)
+        public native float getStaticArrayElement(int idx);
+
+        @StructureField(order = 1, isGetter = false, count=2)
+        public native void setStaticArrayElement(float y, int idx);
+
+    }
+
+The ``@Structure`` annotation has an optional argument that specifies the alignment of the structure. Specify the
+alignment of the structure by this argument if the that differs from the one the current architecture would
+assign to the structure.
+
+The ``@StructureField`` annotation has two required and one optional arguments. The two required ones are the ``order``,
+which specifies the actual field order, and the ``isGetter``, which specifies whether this is a getter or a setter
+method for the field. The optional third ``count`` argument defaults to 1 and specifies the element count for nested
+static array fields.

@@ -1,0 +1,56 @@
+.. java:import:: java.lang.reflect Method
+
+.. java:import:: java.lang.reflect Modifier
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util LinkedList
+
+.. java:import:: java.util List
+
+.. java:import:: java.util Map
+
+.. java:import:: java.lang Class
+
+.. java:import:: com.intel.inde.moe.natj.general NativeObject
+
+.. java:import:: com.intel.inde.moe.natj.objc.ann ObjCProtocolName
+
+.. java:import:: com.intel.inde.moe.natj.objc.ann Selector
+
+ObjCSelectorsFinder
+===================
+
+.. java:package:: com.intel.inde.moe.natj.objc
+   :noindex:
+
+.. java:type:: public class ObjCSelectorsFinder
+
+Fields
+------
+methodsWithSelectorsForClass
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field::  Map<Method, Selector> methodsWithSelectorsForClass
+   :outertype: ObjCSelectorsFinder
+
+Methods
+-------
+getSelectorForMethod
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Selector getSelectorForMethod(Method m)
+   :outertype: ObjCSelectorsFinder
+
+prepareParentsSelectorsList
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void prepareParentsSelectorsList(Class<?> inputClass)
+   :outertype: ObjCSelectorsFinder
+

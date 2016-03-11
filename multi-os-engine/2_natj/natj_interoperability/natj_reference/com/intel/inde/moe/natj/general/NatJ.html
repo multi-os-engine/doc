@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NatJ &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../../../../../../../../index.html"/>
+        <link rel="up" title="com.intel.inde.moe.natj.general" href="package-index.html"/>
+        <link rel="next" title="NatJ.CacheConstructor" href="NatJ-CacheConstructor.html"/>
+        <link rel="prev" title="Mapper" href="Mapper.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44947646-4', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+  
+  <script src="../../../../../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../../../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../1_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../../../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../../NatJ_How_to.html">Nat/J: How-to</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../../NatJ_CornerCases.html">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../../../packages.html">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../3_iOS_app_development/iOS_app_development.html">iOS apps development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../6_moe_architecture/MOE_Architecture.html">Multi-OS Engine Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../7_Troubleshooting/troubleshooting.html">Known issues and troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../../../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a> &raquo;</li>
+      
+          <li><a href="../../../../../../packages.html">Nat/J: Reference</a> &raquo;</li>
+      
+          <li><a href="package-index.html">com.intel.inde.moe.natj.general</a> &raquo;</li>
+      
+    <li>NatJ</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="natj">
+<h1>NatJ<a class="headerlink" href="#natj" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.intel.inde.moe.natj.general.NatJ">
+public class <code class="descname">NatJ</code><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>The entry class of the NatJ library.</p>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buildjavaobjectconstructioninfo">
+<h3>buildJavaObjectConstructionInfo<a class="headerlink" href="#buildjavaobjectconstructioninfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.buildJavaObjectConstructionInfo(NativeRuntime, Class, Class, Annotation, Object, boolean, boolean, boolean)">
+public static <a class="reference internal" href="NatJ-JavaObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo">JavaObjectConstructionInfo</a> <code class="descname">buildJavaObjectConstructionInfo</code><span class="sig-paren">(</span><a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a><em> defaultRuntime</em>, <a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> type</em>, <a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> mapperClass</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/annotation/Annotation.html" title="java.lang.annotation.Annotation">Annotation</a><em> callback</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> typeInfo</em>, boolean<em> owned</em>, boolean<em> byvalue</em>, boolean<em> arg</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.buildJavaObjectConstructionInfo(NativeRuntime, Class, Class, Annotation, Object, boolean, boolean, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a <a class="reference internal" href="NatJ-JavaObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo"><code class="xref java java-ref docutils literal"><span class="pre">JavaObjectConstructionInfo</span></code></a> instance.</p>
+<p>The responsible runtime determined by the following simplified formula: runtime = (mapperClass != null ? getRuntime(mapperClass) : getRuntime(type));
+runtime = runtime != null ? runtime : defaultRuntime;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>defaultRuntime</strong> &#8211; Runtime used when the runtime can not be determined</li>
+<li><strong>type</strong> &#8211; The type to convert</li>
+<li><strong>mapperClass</strong> &#8211; Specifies the mapper class to use</li>
+<li><strong>callback</strong> &#8211; Extra information for callbacks</li>
+<li><strong>typeInfo</strong> &#8211; Type information for reference types</li>
+<li><strong>owned</strong> &#8211; Specifies the ownership</li>
+<li><strong>byvalue</strong> &#8211; Specifies whether it is for a by-value value</li>
+<li><strong>arg</strong> &#8211; Specifies whether it is for an argument</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The constructed <a class="reference internal" href="NatJ-JavaObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo"><code class="xref java java-ref docutils literal"><span class="pre">JavaObjectConstructionInfo</span></code></a> instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="buildnativeobjectconstructioninfo">
+<h3>buildNativeObjectConstructionInfo<a class="headerlink" href="#buildnativeobjectconstructioninfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.buildNativeObjectConstructionInfo(NativeRuntime, Class, Class, Annotation, boolean, boolean, boolean)">
+public static <a class="reference internal" href="NatJ-NativeObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo">NativeObjectConstructionInfo</a> <code class="descname">buildNativeObjectConstructionInfo</code><span class="sig-paren">(</span><a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a><em> defaultRuntime</em>, <a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> type</em>, <a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> mapperClass</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/annotation/Annotation.html" title="java.lang.annotation.Annotation">Annotation</a><em> callback</em>, boolean<em> owned</em>, boolean<em> byvalue</em>, boolean<em> arg</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.buildNativeObjectConstructionInfo(NativeRuntime, Class, Class, Annotation, boolean, boolean, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a <a class="reference internal" href="NatJ-NativeObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo"><code class="xref java java-ref docutils literal"><span class="pre">NativeObjectConstructionInfo</span></code></a> instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>defaultRuntime</strong> &#8211; Runtime used when the runtime can not be determined by the <code class="docutils literal"><span class="pre">type</span></code></li>
+<li><strong>type</strong> &#8211; The type to convert</li>
+<li><strong>mapperClass</strong> &#8211; Specifies the mapper class to use</li>
+<li><strong>callback</strong> &#8211; Extra information for callbacks</li>
+<li><strong>owned</strong> &#8211; Specifies the ownership</li>
+<li><strong>byvalue</strong> &#8211; Specifies whether it is for a by-value value</li>
+<li><strong>arg</strong> &#8211; Specifies whether it is for an argument</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The constructed <a class="reference internal" href="NatJ-NativeObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo"><code class="xref java java-ref docutils literal"><span class="pre">NativeObjectConstructionInfo</span></code></a> instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="disposefunctionptr">
+<h3>disposeFunctionPtr<a class="headerlink" href="#disposefunctionptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.disposeFunctionPtr(Object)">
+public static void <code class="descname">disposeFunctionPtr</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> callback</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.disposeFunctionPtr(Object)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over every cached runtime and tells them to dispose callbacks for the given instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>callback</strong> &#8211; The instance we want to do callback disposing for</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getandremoveobjectcacheforruntime">
+<h3>getAndRemoveObjectCacheForRuntime<a class="headerlink" href="#getandremoveobjectcacheforruntime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getAndRemoveObjectCacheForRuntime(Class, Object)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a> <code class="descname">getAndRemoveObjectCacheForRuntime</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;? extends <a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a>&gt;<em> runtimeClass</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> instance</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getAndRemoveObjectCacheForRuntime(Class, Object)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns and deletes cache for <code class="docutils literal"><span class="pre">runtime</span></code> of the <code class="docutils literal"><span class="pre">instance</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>runtimeClass</strong> &#8211; The runtime we want to get and delete cache for</li>
+<li><strong>instance</strong> &#8211; The instance we want to get and delete cache of</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The cache</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmethod">
+<h3>getMethod<a class="headerlink" href="#getmethod" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getMethod(Class, String, java.lang.Class[], int[], int[])">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method">Method</a> <code class="descname">getMethod</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> cls</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, java.<a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/package-summary.html" title="java.lang.package-summary">lang</a>.<a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;[]<em> argTypes</em>, int[]<em> idxRef</em>, int[]<em> countRef</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getMethod(Class, String, java.lang.Class[], int[], int[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookups a method in a class by its given name and argument types, and computes the method&#8217;s index and the method count.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cls</strong> &#8211; The class in we want to do the lookup</li>
+<li><strong>name</strong> &#8211; The method name to lookup</li>
+<li><strong>argTypes</strong> &#8211; The method argument types</li>
+<li><strong>idxRef</strong> &#8211; Out argument to return the computed index</li>
+<li><strong>countRef</strong> &#8211; Out argument to return the method count</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The method</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmethodindex">
+<h3>getMethodIndex<a class="headerlink" href="#getmethodindex" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getMethodIndex(Method)">
+public static int <code class="descname">getMethodIndex</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method">Method</a><em> method</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getMethodIndex(Method)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes index for a method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> &#8211; The method we want to get the index of</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The method index</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getobjectcacheforruntime">
+<h3>getObjectCacheForRuntime<a class="headerlink" href="#getobjectcacheforruntime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getObjectCacheForRuntime(Class, Object)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a> <code class="descname">getObjectCacheForRuntime</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;? extends <a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a>&gt;<em> runtimeClass</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> instance</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getObjectCacheForRuntime(Class, Object)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns cache for the given instance.</p>
+<p>If a cache found for the <code class="docutils literal"><span class="pre">runtime</span></code>, then it will return it, otherwise null will be returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>runtimeClass</strong> &#8211; For which runtime we want to get the cache</li>
+<li><strong>instance</strong> &#8211; Of which object we want to get the cache</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The cache, nil if creation was not possible</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getorcreateinstanceofruntimeclass">
+<h3>getOrCreateInstanceOfRuntimeClass<a class="headerlink" href="#getorcreateinstanceofruntimeclass" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getOrCreateInstanceOfRuntimeClass(Class)">
+public static <a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a> <code class="descname">getOrCreateInstanceOfRuntimeClass</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;? extends <a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a>&gt;<em> runtimeClass</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getOrCreateInstanceOfRuntimeClass(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an instance for a runtime class with using a cache.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>runtimeClass</strong> &#8211; The runtime class we want to get instance for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The instance of the runtime class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getorcreateobjectcacheforruntime">
+<h3>getOrCreateObjectCacheForRuntime<a class="headerlink" href="#getorcreateobjectcacheforruntime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getOrCreateObjectCacheForRuntime(Class, Object, CacheConstructor)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a> <code class="descname">getOrCreateObjectCacheForRuntime</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;? extends <a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a>&gt;<em> runtimeClass</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> instance</em>, <a class="reference internal" href="NatJ-CacheConstructor.html#com.intel.inde.moe.natj.general.NatJ.CacheConstructor" title="com.intel.inde.moe.natj.general.NatJ.CacheConstructor">CacheConstructor</a><em> constructor</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getOrCreateObjectCacheForRuntime(Class, Object, CacheConstructor)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optionally creates a cache for a given instance then returns it.</p>
+<p>If the <code class="docutils literal"><span class="pre">instance</span></code> has a <code class="docutils literal"><span class="pre">__natjCache</span></code> field and it&#8217;s not initialized, then it will save a hash map in it to be able to store cache for every runtime. If a cache found for the <code class="docutils literal"><span class="pre">runtime</span></code>, then it will return it, otherwise, it will create one by the given <code class="docutils literal"><span class="pre">constructor</span></code> and store it in the cache for the <code class="docutils literal"><span class="pre">runtimeClass</span></code> and return it. If there are no <code class="docutils literal"><span class="pre">__natjCache</span></code> fields to use, then this will return <code class="docutils literal"><span class="pre">null</span></code> to tell the caller there are no caching capabilities of the <code class="docutils literal"><span class="pre">instance</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>runtimeClass</strong> &#8211; For which runtime we want to get the cache</li>
+<li><strong>instance</strong> &#8211; Of which object we want to get the cache</li>
+<li><strong>constructor</strong> &#8211; Cache factory implementation</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The cache, nil if creation was not possible</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getplatformname">
+<h3>getPlatformName<a class="headerlink" href="#getplatformname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getPlatformName()">
+public static native <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getPlatformName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getPlatformName()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the platform name.</p>
+<p>Also documented in NatJ.h</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The platform name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getreferencemapper">
+<h3>getReferenceMapper<a class="headerlink" href="#getreferencemapper" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.getReferenceMapper()">
+public static <a class="reference internal" href="Mapper.html#com.intel.inde.moe.natj.general.Mapper" title="com.intel.inde.moe.natj.general.Mapper">Mapper</a> <code class="descname">getReferenceMapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.getReferenceMapper()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the reference mapper instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The reference mapper.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="is64bit">
+<h3>is64Bit<a class="headerlink" href="#is64bit" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.is64Bit()">
+public static boolean <code class="descname">is64Bit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.is64Bit()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="isboxedprimitivetype">
+<h3>isBoxedPrimitiveType<a class="headerlink" href="#isboxedprimitivetype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.isBoxedPrimitiveType(Class)">
+public static boolean <code class="descname">isBoxedPrimitiveType</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> type</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.isBoxedPrimitiveType(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether a class is a kind of a boxed type, like Integer, Boolean, etc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> &#8211; The type to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Whether the given type is a boxed one.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="loadframework">
+<h3>loadFramework<a class="headerlink" href="#loadframework" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.loadFramework(String)">
+public static native boolean <code class="descname">loadFramework</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> path</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.loadFramework(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to load framework. Should be applied only for darwin OS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> &#8211; The full path to framework executable file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Status of loading. True for cussess and false for all other cases</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="lookuplibrary">
+<h3>lookUpLibrary<a class="headerlink" href="#lookuplibrary" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.lookUpLibrary(String, boolean)">
+protected static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">lookUpLibrary</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, boolean<em> load</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.lookUpLibrary(String, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks up a library by its name in the file system.</p>
+<p>Uses <code class="xref java java-ref docutils literal"><span class="pre">resolvedLibraries</span></code> for caching to avoid looking up the same library for multiple times.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> &#8211; The library name we want to resolve a path for</li>
+<li><strong>load</strong> &#8211; If this is true and the lookup resulted in a success, then it will load the library</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resolved path of the library</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="register">
+<h3>register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.register()">
+public static void <code class="descname">register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.register()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a class with its determined runtime.</p>
+<dl class="docutils">
+<dt>Usable from static initializers: class MyClass {</dt>
+<dd><dl class="first docutils">
+<dt>static {</dt>
+<dd>NatJ.register();</dd>
+</dl>
+<p class="last">}
+// ...</p>
+</dd>
+</dl>
+<p>}</p>
+<p>At first use it initializes NatJ. Loads the library specified by a <a class="reference internal" href="ann/Library.html#com.intel.inde.moe.natj.general.ann.Library" title="com.intel.inde.moe.natj.general.ann.Library"><code class="xref java java-ref docutils literal"><span class="pre">Library</span></code></a> annotation, if found any. Determines the responsible runtime with <code class="xref java java-ref docutils literal"><span class="pre">getRuntime(Class,boolean)</span></code> and uses it for registering the class.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="registerruntime">
+<h3>registerRuntime<a class="headerlink" href="#registerruntime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.registerRuntime(Class)">
+public static void <code class="descname">registerRuntime</code><span class="sig-paren">(</span><a class="reference internal" href="../objc/Class.html#com.intel.inde.moe.natj.objc.Class" title="com.intel.inde.moe.natj.objc.Class">Class</a>&lt;? extends <a class="reference internal" href="NativeRuntime.html#com.intel.inde.moe.natj.general.NativeRuntime" title="com.intel.inde.moe.natj.general.NativeRuntime">NativeRuntime</a>&gt;<em> runtimeClass</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.registerRuntime(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a runtime.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>runtimeClass</strong> &#8211; The runtime we want to register.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="tojava">
+<h3>toJava<a class="headerlink" href="#tojava" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.toJava(long, JavaObjectConstructionInfo)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a> <code class="descname">toJava</code><span class="sig-paren">(</span>long<em> peer</em>, <a class="reference internal" href="NatJ-JavaObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.JavaObjectConstructionInfo">JavaObjectConstructionInfo</a><em> info</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.toJava(long, JavaObjectConstructionInfo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forwards to <code class="docutils literal"><span class="pre">info.mapper</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>peer</strong> &#8211; The native pointer pointing to the object we want to convert.</li>
+<li><strong>info</strong> &#8211; The conversion info.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The Java peer.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="tonative">
+<h3>toNative<a class="headerlink" href="#tonative" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.inde.moe.natj.general.NatJ.toNative(Object, NativeObjectConstructionInfo)">
+public static long <code class="descname">toNative</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> instance</em>, <a class="reference internal" href="NatJ-NativeObjectConstructionInfo.html#com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo" title="com.intel.inde.moe.natj.general.NatJ.NativeObjectConstructionInfo">NativeObjectConstructionInfo</a><em> info</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.inde.moe.natj.general.NatJ.toNative(Object, NativeObjectConstructionInfo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forwards to <code class="docutils literal"><span class="pre">info.mapper</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance</strong> &#8211; The Java object we want to convert.</li>
+<li><strong>info</strong> &#8211; The conversion info.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The native pointer pointing to the native peer.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NatJ-CacheConstructor.html" class="btn btn-neutral float-right" title="NatJ.CacheConstructor" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Mapper.html" class="btn btn-neutral" title="Mapper" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../../../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

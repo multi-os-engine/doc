@@ -1,0 +1,129 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IntPtr
+
+IntPtrImpl.ConstIntPtrImpl
+==========================
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: static class ConstIntPtrImpl extends IntPtrImpl
+   :outertype: IntPtrImpl
+
+Constructors
+------------
+ConstIntPtrImpl
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstIntPtrImpl(Pointer peer)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+ConstIntPtrImpl
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstIntPtrImpl(long peer, Object bufferOwner)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+ConstIntPtrImpl
+^^^^^^^^^^^^^^^
+
+.. java:constructor::  ConstIntPtrImpl(int capacity, boolean owned)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Integer[] src)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Integer[] src, int destOffset)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Integer[] src, int destOffset, int length)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Integer[] src, int srcOffset, int destOffset, int length)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(int[] src)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(int[] src, int destOffset)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(int[] src, int destOffset, int length)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(int[] src, int srcOffset, int destOffset, int length)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public IntPtr getGuarded(int fromIndex, int toIndex)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public final IntPtr ofs(int elemOffset)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Integer obj)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Integer obj)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(int value)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(int idx, int value)
+   :outertype: IntPtrImpl.ConstIntPtrImpl
+

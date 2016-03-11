@@ -1,0 +1,15 @@
+..
+	Copyright 2015 Intel Corporation
+
+
+===============
+Getting Started
+===============
+
+.. toctree::
+    :maxdepth: 2
+
+    1_prerequisites_and_installation/Prerequisites_and_Installation
+    2_hello_world_app/hello_world_app
+    3_moe_samples/MOE_samples
+    4_cloud_build/cloud_build

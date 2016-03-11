@@ -1,0 +1,74 @@
+.. java:import:: com.intel.inde.moe.natj.general NatJ
+
+.. java:import:: com.intel.inde.moe.natj.general NativeRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general NatJ.JavaObjectConstructionInfo
+
+.. java:import:: com.intel.inde.moe.natj.general NatJ.NativeObjectConstructionInfo
+
+AbstractNativeObjectPtr
+=======================
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: abstract class AbstractNativeObjectPtr<T> extends AbstractTypedPtr<T, T>
+
+Fields
+------
+runtime
+^^^^^^^
+
+.. java:field:: protected final NativeRuntime runtime
+   :outertype: AbstractNativeObjectPtr
+
+   The responsible runtime.
+
+Constructors
+------------
+AbstractNativeObjectPtr
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractNativeObjectPtr(Class<T> type, NativeRuntime runtime, Pointer peer)
+   :outertype: AbstractNativeObjectPtr
+
+AbstractNativeObjectPtr
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractNativeObjectPtr(Class<T> type, NativeRuntime runtime, long peer, boolean owned)
+   :outertype: AbstractNativeObjectPtr
+
+AbstractNativeObjectPtr
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractNativeObjectPtr(Class<T> type, NativeRuntime runtime, long peer, Object bufferOwner)
+   :outertype: AbstractNativeObjectPtr
+
+Methods
+-------
+getJavaValue
+^^^^^^^^^^^^
+
+.. java:method:: protected final T getJavaValue(long peer)
+   :outertype: AbstractNativeObjectPtr
+
+   Gets Java value from a native pointer using the \ :java:ref:`toJavaInfo`\ .
+
+getJavaValue
+^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings protected final T getJavaValue(long peer, boolean owned)
+   :outertype: AbstractNativeObjectPtr
+
+   Gets Java value from a native pointer using the \ :java:ref:`toJavaInfo`\ .
+
+getNativeValue
+^^^^^^^^^^^^^^
+
+.. java:method:: protected final long getNativeValue(T value)
+   :outertype: AbstractNativeObjectPtr
+
+   Sets Java value from a native pointer using the \ :java:ref:`toNativeInfo`\ .
+

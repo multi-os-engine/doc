@@ -1,0 +1,244 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr LongPtr
+
+LongPtrImpl
+===========
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type::  class LongPtrImpl extends VoidPtrImpl implements LongPtr
+
+Fields
+------
+ELEM_SIZE
+^^^^^^^^^
+
+.. java:field:: protected static final int ELEM_SIZE
+   :outertype: LongPtrImpl
+
+Constructors
+------------
+LongPtrImpl
+^^^^^^^^^^^
+
+.. java:constructor:: protected LongPtrImpl(Pointer peer)
+   :outertype: LongPtrImpl
+
+LongPtrImpl
+^^^^^^^^^^^
+
+.. java:constructor:: protected LongPtrImpl(long peer, Object bufferOwner)
+   :outertype: LongPtrImpl
+
+LongPtrImpl
+^^^^^^^^^^^
+
+.. java:constructor::  LongPtrImpl(int capacity, boolean owned)
+   :outertype: LongPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Long[] src)
+   :outertype: LongPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Long[] src, int destOffset)
+   :outertype: LongPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Long[] src, int destOffset, int length)
+   :outertype: LongPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Long[] src, int srcOffset, int destOffset, int length)
+   :outertype: LongPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(long[] src)
+   :outertype: LongPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(long[] src, int destOffset)
+   :outertype: LongPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(long[] src, int destOffset, int length)
+   :outertype: LongPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(long[] src, int srcOffset, int destOffset, int length)
+   :outertype: LongPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Long[] dest)
+   :outertype: LongPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Long[] dest, int length)
+   :outertype: LongPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, Long[] dest, int destOffset, int length)
+   :outertype: LongPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(long[] dest)
+   :outertype: LongPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(long[] dest, int length)
+   :outertype: LongPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, long[] dest, int destOffset, int length)
+   :outertype: LongPtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Long get()
+   :outertype: LongPtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Long get(int idx)
+   :outertype: LongPtrImpl
+
+getGuardHigh
+^^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardHigh()
+   :outertype: LongPtrImpl
+
+getGuardLow
+^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardLow()
+   :outertype: LongPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public final LongPtr getGuarded(int length)
+   :outertype: LongPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public LongPtr getGuarded(int fromIndex, int toIndex)
+   :outertype: LongPtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public final long getValue()
+   :outertype: LongPtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public long getValue(int idx)
+   :outertype: LongPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: LongPtrImpl
+
+isGuarded
+^^^^^^^^^
+
+.. java:method:: @Override public boolean isGuarded()
+   :outertype: LongPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public LongPtr ofs(int elemOffset)
+   :outertype: LongPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Long obj)
+   :outertype: LongPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Long obj)
+   :outertype: LongPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(long value)
+   :outertype: LongPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(int idx, long value)
+   :outertype: LongPtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public final Long[] toArray(int length)
+   :outertype: LongPtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public Long[] toArray(int fromIndex, int toIndex)
+   :outertype: LongPtrImpl
+
+toLongArray
+^^^^^^^^^^^
+
+.. java:method:: @Override public final long[] toLongArray(int length)
+   :outertype: LongPtrImpl
+
+toLongArray
+^^^^^^^^^^^
+
+.. java:method:: @Override public long[] toLongArray(int fromIndex, int toIndex)
+   :outertype: LongPtrImpl
+

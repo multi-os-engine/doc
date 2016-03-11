@@ -1,0 +1,244 @@
+.. java:import:: com.intel.inde.moe.natj.c CRuntime
+
+.. java:import:: com.intel.inde.moe.natj.general Pointer
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr CharPtr
+
+.. java:import:: com.intel.inde.moe.natj.general.ptr IGuardedPtr
+
+CharPtrImpl
+===========
+
+.. java:package:: com.intel.inde.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type::  class CharPtrImpl extends VoidPtrImpl implements CharPtr
+
+Fields
+------
+ELEM_SIZE
+^^^^^^^^^
+
+.. java:field:: protected static final int ELEM_SIZE
+   :outertype: CharPtrImpl
+
+Constructors
+------------
+CharPtrImpl
+^^^^^^^^^^^
+
+.. java:constructor:: protected CharPtrImpl(Pointer peer)
+   :outertype: CharPtrImpl
+
+CharPtrImpl
+^^^^^^^^^^^
+
+.. java:constructor:: protected CharPtrImpl(long peer, Object bufferOwner)
+   :outertype: CharPtrImpl
+
+CharPtrImpl
+^^^^^^^^^^^
+
+.. java:constructor::  CharPtrImpl(int capacity, boolean owned)
+   :outertype: CharPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Character[] src)
+   :outertype: CharPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Character[] src, int destOffset)
+   :outertype: CharPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Character[] src, int destOffset, int length)
+   :outertype: CharPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Character[] src, int srcOffset, int destOffset, int length)
+   :outertype: CharPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(char[] src)
+   :outertype: CharPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(char[] src, int destOffset)
+   :outertype: CharPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(char[] src, int destOffset, int length)
+   :outertype: CharPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(char[] src, int srcOffset, int destOffset, int length)
+   :outertype: CharPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Character[] dest)
+   :outertype: CharPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Character[] dest, int length)
+   :outertype: CharPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, Character[] dest, int destOffset, int length)
+   :outertype: CharPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(char[] dest)
+   :outertype: CharPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(char[] dest, int length)
+   :outertype: CharPtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, char[] dest, int destOffset, int length)
+   :outertype: CharPtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Character get()
+   :outertype: CharPtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Character get(int idx)
+   :outertype: CharPtrImpl
+
+getGuardHigh
+^^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardHigh()
+   :outertype: CharPtrImpl
+
+getGuardLow
+^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardLow()
+   :outertype: CharPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public final CharPtr getGuarded(int length)
+   :outertype: CharPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public CharPtr getGuarded(int fromIndex, int toIndex)
+   :outertype: CharPtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public final char getValue()
+   :outertype: CharPtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public char getValue(int idx)
+   :outertype: CharPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: CharPtrImpl
+
+isGuarded
+^^^^^^^^^
+
+.. java:method:: @Override public boolean isGuarded()
+   :outertype: CharPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public CharPtr ofs(int elemOffset)
+   :outertype: CharPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Character obj)
+   :outertype: CharPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Character obj)
+   :outertype: CharPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(char value)
+   :outertype: CharPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(int idx, char value)
+   :outertype: CharPtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public final Character[] toArray(int length)
+   :outertype: CharPtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public Character[] toArray(int fromIndex, int toIndex)
+   :outertype: CharPtrImpl
+
+toCharArray
+^^^^^^^^^^^
+
+.. java:method:: @Override public final char[] toCharArray(int length)
+   :outertype: CharPtrImpl
+
+toCharArray
+^^^^^^^^^^^
+
+.. java:method:: @Override public char[] toCharArray(int fromIndex, int toIndex)
+   :outertype: CharPtrImpl
+
