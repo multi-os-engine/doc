@@ -87,6 +87,8 @@ Cloud build issues on Windows host
 	- You built the app with Distribution certificate. It's not allowed to debug an app built with the distribution certificate, you should use iOS Developer certificate for debugging.
 	- Application with the same name but built with another certificate or provisioning profile has been already installed on your iOS device. Please remove this application before running new application binary from Android Studio.
 
+- Error message "Failed to get installation proxy (instproxy_client_start_service returned -256)" during app running on a device. It  could happen if you didn't press "Trust This Computer" on your iOS device.
+	
 - Error message **Application installation failed. Please make sure you have correct bundle id in your Info.plist file**. Make sure that bundle ID in your Info.plist (usually located at <project_root>/<ios_module>/xcode/<app_name> folder) is the same as bundle ID in your provisioning profile. You may generate provisioning profile with bundle ID equal to "*" to test apps with different bundle ID.
 
 - I don't have Apple Developer Certificate. How to get it? Apple developer certificate is needed in order to run the code on a physical iPhone and iPad. Apple Mac machine and membership in Apple Developer Program ($99/year) are needed to generate P12 certificate and to submit your apps to the AppStore. If you either don't have Mac machine or don't want to pay for Apple Developer Program, there are two options:
