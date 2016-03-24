@@ -162,7 +162,7 @@
 <h1>Known issues and troubleshooting<a class="headerlink" href="#known-issues-and-troubleshooting" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="proxy-settings">
 <h2>Proxy settings<a class="headerlink" href="#proxy-settings" title="Permalink to this headline">¶</a></h2>
-<p>If you are behind proxy server, you may need to configure the proxy in four places:</p>
+<p>If you are behind proxy server and you see &#8220;gradle sync failed: operation timed out&#8221; error, you may need to configure the proxy in four places:</p>
 <ol class="arabic simple">
 <li>System settings</li>
 </ol>
@@ -209,8 +209,32 @@
 <li>IPA build (&#8220;Export IPA for Application&#8221; item in Android Studio &#8220;Build&#8221; menu) may fail right after project import. The workaround is to press the &#8220;Project&#8221; tab in Android Studio on the left side, after that IPA export will be successful.</li>
 <li>IPA build (&#8220;Export IPA for Application&#8221; item in Android Studio &#8220;Build&#8221; menu) may fail after multiple builds. The workaround is to press the “Build-&gt;Clean Project” from Android Studio menu. After that IPA export will be successful.</li>
 <li>If gradle daemon is enabled, the build may fail with an error message like the following: Could not find &#8220;/../SharedFrameworks/DVTFoundation.framework&#8221;. You can fix this by disabling gradle daemon: remove &#8220;org.gradle.daemon=true&#8221; line from the ~/.gradle/gradle.properties file.</li>
+<li>&#8220;Could not find &#8220;/Library/Developer/CommandLineTools/../SharedFrameworks/DVTFoundation.framework&#8221;&#8221; error happens when Xcode command line tools are not installed. You should install them by running &#8220;xcode-select &#8211;install&#8221; command.</li>
 <li>Disabling of the UI Transformer by removing &#8220;src/main/resources/layout&#8221; can cause the following build error: &#8220;Compilation failed. Unable to write to path: … MainUI.storyboard&#8221;. The problem should disappear after removing all duplicate references to MainUI.storyboard in the Xcode project.</li>
 <li>When the debugger is not closed properly, it leaves the device in the state which will not allow you to restart and use the debugging again. This is true even if you reboot the device. One workaround is to debug projects from Xcode on the device. This will reset the state.</li>
+</ul>
+<ul>
+<li><p class="first">Build immediately failed with the following messages on Multi-OS Engine tab:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Build</span> <span class="n">started</span>
+<span class="n">Build</span> <span class="n">failed</span> <span class="n">with</span> <span class="n">error</span> <span class="n">above</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>It means that gradle wrappers (gradlew, gradlew.bat and &#8216;gradle&#8217; folder) are absent in your project root folder. Please copy them from any Multi-OS Engine sample.</p>
+<ul class="simple">
+<li>iOS build may fail if Apple&#8217;s &#8220;world wide Developer relations certification authority&#8221; certificate is expired. Open &#8220;Keychain Access&#8221; program, select &#8220;login&#8221; keychain, select &#8220;My Certificates&#8221; category and click on your Apple certificate. If you see &#8220;This certificate has an invalid issuer&#8221; error, you should download new certificate <a class="reference external" href="https://developer.apple.com/certificationauthority/AppleWWDRCA.cer">here</a> and install it.</li>
+</ul>
+<ul>
+<li><p class="first">If you don&#8217;t see any modules on Android tab in Android Studio after opening the project, or you see error messages &#8220;Unsupported module detected&#8221; or &#8220;You can&#8217;t have non-gradle Java modules and Android gradle modules in one project&#8221;, one of the following actions could help:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Go to File-&gt;Invalidate caches-&gt;Invalidate caches &amp; restart</li>
+<li>Press &#8220;Sync gradle&#8221; button in Android Studio</li>
+<li>Import your project again</li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </div>
 <div class="section" id="cloud-build-issues-on-windows-host">
@@ -354,6 +378,7 @@
 <ul class="simple">
 <li>For the correct rendering of widgets, you must have Android SDK* with exactly API level 22 installed.</li>
 <li>Constraints can be conflicted for difficult UI written in iXML. Xcode* cannot manage conflict situations with constraints. As a result, generated constraints do not match with Xcode* constraints.</li>
+<li>If you manually edited .ixml file, Android Studio may not be able to open it or final UI layout could be wrong.</li>
 </ul>
 <div class="toctree-wrapper compound">
 <ul class="simple">
