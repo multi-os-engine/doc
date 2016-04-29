@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Project customization via Gradle &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Getting Started" href="../Getting_Started.html"/>
+        <link rel="next" title="Transition to the new MOE build system" href="../6_transition_to_a_new_build_system/transition_to_a_new_build_system.html"/>
+        <link rel="prev" title="Cloud Build" href="../4_cloud_build/cloud_build.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting_Started.html">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../1_prerequisites_and_installation/Prerequisites_and_Installation.html">Prerequisites and Multi-OS Engine Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2_hello_world_app/hello_world_app.html">Create, build and run Hello World app for iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3_moe_samples/MOE_samples.html">Multi-OS Engine Samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../4_cloud_build/cloud_build.html">Cloud Build</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Project customization via Gradle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mandatory-options">Mandatory options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xcode-project-options">Xcode Project Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#signing-options">Signing options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resources-options">Resources options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../6_transition_to_a_new_build_system/transition_to_a_new_build_system.html">Transition to the new MOE build system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../7_how_to_enable_javadoc/how_to_enable_javadoc.html">How to enable Java doc for iOS API in IDE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_iOS_app_development/iOS_app_development.html">iOS apps development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_moe_architecture/MOE_Architecture.html">Multi-OS Engine Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_Troubleshooting/troubleshooting.html">Known issues and troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../Getting_Started.html">Getting Started</a> &raquo;</li>
+      
+    <li>Project customization via Gradle</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="project-customization-via-gradle">
+<h1>Project customization via Gradle<a class="headerlink" href="#project-customization-via-gradle" title="Permalink to this headline">¶</a></h1>
+<p>This section describes all parameters which are supported by MOE Grade Plugin for project customization. To use them you need to define in <code class="docutils literal"><span class="pre">&lt;moe_module&gt;/build.grade</span></code> script.</p>
+<div class="section" id="mandatory-options">
+<h2>Mandatory options<a class="headerlink" href="#mandatory-options" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">mainTarget</span></code> [String] - application name.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">packageName</span></code> [String] - java package name of your MOE module</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">mainClassName</span></code> [String] - main class name. Default one is <em>Main</em>, but should be specified if another one is used:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.mainTarget ‘AppName’
+    xcode.packageName ‘JavaPackageName&#39;
+    mainClassName &#39;Main&#39;
+}
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="xcode-project-options">
+<h2>Xcode Project Options<a class="headerlink" href="#xcode-project-options" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">deploymentTarget</span></code> [String] - Identifies the earliest iOS version the product is to run on.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">infoPlistPath</span></code> [String] - Path to Info.plist file for main target. If this argument isn&#8217;t set, default path <code class="docutils literal"><span class="pre">src/main/Info.plist</span></code> will be chosen. If Info.plist wasn&#8217;t found, a new one will be generated.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">applicationExitOnSuspend</span></code> [boolean] - Specifies whether the app terminates instead of run in the background.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">supportedInterfaceOrientations</span></code> [String List] - Supported interface orientations.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">mainProductName</span></code> [String] - Product name for main target.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">xcodeProjectDirPath</span></code> [String] - Path to directory where Xcode project placed. If property generateProject is true, Xcode project will be generated to this directory, otherwise an attempt to find it there will be made.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">generateProject</span></code> [boolean] - Specifies whether the Xcode project will be generated. Default value is true.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">bundleShortVersionString</span></code> [String] - The release-version-number string for the bundle.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">bundleVersion</span></code> [String] - The build-version-number string for the bundle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode {
+        deploymentTarget &#39;9.0&#39;
+        infoPlistPath &#39;src/main/resources/&#39;
+        applicationExitOnSuspend true
+        mainProductName &#39;Calculator&#39;
+        supportedInterfaceOrientations = [
+            &#39;UIInterfaceOrientationPortrait&#39;,
+            &#39;UIInterfaceOrientationPortraitUpsideDown&#39;,
+            &#39;UIInterfaceOrientationLandscapeLeft&#39;,
+            &#39;UIInterfaceOrientationLandscapeRight&#39;]
+        xcodeProjectDirPath &#39;build/xcode&#39;
+        generateProject false
+        bundleShortVersionString &#39;1.0&#39;
+        bundleVersion &#39;1&#39;
+    }
+}
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="signing-options">
+<h2>Signing options<a class="headerlink" href="#signing-options" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">provisioningProfile</span></code> [String] - Path to provisioning profile. If not specified, default one will be chosen on the system.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">signingIdentity</span></code> [String] - Signing identity name. If not specified, default one will be chosen on the system. The name can be found from &#8216;Keychain Access&#8217; tool on OS X.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">bundleID</span></code> [String] - bundle identifier. It should match provisioning profile:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    ipaOptions {
+        signingIdentity &#39;iPhone Developer: Developer Name&#39;
+        provisioningProfile &#39;/Users/&lt;userName&gt;/Library/MobileDevice/Provisioning Profiles/&lt;ID&gt;.mobileprovision&#39;
+    }
+    xcode {
+        bundleID &#39;bundle.id.for.provisining.profile&#39;
+    }
+}
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="resources-options">
+<h2>Resources options<a class="headerlink" href="#resources-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="application-resources">
+<h3>Application resources<a class="headerlink" href="#application-resources" title="Permalink to this headline">¶</a></h3>
+<p>Default location of the application resources - <code class="docutils literal"><span class="pre">src/main/resources</span></code>.
+But it is possible to specify multiple resources directories (srcDirs) and to apply filters (include/exclude):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourceSets {
+    main {
+        resources {
+            srcDirs(&#39;src/main/resources&#39;, &#39;src/main/res&#39;)
+            include(&#39;**/out*&#39;)
+            exclude(&#39;*.txt&#39;)
+        }
+    }
+}
+</pre></div>
+</div>
+<p>Resources should be accessed from the code with respect to the specified resource directory. Example of accessing to the <strong>ship.dae</strong> file from <strong>art.scnassets</strong> folder located in default place - <strong>src/main/resources/art.scnassets</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>SCNScene scene = SCNScene.sceneNamed(&quot;art.scnassets/ship.dae&quot;);
+</pre></div>
+</div>
+</div>
+<div class="section" id="storyboard">
+<h3>Storyboard<a class="headerlink" href="#storyboard" title="Permalink to this headline">¶</a></h3>
+<p>A storyboard is a visual representation of the user interface of an iOS application, showing screens of content and the connections between those screens.</p>
+<p><code class="docutils literal"><span class="pre">mainUIStoryboardPath</span></code> [String] - Path to MainUI storyboard file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.mainUIStoryboardPath &#39;src/resources&#39;
+}
+</pre></div>
+</div>
+<p>If it isn&#8217;t specified, UITransfromer task will try to generate storyboard file from <code class="docutils literal"><span class="pre">.ixml</span></code> files. These files should be located in <code class="docutils literal"><span class="pre">layout</span></code> directory in resource folder. Files with .ixml extension - UI Layout created by <strong>MOE Layout Editor for iOS Apps</strong>.</p>
+<p>In the case when there is no a <code class="docutils literal"><span class="pre">layout</span></code> folder and not set <code class="docutils literal"><span class="pre">mainUIStoryboardPath</span></code> option, storyboard file will be searched in default location: <code class="docutils literal"><span class="pre">src/main/recources/MainUI.storyboard</span></code></p>
+</div>
+<div class="section" id="splash-screen">
+<h3>Splash screen<a class="headerlink" href="#splash-screen" title="Permalink to this headline">¶</a></h3>
+<p>A splash screen is a graphical control element consisting of window containing an image. A splash screen appears while an iOS application launching.</p>
+<p>There are 2 ways to add splash for MOE appliction:</p>
+<p>1.&nbsp;&nbsp;&nbsp; <strong>Using launchimage catalog in xcassets</strong></p>
+<p>It is necessary to prepare folder structure <code class="docutils literal"><span class="pre">&lt;xcassetName&gt;.xcassets/&lt;launchImagesSourceName&gt;.launchimage</span></code> with icons and json file in <a href="#id2"><span class="problematic" id="id3">`XCode format`_</span></a></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">&lt;xcassetName&gt;.xcassets folder must be at the root of resource directory</p>
+</div>
+<p>Next step is to specify name of the launch image source - <code class="docutils literal"><span class="pre">launchImagesSourceName</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.launchImagesSource = &#39;launchImagesSourceName&#39;
+}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Example of adding splash screen by launch image catalog is demonstrated in <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/FlipView">FlipView sample</a></p>
+</div>
+<p>2.&nbsp;&nbsp;&nbsp; <strong>Using xib or storyboard</strong></p>
+<p>It is necessary to specify absolute path or path relative to the MOE module to .xib or .storyboard file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.launchScreenFilePath = &#39;path/to/xib/or/storyboard/file&#39;
+}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Example of adding splash screen by using LaunchScreen.xib file is demonstrated in <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/DateCell">DateCell sample</a></p>
+</div>
+</div>
+<div class="section" id="app-icons">
+<h3>App icons<a class="headerlink" href="#app-icons" title="Permalink to this headline">¶</a></h3>
+<p>To add app icons for MOE appliction is necessary to prepare folder structure <code class="docutils literal"><span class="pre">&lt;xcassetName&gt;.xcassets/&lt;appIconsSourceName&gt;.appiconset</span></code> with icons and json file in <a href="#id4"><span class="problematic" id="id5">`XCode format`_</span></a></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">&lt;xcassetName&gt;.xcassets folder must be at the root of resource directory</p>
+</div>
+<p>Next step is to specify name of the app icon source - <code class="docutils literal"><span class="pre">appIconsSourceName</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.appIconsSourceName = &#39;appIconsSourceName&#39;
+}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Example of adding app icons is demonstrated in <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/Calculator">Calculator sample</a></p>
+</div>
+</div>
+<div class="section" id="catalog-assets">
+<h3>Catalog assets<a class="headerlink" href="#catalog-assets" title="Permalink to this headline">¶</a></h3>
+<p>To add <code class="docutils literal"><span class="pre">&lt;xcassetName&gt;.xcassets</span></code> with other <a class="reference external" href="https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/chapters/Recipe.html">Asset Catalogs</a> to the MOE module is necessary just put this folder at the root of resource directory.</p>
+</div>
+<div class="section" id="resources-from-sources">
+<h3>Resources from sources<a class="headerlink" href="#resources-from-sources" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><strong>enableResourcesFromSourceDirs</strong> [boolean] - Specifies whether resources detected by java plugin will be added or no. Default value is true.</p>
+</li>
+<li><p class="first"><strong>resourcesFromSourceDirExcludes</strong> [String List] - Java plugin resources filter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    resources {
+        enableResourcesFromSourceDirs false
+        resourcesFromSourceDirExcludes [ &quot;**/*.java&quot;, &quot;**/*.scala&quot; ]
+    }
+}
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../6_transition_to_a_new_build_system/transition_to_a_new_build_system.html" class="btn btn-neutral float-right" title="Transition to the new MOE build system" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../4_cloud_build/cloud_build.html" class="btn btn-neutral" title="Cloud Build" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

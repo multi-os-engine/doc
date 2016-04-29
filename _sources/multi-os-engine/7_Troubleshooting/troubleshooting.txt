@@ -32,7 +32,7 @@ Create ~/.bash_profile file and add these strings with your proxy settings::
 
 Create "gradle.properties" file in the folder ~/.gradle and add the following lines with proxy settings::
 
-	systemProp.http.proxyHost=your_http_proxy_server 
+	systemProp.http.proxyHost=your_http_proxy_server
 	systemProp.http.proxyPort=proxy_port
 	systemProp.https.proxyHost=your_https_proxy_server
 	systemProp.https.proxyPort=proxy_port
@@ -40,34 +40,28 @@ Create "gradle.properties" file in the folder ~/.gradle and add the following li
 4. Android Studio proxy settings
 
 .. image:: images/proxy2.png
-	
+
 Multi-OS Engine Installation
 ---------------------------------
 
 - In some rare cases, Multi-OS Engine plugins for Android Studio* cannot be installed automatically (for example if you use pre-release version of the Android Studio*; if Multi-OS Engine plugins could not be loaded previous time and plugins were disabled). After installation, please verify that two plugins "MOE Plugin" and "MOE Layout Editor" enabled in Android Studio*’s Preferences-> Plugins menu. If you cannot find them there, please install them manually using "Install plugin from disk" button from "<MOE install folder>/intellij_plugins" folder.
 
 - If you logged in to Mac* OS system under "root" account, Android Studio* does not see INTEL_MULTI_OS_ENGINE_HOME environment variable and as a result, Multi-OS Engine plugins for Android Studio* are not functional. Please use regular user account to work with Multi-OS Engine product.
-	
+
 Integration with Android Studio
 --------------------------------
+
+- "Exception in thread "main" java.lang.UnsatisfiedLinkError: C:/Intel/multi_os_engine/tools/windows/x86_64/natj.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform" error happens if you run an app built in cloud on iOS device from 32-bit IDE on Windows. The workaround is to use 64-bit version of Android Studio or IntelliJ IDEA.
 
 - Multi-OS Engine samples require setting active JDK version to 1.8 manually in Android Studio*. “Invalid source release: 1.8” error occurs if it wasn’t done. To resolve this issue, go to Android Studio* to File -> Project Structure -> SDK Location -> JDK location and specify path to JDK 1.8.
 
 - Info.plist (located at /path/to/application/MOE_module_name/Xcode/project_name/) should contains valid Bundle ID. Otherwise the error will occur during launching on device: "Application installation o device failed (Incorrect bundle id in your Info.plist file)". For more information please visit: `About Bundle IDs`_
 
-- If you manually installed previous version of iOS Simulator (for example, iOS Simulator 8.3 to the system with installed iOS SDK 8.4), build project may fail with error "SDK 8.3 not found". The workaround is to specify explicitly installed iOS* SDK version in the build configuration.
+- Launch the application on the simulator is available only with the version of the simulator that corresponds version the currently installed iOS SDK. To launch application on previous versions of simulators might be possible from XCode (right click on module -> "Multi-OS Engine Actions" -> "Open Project in Xcode") or by installing according iOS SDK on the system.
 
 - IPA build ("Export IPA for Application" item in Android Studio "Build" menu) may fail right after project import. The workaround is to press the "Project" tab in Android Studio on the left side, after that IPA export will be successful.
 
 - IPA build ("Export IPA for Application" item in Android Studio "Build" menu) may fail after multiple builds. The workaround is to press the “Build->Clean Project” from Android Studio menu. After that IPA export will be successful.
-
-- If gradle daemon is enabled, the build may fail with an error message like the following: Could not find "/../SharedFrameworks/DVTFoundation.framework". You can fix this by disabling gradle daemon: remove "org.gradle.daemon=true" line from the ~/.gradle/gradle.properties file.
-
-- "Could not find "/Library/Developer/CommandLineTools/../SharedFrameworks/DVTFoundation.framework"" error happens when Xcode command line tools are not installed. You should install them by running "xcode-select --install" command.
-
-- Disabling of the UI Transformer by removing "src/main/resources/layout" can cause the following build error: "Compilation failed. Unable to write to path: … MainUI.storyboard". The problem should disappear after removing all duplicate references to MainUI.storyboard in the Xcode project.
-
-- When the debugger is not closed properly, it leaves the device in the state which will not allow you to restart and use the debugging again. This is true even if you reboot the device. One workaround is to debug projects from Xcode on the device. This will reset the state.
 
 .. _About Bundle IDs: https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8
 
@@ -75,7 +69,7 @@ Integration with Android Studio
 
 	Build started
 	Build failed with error above
-	
+
 It means that gradle wrappers (gradlew, gradlew.bat and 'gradle' folder) are absent in your project root folder. Please copy them from any Multi-OS Engine sample.
 
 - iOS build may fail if Apple's "world wide Developer relations certification authority" certificate is expired. Open "Keychain Access" program, select "login" keychain, select "My Certificates" category and click on your Apple certificate. If you see "This certificate has an invalid issuer" error, you should download new certificate `here`_ and install it.
@@ -107,12 +101,12 @@ Cloud build issues on Windows host
 	- Application with the same name but built with another certificate or provisioning profile has been already installed on your iOS device. Please remove this application before running new application binary from Android Studio.
 
 - Error message "Failed to get installation proxy (instproxy_client_start_service returned -256)" during app running on a device. It  could happen if you didn't press "Trust This Computer" on your iOS device.
-	
+
 - Error message **Application installation failed. Please make sure you have correct bundle id in your Info.plist file**. Make sure that bundle ID in your Info.plist (usually located at <project_root>/<ios_module>/xcode/<app_name> folder) is the same as bundle ID in your provisioning profile. You may generate provisioning profile with bundle ID equal to "*" to test apps with different bundle ID.
 
 - I don't have Apple Developer Certificate. How to get it? Apple developer certificate is needed in order to run the code on a physical iPhone and iPad. Apple Mac machine and membership in Apple Developer Program ($99/year) are needed to generate P12 certificate and to submit your apps to the AppStore. If you either don't have Mac machine or don't want to pay for Apple Developer Program, there are two options:
 
-	- It is possible to generate the certificate using "free" Apple developer account on Mac OS X with Xcode 7, but you will not be able to submit your application to AppStore using this certificate. 
+	- It is possible to generate the certificate using "free" Apple developer account on Mac OS X with Xcode 7, but you will not be able to submit your application to AppStore using this certificate.
 	- If you have paid membership in Apple Developer Program, then you can generate the certificate and provisioning profile on your Windows machine, build an IPA file using Multi-OS Engine cloud build and then submit the IPA to AppStore using some 3rd party services.
 
 Runtime
@@ -150,7 +144,7 @@ UI Binding Generator
 
 - UI binding generation for existing Java View Controller leads to that existing outlets and actions(in Java View Controller) stop working. The cause is difference in declarations of existing and generated outlets and actions. Workaround steps are the following:
 
-	- Add annotation @Property to Java code for all generated outlets 
+	- Add annotation @Property to Java code for all generated outlets
 	- Add implementation to Java* code for all generated actions
 	- Exclude native source files (with implementation of view controllers) form build procedure.
 
@@ -165,13 +159,13 @@ Obj-C code::
 	@end
 
 Corresponding Java bindings code::
-	
+
 	interface MyProtocol {}
 
 	class MyClass {
 		void foo(MyProtocol c);
 	}
-	
+
 Current implementation only checks class hierarchy and skips interface hierarchy. That is why the following example throw compilation error.
 
 Obj-C code::
@@ -186,7 +180,7 @@ Obj-C code::
 	- (void)foo:(id<MyProtocol3>)c;
 	@end
 
-Corresponding Java bindings code::	
+Corresponding Java bindings code::
 
 	interface MyProtocol3 {}
 
@@ -206,6 +200,6 @@ Layout Editor
 - Constraints can be conflicted for difficult UI written in iXML. Xcode* cannot manage conflict situations with constraints. As a result, generated constraints do not match with Xcode* constraints.
 
 - If you manually edited .ixml file, Android Studio may not be able to open it or final UI layout could be wrong.
-	
+
 .. toctree::
     :maxdepth: 2

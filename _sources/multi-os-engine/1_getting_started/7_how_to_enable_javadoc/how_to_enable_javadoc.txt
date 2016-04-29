@@ -1,0 +1,29 @@
+..
+	Copyright 2015 Intel Corporation
+
+
+==============================================
+How to enable Java doc for iOS API in IDE
+==============================================
+
+Open module settings, select Modules tab and click on your module name:
+
+.. image:: images/1.png
+
+Select intel-moe-ios.jar from dependencies list and click on Edit button:
+
+.. image:: images/2.png
+
+In the edit dialog click on Plus button and select intel-moe-ios-javadoc.jar:
+
+.. image:: images/3.png
+
+.. image:: images/4.png
+
+Close all dialogs by clicking OK button. Open editor, set cursor on any iOS class name and press Ctrl+J.
+
+.. image:: images/5.png
+
+.. toctree::
+    :maxdepth: 2
+

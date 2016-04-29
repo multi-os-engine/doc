@@ -6,7 +6,7 @@
 Multi-OS Engine
 ===============
 
-Intel Multi-OS Engine is a preview technology that enables developers using their Java expertise to develop native mobile applications for iOS* and Android* on Windows* and/or OS X* development host machines without compromising the native look, feel and performance. 
+Intel Multi-OS Engine is a preview technology that enables developers using their Java expertise to develop native mobile applications for iOS* and Android* on Windows* and/or OS X* development host machines without compromising the native look, feel and performance.
 This technology is a stand-alone plug-in that can be integrated into Android Studio*.
 
 .. toctree::

@@ -1,0 +1,32 @@
+..
+	Copyright 2015 Intel Corporation
+
+
+============================
+Transition to the new MOE build system
+============================
+
+If you already have project generated with previous Multi-OS Engine release from Decembder 2015 (1.0.598 version) you should make few steps to adapt it to new release. Otherwise it will be incompatible with new build system.
+
+* Remove ``<moe_module>/xcode`` folder. New XCode project will be generated during build procedure.
+* Remove ``<moe_module>/build`` folder.
+* Change the ``<moe_module>/build.gradle`` script:
+ * Replace gradle plugin classpath ``‘org.intel.gradle:xRTGradlePlugin:1.0’`` with ``‘com.intel.gradle:moeGradlePlugin:1.1.+’``
+ * Change gradle plugin name ‘xrt’ to ‘moe’ (``apply plugin: ‘moe’``)
+ * Remove parameters section with content::
+
+    xrt {
+    …
+    }
+
+ * Add ‘moe’ section with required parameters.
+ Below is example of new 'moe' section, where AppName – name of your application and JavaPackageName – java package name of your MOE module::
+
+    moe {
+        xcode.mainTarget ‘AppName’
+        xcode.packageName ‘JavaPackageName'
+    }
+.. note::
+    The description of all supported parameters can be found here: :doc:`Project customization via Gradle <../5_project_customization_via_gradle/project_customization_via_gradle>`.
+
+* Change imported package name ``‘com.intel.inde.moe.*’`` to ``‘com.intel.moe.*’``

@@ -1,0 +1,208 @@
+..
+	Copyright 2015 Intel Corporation
+
+
+===========================
+Project customization via Gradle
+===========================
+
+This section describes all parameters which are supported by MOE Grade Plugin for project customization. To use them you need to define in ``<moe_module>/build.grade`` script.
+
+Mandatory options
+===========================
+
+* ``mainTarget`` [String] - application name.
+* ``packageName`` [String] - java package name of your MOE module
+* ``mainClassName`` [String] - main class name. Default one is *Main*, but should be specified if another one is used::
+
+    moe {
+        xcode.mainTarget ‘AppName’
+        xcode.packageName ‘JavaPackageName'
+        mainClassName 'Main'
+    }
+
+
+Xcode Project Options
+===========================
+
+* ``deploymentTarget`` [String] - Identifies the earliest iOS version the product is to run on.
+
+* ``infoPlistPath`` [String] - Path to Info.plist file for main target. If this argument isn't set, default path ``src/main/Info.plist`` will be chosen. If Info.plist wasn't found, a new one will be generated.
+
+* ``applicationExitOnSuspend`` [boolean] - Specifies whether the app terminates instead of run in the background.
+
+* ``supportedInterfaceOrientations`` [String List] - Supported interface orientations.
+
+* ``mainProductName`` [String] - Product name for main target.
+
+* ``xcodeProjectDirPath`` [String] - Path to directory where Xcode project placed. If property generateProject is true, Xcode project will be generated to this directory, otherwise an attempt to find it there will be made.
+
+* ``generateProject`` [boolean] - Specifies whether the Xcode project will be generated. Default value is true.
+
+* ``bundleShortVersionString`` [String] - The release-version-number string for the bundle.
+
+* ``bundleVersion`` [String] - The build-version-number string for the bundle::
+
+    moe {
+        xcode {
+            deploymentTarget '9.0'
+            infoPlistPath 'src/main/resources/'
+            applicationExitOnSuspend true
+            mainProductName 'Calculator'
+            supportedInterfaceOrientations = [
+                'UIInterfaceOrientationPortrait',
+                'UIInterfaceOrientationPortraitUpsideDown',
+                'UIInterfaceOrientationLandscapeLeft',
+                'UIInterfaceOrientationLandscapeRight']
+            xcodeProjectDirPath 'build/xcode'
+            generateProject false
+            bundleShortVersionString '1.0'
+            bundleVersion '1'
+        }
+    }
+
+.. * **testInfoPlistPath** [String] - Path to Info.plist file for test target.
+.. * **testProductName** [String] - Product name for test target.
+.. * **testTarget** [String] - Test Xcode target name.
+.. * **mainTarget** [String] - Main Xcode target name. If was not set gradle project name will be used.
+.. * **organizationName** [String] - Organization name
+.. * **companyIdentifier** [String] - Company identifier.
+
+Signing options
+===========================
+
+* ``provisioningProfile`` [String] - Path to provisioning profile. If not specified, default one will be chosen on the system.
+* ``signingIdentity`` [String] - Signing identity name. If not specified, default one will be chosen on the system. The name can be found from 'Keychain Access' tool on OS X.
+* ``bundleID`` [String] - bundle identifier. It should match provisioning profile::
+
+    moe {
+        ipaOptions {
+            signingIdentity 'iPhone Developer: Developer Name'
+            provisioningProfile '/Users/<userName>/Library/MobileDevice/Provisioning Profiles/<ID>.mobileprovision'
+        }
+        xcode {
+            bundleID 'bundle.id.for.provisining.profile'
+        }
+    }
+
+Resources options
+===========================
+
+Application resources
+---------------------
+
+Default location of the application resources - ``src/main/resources``.
+But it is possible to specify multiple resources directories (srcDirs) and to apply filters (include/exclude)::
+
+    sourceSets {
+        main {
+            resources {
+                srcDirs('src/main/resources', 'src/main/res')
+                include('**/out*')
+                exclude('*.txt')
+            }
+        }
+    }
+
+Resources should be accessed from the code with respect to the specified resource directory. Example of accessing to the **ship.dae** file from **art.scnassets** folder located in default place - **src/main/resources/art.scnassets**::
+
+    SCNScene scene = SCNScene.sceneNamed("art.scnassets/ship.dae");
+
+
+Storyboard
+---------------------
+
+A storyboard is a visual representation of the user interface of an iOS application, showing screens of content and the connections between those screens.
+
+``mainUIStoryboardPath`` [String] - Path to MainUI storyboard file::
+
+    moe {
+        xcode.mainUIStoryboardPath 'src/resources'
+    }
+
+If it isn't specified, UITransfromer task will try to generate storyboard file from ``.ixml`` files. These files should be located in ``layout`` directory in resource folder. Files with .ixml extension - UI Layout created by **MOE Layout Editor for iOS Apps**.
+
+In the case when there is no a ``layout`` folder and not set ``mainUIStoryboardPath`` option, storyboard file will be searched in default location: ``src/main/recources/MainUI.storyboard``
+
+
+Splash screen
+---------------------
+
+A splash screen is a graphical control element consisting of window containing an image. A splash screen appears while an iOS application launching.
+
+There are 2 ways to add splash for MOE appliction:
+
+1.    **Using launchimage catalog in xcassets**
+
+It is necessary to prepare folder structure ``<xcassetName>.xcassets/<launchImagesSourceName>.launchimage`` with icons and json file in `XCode format`_
+
+.. _XCode format: https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/LaunchImageType.html
+
+.. warning::
+    <xcassetName>.xcassets folder must be at the root of resource directory
+
+Next step is to specify name of the launch image source - ``launchImagesSourceName``::
+
+    moe {
+        xcode.launchImagesSource = 'launchImagesSourceName'
+    }
+
+.. note::
+    Example of adding splash screen by launch image catalog is demonstrated in `FlipView sample`_
+
+.. _FlipView sample: https://github.com/moe-java-samples/moe-java-samples/tree/master/FlipView
+
+2.    **Using xib or storyboard**
+
+It is necessary to specify absolute path or path relative to the MOE module to .xib or .storyboard file::
+
+    moe {
+        xcode.launchScreenFilePath = 'path/to/xib/or/storyboard/file'
+    }
+
+.. note::
+    Example of adding splash screen by using LaunchScreen.xib file is demonstrated in `DateCell sample`_
+
+.. _DateCell sample: https://github.com/moe-java-samples/moe-java-samples/tree/master/DateCell
+
+App icons
+---------------------
+
+To add app icons for MOE appliction is necessary to prepare folder structure ``<xcassetName>.xcassets/<appIconsSourceName>.appiconset`` with icons and json file in `XCode format`_
+
+.. _XCode format: https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/AppIconType.html#//apple_ref/doc/uid/TP40015170-CH22-SW1
+
+.. warning::
+    <xcassetName>.xcassets folder must be at the root of resource directory
+
+Next step is to specify name of the app icon source - ``appIconsSourceName``::
+
+    moe {
+        xcode.appIconsSourceName = 'appIconsSourceName'
+    }
+
+.. note::
+    Example of adding app icons is demonstrated in `Calculator sample`_
+
+.. _Calculator sample: https://github.com/moe-java-samples/moe-java-samples/tree/master/Calculator
+
+
+Catalog assets
+---------------------
+
+To add ``<xcassetName>.xcassets`` with other `Asset Catalogs`_ to the MOE module is necessary just put this folder at the root of resource directory.
+
+.. _Asset Catalogs: https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/chapters/Recipe.html
+
+Resources from sources
+---------------------
+
+* **enableResourcesFromSourceDirs** [boolean] - Specifies whether resources detected by java plugin will be added or no. Default value is true.
+* **resourcesFromSourceDirExcludes** [String List] - Java plugin resources filter::
+
+    moe {
+        resources {
+            enableResourcesFromSourceDirs false
+            resourcesFromSourceDirExcludes [ "**/*.java", "**/*.scala" ]
+        }
+    }
