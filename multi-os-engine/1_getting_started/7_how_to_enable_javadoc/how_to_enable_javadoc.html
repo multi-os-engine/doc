@@ -103,7 +103,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../4_cloud_build/cloud_build.html">Cloud Build</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../5_project_customization_via_gradle/project_customization_via_gradle.html">Project customization via Gradle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../6_transition_to_a_new_build_system/transition_to_a_new_build_system.html">Transition to the new MOE build system</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">How to enable Java doc for iOS API in IDE</a><ul class="simple">
+<li class="toctree-l3 current"><a class="current reference internal" href="">How to enable Java doc for iOS API in IDE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#intellij-idea">Intellij IDEA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#android-studio">Android Studio</a></li>
 </ul>
 </li>
 </ul>
@@ -162,18 +164,30 @@
             
   <div class="section" id="how-to-enable-java-doc-for-ios-api-in-ide">
 <h1>How to enable Java doc for iOS API in IDE<a class="headerlink" href="#how-to-enable-java-doc-for-ios-api-in-ide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="intellij-idea">
+<h2>Intellij IDEA<a class="headerlink" href="#intellij-idea" title="Permalink to this headline">¶</a></h2>
 <p>Open module settings, select Modules tab and click on your module name:</p>
-<img alt="../../../_images/1.png" src="../../../_images/1.png" />
+<img alt="../../../_images/idea_1.png" src="../../../_images/idea_1.png" />
 <p>Select intel-moe-ios.jar from dependencies list and click on Edit button:</p>
-<img alt="../../../_images/2.png" src="../../../_images/2.png" />
+<img alt="../../../_images/idea_2.png" src="../../../_images/idea_2.png" />
 <p>In the edit dialog click on Plus button and select intel-moe-ios-javadoc.jar:</p>
-<img alt="../../../_images/3.png" src="../../../_images/3.png" />
-<img alt="../../../_images/4.png" src="../../../_images/4.png" />
+<img alt="../../../_images/idea_3.png" src="../../../_images/idea_3.png" />
+<img alt="../../../_images/idea_4.png" src="../../../_images/idea_4.png" />
 <p>Close all dialogs by clicking OK button. Open editor, set cursor on any iOS class name and press Ctrl+J.</p>
-<img alt="../../../_images/5.png" src="../../../_images/5.png" />
+<img alt="../../../_images/idea_5.png" src="../../../_images/idea_5.png" />
+</div>
+<div class="section" id="android-studio">
+<h2>Android Studio<a class="headerlink" href="#android-studio" title="Permalink to this headline">¶</a></h2>
+<p>Turn Project view and expand External Library for MOE module/sample. Select intel-moe-ios library and open Library Properties by context menu</p>
+<img alt="../../../_images/as_1.png" src="../../../_images/as_1.png" />
+<p>Select “+” in order to add file and select intel-moe-ios-javadoc.jar:</p>
+<img alt="../../../_images/as_2.png" src="../../../_images/as_2.png" />
+<p>Close all dialogs by clicking OK button. Open editor, set cursor on any iOS class name and press Ctrl+J.</p>
+<img alt="../../../_images/as_3.png" src="../../../_images/as_3.png" />
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 

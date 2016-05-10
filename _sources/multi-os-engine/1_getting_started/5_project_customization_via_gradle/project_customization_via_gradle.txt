@@ -117,7 +117,7 @@ A storyboard is a visual representation of the user interface of an iOS applicat
 ``mainUIStoryboardPath`` [String] - Path to MainUI storyboard file::
 
     moe {
-        xcode.mainUIStoryboardPath 'src/resources'
+        xcode.mainUIStoryboardPath 'src/resources/MainUI.storyboard'
     }
 
 If it isn't specified, UITransfromer task will try to generate storyboard file from ``.ixml`` files. These files should be located in ``layout`` directory in resource folder. Files with .ixml extension - UI Layout created by **MOE Layout Editor for iOS Apps**.

@@ -121,19 +121,22 @@ Runtime
 Apple iOS* API Bindings
 ------------------------
 
-- Variable argument functions / methods with a va_list parameter (e.g. vprintf) are currently not handled by Nat/J, but the generator still generates a binding for them. Nat/J only handles the method(param1, ...) type variable argument functions at the moment.
+- Variable argument functions/methods with a va_list parameter (e.g. vprintf) are currently not handled by Nat/J, but the generator still generates a binding for them. Nat/J only handles the method(param1, ...) type variable argument functions at the moment.
 
-- Using methods with Ptr<? extends ObjCObject> in applications targeting Mac OS X host can lead to crash with null pointer exception if you working with pointers returned from native, not created yourself.
+- Using methods with Ptr<? extends ObjCObject> can lead to crash with null pointer exception if you working with pointers returned from native, not created yourself.
 
 - If a "Division by 0" exception occurs after an incorrect NatJ initialization, start working with NatJ by creating an Obj-C class that implements a UIApplicationDelegate interface.
 
 - Missed NatJ annotations or misprints are not checked by the build system or NatJ initializer. Manually written methods with inaccuracies in annotation can lead to exceptions in runtime and undefined behavior.
+
 - Double pointer to primitive types as a return value from methods of binded objects is not supported.
-- Objects received from native level at first time while java class loader doesn’t load their java representation will be wrapped to ios.NSObject without the possibility of further cast. To avoid this you should directly touch such class before receiving. For example in static section like::
+
+- Objects received from native can be wrapped to ios.NSObject without the possibility of further cast in case of corresponding java binding was not loaded by java class loader previously. To avoid this situation ask class loader to handle required java bindigs before receiving it. For example in static section like::
 
 	static {
-	Class.forName(A.class.getName());
+		Class.forName(A.class.getName());
 	}
+
 
 UI Binding Generator
 ---------------------
@@ -188,7 +191,8 @@ Corresponding Java bindings code::
 		void foo(Object c);
 	}
 
-	class MyClass3 extends NSObject implements MyProtocol4 { // Java compilation error, foo(Object) not implemented
+	class MyClass3 extends NSObject implements MyProtocol4 {
+		// Java compilation error, foo(Object) not implemented
 		void foo(MyProtocol3 c);
 	}
 

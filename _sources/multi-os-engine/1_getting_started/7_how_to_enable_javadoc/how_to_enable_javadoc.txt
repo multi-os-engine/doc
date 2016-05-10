@@ -6,24 +6,45 @@
 How to enable Java doc for iOS API in IDE
 ==============================================
 
+
+Intellij IDEA
+----------------------------------------------
+
+
 Open module settings, select Modules tab and click on your module name:
 
-.. image:: images/1.png
+.. image:: images/idea_1.png
 
 Select intel-moe-ios.jar from dependencies list and click on Edit button:
 
-.. image:: images/2.png
+.. image:: images/idea_2.png
 
 In the edit dialog click on Plus button and select intel-moe-ios-javadoc.jar:
 
-.. image:: images/3.png
+.. image:: images/idea_3.png
 
-.. image:: images/4.png
+.. image:: images/idea_4.png
 
 Close all dialogs by clicking OK button. Open editor, set cursor on any iOS class name and press Ctrl+J.
 
-.. image:: images/5.png
+.. image:: images/idea_5.png
+
+
+Android Studio
+----------------------------------------------
+
+
+Turn Project view and expand External Library for MOE module/sample. Select intel-moe-ios library and open Library Properties by context menu
+
+.. image:: images/as_1.png
+
+Select “+” in order to add file and select intel-moe-ios-javadoc.jar:
+
+.. image:: images/as_2.png
+
+Close all dialogs by clicking OK button. Open editor, set cursor on any iOS class name and press Ctrl+J.
+
+.. image:: images/as_3.png
 
 .. toctree::
     :maxdepth: 2
-
