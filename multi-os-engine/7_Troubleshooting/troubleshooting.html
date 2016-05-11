@@ -202,10 +202,35 @@
 </div>
 <div class="section" id="integration-with-android-studio">
 <h2>Integration with Android Studio<a class="headerlink" href="#integration-with-android-studio" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Running an app built in cloud on iOS device from 32-bit IDE on Windows failed with error:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span>Exception in thread &quot;main&quot; java.lang.UnsatisfiedLinkError: C:/Intel/multi_os_engine/tools/windows/x86_64/natj.dll:
+Can&#39;t load AMD 64-bit .dll on a IA 32-bit platform
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The workaround is to use 64-bit version of Android Studio or IntelliJ IDEA.</p>
+<ul>
+<li><p class="first">Multi-OS Engine samples require setting active JDK version to 1.8 manually in Android Studio*. If it wasn’t done error can occur:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Invalid</span> <span class="n">source</span> <span class="n">release</span><span class="o">:</span> <span class="mf">1.8</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>To resolve this issue, go to Android Studio* to File -&gt; Project Structure -&gt; SDK Location -&gt; JDK location and specify path to JDK 1.8.</p>
+<ul>
+<li><p class="first">Bundle ID should match Provisioning Profile that is used for the signing application. Otherwise the error will occur during building for device:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Code</span> <span class="n">Sign</span> <span class="n">error</span><span class="o">:</span> <span class="n">No</span> <span class="n">matching</span> <span class="n">provisioning</span> <span class="n">profiles</span> <span class="n">found</span><span class="o">:</span>
+<span class="n">No</span> <span class="n">provisioning</span> <span class="n">profiles</span> <span class="n">matching</span> <span class="n">the</span> <span class="n">bundle</span> <span class="n">identifier</span> <span class="s">&quot;your_bundle_id&quot;</span> <span class="n">were</span> <span class="n">found</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div>For more information about Bundle ID please visit: <a class="reference external" href="https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8">About Bundle IDs</a>.
+Please refer to <a class="reference internal" href="../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle.html"><em>Project customization via Gradle</em></a> to find more information about setting of the Bundle ID.</div></blockquote>
 <ul class="simple">
-<li>&#8220;Exception in thread &#8220;main&#8221; java.lang.UnsatisfiedLinkError: C:/Intel/multi_os_engine/tools/windows/x86_64/natj.dll: Can&#8217;t load AMD 64-bit .dll on a IA 32-bit platform&#8221; error happens if you run an app built in cloud on iOS device from 32-bit IDE on Windows. The workaround is to use 64-bit version of Android Studio or IntelliJ IDEA.</li>
-<li>Multi-OS Engine samples require setting active JDK version to 1.8 manually in Android Studio*. “Invalid source release: 1.8” error occurs if it wasn’t done. To resolve this issue, go to Android Studio* to File -&gt; Project Structure -&gt; SDK Location -&gt; JDK location and specify path to JDK 1.8.</li>
-<li>Info.plist (located at /path/to/application/MOE_module_name/Xcode/project_name/) should contains valid Bundle ID. Otherwise the error will occur during launching on device: &#8220;Application installation o device failed (Incorrect bundle id in your Info.plist file)&#8221;. For more information please visit: <a class="reference external" href="https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8">About Bundle IDs</a></li>
 <li>Launch the application on the simulator is available only with the version of the simulator that corresponds version the currently installed iOS SDK. To launch application on previous versions of simulators might be possible from XCode (right click on module -&gt; &#8220;Multi-OS Engine Actions&#8221; -&gt; &#8220;Open Project in Xcode&#8221;) or by installing according iOS SDK on the system.</li>
 <li>IPA build (&#8220;Export IPA for Application&#8221; item in Android Studio &#8220;Build&#8221; menu) may fail right after project import. The workaround is to press the &#8220;Project&#8221; tab in Android Studio on the left side, after that IPA export will be successful.</li>
 <li>IPA build (&#8220;Export IPA for Application&#8221; item in Android Studio &#8220;Build&#8221; menu) may fail after multiple builds. The workaround is to press the “Build-&gt;Clean Project” from Android Studio menu. After that IPA export will be successful.</li>
@@ -218,7 +243,8 @@
 </div>
 </li>
 </ul>
-<p>It means that gradle wrappers (gradlew, gradlew.bat and &#8216;gradle&#8217; folder) are absent in your project root folder. Please copy them from any Multi-OS Engine sample.</p>
+<blockquote>
+<div>It means that gradle wrappers (gradlew, gradlew.bat and &#8216;gradle&#8217; folder) are absent in your project root folder. Please copy them from any Multi-OS Engine sample.</div></blockquote>
 <ul class="simple">
 <li>iOS build may fail if Apple&#8217;s &#8220;world wide Developer relations certification authority&#8221; certificate is expired. Open &#8220;Keychain Access&#8221; program, select &#8220;login&#8221; keychain, select &#8220;My Certificates&#8221; category and click on your Apple certificate. If you see &#8220;This certificate has an invalid issuer&#8221; error, you should download new certificate <a class="reference external" href="https://developer.apple.com/certificationauthority/AppleWWDRCA.cer">here</a> and install it.</li>
 </ul>
@@ -237,7 +263,14 @@
 <div class="section" id="cloud-build-issues-on-windows-host">
 <h2>Cloud build issues on Windows host<a class="headerlink" href="#cloud-build-issues-on-windows-host" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">Build error message <strong>org.intel.xrt_builder.BuildException: Not received application url</strong>. It means that the build in the cloud failed and you should check log file received from the cloud builder for exact build error.  Link to the cloud build log could be found on &#8220;Intel Multi-OS Engine&#8221; build tab and also it&#8217;s copied to a local drive to &lt;project_root&gt;/&lt;ios_module&gt;/build/logs/*_FROM_CLOUD.txt. Common issues with building Xcode projects in the cloud are the following:</p>
+<li><p class="first">Build in cloud may fail with error:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nl">BuildException:</span> <span class="n">Not</span> <span class="n">received</span> <span class="n">application</span> <span class="n">url</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><p>You should check log file received from the cloud builder for exact build error. Link to the cloud build log could be found on &#8220;Intel Multi-OS Engine&#8221; build tab and also it&#8217;s copied to a local drive to &lt;project_root&gt;/&lt;ios_module&gt;/build/logs/*_FROM_CLOUD.txt. Common issues with building Xcode projects in the cloud are the following:</p>
 <blockquote>
 <div><ul class="simple">
 <li>All source file and resources used in the Xcode project should be located within &#8220;&lt;project_root&gt;/&lt;ios_module&gt;/xcode&#8221; folder, otherwise they won&#8217;t&#8217; be uploaded to the cloud builder and build will fail.</li>
@@ -245,23 +278,54 @@
 <li>Avoid using backslashes in paths to source files, because Mac builders won&#8217;t resolve such paths and build will fail.</li>
 </ul>
 </div></blockquote>
+</div></blockquote>
+<ul>
+<li><p class="first">Launching application from Android Studio may fail on Windows with error message:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Failed</span> <span class="n">to</span> <span class="n">get</span> <span class="n">debug</span> <span class="nf">server</span> <span class="o">(</span><span class="n">debugserver_error_t</span> <span class="n">returned</span> <span class="o">-</span><span class="mi">256</span><span class="o">)</span>
+</pre></div>
+</div>
 </li>
-<li><p class="first">Error message <strong>Failed to get debug server (debugserver_error_t returned -256)</strong> during app launching from Android Studio on Windows. This message means that OS X debug server is not installed on your iOS device. Unfortunately currently it&#8217;s not possible to install the debug server to iOS device from Windows host and you should connect your device to Mac OS X host first and then build and run any application using Xcode. Xcode will automatically install the debug server to the device and after that you can connect it to the Windows host and use &#8220;run&#8221; and &#8220;debug&#8221; buttons from Android Studio. Please note that the debug server will be removed (unmounted) from iOS after device reboot and you have to connect it to OS X host again to install the debug server.</p>
-</li>
+</ul>
+<blockquote>
+<div>This message means that OS X debug server is not installed on your iOS device. Unfortunately currently it&#8217;s not possible to install the debug server to iOS device from Windows host and you should connect your device to Mac OS X host first and then build and run any application using Xcode. Xcode will automatically install the debug server to the device and after that you can connect it to the Windows host and use &#8220;run&#8221; and &#8220;debug&#8221; buttons from Android Studio. Please note that the debug server will be removed (unmounted) from iOS after device reboot and you have to connect it to OS X host again to install the debug server.</div></blockquote>
+<ul>
 <li><p class="first">Your iOS device is not visible in Android Studio cloud build configuration (&#8220;Run on&#8221; section) and you receive the error &#8220;There are no devices connected&#8221;. Possible reason: Apple iTunes is not installed on your Windows host. Please make sure that Apple iTunes and &#8220;Apple Mobile Device Support&#8221; component are installed. You can run iTunes to check that your iOS device is visible there.</p>
 </li>
-<li><p class="first">Error message &#8220;Failed to upgrade on device, ApplicationVerificationFailed (-402620395)&#8221;. There could be two reason of this issue:</p>
+<li><p class="first">Launching application on device may fail with error message:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Failed</span> <span class="n">to</span> <span class="n">upgrade</span> <span class="n">on</span> <span class="n">device</span><span class="o">,</span> <span class="n">ApplicationVerificationFailed</span> <span class="o">(-</span><span class="mi">402620395</span><span class="o">).</span>
+</pre></div>
+</div>
+</li>
+</ul>
 <blockquote>
-<div><ul class="simple">
+<div><dl class="docutils">
+<dt>There could be two reason of this issue:</dt>
+<dd><ul class="first last simple">
 <li>You built the app with Distribution certificate. It&#8217;s not allowed to debug an app built with the distribution certificate, you should use iOS Developer certificate for debugging.</li>
 <li>Application with the same name but built with another certificate or provisioning profile has been already installed on your iOS device. Please remove this application before running new application binary from Android Studio.</li>
 </ul>
+</dd>
+</dl>
 </div></blockquote>
+<ul>
+<li><p class="first">Launching application on device may fail with error message:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Failed</span> <span class="n">to</span> <span class="n">get</span> <span class="n">installation</span> <span class="nf">proxy</span> <span class="o">(</span><span class="n">instproxy_client_start_service</span> <span class="n">returned</span> <span class="o">-</span><span class="mi">256</span><span class="o">)</span>
+</pre></div>
+</div>
 </li>
-<li><p class="first">Error message &#8220;Failed to get installation proxy (instproxy_client_start_service returned -256)&#8221; during app running on a device. It  could happen if you didn&#8217;t press &#8220;Trust This Computer&#8221; on your iOS device.</p>
+</ul>
+<blockquote>
+<div>It could happen if you didn&#8217;t press &#8220;Trust This Computer&#8221; on your iOS device.</div></blockquote>
+<ul>
+<li><p class="first">Launching application on device may fail with error message:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Application</span> <span class="n">installation</span> <span class="n">failed</span>
+</pre></div>
+</div>
 </li>
-<li><p class="first">Error message <strong>Application installation failed. Please make sure you have correct bundle id in your Info.plist file</strong>. Make sure that bundle ID in your Info.plist (usually located at &lt;project_root&gt;/&lt;ios_module&gt;/xcode/&lt;app_name&gt; folder) is the same as bundle ID in your provisioning profile. You may generate provisioning profile with bundle ID equal to &#8220;*&#8221; to test apps with different bundle ID.</p>
-</li>
+</ul>
+<blockquote>
+<div>Please make sure Bundle ID matching your Provisioning Profile. Please refer to <a class="reference internal" href="../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle.html"><em>Project customization via Gradle</em></a> to find more information about setting of the Bundle ID. You may also generate provisioning profile with bundle ID equal to &#8220;*&#8221; to test apps with different bundle ID.</div></blockquote>
+<ul>
 <li><p class="first">I don&#8217;t have Apple Developer Certificate. How to get it? Apple developer certificate is needed in order to run the code on a physical iPhone and iPad. Apple Mac machine and membership in Apple Developer Program ($99/year) are needed to generate P12 certificate and to submit your apps to the AppStore. If you either don&#8217;t have Mac machine or don&#8217;t want to pay for Apple Developer Program, there are two options:</p>
 <blockquote>
 <div><ul class="simple">

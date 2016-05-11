@@ -25,9 +25,12 @@ Mandatory options
 Xcode Project Options
 ===========================
 
-* ``deploymentTarget`` [String] - Identifies the earliest iOS version the product is to run on.
+* ``deploymentTarget`` [String] - Identifies the earliest iOS version the product is to run on. Default value is minimal iOS SDK on the system.
 
-* ``infoPlistPath`` [String] - Path to Info.plist file for main target. If this argument isn't set, default path ``src/main/Info.plist`` will be chosen. If Info.plist wasn't found, a new one will be generated.
+* ``infoPlistPath`` [String] - Path to Info.plist file for main target. If this argument isn't set, default path ``../../src/main/Info.plist`` will be chosen. If Info.plist wasn't found, a new one will be generated.
+
+.. warning::
+    infoPlistPath must be relative to the xcode project
 
 * ``applicationExitOnSuspend`` [boolean] - Specifies whether the app terminates instead of run in the background.
 

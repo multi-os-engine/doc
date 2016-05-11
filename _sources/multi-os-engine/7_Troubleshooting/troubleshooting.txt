@@ -51,11 +51,26 @@ Multi-OS Engine Installation
 Integration with Android Studio
 --------------------------------
 
-- "Exception in thread "main" java.lang.UnsatisfiedLinkError: C:/Intel/multi_os_engine/tools/windows/x86_64/natj.dll: Can't load AMD 64-bit .dll on a IA 32-bit platform" error happens if you run an app built in cloud on iOS device from 32-bit IDE on Windows. The workaround is to use 64-bit version of Android Studio or IntelliJ IDEA.
+- Running an app built in cloud on iOS device from 32-bit IDE on Windows failed with error::
 
-- Multi-OS Engine samples require setting active JDK version to 1.8 manually in Android Studio*. “Invalid source release: 1.8” error occurs if it wasn’t done. To resolve this issue, go to Android Studio* to File -> Project Structure -> SDK Location -> JDK location and specify path to JDK 1.8.
+	Exception in thread "main" java.lang.UnsatisfiedLinkError: C:/Intel/multi_os_engine/tools/windows/x86_64/natj.dll:
+	Can't load AMD 64-bit .dll on a IA 32-bit platform
 
-- Info.plist (located at /path/to/application/MOE_module_name/Xcode/project_name/) should contains valid Bundle ID. Otherwise the error will occur during launching on device: "Application installation o device failed (Incorrect bundle id in your Info.plist file)". For more information please visit: `About Bundle IDs`_
+The workaround is to use 64-bit version of Android Studio or IntelliJ IDEA.
+
+- Multi-OS Engine samples require setting active JDK version to 1.8 manually in Android Studio*. If it wasn’t done error can occur::
+
+	Invalid source release: 1.8
+
+To resolve this issue, go to Android Studio* to File -> Project Structure -> SDK Location -> JDK location and specify path to JDK 1.8.
+
+- Bundle ID should match Provisioning Profile that is used for the signing application. Otherwise the error will occur during building for device::
+
+ 	Code Sign error: No matching provisioning profiles found:
+ 	No provisioning profiles matching the bundle identifier "your_bundle_id" were found.
+
+ For more information about Bundle ID please visit: `About Bundle IDs`_.
+ Please refer to :doc:`Project customization via Gradle <../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle>` to find more information about setting of the Bundle ID.
 
 - Launch the application on the simulator is available only with the version of the simulator that corresponds version the currently installed iOS SDK. To launch application on previous versions of simulators might be possible from XCode (right click on module -> "Multi-OS Engine Actions" -> "Open Project in Xcode") or by installing according iOS SDK on the system.
 
@@ -70,7 +85,7 @@ Integration with Android Studio
 	Build started
 	Build failed with error above
 
-It means that gradle wrappers (gradlew, gradlew.bat and 'gradle' folder) are absent in your project root folder. Please copy them from any Multi-OS Engine sample.
+ It means that gradle wrappers (gradlew, gradlew.bat and 'gradle' folder) are absent in your project root folder. Please copy them from any Multi-OS Engine sample.
 
 - iOS build may fail if Apple's "world wide Developer relations certification authority" certificate is expired. Open "Keychain Access" program, select "login" keychain, select "My Certificates" category and click on your Apple certificate. If you see "This certificate has an invalid issuer" error, you should download new certificate `here`_ and install it.
 
@@ -85,24 +100,43 @@ It means that gradle wrappers (gradlew, gradlew.bat and 'gradle' folder) are abs
 Cloud build issues on Windows host
 -----------------------------------
 
-- Build error message **org.intel.xrt_builder.BuildException: Not received application url**. It means that the build in the cloud failed and you should check log file received from the cloud builder for exact build error. 	Link to the cloud build log could be found on "Intel Multi-OS Engine" build tab and also it's copied to a local drive to <project_root>/<ios_module>/build/logs/\*_FROM_CLOUD.txt. Common issues with building Xcode projects in the cloud are the following:
+- Build in cloud may fail with error::
+
+	BuildException: Not received application url
+
+ You should check log file received from the cloud builder for exact build error. Link to the cloud build log could be found on "Intel Multi-OS Engine" build tab and also it's copied to a local drive to <project_root>/<ios_module>/build/logs/\*_FROM_CLOUD.txt. Common issues with building Xcode projects in the cloud are the following:
 
 	- All source file and resources used in the Xcode project should be located within "<project_root>/<ios_module>/xcode" folder, otherwise they won't' be uploaded to the cloud builder and build will fail.
 	- All paths to source files and resources should be relative to the Xcode project folder. If your Xcode project contains an absolute path, build will fail.
 	- Avoid using backslashes in paths to source files, because Mac builders won't resolve such paths and build will fail.
 
-- Error message **Failed to get debug server (debugserver_error_t returned -256)** during app launching from Android Studio on Windows. This message means that OS X debug server is not installed on your iOS device. Unfortunately currently it's not possible to install the debug server to iOS device from Windows host and you should connect your device to Mac OS X host first and then build and run any application using Xcode. Xcode will automatically install the debug server to the device and after that you can connect it to the Windows host and use "run" and "debug" buttons from Android Studio. Please note that the debug server will be removed (unmounted) from iOS after device reboot and you have to connect it to OS X host again to install the debug server.
+- Launching application from Android Studio may fail on Windows with error message::
+
+	Failed to get debug server (debugserver_error_t returned -256)
+
+ This message means that OS X debug server is not installed on your iOS device. Unfortunately currently it's not possible to install the debug server to iOS device from Windows host and you should connect your device to Mac OS X host first and then build and run any application using Xcode. Xcode will automatically install the debug server to the device and after that you can connect it to the Windows host and use "run" and "debug" buttons from Android Studio. Please note that the debug server will be removed (unmounted) from iOS after device reboot and you have to connect it to OS X host again to install the debug server.
 
 - Your iOS device is not visible in Android Studio cloud build configuration ("Run on" section) and you receive the error "There are no devices connected". Possible reason: Apple iTunes is not installed on your Windows host. Please make sure that Apple iTunes and "Apple Mobile Device Support" component are installed. You can run iTunes to check that your iOS device is visible there.
 
-- Error message "Failed to upgrade on device, ApplicationVerificationFailed (-402620395)". There could be two reason of this issue:
+- Launching application on device may fail with error message::
 
+	Failed to upgrade on device, ApplicationVerificationFailed (-402620395).
+
+ There could be two reason of this issue:
 	- You built the app with Distribution certificate. It's not allowed to debug an app built with the distribution certificate, you should use iOS Developer certificate for debugging.
 	- Application with the same name but built with another certificate or provisioning profile has been already installed on your iOS device. Please remove this application before running new application binary from Android Studio.
 
-- Error message "Failed to get installation proxy (instproxy_client_start_service returned -256)" during app running on a device. It  could happen if you didn't press "Trust This Computer" on your iOS device.
+- Launching application on device may fail with error message::
 
-- Error message **Application installation failed. Please make sure you have correct bundle id in your Info.plist file**. Make sure that bundle ID in your Info.plist (usually located at <project_root>/<ios_module>/xcode/<app_name> folder) is the same as bundle ID in your provisioning profile. You may generate provisioning profile with bundle ID equal to "*" to test apps with different bundle ID.
+	Failed to get installation proxy (instproxy_client_start_service returned -256)
+
+ It could happen if you didn't press "Trust This Computer" on your iOS device.
+
+- Launching application on device may fail with error message::
+
+	Application installation failed
+
+ Please make sure Bundle ID matching your Provisioning Profile. Please refer to :doc:`Project customization via Gradle <../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle>` to find more information about setting of the Bundle ID. You may also generate provisioning profile with bundle ID equal to "*" to test apps with different bundle ID.
 
 - I don't have Apple Developer Certificate. How to get it? Apple developer certificate is needed in order to run the code on a physical iPhone and iPad. Apple Mac machine and membership in Apple Developer Program ($99/year) are needed to generate P12 certificate and to submit your apps to the AppStore. If you either don't have Mac machine or don't want to pay for Apple Developer Program, there are two options:
 
