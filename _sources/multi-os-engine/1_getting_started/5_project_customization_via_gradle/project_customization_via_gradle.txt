@@ -209,3 +209,8 @@ Resources from sources
             resourcesFromSourceDirExcludes [ "**/*.java", "**/*.scala" ]
         }
     }
+
+Proguard config
+---------------------
+
+Build process includes proguard step for shrinking application classes. User has possibility to add custom rules to default config used by MOE build system. For it place your rules to the file ``proguard.append.cfg`` in the root of MOE module.

@@ -356,20 +356,18 @@ Please refer to <a class="reference internal" href="../1_getting_started/5_proje
 <ul>
 <li><p class="first">Variable argument functions/methods with a va_list parameter (e.g. vprintf) are currently not handled by Nat/J, but the generator still generates a binding for them. Nat/J only handles the method(param1, ...) type variable argument functions at the moment.</p>
 </li>
-<li><p class="first">Using methods with Ptr&lt;? extends ObjCObject&gt; can lead to crash with null pointer exception if you working with pointers returned from native, not created yourself.</p>
-</li>
 <li><p class="first">If a &#8220;Division by 0&#8221; exception occurs after an incorrect NatJ initialization, start working with NatJ by creating an Obj-C class that implements a UIApplicationDelegate interface.</p>
 </li>
 <li><p class="first">Missed NatJ annotations or misprints are not checked by the build system or NatJ initializer. Manually written methods with inaccuracies in annotation can lead to exceptions in runtime and undefined behavior.</p>
 </li>
-<li><p class="first">Double pointer to primitive types as a return value from methods of binded objects is not supported.</p>
-</li>
-<li><p class="first">Objects received from native can be wrapped to ios.NSObject without the possibility of further cast in case of corresponding java binding was not loaded by java class loader previously. To avoid this situation ask class loader to handle required java bindigs before receiving it. For example in static section like:</p>
+<li><p class="first">[Limitation] Objects received from native can be wrapped to ios.NSObject without the possibility of further cast in case of corresponding java binding was not loaded by java class loader previously. To avoid this situation ask class loader to handle required java bindigs before receiving it. For example in static section like:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">static</span> <span class="o">{</span>
         <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="n">A</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
 <span class="o">}</span>
 </pre></div>
 </div>
+</li>
+<li><p class="first">NUIntPtr uses sign extend instead of zero extend when retrieving values on 32-bit platforms. This causes incorrect values to be passed when the original value would be a negative integer.</p>
 </li>
 </ul>
 </div>
