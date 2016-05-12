@@ -230,8 +230,17 @@ Can&#39;t load AMD 64-bit .dll on a IA 32-bit platform
 <blockquote>
 <div>For more information about Bundle ID please visit: <a class="reference external" href="https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8">About Bundle IDs</a>.
 Please refer to <a class="reference internal" href="../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle.html"><em>Project customization via Gradle</em></a> to find more information about setting of the Bundle ID.</div></blockquote>
+<ul>
+<li><p class="first">Launch on simulator may fail with error similar that:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nl">dyld:</span> <span class="n">app</span> <span class="n">was</span> <span class="n">built</span> <span class="k">for</span> <span class="n">iOS</span> <span class="mf">9.0</span> <span class="n">which</span> <span class="n">is</span> <span class="n">newer</span> <span class="n">than</span> <span class="k">this</span> <span class="n">simulator</span> <span class="mf">8.4</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div>It means that application was built with incorrect minimal version - 9.0, because app was launched with version 8.4 - older then minimal. To set valid minimal version is necessary to specify deploymentTarget option in build.gradle. Please refer to <a class="reference internal" href="../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle.html"><em>Project customization via Gradle</em></a> to find more information about that.</div></blockquote>
+<p>Launch the application on the simulator is available only with the version of the simulator that corresponds version the currently installed iOS SDK. To launch application on previous versions of simulators might be possible from XCode (right click on module -&gt; &#8220;Multi-OS Engine Actions&#8221; -&gt; &#8220;Open Project in Xcode&#8221;) or by installing according iOS SDK on the system.</p>
 <ul class="simple">
-<li>Launch the application on the simulator is available only with the version of the simulator that corresponds version the currently installed iOS SDK. To launch application on previous versions of simulators might be possible from XCode (right click on module -&gt; &#8220;Multi-OS Engine Actions&#8221; -&gt; &#8220;Open Project in Xcode&#8221;) or by installing according iOS SDK on the system.</li>
 <li>IPA build (&#8220;Export IPA for Application&#8221; item in Android Studio &#8220;Build&#8221; menu) may fail right after project import. The workaround is to press the &#8220;Project&#8221; tab in Android Studio on the left side, after that IPA export will be successful.</li>
 <li>IPA build (&#8220;Export IPA for Application&#8221; item in Android Studio &#8220;Build&#8221; menu) may fail after multiple builds. The workaround is to press the “Build-&gt;Clean Project” from Android Studio menu. After that IPA export will be successful.</li>
 </ul>

@@ -72,7 +72,13 @@ To resolve this issue, go to Android Studio* to File -> Project Structure -> SDK
  For more information about Bundle ID please visit: `About Bundle IDs`_.
  Please refer to :doc:`Project customization via Gradle <../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle>` to find more information about setting of the Bundle ID.
 
-- Launch the application on the simulator is available only with the version of the simulator that corresponds version the currently installed iOS SDK. To launch application on previous versions of simulators might be possible from XCode (right click on module -> "Multi-OS Engine Actions" -> "Open Project in Xcode") or by installing according iOS SDK on the system.
+- Launch on simulator may fail with error similar that::
+
+	dyld: app was built for iOS 9.0 which is newer than this simulator 8.4
+
+ It means that application was built with incorrect minimal version - 9.0, because app was launched with version 8.4 - older then minimal. To set valid minimal version is necessary to specify deploymentTarget option in build.gradle. Please refer to :doc:`Project customization via Gradle <../1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle>` to find more information about that.
+
+Launch the application on the simulator is available only with the version of the simulator that corresponds version the currently installed iOS SDK. To launch application on previous versions of simulators might be possible from XCode (right click on module -> "Multi-OS Engine Actions" -> "Open Project in Xcode") or by installing according iOS SDK on the system.
 
 - IPA build ("Export IPA for Application" item in Android Studio "Build" menu) may fail right after project import. The workaround is to press the "Project" tab in Android Studio on the left side, after that IPA export will be successful.
 
