@@ -1,0 +1,140 @@
+.. java:import:: com.intel.moe.natj.c OpaquePtr
+
+.. java:import:: com.intel.moe.natj.general NativeObject
+
+.. java:import:: com.intel.moe.natj.general Pointer
+
+.. java:import:: com.intel.moe.natj.general.ptr Ptr
+
+.. java:import:: java.lang.reflect Array
+
+AbstractTypedPtr
+================
+
+.. java:package:: com.intel.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: abstract class AbstractTypedPtr<T, E> extends VoidPtrImpl implements Ptr<E>
+
+Fields
+------
+type
+^^^^
+
+.. java:field:: protected final Class<T> type
+   :outertype: AbstractTypedPtr
+
+   The concrete referenced type.
+
+Constructors
+------------
+AbstractTypedPtr
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractTypedPtr(Class<T> type, Pointer peer)
+   :outertype: AbstractTypedPtr
+
+AbstractTypedPtr
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractTypedPtr(Class<T> type, long peer, boolean owned)
+   :outertype: AbstractTypedPtr
+
+AbstractTypedPtr
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractTypedPtr(Class<T> type, long peer, Object bufferOwner)
+   :outertype: AbstractTypedPtr
+
+Methods
+-------
+checkType
+^^^^^^^^^
+
+.. java:method:: protected static final void checkType(Class<?> type)
+   :outertype: AbstractTypedPtr
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(E[] src)
+   :outertype: AbstractTypedPtr
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(E[] src, int destOffset)
+   :outertype: AbstractTypedPtr
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(E[] src, int destOffset, int length)
+   :outertype: AbstractTypedPtr
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(E[] src, int srcOffset, int destOffset, int length)
+   :outertype: AbstractTypedPtr
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(E[] dest)
+   :outertype: AbstractTypedPtr
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(E[] dest, int length)
+   :outertype: AbstractTypedPtr
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, E[] dest, int destOffset, int length)
+   :outertype: AbstractTypedPtr
+
+get
+^^^
+
+.. java:method:: @Override public final E get()
+   :outertype: AbstractTypedPtr
+
+getGuardHigh
+^^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardHigh()
+   :outertype: AbstractTypedPtr
+
+getGuardLow
+^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardLow()
+   :outertype: AbstractTypedPtr
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public final Ptr<E> getGuarded(int length)
+   :outertype: AbstractTypedPtr
+
+set
+^^^
+
+.. java:method:: @Override public void set(E obj)
+   :outertype: AbstractTypedPtr
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public final E[] toArray(int length)
+   :outertype: AbstractTypedPtr
+
+toArray
+^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public final E[] toArray(int fromIndex, int toIndex)
+   :outertype: AbstractTypedPtr
+

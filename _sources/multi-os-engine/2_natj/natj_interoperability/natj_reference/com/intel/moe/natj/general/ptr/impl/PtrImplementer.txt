@@ -1,0 +1,42 @@
+.. java:import:: com.intel.moe.natj.c StructObject
+
+.. java:import:: com.intel.moe.natj.general.ann ReferenceInfo
+
+.. java:import:: com.intel.moe.natj.objc ObjCObject
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util Map
+
+PtrImplementer
+==============
+
+.. java:package:: com.intel.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: public class PtrImplementer
+
+Fields
+------
+pimitivePtrTypeMap
+^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final Map<Class<?>, Class<?>> pimitivePtrTypeMap
+   :outertype: PtrImplementer
+
+Methods
+-------
+getImplementer
+^^^^^^^^^^^^^^
+
+.. java:method:: public static final Class<?> getImplementer(ReferenceInfo info, boolean isConst)
+   :outertype: PtrImplementer
+
+   Returns implementation for the given reference kind.
+
+   :param info: Reference info
+   :param isConst: Is Constant pointer
+   :return: Class of pointer implementation
+

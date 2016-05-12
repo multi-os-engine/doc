@@ -1,0 +1,12 @@
+.. java:import:: com.intel.moe.natj.general.ptr ConstVoidPtr
+
+OpaquePtr
+=========
+
+.. java:package:: com.intel.moe.natj.c
+   :noindex:
+
+.. java:type:: public interface OpaquePtr extends ConstVoidPtr
+
+   Reference of opaque type.
+

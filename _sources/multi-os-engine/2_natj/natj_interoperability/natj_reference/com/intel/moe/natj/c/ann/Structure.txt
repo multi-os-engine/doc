@@ -1,0 +1,12 @@
+Structure
+=========
+
+.. java:package:: com.intel.moe.natj.c.ann
+   :noindex:
+
+.. java:type:: @Inherited @Retention @Target public @interface Structure
+
+   Annotation for C structures.
+
+   Marking a class with this annotation will tell NatJ to handle the class as a C structure. The field alignment specifies the required alignment of the represented C structure, 0 means aligning is not required.
+

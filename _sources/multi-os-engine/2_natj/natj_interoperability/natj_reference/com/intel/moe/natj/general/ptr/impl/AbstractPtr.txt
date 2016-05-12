@@ -1,0 +1,64 @@
+.. java:import:: com.intel.moe.natj.c CRuntime
+
+.. java:import:: com.intel.moe.natj.general Pointer
+
+AbstractPtr
+===========
+
+.. java:package:: com.intel.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: abstract class AbstractPtr
+
+Fields
+------
+bufferOwner
+^^^^^^^^^^^
+
+.. java:field:: protected final Object bufferOwner
+   :outertype: AbstractPtr
+
+   Owner of the buffer.
+
+Constructors
+------------
+AbstractPtr
+^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractPtr(Pointer peer)
+   :outertype: AbstractPtr
+
+AbstractPtr
+^^^^^^^^^^^
+
+.. java:constructor:: protected AbstractPtr(long peer, boolean owned, Object bufferOwner)
+   :outertype: AbstractPtr
+
+Methods
+-------
+getPeer
+^^^^^^^
+
+.. java:method:: public Pointer getPeer()
+   :outertype: AbstractPtr
+
+getRoot
+^^^^^^^
+
+.. java:method:: protected final long getRoot()
+   :outertype: AbstractPtr
+
+   Returns the raw pointer associated with this pointer.
+
+   :return: the raw pointer associated with this pointer
+
+releasePointer
+^^^^^^^^^^^^^^
+
+.. java:method:: protected final void releasePointer(boolean force)
+   :outertype: AbstractPtr
+
+   Tries to release the memory space associated with this pointer.
+
+   :param force: \ ``true``\  to force the freeing
+

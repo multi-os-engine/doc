@@ -1,0 +1,26 @@
+.. java:import:: com.intel.moe.natj.general.ptr Ptr
+
+PtrUtils
+========
+
+.. java:package:: com.intel.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: public class PtrUtils
+
+   Utility for pointer objects.
+
+Methods
+-------
+getElemRef
+^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public static <T> T getElemRef(Ptr<T> ptr, int idx)
+   :outertype: PtrUtils
+
+   Returns the element's reference instead of a copy.
+
+   :param ptr: pointer
+   :param idx: index
+   :return: Element's reference
+

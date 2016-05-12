@@ -39,7 +39,7 @@ Let's say this is our ``viewDidLoad`` method::
 		super.viewDidLoad();
 
 		tableView().registerClassForCellReuseIdentifier(
-				new com.intel.inde.moe.natj.objc.Class("UITableViewCell"),
+				new com.intel.moe.natj.objc.Class("UITableViewCell"),
 				MyDataSource.CELL_IDENTIFIER);
 
 		MyDataSource source = MyDataSource.alloc().init();

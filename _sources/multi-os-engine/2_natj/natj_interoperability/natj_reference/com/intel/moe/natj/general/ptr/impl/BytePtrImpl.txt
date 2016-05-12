@@ -1,0 +1,272 @@
+.. java:import:: com.intel.moe.natj.c CRuntime
+
+.. java:import:: com.intel.moe.natj.general Pointer
+
+.. java:import:: com.intel.moe.natj.general.ptr BytePtr
+
+.. java:import:: com.intel.moe.natj.general.ptr IGuardedPtr
+
+.. java:import:: java.io UnsupportedEncodingException
+
+.. java:import:: java.nio.charset Charset
+
+BytePtrImpl
+===========
+
+.. java:package:: com.intel.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type::  class BytePtrImpl extends VoidPtrImpl implements BytePtr
+
+Fields
+------
+ELEM_SIZE
+^^^^^^^^^
+
+.. java:field:: protected static final int ELEM_SIZE
+   :outertype: BytePtrImpl
+
+Constructors
+------------
+BytePtrImpl
+^^^^^^^^^^^
+
+.. java:constructor:: protected BytePtrImpl(Pointer peer)
+   :outertype: BytePtrImpl
+
+BytePtrImpl
+^^^^^^^^^^^
+
+.. java:constructor:: protected BytePtrImpl(long peer, Object bufferOwner)
+   :outertype: BytePtrImpl
+
+BytePtrImpl
+^^^^^^^^^^^
+
+.. java:constructor::  BytePtrImpl(int capacity, boolean owned)
+   :outertype: BytePtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Byte[] src)
+   :outertype: BytePtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Byte[] src, int destOffset)
+   :outertype: BytePtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Byte[] src, int destOffset, int length)
+   :outertype: BytePtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Byte[] src, int srcOffset, int destOffset, int length)
+   :outertype: BytePtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(byte[] src)
+   :outertype: BytePtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(byte[] src, int destOffset)
+   :outertype: BytePtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(byte[] src, int destOffset, int length)
+   :outertype: BytePtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(byte[] src, int srcOffset, int destOffset, int length)
+   :outertype: BytePtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Byte[] dest)
+   :outertype: BytePtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(Byte[] dest, int length)
+   :outertype: BytePtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, Byte[] dest, int destOffset, int length)
+   :outertype: BytePtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(byte[] dest)
+   :outertype: BytePtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public final void copyTo(byte[] dest, int length)
+   :outertype: BytePtrImpl
+
+copyTo
+^^^^^^
+
+.. java:method:: @Override public void copyTo(int srcOffset, byte[] dest, int destOffset, int length)
+   :outertype: BytePtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Byte get()
+   :outertype: BytePtrImpl
+
+get
+^^^
+
+.. java:method:: @Override public final Byte get(int idx)
+   :outertype: BytePtrImpl
+
+getGuardHigh
+^^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardHigh()
+   :outertype: BytePtrImpl
+
+getGuardLow
+^^^^^^^^^^^
+
+.. java:method:: @Override public int getGuardLow()
+   :outertype: BytePtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public final BytePtr getGuarded(int length)
+   :outertype: BytePtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public BytePtr getGuarded(int fromIndex, int toIndex)
+   :outertype: BytePtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public final byte getValue()
+   :outertype: BytePtrImpl
+
+getValue
+^^^^^^^^
+
+.. java:method:: @Override public byte getValue(int idx)
+   :outertype: BytePtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: BytePtrImpl
+
+isGuarded
+^^^^^^^^^
+
+.. java:method:: @Override public boolean isGuarded()
+   :outertype: BytePtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public BytePtr ofs(int elemOffset)
+   :outertype: BytePtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Byte obj)
+   :outertype: BytePtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Byte obj)
+   :outertype: BytePtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(byte value)
+   :outertype: BytePtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public void setValue(int idx, byte value)
+   :outertype: BytePtrImpl
+
+toASCIIString
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public String toASCIIString()
+   :outertype: BytePtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public final Byte[] toArray(int length)
+   :outertype: BytePtrImpl
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public Byte[] toArray(int fromIndex, int toIndex)
+   :outertype: BytePtrImpl
+
+toByteArray
+^^^^^^^^^^^
+
+.. java:method:: @Override public final byte[] toByteArray(int length)
+   :outertype: BytePtrImpl
+
+toByteArray
+^^^^^^^^^^^
+
+.. java:method:: @Override public byte[] toByteArray(int fromIndex, int toIndex)
+   :outertype: BytePtrImpl
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString(int length)
+   :outertype: BytePtrImpl
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString(int length, String charset) throws UnsupportedEncodingException
+   :outertype: BytePtrImpl
+
+toUTF8String
+^^^^^^^^^^^^
+
+.. java:method:: @Override public String toUTF8String()
+   :outertype: BytePtrImpl
+

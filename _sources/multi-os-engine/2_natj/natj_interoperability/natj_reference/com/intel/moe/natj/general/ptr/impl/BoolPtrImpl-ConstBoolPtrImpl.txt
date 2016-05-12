@@ -1,0 +1,129 @@
+.. java:import:: com.intel.moe.natj.c CRuntime
+
+.. java:import:: com.intel.moe.natj.general Pointer
+
+.. java:import:: com.intel.moe.natj.general.ptr BoolPtr
+
+.. java:import:: com.intel.moe.natj.general.ptr IGuardedPtr
+
+BoolPtrImpl.ConstBoolPtrImpl
+============================
+
+.. java:package:: com.intel.moe.natj.general.ptr.impl
+   :noindex:
+
+.. java:type:: static class ConstBoolPtrImpl extends BoolPtrImpl
+   :outertype: BoolPtrImpl
+
+Constructors
+------------
+ConstBoolPtrImpl
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstBoolPtrImpl(Pointer peer)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+ConstBoolPtrImpl
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConstBoolPtrImpl(long peer, Object bufferOwner)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+ConstBoolPtrImpl
+^^^^^^^^^^^^^^^^
+
+.. java:constructor::  ConstBoolPtrImpl(int capacity, boolean owned)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+Methods
+-------
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Boolean[] src)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Boolean[] src, int destOffset)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(Boolean[] src, int destOffset, int length)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(Boolean[] src, int srcOffset, int destOffset, int length)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(boolean[] src)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(boolean[] src, int destOffset)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public void copyFrom(boolean[] src, int destOffset, int length)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+copyFrom
+^^^^^^^^
+
+.. java:method:: @Override public final void copyFrom(boolean[] src, int srcOffset, int destOffset, int length)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+getGuarded
+^^^^^^^^^^
+
+.. java:method:: @Override public BoolPtr getGuarded(int fromIndex, int toIndex)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+isConstPtr
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean isConstPtr()
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+ofs
+^^^
+
+.. java:method:: @Override public final BoolPtr ofs(int elemOffset)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(Boolean obj)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+set
+^^^
+
+.. java:method:: @Override public void set(int idx, Boolean obj)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(boolean value)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+
+setValue
+^^^^^^^^
+
+.. java:method:: @Override public final void setValue(int idx, boolean value)
+   :outertype: BoolPtrImpl.ConstBoolPtrImpl
+

@@ -1,0 +1,11 @@
+.. java:import:: com.intel.moe.natj.c StructObject
+
+VariadicArg.BoxVariadicArg
+==========================
+
+.. java:package:: com.intel.moe.natj.general
+   :noindex:
+
+.. java:type:: public static final class BoxVariadicArg extends VariadicArg
+   :outertype: VariadicArg
+

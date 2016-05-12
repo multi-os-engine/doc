@@ -1,0 +1,1069 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Type &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../../../../../../../../../index.html"/>
+        <link rel="up" title="com.intel.moe.natj.org.objectweb.asm" href="package-index.html"/>
+        <link rel="next" title="Nat/J Binding Generator" href="../../../../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator.html"/>
+        <link rel="prev" title="com.intel.moe.natj.org.objectweb.asm" href="package-index.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../../../../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../../../../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../../1_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../../../../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../../../NatJ_How_to.html">Nat/J: How-to</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../../../NatJ_CornerCases.html">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../../../../packages.html">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../../../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../../3_iOS_app_development/iOS_app_development.html">iOS apps development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../../6_moe_architecture/MOE_Architecture.html">Multi-OS Engine Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../../../7_Troubleshooting/troubleshooting.html">Known issues and troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../../../../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../packages.html">Nat/J: Reference</a> &raquo;</li>
+      
+          <li><a href="package-index.html">com.intel.moe.natj.org.objectweb.asm</a> &raquo;</li>
+      
+    <li>Type</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="type">
+<h1>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type">
+public class <code class="descname">Type</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Java field or method type. This class can be used to make it easier to manipulate type and method descriptors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Eric Bruneton, Chris Nokleberg</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="array">
+<h3>ARRAY<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.ARRAY">
+public static final int <code class="descname">ARRAY</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.ARRAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of array reference types. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="boolean">
+<h3>BOOLEAN<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.BOOLEAN">
+public static final int <code class="descname">BOOLEAN</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.BOOLEAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">boolean</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="boolean-type">
+<h3>BOOLEAN_TYPE<a class="headerlink" href="#boolean-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.BOOLEAN_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">BOOLEAN_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.BOOLEAN_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">boolean</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="byte">
+<h3>BYTE<a class="headerlink" href="#byte" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.BYTE">
+public static final int <code class="descname">BYTE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.BYTE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">byte</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="byte-type">
+<h3>BYTE_TYPE<a class="headerlink" href="#byte-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.BYTE_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">BYTE_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.BYTE_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">byte</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="char">
+<h3>CHAR<a class="headerlink" href="#char" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.CHAR">
+public static final int <code class="descname">CHAR</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.CHAR" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">char</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="char-type">
+<h3>CHAR_TYPE<a class="headerlink" href="#char-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.CHAR_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">CHAR_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.CHAR_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">char</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="double">
+<h3>DOUBLE<a class="headerlink" href="#double" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.DOUBLE">
+public static final int <code class="descname">DOUBLE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.DOUBLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">double</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="double-type">
+<h3>DOUBLE_TYPE<a class="headerlink" href="#double-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.DOUBLE_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">DOUBLE_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.DOUBLE_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">double</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="float">
+<h3>FLOAT<a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.FLOAT">
+public static final int <code class="descname">FLOAT</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.FLOAT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">float</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="float-type">
+<h3>FLOAT_TYPE<a class="headerlink" href="#float-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.FLOAT_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">FLOAT_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.FLOAT_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">float</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="int">
+<h3>INT<a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.INT">
+public static final int <code class="descname">INT</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.INT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">int</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="int-type">
+<h3>INT_TYPE<a class="headerlink" href="#int-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.INT_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">INT_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.INT_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">int</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="long">
+<h3>LONG<a class="headerlink" href="#long" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.LONG">
+public static final int <code class="descname">LONG</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.LONG" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">long</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="long-type">
+<h3>LONG_TYPE<a class="headerlink" href="#long-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.LONG_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">LONG_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.LONG_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">long</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="method">
+<h3>METHOD<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.METHOD">
+public static final int <code class="descname">METHOD</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.METHOD" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of method types. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="object">
+<h3>OBJECT<a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.OBJECT">
+public static final int <code class="descname">OBJECT</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.OBJECT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of object reference types. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="short">
+<h3>SHORT<a class="headerlink" href="#short" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.SHORT">
+public static final int <code class="descname">SHORT</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.SHORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">short</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="short-type">
+<h3>SHORT_TYPE<a class="headerlink" href="#short-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.SHORT_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">SHORT_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.SHORT_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">short</span></code> type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="void">
+<h3>VOID<a class="headerlink" href="#void" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.VOID">
+public static final int <code class="descname">VOID</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.VOID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sort of the <code class="docutils literal"><span class="pre">void</span></code> type. See <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="com.intel.moe.natj.org.objectweb.asm.Type.getSort()"><code class="xref java java-ref docutils literal"><span class="pre">getSort</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="void-type">
+<h3>VOID_TYPE<a class="headerlink" href="#void-type" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.VOID_TYPE">
+public static final <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">VOID_TYPE</code><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.VOID_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal"><span class="pre">void</span></code> type.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="equals">
+<h3>equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.equals(Object)">
+public boolean <code class="descname">equals</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.equals(Object)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if the given object is equal to this type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>o</strong> &#8211; the object to be compared to this type.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">true</span></code> if the given object is equal to this type.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getargumenttypes">
+<h3>getArgumentTypes<a class="headerlink" href="#getargumenttypes" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getArgumentTypes(String)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a>[] <code class="descname">getArgumentTypes</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> methodDescriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getArgumentTypes(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java types corresponding to the argument types of the given method descriptor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>methodDescriptor</strong> &#8211; a method descriptor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java types corresponding to the argument types of the given method descriptor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>getArgumentTypes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getArgumentTypes(Method)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a>[] <code class="descname">getArgumentTypes</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method">Method</a><em> method</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getArgumentTypes(Method)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java types corresponding to the argument types of the given method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> &#8211; a method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java types corresponding to the argument types of the given method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>getArgumentTypes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getArgumentTypes()">
+public <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a>[] <code class="descname">getArgumentTypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getArgumentTypes()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the argument types of methods of this type. This method should only be used for method types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the argument types of methods of this type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getargumentsandreturnsizes">
+<h3>getArgumentsAndReturnSizes<a class="headerlink" href="#getargumentsandreturnsizes" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getArgumentsAndReturnSizes(String)">
+public static int <code class="descname">getArgumentsAndReturnSizes</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> desc</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getArgumentsAndReturnSizes(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the size of the arguments and of the return value of a method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>desc</strong> &#8211; the descriptor of a method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the size of the arguments of the method (plus one for the implicit this argument), argSize, and the size of its return value, retSize, packed into a single int i = <code class="docutils literal"><span class="pre">(argSize</span> <span class="pre">&lt;&lt;</span> <span class="pre">2)</span> <span class="pre">|</span> <span class="pre">retSize</span></code> (argSize is therefore equal to <code class="docutils literal"><span class="pre">i</span> <span class="pre">&gt;&gt;</span> <span class="pre">2</span></code>, and retSize to <code class="docutils literal"><span class="pre">i</span> <span class="pre">&amp;</span> <span class="pre">0x03</span></code>).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>getArgumentsAndReturnSizes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getArgumentsAndReturnSizes()">
+public int <code class="descname">getArgumentsAndReturnSizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getArgumentsAndReturnSizes()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the size of the arguments and of the return value of methods of this type. This method should only be used for method types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the size of the arguments (plus one for the implicit this argument), argSize, and the size of the return value, retSize, packed into a single int i = <code class="docutils literal"><span class="pre">(argSize</span> <span class="pre">&lt;&lt;</span> <span class="pre">2)</span> <span class="pre">|</span> <span class="pre">retSize</span></code> (argSize is therefore equal to <code class="docutils literal"><span class="pre">i</span> <span class="pre">&gt;&gt;</span> <span class="pre">2</span></code>, and retSize to <code class="docutils literal"><span class="pre">i</span> <span class="pre">&amp;</span> <span class="pre">0x03</span></code>).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getclassname">
+<h3>getClassName<a class="headerlink" href="#getclassname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getClassName()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getClassName()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the binary name of the class corresponding to this type. This method must not be used on method types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the binary name of the class corresponding to this type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getconstructordescriptor">
+<h3>getConstructorDescriptor<a class="headerlink" href="#getconstructordescriptor" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getConstructorDescriptor(Constructor)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getConstructorDescriptor</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Constructor.html" title="java.lang.reflect.Constructor">Constructor</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getConstructorDescriptor(Constructor)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the descriptor corresponding to the given constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>c</strong> &#8211; a <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Constructor.html" title="java.lang.reflect.Constructor"><code class="xref java java-ref docutils literal"><span class="pre">Constructor</span></code></a> object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the descriptor of the given constructor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdescriptor">
+<h3>getDescriptor<a class="headerlink" href="#getdescriptor" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getDescriptor()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getDescriptor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getDescriptor()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the descriptor corresponding to this Java type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the descriptor corresponding to this Java type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>getDescriptor<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getDescriptor(Class)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getDescriptor</code><span class="sig-paren">(</span><a class="reference internal" href="../../../objc/Class.html#com.intel.moe.natj.objc.Class" title="com.intel.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getDescriptor(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the descriptor corresponding to the given Java type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>c</strong> &#8211; an object class, a primitive class or an array class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the descriptor corresponding to the given class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdimensions">
+<h3>getDimensions<a class="headerlink" href="#getdimensions" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getDimensions()">
+public int <code class="descname">getDimensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getDimensions()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of dimensions of this array type. This method should only be used for an array type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of dimensions of this array type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getelementtype">
+<h3>getElementType<a class="headerlink" href="#getelementtype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getElementType()">
+public <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getElementType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getElementType()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the type of the elements of this array type. This method should only be used for an array type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns the type of the elements of this array type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getinternalname">
+<h3>getInternalName<a class="headerlink" href="#getinternalname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getInternalName()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getInternalName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getInternalName()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the internal name of the class corresponding to this object or array type. The internal name of a class is its fully qualified name (as returned by Class.getName(), where &#8216;.&#8217; are replaced by &#8216;/&#8217;. This method should only be used for an object or array type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the internal name of the class corresponding to this object type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>getInternalName<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getInternalName(Class)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getInternalName</code><span class="sig-paren">(</span><a class="reference internal" href="../../../objc/Class.html#com.intel.moe.natj.objc.Class" title="com.intel.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getInternalName(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the internal name of the given class. The internal name of a class is its fully qualified name, as returned by Class.getName(), where &#8216;.&#8217; are replaced by &#8216;/&#8217;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>c</strong> &#8211; an object or array class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the internal name of the given class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmethoddescriptor">
+<h3>getMethodDescriptor<a class="headerlink" href="#getmethoddescriptor" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getMethodDescriptor(Type, Type)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getMethodDescriptor</code><span class="sig-paren">(</span><a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a><em> returnType</em>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a>...<em> argumentTypes</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getMethodDescriptor(Type, Type)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the descriptor corresponding to the given argument and return types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>returnType</strong> &#8211; the return type of the method.</li>
+<li><strong>argumentTypes</strong> &#8211; the argument types of the method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the descriptor corresponding to the given argument and return types.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h3>getMethodDescriptor<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getMethodDescriptor(Method)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getMethodDescriptor</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method">Method</a><em> m</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getMethodDescriptor(Method)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the descriptor corresponding to the given method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>m</strong> &#8211; a <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method"><code class="xref java java-ref docutils literal"><span class="pre">Method</span></code></a> object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the descriptor of the given method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmethodtype">
+<h3>getMethodType<a class="headerlink" href="#getmethodtype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getMethodType(String)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getMethodType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> methodDescriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getMethodType(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java type corresponding to the given method descriptor. Equivalent to <code class="docutils literal"><span class="pre">Type.getType(methodDescriptor)</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>methodDescriptor</strong> &#8211; a method descriptor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java type corresponding to the given method descriptor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id7">
+<h3>getMethodType<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getMethodType(Type, Type)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getMethodType</code><span class="sig-paren">(</span><a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a><em> returnType</em>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a>...<em> argumentTypes</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getMethodType(Type, Type)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java method type corresponding to the given argument and return types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>returnType</strong> &#8211; the return type of the method.</li>
+<li><strong>argumentTypes</strong> &#8211; the argument types of the method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java type corresponding to the given argument and return types.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getobjecttype">
+<h3>getObjectType<a class="headerlink" href="#getobjecttype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getObjectType(String)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getObjectType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> internalName</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getObjectType(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java type corresponding to the given internal name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>internalName</strong> &#8211; an internal name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java type corresponding to the given internal name.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getreturntype">
+<h3>getReturnType<a class="headerlink" href="#getreturntype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getReturnType(String)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getReturnType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> methodDescriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getReturnType(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java type corresponding to the return type of the given method descriptor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>methodDescriptor</strong> &#8211; a method descriptor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java type corresponding to the return type of the given method descriptor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id8">
+<h3>getReturnType<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getReturnType(Method)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getReturnType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method">Method</a><em> method</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getReturnType(Method)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java type corresponding to the return type of the given method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>method</strong> &#8211; a method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java type corresponding to the return type of the given method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id9">
+<h3>getReturnType<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getReturnType()">
+public <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getReturnType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getReturnType()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the return type of methods of this type. This method should only be used for method types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the return type of methods of this type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getsize">
+<h3>getSize<a class="headerlink" href="#getsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getSize()">
+public int <code class="descname">getSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSize()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the size of values of this type. This method must not be used for method types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the size of values of this type, i.e., 2 for <code class="docutils literal"><span class="pre">long</span></code> and <code class="docutils literal"><span class="pre">double</span></code>, 0 for <code class="docutils literal"><span class="pre">void</span></code> and 1 otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getsort">
+<h3>getSort<a class="headerlink" href="#getsort" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getSort()">
+public int <code class="descname">getSort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getSort()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the sort of this Java type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.VOID" title="com.intel.moe.natj.org.objectweb.asm.Type.VOID"><code class="xref java java-ref docutils literal"><span class="pre">VOID</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.BOOLEAN" title="com.intel.moe.natj.org.objectweb.asm.Type.BOOLEAN"><code class="xref java java-ref docutils literal"><span class="pre">BOOLEAN</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.CHAR" title="com.intel.moe.natj.org.objectweb.asm.Type.CHAR"><code class="xref java java-ref docutils literal"><span class="pre">CHAR</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.BYTE" title="com.intel.moe.natj.org.objectweb.asm.Type.BYTE"><code class="xref java java-ref docutils literal"><span class="pre">BYTE</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.SHORT" title="com.intel.moe.natj.org.objectweb.asm.Type.SHORT"><code class="xref java java-ref docutils literal"><span class="pre">SHORT</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.INT" title="com.intel.moe.natj.org.objectweb.asm.Type.INT"><code class="xref java java-ref docutils literal"><span class="pre">INT</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.FLOAT" title="com.intel.moe.natj.org.objectweb.asm.Type.FLOAT"><code class="xref java java-ref docutils literal"><span class="pre">FLOAT</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.LONG" title="com.intel.moe.natj.org.objectweb.asm.Type.LONG"><code class="xref java java-ref docutils literal"><span class="pre">LONG</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.DOUBLE" title="com.intel.moe.natj.org.objectweb.asm.Type.DOUBLE"><code class="xref java java-ref docutils literal"><span class="pre">DOUBLE</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.ARRAY" title="com.intel.moe.natj.org.objectweb.asm.Type.ARRAY"><code class="xref java java-ref docutils literal"><span class="pre">ARRAY</span></code></a>, <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.OBJECT" title="com.intel.moe.natj.org.objectweb.asm.Type.OBJECT"><code class="xref java java-ref docutils literal"><span class="pre">OBJECT</span></code></a> or <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type.METHOD" title="com.intel.moe.natj.org.objectweb.asm.Type.METHOD"><code class="xref java java-ref docutils literal"><span class="pre">METHOD</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="gettype">
+<h3>getType<a class="headerlink" href="#gettype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getType(String)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> typeDescriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getType(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java type corresponding to the given type descriptor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>typeDescriptor</strong> &#8211; a field or method type descriptor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java type corresponding to the given type descriptor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id10">
+<h3>getType<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getType(Class)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getType</code><span class="sig-paren">(</span><a class="reference internal" href="../../../objc/Class.html#com.intel.moe.natj.objc.Class" title="com.intel.moe.natj.objc.Class">Class</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getType(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java type corresponding to the given class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>c</strong> &#8211; a class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java type corresponding to the given class.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id11">
+<h3>getType<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getType(Constructor)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Constructor.html" title="java.lang.reflect.Constructor">Constructor</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getType(Constructor)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java method type corresponding to the given constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>c</strong> &#8211; a <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Constructor.html" title="java.lang.reflect.Constructor"><code class="xref java java-ref docutils literal"><span class="pre">Constructor</span></code></a> object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java method type corresponding to the given constructor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id12">
+<h3>getType<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.getType(Method)">
+public static <a class="reference internal" href="#com.intel.moe.natj.org.objectweb.asm.Type" title="com.intel.moe.natj.org.objectweb.asm.Type">Type</a> <code class="descname">getType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method">Method</a><em> m</em><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.getType(Method)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Java method type corresponding to the given method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>m</strong> &#8211; a <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/reflect/Method.html" title="java.lang.reflect.Method"><code class="xref java java-ref docutils literal"><span class="pre">Method</span></code></a> object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the Java method type corresponding to the given method.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="hashcode">
+<h3>hashCode<a class="headerlink" href="#hashcode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.hashCode()">
+public int <code class="descname">hashCode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.hashCode()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a hash code value for this type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a hash code value for this type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.intel.moe.natj.org.objectweb.asm.Type.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.intel.moe.natj.org.objectweb.asm.Type.toString()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string representation of this type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the descriptor of this type.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator.html" class="btn btn-neutral float-right" title="Nat/J Binding Generator" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="package-index.html" class="btn btn-neutral" title="com.intel.moe.natj.org.objectweb.asm" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../../../../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
