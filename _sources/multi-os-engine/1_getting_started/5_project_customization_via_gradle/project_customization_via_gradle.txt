@@ -137,9 +137,7 @@ There are 2 ways to add splash for MOE appliction:
 
 1.    **Using launchimage catalog in xcassets**
 
-It is necessary to prepare folder structure ``<xcassetName>.xcassets/<launchImagesSourceName>.launchimage`` with icons and json file in `XCode format`_
-
-.. _XCode format: https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/LaunchImageType.html
+It is necessary to prepare folder structure ``<xcassetName>.xcassets/<launchImagesSourceName>.launchimage`` with icons and json file in `XCode format <https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/LaunchImageType.html>`_
 
 .. warning::
     <xcassetName>.xcassets folder must be at the root of resource directory
@@ -171,9 +169,7 @@ It is necessary to specify absolute path or path relative to the MOE module to .
 App icons
 ---------------------
 
-To add app icons for MOE appliction is necessary to prepare folder structure ``<xcassetName>.xcassets/<appIconsSourceName>.appiconset`` with icons and json file in `XCode format`_
-
-.. _XCode format: https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/AppIconType.html#//apple_ref/doc/uid/TP40015170-CH22-SW1
+To add app icons for MOE appliction is necessary to prepare folder structure ``<xcassetName>.xcassets/<appIconsSourceName>.appiconset`` with icons and json file in `XCode format <https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/AppIconType.html#//apple_ref/doc/uid/TP40015170-CH22-SW1>`_
 
 .. warning::
     <xcassetName>.xcassets folder must be at the root of resource directory
