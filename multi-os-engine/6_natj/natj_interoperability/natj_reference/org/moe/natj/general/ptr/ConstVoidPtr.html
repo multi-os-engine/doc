@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ConstVoidPtr &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../../../../../../../index.html"/>
+        <link rel="up" title="org.moe.natj.general.ptr" href="package-index.html"/>
+        <link rel="next" title="ConstWCharTPtr" href="ConstWCharTPtr.html"/>
+        <link rel="prev" title="ConstShortPtr" href="ConstShortPtr.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../NatJ_How_to.html">Using the NatJ Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../NatJ_CornerCases.html">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../../packages.html">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+          <li><a href="../../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a> &raquo;</li>
+      
+          <li><a href="../../../../../packages.html">Nat/J: Reference</a> &raquo;</li>
+      
+          <li><a href="package-index.html">org.moe.natj.general.ptr</a> &raquo;</li>
+      
+    <li>ConstVoidPtr</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="constvoidptr">
+<h1>ConstVoidPtr<a class="headerlink" href="#constvoidptr" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr">
+public interface <code class="descname">ConstVoidPtr</code><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constant Void pointer interface.</p>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="forcefree">
+<h3>forceFree<a class="headerlink" href="#forcefree" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.forceFree()">
+public void <code class="descname">forceFree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.forceFree()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frees the memory space pointed to by this pointer without doing any security checks on the pointer&#8217;s state and ownership. Calling this method on a pointer which was already freed will result in an <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/UnsupportedOperationException.html" title="java.lang.UnsupportedOperationException"><code class="xref java java-ref docutils literal"><span class="pre">UnsupportedOperationException</span></code></a> exception. Freeing a pointer which is not owned by the caller will result in undefined behavior!</p>
+</dd></dl>
+
+</div>
+<div class="section" id="free">
+<h3>free<a class="headerlink" href="#free" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.free()">
+public void <code class="descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.free()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frees the memory space pointed to by this pointer. Calling this method on a pointer which was already freed or the owner is a different object will result in an <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/UnsupportedOperationException.html" title="java.lang.UnsupportedOperationException"><code class="xref java java-ref docutils literal"><span class="pre">UnsupportedOperationException</span></code></a> exception. Freeing a pointer which is not owned by the caller will result in undefined behavior! This method is only necessary when working with weak - not owned - pointers.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="getboolptr">
+<h3>getBoolPtr<a class="headerlink" href="#getboolptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getBoolPtr()">
+public <a class="reference internal" href="ConstBoolPtr.html#org.moe.natj.general.ptr.ConstBoolPtr" title="org.moe.natj.general.ptr.ConstBoolPtr">ConstBoolPtr</a> <code class="descname">getBoolPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getBoolPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boolean pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new boolean pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getbyteptr">
+<h3>getBytePtr<a class="headerlink" href="#getbyteptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getBytePtr()">
+public <a class="reference internal" href="ConstBytePtr.html#org.moe.natj.general.ptr.ConstBytePtr" title="org.moe.natj.general.ptr.ConstBytePtr">ConstBytePtr</a> <code class="descname">getBytePtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getBytePtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boolean pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new boolean pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcharptr">
+<h3>getCharPtr<a class="headerlink" href="#getcharptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getCharPtr()">
+public <a class="reference internal" href="ConstCharPtr.html#org.moe.natj.general.ptr.ConstCharPtr" title="org.moe.natj.general.ptr.ConstCharPtr">ConstCharPtr</a> <code class="descname">getCharPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getCharPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a short pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new short pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdepth">
+<h3>getDepth<a class="headerlink" href="#getdepth" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getDepth()">
+public int <code class="descname">getDepth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getDepth()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the indirection count of the pointer. For example IntPtr will return 1, Ptr&lt;IntPtr&gt; will return 2.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the indirection count of the pointer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdoubleptr">
+<h3>getDoublePtr<a class="headerlink" href="#getdoubleptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getDoublePtr()">
+public <a class="reference internal" href="ConstDoublePtr.html#org.moe.natj.general.ptr.ConstDoublePtr" title="org.moe.natj.general.ptr.ConstDoublePtr">ConstDoublePtr</a> <code class="descname">getDoublePtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getDoublePtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a double pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new double pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getfloatptr">
+<h3>getFloatPtr<a class="headerlink" href="#getfloatptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getFloatPtr()">
+public <a class="reference internal" href="ConstFloatPtr.html#org.moe.natj.general.ptr.ConstFloatPtr" title="org.moe.natj.general.ptr.ConstFloatPtr">ConstFloatPtr</a> <code class="descname">getFloatPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getFloatPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a float pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new float pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getintptr">
+<h3>getIntPtr<a class="headerlink" href="#getintptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getIntPtr()">
+public <a class="reference internal" href="ConstIntPtr.html#org.moe.natj.general.ptr.ConstIntPtr" title="org.moe.natj.general.ptr.ConstIntPtr">ConstIntPtr</a> <code class="descname">getIntPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getIntPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a character pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new character pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getlongptr">
+<h3>getLongPtr<a class="headerlink" href="#getlongptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getLongPtr()">
+public <a class="reference internal" href="ConstLongPtr.html#org.moe.natj.general.ptr.ConstLongPtr" title="org.moe.natj.general.ptr.ConstLongPtr">ConstLongPtr</a> <code class="descname">getLongPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getLongPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a long pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new long pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getnfloatptr">
+<h3>getNFloatPtr<a class="headerlink" href="#getnfloatptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getNFloatPtr()">
+public <a class="reference internal" href="ConstNFloatPtr.html#org.moe.natj.general.ptr.ConstNFloatPtr" title="org.moe.natj.general.ptr.ConstNFloatPtr">ConstNFloatPtr</a> <code class="descname">getNFloatPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getNFloatPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a NFloat pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new NFloat pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getnintptr">
+<h3>getNIntPtr<a class="headerlink" href="#getnintptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getNIntPtr()">
+public <a class="reference internal" href="ConstNIntPtr.html#org.moe.natj.general.ptr.ConstNIntPtr" title="org.moe.natj.general.ptr.ConstNIntPtr">ConstNIntPtr</a> <code class="descname">getNIntPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getNIntPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a NInt pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new NInt pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getnlongptr">
+<h3>getNLongPtr<a class="headerlink" href="#getnlongptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getNLongPtr()">
+public <a class="reference internal" href="ConstNLongPtr.html#org.moe.natj.general.ptr.ConstNLongPtr" title="org.moe.natj.general.ptr.ConstNLongPtr">ConstNLongPtr</a> <code class="descname">getNLongPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getNLongPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a NLong pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new NLong pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getnuintptr">
+<h3>getNUIntPtr<a class="headerlink" href="#getnuintptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getNUIntPtr()">
+public <a class="reference internal" href="ConstNUIntPtr.html#org.moe.natj.general.ptr.ConstNUIntPtr" title="org.moe.natj.general.ptr.ConstNUIntPtr">ConstNUIntPtr</a> <code class="descname">getNUIntPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getNUIntPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a NUInt pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new NUInt pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getnulongptr">
+<h3>getNULongPtr<a class="headerlink" href="#getnulongptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getNULongPtr()">
+public <a class="reference internal" href="ConstNULongPtr.html#org.moe.natj.general.ptr.ConstNULongPtr" title="org.moe.natj.general.ptr.ConstNULongPtr">ConstNULongPtr</a> <code class="descname">getNULongPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getNULongPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a NULong pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new NULong pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getpeer">
+<h3>getPeer<a class="headerlink" href="#getpeer" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getPeer()">
+public <a class="reference internal" href="../Pointer.html#org.moe.natj.general.Pointer" title="org.moe.natj.general.Pointer">Pointer</a> <code class="descname">getPeer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getPeer()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the underlying pointer object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the underlying pointer object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getshortptr">
+<h3>getShortPtr<a class="headerlink" href="#getshortptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.getShortPtr()">
+public <a class="reference internal" href="ConstShortPtr.html#org.moe.natj.general.ptr.ConstShortPtr" title="org.moe.natj.general.ptr.ConstShortPtr">ConstShortPtr</a> <code class="descname">getShortPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.getShortPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a byte pointer pointing to the same location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">new byte pointer <em>(NON-GUARDED)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="isconstptr">
+<h3>isConstPtr<a class="headerlink" href="#isconstptr" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.moe.natj.general.ptr.ConstVoidPtr.isConstPtr()">
+public boolean <code class="descname">isConstPtr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.moe.natj.general.ptr.ConstVoidPtr.isConstPtr()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal"><span class="pre">true</span></code> if the pointer is constant type. Calling methods which would write to the pointer will result in an <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/lang/UnsupportedOperationException.html" title="java.lang.UnsupportedOperationException"><code class="xref java java-ref docutils literal"><span class="pre">UnsupportedOperationException</span></code></a> exception.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">true</span></code> if the pointer is constant type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ConstWCharTPtr.html" class="btn btn-neutral float-right" title="ConstWCharTPtr" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ConstShortPtr.html" class="btn btn-neutral" title="ConstShortPtr" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

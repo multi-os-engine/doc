@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Customizing Your Apple Xcode* Project using a Gradle* Script &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Getting Started" href="../Getting_Started.html"/>
+        <link rel="next" title="Enabling Javadoc Docs for iOS API in IDEs" href="../6_how_to_enable_javadoc/how_to_enable_javadoc.html"/>
+        <link rel="prev" title="Remote Build" href="../3_remote_build/remote_build.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting_Started.html">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../0_prerequisites/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../1_hello_world_app/hello_world_app.html">Creating a Hello World App for Android and iOS Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2_moe_samples/MOE_samples.html">Multi-OS Engine Samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3_remote_build/remote_build.html">Remote Build</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Customizing Your Apple Xcode* Project using a Gradle* Script</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xcode-project-mandatory-properties">Xcode Project Mandatory Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#signing-properties">Signing Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resources-properties">Resources Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resources-from-sources">Resources from Sources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proguard-config">Proguard Config</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../6_how_to_enable_javadoc/how_to_enable_javadoc.html">Enabling Javadoc Docs for iOS API in IDEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../7_porting/porting.html">Porting an Android Application to Apple iOS Platform Using Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../Getting_Started.html">Getting Started</a> &raquo;</li>
+      
+    <li>Customizing Your Apple Xcode* Project using a Gradle* Script</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="customizing-your-apple-xcode-project-using-a-gradle-script">
+<h1>Customizing Your Apple Xcode* Project using a Gradle* Script<a class="headerlink" href="#customizing-your-apple-xcode-project-using-a-gradle-script" title="Permalink to this headline">¶</a></h1>
+<p>With Intel&#8217;s Multi-OS Engine, you can customize the Apple Xcode* project for your app right in the Android Studio* IDE. This page describes all properties the Multi-OS Engine Gradle* Plugin supports for project customization. To customize the project, define all necessary properties in the &lt;moe_module&gt; /build.gradle script.</p>
+<div class="section" id="xcode-project-mandatory-properties">
+<h2>Xcode Project Mandatory Properties<a class="headerlink" href="#xcode-project-mandatory-properties" title="Permalink to this headline">¶</a></h2>
+<p>You must define the following properties for your Xcode project:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">mainTarget</span></code> [String] - application name.</li>
+<li><code class="docutils literal"><span class="pre">packageName</span></code> [String] - Java* package name of your Multi-OS Engine module</li>
+<li><code class="docutils literal"><span class="pre">mainClassName</span></code> [String] - main class name. Default one is <em>Main</em>, but you must specify one if another is used:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.mainTarget ‘AppName’
+    xcode.packageName ‘JavaPackageName&#39;
+    mainClassName &#39;Main&#39;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="signing-properties">
+<h2>Signing Properties<a class="headerlink" href="#signing-properties" title="Permalink to this headline">¶</a></h2>
+<p>The Multi-OS Engine provides the following signing properties:</p>
+<ul class="simple">
+<li>provisioningProfile [String] - Path to the provisioning profile. If not specified, a default one will be chosen on the system.</li>
+<li>signingIdentity [String] - Signing identity name. If not specified, a default one will be chosen on the system. The name can be found from the Apple Keychain Access*  tool on an Apple macOS machine.</li>
+<li>bundleID [String] - Bundle identifier that matches the provisioning profile:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    ipaOptions {
+      signingIdentity &#39;iPhone Developer: Developer Name&#39;
+      provisioningProfile &#39;/Users/&lt;username&gt;/Library/MobileDevice/Provisioning Profiles/&lt;id&gt;.mobileprovision&#39;
+    }
+    xcode {
+        bundleID &#39;bundle.id.for.provisining.profile&#39;
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="resources-properties">
+<h2>Resources Properties<a class="headerlink" href="#resources-properties" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="application-resources">
+<h3>Application resources<a class="headerlink" href="#application-resources" title="Permalink to this headline">¶</a></h3>
+<p>The default location of the application resources is  <code class="docutils literal"><span class="pre">src/main/resources</span></code>. You can specify multiple resources directories in <code class="docutils literal"><span class="pre">srcDirs</span></code> and apply the <code class="docutils literal"><span class="pre">include/exclude</span></code> filters.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>sourceSets {
+    main {
+        resources {
+            srcDirs(&#39;src/main/resources&#39;, &#39;src/main/res&#39;)
+            include(&#39;**/out*&#39;)
+            exclude(&#39;*.txt&#39;)
+        }
+    }
+}
+</pre></div>
+</div>
+<p>Resources should be accessed from the code with respect to the specified resource directory. The example below shows how to access the <code class="docutils literal"><span class="pre">ship.dae</span></code> file from the <code class="docutils literal"><span class="pre">art.scnassets</span></code> folder located in the default place: <code class="docutils literal"><span class="pre">src/main/resources/art.scnassets</span></code>.</p>
+<p>SCNScene scene = SCNScene.sceneNamed(&#8220;art.scnassets/ship.dae&#8221;);</p>
+</div>
+<div class="section" id="storyboard">
+<h3>Storyboard<a class="headerlink" href="#storyboard" title="Permalink to this headline">¶</a></h3>
+<p>A storyboard is a visual representation of the user interface of an iOS application, showing screens of content and the connections between those screens. The Multi-OS Engine provides the following storyboard property:</p>
+<p><code class="docutils literal"><span class="pre">mainUIStoryboardPath</span></code> [String] - Path to the <code class="docutils literal"><span class="pre">MainUI</span></code> storyboard file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.mainUIStoryboardPath &#39;src/resources/MainUI.storyboard&#39;
+}
+</pre></div>
+</div>
+<p>If it is not specified, the <code class="docutils literal"><span class="pre">UITransfromer</span></code> task tries to generate the storyboard file from <code class="docutils literal"><span class="pre">.ixml</span></code> files. These files represent a UI layout created by the Multi-OS Engine Layout Editor for iOS apps and should be in the layout directory under the resource folder.</p>
+<p>If there is no layout folder and the <code class="docutils literal"><span class="pre">mainUIStoryboardPath</span></code> property is not set, the Multi-OS Engine will search the storyboard file in the default location: <code class="docutils literal"><span class="pre">src/main/resources/MainUI.storyboard</span></code>.</p>
+</div>
+<div class="section" id="splash-screen">
+<h3>Splash screen<a class="headerlink" href="#splash-screen" title="Permalink to this headline">¶</a></h3>
+<p>A splash screen is a graphical control element consisting of window containing an image. A splash screen appears while an iOS application is launching.</p>
+<p>Choose one of these two ways to add a splash to your Multi-OS Engine app:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Using the launch image catalog in xcassets</dt>
+<dd><ol class="first arabic simple">
+<li>Prepare the folder structure <code class="docutils literal"><span class="pre">&lt;xcassetName&gt;</span> <span class="pre">.xcassets/&lt;launchImagesSourceName&gt;.launchimage</span></code> with icons and json file in the <a class="reference external" href="https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/LaunchImageType.html">Xсode format</a>.</li>
+</ol>
+<blockquote>
+<div><dl class="docutils">
+<dt>NOTE:</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">&lt;xcassetname&gt;</span> <span class="pre">.xcassets</span></code> folder must be at the root of the resource directory</p>
+</dd>
+</dl>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Specify name of the launch image source - <code class="docutils literal"><span class="pre">launchImagesSourceName</span></code>:</li>
+</ol>
+<blockquote class="last">
+<div><div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.launchImagesSource = &#39;launchImagesSourceName&#39;
+}
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>NOTE:</dt>
+<dd><p class="first last">For an example of adding a splash screen by specifying a launch image catalog, see the <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/FlipView">FlipView sample</a>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+<li><p class="first">Using .xib or .storyboard files</p>
+<blockquote>
+<div><p>Specify an absolute or relative path to  a .xib or .storyboard file:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+ xcode.launchScreenFilePath = &#39;path/to/xib/or/storyboard/file&#39;
+}
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>NOTE:</dt>
+<dd><p class="first last">For an example of adding splash screen by using LaunchScreen.xib, see the <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/DateCell">DateCell sample</a>.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="app-icons">
+<h3>App Icons<a class="headerlink" href="#app-icons" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>To add icons for your Multi-OS Engine app, create the folder structure: <code class="docutils literal"><span class="pre">&lt;xcassetName&gt;</span> <span class="pre">.xcassets/&lt;appIconsSourceName&gt;</span> <span class="pre">.appiconset</span></code> with icons and json file in the <a class="reference external" href="https://developer.apple.com/library/ios/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/AppIconType.html#//apple_ref/doc/uid/TP40015170-CH22-SW1">Xcode format</a>.</li>
+</ol>
+<blockquote>
+<div><dl class="docutils">
+<dt>NOTE:</dt>
+<dd><code class="docutils literal"><span class="pre">&lt;xcassetName&gt;</span> <span class="pre">.xcassets</span></code> folder must be at the root of resource directory.</dd>
+</dl>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Specify a name of the app icon source - <code class="docutils literal"><span class="pre">appIconsSourceName</span></code>:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    xcode.appIconsSourceName = &#39;appIconsSourceName&#39;
+}
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>NOTE</dt>
+<dd>Example of adding app icons is demonstrated in the <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/Calculator">Calculator sample</a>.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="catalog-assets">
+<h3>Catalog Assets<a class="headerlink" href="#catalog-assets" title="Permalink to this headline">¶</a></h3>
+<p>To add <code class="docutils literal"><span class="pre">&lt;xcassetName&gt;</span> <span class="pre">.xcassets</span></code> with other Asset Catalogs to the Multi-OS Engine module, place this folder at the root of the resource directory.</p>
+</div>
+</div>
+<div class="section" id="resources-from-sources">
+<h2>Resources from Sources<a class="headerlink" href="#resources-from-sources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enableResourcesFromSourceDirs</span></code> [boolean] - Specifies whether the resources detected by a Java* plugin will be added. The default value is true.</li>
+<li><code class="docutils literal"><span class="pre">resourcesFromSourceDirExcludes</span></code> [String List] - Java plugin resources filter:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moe {
+    resources {
+        enableResourcesFromSourceDirs false
+        resourcesFromSourceDirExcludes [ &quot;**/*.java&quot;, &quot;**/*.scala&quot; ]
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="proguard-config">
+<h2>Proguard Config<a class="headerlink" href="#proguard-config" title="Permalink to this headline">¶</a></h2>
+<p>The build process includes a proguard step for shrinking application classes. To add custom rules to the default config used by the Multi-OS Engine build system, add your rules to the <code class="docutils literal"><span class="pre">proguard.append.cfg</span></code> file in the Multi-OS Engine module installation folder.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../6_how_to_enable_javadoc/how_to_enable_javadoc.html" class="btn btn-neutral float-right" title="Enabling Javadoc Docs for iOS API in IDEs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../3_remote_build/remote_build.html" class="btn btn-neutral" title="Remote Build" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

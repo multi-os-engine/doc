@@ -1,8 +1,0 @@
-Property
-========
-
-.. java:package:: com.intel.moe.natj.objc.ann
-   :noindex:
-
-.. java:type:: @Retention @Target @Inherited public @interface Property
-

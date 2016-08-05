@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building your OpenGL App with Multi-OS Engine &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Creating a Game App" href="../game.html"/>
+        <link rel="next" title="Advanced Topics" href="../../12_advanced/advanced.html"/>
+        <link rel="prev" title="Using LibGDX" href="../1_libgdx/libgdx.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../game.html">Creating a Game App</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../1_libgdx/libgdx.html">Using LibGDX</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Building your OpenGL App with Multi-OS Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#platform-specific-code">Platform Specific Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-code">Common Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-data">Common Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-mathematics">3D Mathematics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loading-textures">Loading Textures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#timing">Timing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary-and-downloads">Summary and Downloads</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../game.html">Creating a Game App</a> &raquo;</li>
+      
+    <li>Building your OpenGL App with Multi-OS Engine</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-your-opengl-app-with-multi-os-engine">
+<h1>Building your OpenGL App with Multi-OS Engine<a class="headerlink" href="#building-your-opengl-app-with-multi-os-engine" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/OpenGLBox">OpenGLBox</a> sample in Multi-OS Engine Technical Preview. This is a truly cross-platform sample. The screenshots below show that the same Java*-based application running on Apple iOS and Android devices, which looks and behaves the same way. Applications for different platforms share the data and part of the source code. How is this achieved? Scroll down!</p>
+<img alt="../../../_images/opengl1.png" src="../../../_images/opengl1.png" />
+<dl class="docutils">
+<dt>Contents:</dt>
+<dd><p class="first"><a class="reference internal" href="#platform-specific-code">Platform Specific Code</a></p>
+<p><a class="reference internal" href="#common-code">Common Code</a></p>
+<p><a class="reference internal" href="#common-data">Common Data</a></p>
+<p><a class="reference internal" href="#d-mathematics">3D Mathematics</a></p>
+<p><a class="reference internal" href="#loading-textures">Loading Textures</a></p>
+<p><a class="reference internal" href="#timing">Timing</a></p>
+<p class="last"><a class="reference internal" href="#summary-and-downloads">Summary and Downloads</a></p>
+</dd>
+</dl>
+<p>Most OpenGL* programmers have made this small program: the rotating 3D cube. Do not be afraid If you are not so familiar with 3D graphics programming. This example will help you to start from scratch. If you are already good at OpenGL, this page will help you to focus on the specific features of Android and iOS development. Let&#8217;s begin.</p>
+<p>Our geometry contains 6 faces, as befits a cube, and 24 vertices. Why are so many vertices? Each face has a texture of Multi-OS Engine logo. Thus, we have to divide each of 8 real vertices into 3 new vertices with different texture coordinates.</p>
+<p>There is no lighting effects in our scene. So we are able to use pretty simple shaders. The vertex shader just transforms geometry and passes the texture coordinates to the fragment shader. Then the fragment shader makes simple texturing.</p>
+<div class="section" id="platform-specific-code">
+<h2>Platform Specific Code<a class="headerlink" href="#platform-specific-code" title="Permalink to this headline">¶</a></h2>
+<p>Multi-OS Engine does not try to hide platform-specific code unnecessarily. It&#8217;s great for porting and debugging applications. The classes for each platform can have their own features:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.samples.openglbox.ios;
+class Main extends NSObject implements UIApplicationDelegate
+class OpenGLBoxController extends GLKViewController implements GLKViewDelegate
+class ShaderProgram extends ShaderProgramBase
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://developer.apple.com/library/ios/documentation/GLkit/Reference/GLKit_Collection/index.html">GLKit</a> framework provides functions and classes that reduce the effort required to create new shader-based apps:</p>
+<p>GLKViewController:</p>
+<p>The <a class="reference external" href="http://developer.apple.com/library/ios/documentation/GLkit/Reference/GLKViewController_ClassRef/">GLKViewController</a> class provides all of the standard view controller functionality, but additionally implements an OpenGL ES rendering loop. A GLKViewController object works in conjunction with a <a class="reference external" href="https://developer.apple.com/library/prerelease/ios/documentation/GLkit/Reference/GLKView_ClassReference/index.html">GLKView</a> object to display frames of animation in the view.</p>
+<p>GLKView:</p>
+<p>The <a class="reference external" href="http://developer.apple.com/library/prerelease/ios/documentation/GLkit/Reference/GLKView_ClassReference/index.html">GLKView</a> class simplifies the effort required to create an OpenGL ES application by providing a default implementation of an OpenGL ES-aware view. A GLKView directly manages a framebuffer object on your application’s behalf; your application simply draws into the framebuffer when the contents need to be updated.</p>
+<p>GLKViewDelegate:</p>
+<p>An object that implements the <a class="reference external" href="http://developer.apple.com/library/ios/documentation/GLkit/Reference/GLKViewDelegate_ProtocolRef/">GLKViewDelegate</a> protocol can be set as a <a class="reference external" href="http://developer.apple.com/library/prerelease/ios/documentation/GLkit/Reference/GLKView_ClassReference/index.html">GLKView</a> object’s delegate. A delegate allows your application to provide a drawing method to a GLKView object without subclassing the GLKView class.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.samples.openglbox.android;
+class OpenGLBoxActivity extends Activity
+class SurfaceView extends GLSurfaceView
+class BoxRenderer implements GLSurfaceView.Renderer
+class ShaderProgram extends ShaderProgramBase
+</pre></div>
+</div>
+<p>There are two foundational classes in the Android framework that let you create and manipulate graphics with the OpenGL ES API: <a class="reference external" href="http://developer.android.com/reference/android/opengl/GLSurfaceView.html">GLSurfaceView</a> and <a class="reference external" href="http://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer.html">GLSurfaceView.Renderer</a>. To use OpenGL in your Android application, one needs to understand how to implement these classes in an activity.</p>
+<p>GLSurfaceView:</p>
+<p>This class is a <a class="reference external" href="http://developer.android.com/reference/android/view/View.html">View</a> where you can draw and manipulate objects using OpenGL API calls and is similar in function to a <a class="reference external" href="http://developer.android.com/reference/android/view/SurfaceView.html">SurfaceView</a>. You can use this class by creating an instance of <a class="reference external" href="http://developer.android.com/reference/android/opengl/GLSurfaceView.html">GLSurfaceView</a> and adding your Renderer to it. However, if you want to capture touch screen events, you should extend the GLSurfaceView class to implement the touch listeners <a class="reference external" href="http://developer.android.com/training/graphics/opengl/touch.html">responding to Touch Events</a>.</p>
+<p>GLSurfaceView.Renderer:</p>
+<p>This interface defines the methods required for drawing graphics in a <a class="reference external" href="http://developer.android.com/reference/android/opengl/GLSurfaceView.html">GLSurfaceView</a>. You must provide an implementation of this interface as a separate class and attach it to your GLSurfaceView instance using <a class="reference external" href="http://developer.android.com/reference/android/opengl/GLSurfaceView.html#setRenderer(android.opengl.GLSurfaceView.Renderer)">GLSurfaceView.setRenderer()</a>.</p>
+</div>
+<div class="section" id="common-code">
+<h2>Common Code<a class="headerlink" href="#common-code" title="Permalink to this headline">¶</a></h2>
+<p>OpenGL-code is similar on both platforms. It allows us to take out interfaces or even abstract classes into the common part of the project. For example, a class working with shaders must inherit abstract base class ShaderProgramBase:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.samples.openglbox.common;
+public abstract class ShaderProgramBase {
+    protected static int INVALID_VALUE = -1;
+    protected int programHandle = INVALID_VALUE;
+    protected HashMap&lt;String, Integer&gt; attributes = new HashMap&lt;String, Integer&gt;();
+    public abstract void create(String vertexCode, String fragmentCode);
+    public abstract void use();
+    public abstract void unUse();
+    public abstract int getAttributeLocation(String attribute);
+    public abstract int getUniformLocation(String uniform);
+    protected abstract int loadShader(int type, String shaderCode);
+    public int getProgramHandle() {
+        return programHandle;
+    }
+}
+</pre></div>
+</div>
+<p>Now let&#8217;s dive into platform-specific implementations of <cite>ShaderProgramBase.create()</cite> method.</p>
+<p>iOS:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.samples.openglbox.ios;
+...
+public class ShaderProgram extends ShaderProgramBase {
+...
+    @Override
+    public void create(String vertexCode, String fragmentCode) {
+        ...
+        programHandle = OpenGLES.glCreateProgram();
+        OpenGLES.glAttachShader(programHandle, vertexShader);
+        OpenGLES.glAttachShader(programHandle, fragmentShader);
+        OpenGLES.glLinkProgram(programHandle);
+    }
+}
+</pre></div>
+</div>
+<p>Android:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.samples.openglbox.android;
+...
+public class ShaderProgram extends ShaderProgramBase {
+...
+    @Override
+    public void create(String vertexCode, String fragmentCode) {
+        ...
+        programHandle = GLES20.glCreateProgram();
+        GLES20.glAttachShader(programHandle, vertexShader);
+        GLES20.glAttachShader(programHandle, fragmentShader);
+        GLES20.glLinkProgram(programHandle);
+    }
+}
+</pre></div>
+</div>
+<p>As you can see these code snippets look pretty similar. It may seem that the code differs only in prefixes - <cite>OpenGLES</cite> and <cite>GLES20</cite>. Not quite right but not far off. Look carefully at <cite>loadShader()</cite> method:</p>
+<p>iOS:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.samples.openglbox.ios;
+...
+public class ShaderProgram extends ShaderProgramBase {
+...
+    @Override
+    protected int loadShader(int type, String shaderCode) {
+        ...
+        IntPtr status = PtrFactory.newIntReference();
+        OpenGLES.glGetShaderiv(shader, ES2.GL_COMPILE_STATUS, status);
+        if (status.getValue() == 0) {
+            BytePtr info = PtrFactory.newWeakByteArray(256);
+            OpenGLES.glGetShaderInfoLog(shader, 256, PtrFactory.newWeakIntReference(0), info);
+            OpenGLES.glDeleteShader(shader);
+            throw new IllegalArgumentException(&quot;Shader compilation failed with: &quot; + info.toASCIIString());
+        }
+        ...
+    }
+}
+</pre></div>
+</div>
+<p>Android:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.samples.openglbox.android;
+...
+public class ShaderProgram extends ShaderProgramBase {
+...
+    @Override
+    protected int loadShader(int type, String shaderCode) {
+        ...
+        int[] status = new int[1];
+        GLES20.glGetShaderiv(shader, GLES20.GL_COMPILE_STATUS, status, 0);
+        if (status[0] == 0) {
+            String info = GLES20.glGetShaderInfoLog(shader);
+            GLES20.glDeleteShader(shader);
+            throw new IllegalArgumentException(&quot;Shader compilation failed with: &quot; + info);
+        }
+        ...
+    }
+}
+</pre></div>
+</div>
+<p>This code differs by the way we pass a pointers to OpenGL. You will see similar distinctions in other places too.</p>
+</div>
+<div class="section" id="common-data">
+<h2>Common Data<a class="headerlink" href="#common-data" title="Permalink to this headline">¶</a></h2>
+<p>Now it&#8217;s time to describe other common parts. Our applications uses the following general data:</p>
+<ol class="arabic simple">
+<li>Geometry</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>public class Geometry {
+public static final float[] VERTICES = new float[] { … };
+public static final byte[] INDICES = { … };
+}
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Shaders (as String constants)</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>public class Shaders {
+public static final String VERTEXT_SHADER = &quot; ... &quot;;
+public static final String FRAGMENT_SHADER = &quot; ... &quot;;
+}
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Parameters (background color, rotation speed, different camera related values)</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>public class Parameters {
+...
+public static final float DEGREES_PER_SECOND = 90.0f;
+...
+}
+</pre></div>
+</div>
+<p>All this constants are self-explained. They represent the common 3D data model and operational logics. In larger projects, the common data will be even greater.</p>
+</div>
+<div class="section" id="d-mathematics">
+<h2>3D Mathematics<a class="headerlink" href="#d-mathematics" title="Permalink to this headline">¶</a></h2>
+<p>OpenGL ES 2.0 and later doesn’t provide built-in functions for creating or specifying transformation matrices. Instead, programmable shaders provide vertex transformation, and you specify shader inputs using generic uniform variables.</p>
+<p>iOS:</p>
+<p>The <a class="reference external" href="https://developer.apple.com/library/ios/documentation/GLkit/Reference/GLKit_Collection/">GLKit</a> framework includes a comprehensive library of vector and matrix types and functions, optimized for high performance on iOS hardware.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>viewMatrix = GLKit.GLKMatrix4MakeLookAt(
+    0.0f, 0.0f, Parameters.EYE_Z, // eye
+    0.0f, 0.0f, 0.0f, // center
+    0.0f, 1.0f, 0.0f // up-vector
+);
+viewMatrix = GLKit.GLKMatrix4Rotate(viewMatrix,
+    GLKit.GLKMathDegreesToRadians(Parameters.PITCH), 1, 0, 0);
+</pre></div>
+</div>
+<p>Android:</p>
+<p>Class &#8216;android.opengl.Matrix &lt;<a class="reference external" href="http://developer.android.com/reference/android/opengl/Matrix.html">http://developer.android.com/reference/android/opengl/Matrix.html</a>&gt;`_ provides math utilities. These methods operate on OpenGL ES format matrices and vectors stored in float arrays.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Matrix.setLookAtM(viewMatrix, 0,
+    0.0f, 0.0f, Parameters.EYE_Z, // eye
+    0.0f, 0.0f, 0.0f, // center
+    0.0f, 1.0f, 0.0f // up-vector
+);
+Matrix.rotateM(viewMatrix, 0, Parameters.PITCH, 1, 0, 0);
+</pre></div>
+</div>
+<p>But you can implement basic math classes on your own and increase the reuse of the common code.</p>
+</div>
+<div class="section" id="loading-textures">
+<h2>Loading Textures<a class="headerlink" href="#loading-textures" title="Permalink to this headline">¶</a></h2>
+<p>iOS:</p>
+<p>The <a class="reference external" href="https://developer.apple.com/library/mac/documentation/GLkit/Reference/GLKTextureLoader_ClassRef/">GLKTextureLoader</a> class simplifies the effort required to load your texture data. The GLKTextureLoader class can load two-dimensional or cubemap textures in most image formats supported by the Image I/O framework. On iOS, it can also load textures compressed in the <a class="reference external" href="https://en.wikipedia.org/wiki/PVRTC">pvrtc</a> format. It can load the data synchronously or asynchronously.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>public static int loadGLTexture(String name, String extension) {
+    NSMutableDictionary options = NSMutableDictionary.alloc().init();
+    options.put(NSNumber.numberWithBool(true), GLKit.GLKTextureLoaderOriginBottomLeft());
+    String path = NSBundle.mainBundle().pathForResourceOfType(name, extension);
+    GLKTextureInfo info = GLKTextureLoader.textureWithContentsOfFileOptionsError(path, options, null);
+    if (info == null) {
+        System.out.println(&quot;Error loading file: &quot; + name + &quot;.&quot; + extension);
+        return -1;
+    }
+    return info.name();
+}
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>The GLKTextureLoader and GLKTextureInfo classes do not manage the OpenGL texture for you. Once the texture is returned to your app, you are responsible for it. This means that after your app is finished using an OpenGL texture, it must explicitly deallocate it by calling the glDeleteTextures() function.
+</pre></div>
+</div>
+<p>Android:</p>
+<p>For good or bad, but we&#8217;re implementing it manually:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>public static int loadGLTexture(Bitmap bitmap) {
+    int[] textureIDs = new int[1];
+    GLES20.glGenTextures(1, textureIDs, 0);
+    GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureIDs[0]);
+    // Create Nearest Filtered Texture
+    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER,
+            GLES20.GL_LINEAR);
+    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER,
+            GLES20.GL_LINEAR);
+    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_REPEAT);
+    GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_REPEAT);
+    // Use the Android GLUtils to specify a two-dimensional texture image from our bitmap
+    GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
+    return textureIDs[0];
+}
+</pre></div>
+</div>
+<p>Of course, you always can write your own wrapper for such OpenGL-intensive code. We didn&#8217;t set to ourselves such a task.</p>
+</div>
+<div class="section" id="timing">
+<h2>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">¶</a></h2>
+<p>iOS:</p>
+<p>Method <cite>timeSinceLastUpdate()</cite> returns the amount of time that has passed since the last time the view controller called the delegate’s update() method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>public void update() {
+    rotation += Parameters.DEGREES_PER_SECOND * timeSinceLastUpdate();
+    modelMatrix = GLKit.GLKMatrix4Identity();
+    modelMatrix = GLKit.GLKMatrix4Rotate(modelMatrix, GLKit.GLKMathDegreesToRadians(rotation), 0, 1, 0);
+}
+</pre></div>
+</div>
+<p>Android:</p>
+<p>There is no such method on Android. So we have to recreate it manually:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>private long lastTime;
+public void onSurfaceCreated(GL10 unused, EGLConfig config) {
+    …
+    lastTime = System.nanoTime();
+}
+public void onDrawFrame(GL10 unused) {
+    update();
+    drawBox();
+}
+double timeSinceLastUpdate() {
+    long time = System.nanoTime();
+    double delta = (double) (time - lastTime) / 1000000000;
+    lastTime = time;
+    return delta;
+}
+private void update() {
+    if (isPaused)
+        return;
+    rotation += Parameters.DEGREES_PER_SECOND * timeSinceLastUpdate();
+    Matrix.setIdentityM(modelMatrix, 0);
+    Matrix.rotateM(modelMatrix, 0, rotation, 0, 1, 0);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary-and-downloads">
+<h2>Summary and Downloads<a class="headerlink" href="#summary-and-downloads" title="Permalink to this headline">¶</a></h2>
+<p>OpenGL development with Java on iOS is quite similar to that on Android with many advantages:</p>
+<ul class="simple">
+<li>OpenGL ES is a C-based API that is supported by both iOS and Android with great portability.</li>
+<li>Familiar Java syntax.</li>
+<li>Debugging two targets side by side use the powerful iOS simulator and Android emulator.</li>
+</ul>
+<p>You can download all Multi-OS Engine <a class="reference external" href="https://github.com/moe-java-samples">samples here</a>.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../12_advanced/advanced.html" class="btn btn-neutral float-right" title="Advanced Topics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../1_libgdx/libgdx.html" class="btn btn-neutral" title="Using LibGDX" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

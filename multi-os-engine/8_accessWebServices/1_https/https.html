@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enabling HTTPS with Intel’s Multi-OS Engine &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Accessing Web Services" href="../accessWebServices.html"/>
+        <link rel="next" title="Creating Webview using Intel’s Multi-OS Engine" href="../2_webview/webview.html"/>
+        <link rel="prev" title="Accessing Web Services" href="../accessWebServices.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../accessWebServices.html">Accessing Web Services</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Enabling HTTPS with Intel&#8217;s Multi-OS Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-security-providers">Set up Security Providers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-ca-certificates">Set up CA Certificates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samples">Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../2_webview/webview.html">Creating Webview using Intel&#8217;s Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../accessWebServices.html">Accessing Web Services</a> &raquo;</li>
+      
+    <li>Enabling HTTPS with Intel&#8217;s Multi-OS Engine</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enabling-https-with-intel-s-multi-os-engine">
+<h1>Enabling HTTPS with Intel&#8217;s Multi-OS Engine<a class="headerlink" href="#enabling-https-with-intel-s-multi-os-engine" title="Permalink to this headline">¶</a></h1>
+<p>This page describes configuration steps needed to enable https access using Intel&#8217;s Multi-OS Engine Technical Preview software on an Apple macOS development system. It also provides information about the relevant RssReader <a class="reference internal" href="#samples">Samples</a>.</p>
+<p>The standard java.net.URL class provides HTTPS functionality. Use these instructions on your macOS development system to set up security providers and CA certificates (cacerts).</p>
+<div class="section" id="set-up-security-providers">
+<h2>Set up Security Providers<a class="headerlink" href="#set-up-security-providers" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Change the current directory to the resources directory of your Multi-OS Engine module.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd your-path/resources
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create a <cite>./java/security</cite> directory.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>mkdir –p ./java/security
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Download and copy the <a class="reference external" href="https://android.googlesource.com/platform/libcore/+archive/android-5.1.1_r37/luni/src/main/files.tar.gz">security.properties</a>  file from the Android* code repository to the directory you just created.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd –p ./java/security
+curl –o ./security.tar.gz “https://android.googlesource.com/platform/libcore/+archive/master/luni/src/main/java/java/security.tar.gz”
+tar --extract --file=./security.tar.gz ./security.properties
+rm ./security.tar.gz
+cd ../../
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Zip the <cite>./java</cite> directory to an <cite>application.jar</cite> file.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>zip –r application.jar ./java
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Finally, remove the <cite>./java</cite> directory.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>rm –R ./java
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-up-ca-certificates">
+<h2>Set up CA Certificates<a class="headerlink" href="#set-up-ca-certificates" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Change the current directory to the <cite>resources</cite> directory of your Multi-OS Engine module.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd your-path/resources
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Create the <cite>./android_root/etc/security/cacerts</cite> directory.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>mkdir –p ./ android_root/etc/security/cacerts
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Download and copy the <a class="reference external" href="https://android.googlesource.com/platform/libcore/+archive/master/luni/src/main/files/cacerts.tar.gz">cacerts</a> directory from the Android code repository to the directory you just created.</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd ./android_root/etc/security/cacerts
+curl –o ./cacerts.tar.gz “https://android.googlesource.com/platform/libcore/+archive/android-5.1.1_r37/luni/src/main/files.tar.gz”
+tar --extract --file=./cacerts.tar.gz
+rm ./cacerts.tar.gz
+cd ../../../../
+</pre></div>
+</div>
+<p>In the macOS Finder* tool, the directory structure of your Multi-OS Engine module should look like this</p>
+<img alt="../../../_images/https1.png" src="../../../_images/https1.png" />
+<p>In the Android Studio* IDE, the directory structure of your Multi-OS Engine module should look like this</p>
+<img alt="../../../_images/https2.png" src="../../../_images/https2.png" />
+<p>The structure of your Apple Xcode* project should look like this</p>
+<img alt="../../../_images/https3.png" src="../../../_images/https3.png" />
+<p>Now you should be able to use HTTPS in your project through the java.net.URL class.</p>
+</div>
+<div class="section" id="samples">
+<h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
+<p>Starting with Multi-OS Engine build 307, you can find the <cite>RssReader</cite> sample that shows how to use HTTP and HTTPS in the <cite>samples</cite> directory, which you will find within the Multi-OS Engine installation directory:</p>
+<ul class="simple">
+<li>On an macOS system, it is usually located at: <cite>/Applications/Intel/multi_os_engine/samples</cite>.</li>
+<li>On a Microsoft Windows system, it is usually located at: <cite>C:Intelmulti_os_engine_&lt;build_number&gt;samples</cite></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2_webview/webview.html" class="btn btn-neutral float-right" title="Creating Webview using Intel’s Multi-OS Engine" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../accessWebServices.html" class="btn btn-neutral" title="Accessing Web Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

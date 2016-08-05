@@ -1,0 +1,743 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the NatJ Library &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Nat/J: Interoperability with Native Code" href="NatJ_Interoperability.html"/>
+        <link rel="next" title="Nat/J: Corner Cases" href="NatJ_CornerCases.html"/>
+        <link rel="prev" title="Nat/J: Interoperability with Native Code" href="NatJ_Interoperability.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="">Using the NatJ Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NatJ_CornerCases.html">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="natj_reference/packages.html">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+          <li><a href="NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a> &raquo;</li>
+      
+    <li>Using the NatJ Library</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-the-natj-library">
+<h1>Using the NatJ Library<a class="headerlink" href="#using-the-natj-library" title="Permalink to this headline">¶</a></h1>
+<p>The NatJ library provided with the Intel’s Multi-OS Engine Technology Preview enables you to easily bind native
+methods to Java*. This  section  describes how to use the main features of NatJ and provides code examples.</p>
+<p><strong>Binding C Functions to Java</strong></p>
+<p>To bind C functions to Java*, create an enclosing class definition and add binding method definitions to this class:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Runtime</span><span class="o">(</span><span class="n">CRuntime</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">MyCFunctions</span> <span class="o">{</span>
+
+    <span class="nd">@CFunction</span><span class="o">(</span><span class="s">&quot;myfunction&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">method</span><span class="o">(</span><span class="n">NSSomething</span> <span class="n">nsSomething</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In this code example, the <code class="docutils literal"><span class="pre">&#64;Runtime(CRuntime.class)</span></code> annotation of the <code class="docutils literal"><span class="pre">MyCFunctions</span></code> class indicates that this
+class belongs to the C run time and will be handled as such by NatJ. The annotation can be inherited, so you do not
+need to mark the descendants. The <code class="docutils literal"><span class="pre">&#64;CFunction</span></code> annotation completes the binding of the appropriately typed native
+C function and specifies the symbol name of the original C function.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NatJ uses internal heuristics to determine the run time the definition belongs to, so in most cases you do
+not need to add the <code class="docutils literal"><span class="pre">&#64;Runtime(...)</span></code> annotation. For example, in the previous code sample the <code class="docutils literal"><span class="pre">method</span></code>
+method is marked with <code class="docutils literal"><span class="pre">&#64;CFunction(...)</span></code> annotation that belongs to the C run time, so NatJ uses it as the
+default when processing that method.</p>
+</div>
+<p><strong>Binding Native Global Variables</strong></p>
+<p>To bind global variables, use the <code class="docutils literal"><span class="pre">&#64;CVariable</span></code> annotation:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CVariable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nativeInteger&quot;</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kt">int</span> <span class="nf">getNativeInteger</span><span class="o">();</span>
+
+<span class="nd">@CVariable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nativeInteger&quot;</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">setNativeInteger</span><span class="o">(</span><span class="kt">int</span> <span class="n">newVal</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">name</span></code> argument of the <code class="docutils literal"><span class="pre">&#64;CVariable</span></code> annotation specifies the
+native symbol name. The <code class="docutils literal"><span class="pre">isGetter</span></code> argument specifies whether
+the method is a getter or a setter.</p>
+<p><strong>Binding Objective-C* Classes to Java*</strong></p>
+<p>An existing Objective-C* class is bound to Java* as a (possibly indirect) subclass of <code class="docutils literal"><span class="pre">ObjCObject</span></code>.
+The Objective-C class hierarchy should be retained. For example, <code class="docutils literal"><span class="pre">ObjCObject</span> <span class="pre">&gt;</span> <span class="pre">NSObject</span> <span class="pre">&gt;</span> <span class="pre">NSArray</span></code> is a
+valid hierarchy.</p>
+<p>The <code class="docutils literal"><span class="pre">ObjCObject</span></code> class is a subclass of <code class="docutils literal"><span class="pre">NativeObject</span></code> that represents Java objects
+that have a native counterpart, which we call <cite>peer</cite>.</p>
+<p>The binding code of an imaginary class <code class="docutils literal"><span class="pre">NSSomething</span></code> will look as follows:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@ObjCClassBinding</span>
+<span class="kd">class</span> <span class="nc">NSSomething</span> <span class="kd">extends</span> <span class="n">NSObject</span> <span class="kd">implements</span> <span class="n">NSCopying</span> <span class="o">{</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">NatJ</span><span class="o">.</span><span class="na">register</span><span class="o">();</span> <span class="c1">// registers the type with the NatJ system</span>
+    <span class="o">}</span>
+
+    <span class="c1">//The constructor is only used inside the NatJ code</span>
+    <span class="kd">protected</span> <span class="nf">NSSomething</span><span class="o">(</span><span class="n">Pointer</span> <span class="n">peer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">peer</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Allocates an uninitalized object</span>
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;alloc&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="n">NSSomething</span> <span class="nf">alloc</span><span class="o">();</span>
+
+    <span class="c1">// Initializes an object with the default</span>
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;init&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="n">NSSomething</span> <span class="nf">init</span><span class="o">();</span>
+
+    <span class="c1">// A method binding corresponding to the defined selector</span>
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;aMethod:::&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">aMethod</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">z</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">&#64;ObjCClassBinding</span></code> annotation indicates that NatJ should handle the class as a binding class. Classes without
+this annotation will be considered to be inherited classes. By default, binding classes represent Objective-C classes
+with the same unqualified name the Java class has. At the same time, inherited classes have the qualified name at the
+Objective-C side. You can explicitly define the native-side names by adding the <code class="docutils literal"><span class="pre">&#64;ObjCClassName</span></code> annotation to the
+Java class definition by filling its argument with the actual name you want to assign to this class on the Objective-C
+side. To bind native methods, mark them with the <code class="docutils literal"><span class="pre">&#64;Selector</span></code> annotation. The annotation  argument specifies the
+selector of the Objective-C method.</p>
+<p><strong>Passing Object References as Regular Java References</strong></p>
+<p>You can easily pass object references as arguments. NatJ automatically converts them for you:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">CustomClass</span> <span class="kd">extends</span> <span class="n">NSObject</span> <span class="o">{</span>
+
+    <span class="c1">//...</span>
+
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;setReceiver:&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setReceiver</span><span class="o">(</span><span class="n">NSObject</span> <span class="n">receiver</span><span class="o">)</span>
+
+    <span class="c1">//...</span>
+
+<span class="o">}</span>
+
+<span class="c1">//...</span>
+
+<span class="n">NSObject</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">NSObject</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">init</span><span class="o">();</span>
+<span class="n">CustomClass</span> <span class="n">anotherObj</span> <span class="o">=</span> <span class="n">CustomClass</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">init</span><span class="o">();</span>
+<span class="n">anotherObj</span><span class="o">.</span><span class="na">setReceiver</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>You do not have to worry about memory management, because NatJ makes all the required retain/release calls.</p>
+<p><strong>Passing Regular Java Objects to the Objective-C Side</strong></p>
+<p>NatJ generates the Objective-C proxy objects automatically. For example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">X</span> <span class="o">{</span>
+
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;aMethod:&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">aMethod</span><span class="o">();</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>If you pass a reference to this object to the Objective-C side, then the Objective-C code will be able to call the
+<code class="docutils literal"><span class="pre">aMethod:</span></code> selector. You can use this feature if you want to implement a native interface inline with an anonymous
+class.</p>
+<p><strong>Automatic Conversion Between Java Strings and Native Strings</strong></p>
+<p>If you want to bind an Objective-C method with an NSString argument or return value, you can bind it as a
+Java String class. For example, suppose you have the following Objective-C method:</p>
+<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">someMethod:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">aParam</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To bind this method in Java, use the <code class="docutils literal"><span class="pre">&#64;Selector(...)</span></code> annotation. For example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;someMethod:&quot;</span><span class="o">)</span>
+<span class="n">String</span> <span class="nf">bindOfSomeMethodA</span><span class="o">(</span><span class="n">String</span> <span class="n">aParam</span><span class="o">);</span>
+
+<span class="c1">//or</span>
+
+<span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;someMethod:&quot;</span><span class="o">)</span>
+<span class="n">String</span> <span class="nf">bindOfSomeMethodB</span><span class="o">(</span><span class="n">NSString</span> <span class="n">aParam</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>You can bind the same native Objective-C method with multiple binding
+methods by specifying the same selector string in the <code class="docutils literal"><span class="pre">&#64;Selector(...)</span></code> annotations.</p>
+<p>Automatic string conversion also works for C. For example, you can bind the system function <code class="docutils literal"><span class="pre">getenv</span></code> as follows:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CFunction</span><span class="o">(</span><span class="s">&quot;getenv&quot;</span><span class="o">)</span>
+<span class="n">String</span> <span class="nf">getenv</span><span class="o">(</span><span class="n">String</span> <span class="n">env</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><strong>Passing Struct by Value as a Method Argument</strong></p>
+<p>With NatJ, you can pass and return structure objects by value:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;substringWithRange:&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">native</span> <span class="n">String</span> <span class="nf">substringWithRange</span><span class="o">(</span><span class="nd">@ByValue</span> <span class="n">NSRange</span> <span class="n">range</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>When you pass or return an object by value, it is passed on the stack. This is not supported by default in
+Java Native Interface (JNI) specifications, because in Java every object is in the heap.</p>
+<p><strong>Using Objective-C Protocols as Java Interfaces</strong></p>
+<p>Objective-C protocols correspond to Java interfaces. Each method is decorated with a <code class="docutils literal"><span class="pre">&#64;Selector</span></code>
+annotation to mark the correct selector this method corresponds to. The Objective-C name of the
+protocol can be specified in the <code class="docutils literal"><span class="pre">&#64;ObjCProtocolName(&quot;SomeName&quot;)</span></code> annotation. Otherwise, it is simply the
+name of the class:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@ObjCProtocolName</span><span class="o">(</span><span class="s">&quot;UIApplicationDelegate&quot;</span><span class="o">)</span> <span class="c1">// Optional</span>
+<span class="kd">interface</span> <span class="nc">UIApplicationDelegate</span> <span class="o">{</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;applicationDidBecomeActive:&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">applicationDidBecomeActive</span><span class="o">(</span><span class="n">UIApplication</span> <span class="n">application</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><strong>Extending Objective-C Classes in Java</strong></p>
+<p>You can extend or define an Objective-C class in pure Java code. For example, to define a
+new <code class="docutils literal"><span class="pre">MyApplicationDelegate</span></code> class that can be instantiated from regular Objective-C code, you can
+do the following:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@ObjCClassName</span><span class="o">(</span><span class="s">&quot;MyApplicationDelegate&quot;</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">MyApplicationDelegate</span> <span class="kd">extends</span> <span class="n">NSObject</span> <span class="kd">implements</span> <span class="n">UIApplicationDelegate</span> <span class="o">{</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">NatJ</span><span class="o">.</span><span class="na">register</span><span class="o">();</span> <span class="c1">// Register the custom type</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;alloc&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="n">MyApplicationDelegate</span> <span class="nf">alloc</span><span class="o">();</span>
+
+    <span class="c1">//Implement methods ...</span>
+
+    <span class="nd">@Override</span>
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;applicationDidBecomeActive:&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">applicationDidBecomeActive</span><span class="o">(</span><span class="n">UIApplication</span> <span class="n">application</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Custom code</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>NatJ registers the class object with the Objective-C run time. When class objects are registered,
+their definitions become accessible from the Objective-C code.</p>
+<p>If the Objective-C run time already includes a class with the same name, NatJ switches into a hybrid
+mode and injects each Java-side implementation into the native class. In this case, you are recommended
+to use your implementations from the start of your application by adding the <a href="#id1"><span class="problematic" id="id2">``</span></a>&#64;RegisterOnStartup``annotation
+to your class. This annotation performs pre-main initialization of your Java class, so your implementations
+are injected before the native class gets invoked.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If your hybrid class contains a selector implementation at the native side that is not represented in
+the interface definition, then NatJ can not guarantee that you can invoke that implementation from
+the Java code.</p>
+</div>
+<p><strong>Binding Objective-C Categories in Java</strong></p>
+<p>As Java does not support class extensions, you can only bind Objective-C categories by adding them
+to a new binding class, not to the original class this category extends.</p>
+<p>For example, to extend the NSString class with an Objective-C category, do the following:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@ObjCCategory</span><span class="o">(</span><span class="n">NSString</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">MyCategoryClass</span> <span class="kd">extends</span> <span class="n">NSObject</span> <span class="o">{</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">NatJ</span><span class="o">.</span><span class="na">register</span><span class="o">();</span> <span class="c1">// Register the category methods</span>
+    <span class="o">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Category instance method.</span>
+<span class="cm">     *</span>
+<span class="cm">     * The first argument indicates the instance object the corresponding</span>
+<span class="cm">     * message will be sent to.</span>
+<span class="cm">     */</span>
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;countChar:&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="kt">int</span> <span class="nf">countChar</span><span class="o">(</span><span class="n">NSString</span> <span class="n">str</span><span class="o">,</span> <span class="kt">char</span> <span class="n">chr</span><span class="o">);</span>
+
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;countChar:&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="kt">int</span> <span class="nf">countChar</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">,</span> <span class="kt">char</span> <span class="n">chr</span><span class="o">);</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Category class method.</span>
+<span class="cm">     *</span>
+<span class="cm">     * Message will be send to the class specified by @ObjCCategory</span>
+<span class="cm">     * annotation</span>
+<span class="cm">     */</span>
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;repeatString:times:&quot;</span><span class="o">)</span>
+    <span class="nd">@CategoryClassMethod</span> <span class="c1">//Annotate class category methods with the this annotation.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="n">String</span> <span class="nf">repeatString</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">,</span> <span class="kt">int</span> <span class="n">times</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Both class and instance methods will be presented in the category binding java class as static methods.
+Class methods should be marked with <code class="docutils literal"><span class="pre">&#64;CategoryClassMethod</span></code> annotation. The corresponding message
+will be send to the class object specified by the <code class="docutils literal"><span class="pre">&#64;ObjCCategory</span></code> annotation. All other static native methods
+specified with the <code class="docutils literal"><span class="pre">&#64;Selector</span></code> will be treated as instance category methods and the corresponding selector
+will be sent to the object passed as the first argument. You can use explicit and implicit mappings with all
+the arguments and return values, including the first arguments.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You only have to bind a category in this manner, when the original class the category extends has an uneditable
+code, otherwise NatJGen will append every category method to the appropriate classes.</p>
+</div>
+<p><strong>Binding Variadic Methods in Java</strong></p>
+<p>You can bind variadic C functions using the <code class="docutils literal"><span class="pre">&#64;Variadic()</span></code> annotation. In its <code class="docutils literal"><span class="pre">unboxPolicy</span></code> optional field,
+you can specify the policy for handling primitives using the following values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Variadic.Runtime</span></code> (default) - use runtime-specific default policy.</li>
+<li><code class="docutils literal"><span class="pre">Variadic.Box</span></code> - use the default policy for Objective-C to leave each boxed variadic argument as is.</li>
+<li><code class="docutils literal"><span class="pre">Variadic.Unbox</span></code> - use the default policy for C to unbox all boxed variadic argument and pass them as primitive
+ones.</li>
+</ul>
+<p>An example for <code class="docutils literal"><span class="pre">printf</span></code>:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Variadic</span><span class="o">()</span>
+<span class="nd">@CFunction</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="kt">int</span> <span class="nf">printf</span><span class="o">(</span><span class="n">String</span> <span class="n">arg1</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span> <span class="n">varargs</span><span class="o">);</span>
+
+<span class="c1">// ...</span>
+
+<span class="n">printf</span><span class="o">(</span><span class="s">&quot;%d %f&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mf">3.0f</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Since this is a C function, each (auto)boxed value will be passed as a primitive value. In case of an Objective-C
+selector these two arguments would be incorrectly passed as proxied <code class="docutils literal"><span class="pre">java.lang.Integer</span></code> and <code class="docutils literal"><span class="pre">java.lang.Float</span></code>
+objects.</p>
+<p>If a method takes heterogeneous primitive variadic arguments, you can bind it with a primitive variadic method:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Variadic</span><span class="o">()</span>
+<span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;sum::&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="kt">float</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">,</span> <span class="kt">float</span><span class="o">...</span> <span class="n">varargs</span><span class="o">);</span>
+
+<span class="c1">// ...</span>
+
+<span class="n">sum</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mf">1.0f</span><span class="o">,</span> <span class="mf">2.0f</span><span class="o">,</span> <span class="mf">3.0f</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>This kind of bindings will always use unboxing policy regardless of the actual run time. If you want to pass
+the values as objects, then you can bind them as <code class="docutils literal"><span class="pre">Float...</span></code>, because the actual run time is Objective-C, so
+by default, no unboxing will happen in that case.</p>
+<p>As the variadic values cannot be annotated one-by-one, explicit mapper or any other modifier needs to be specified
+by a dedicated <code class="docutils literal"><span class="pre">VariadicArg</span></code> wrapper object. You can construct this wrapper object using one of the following
+factory methods:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">createMap(Object,</span> <span class="pre">Class&lt;?</span> <span class="pre">extends</span> <span class="pre">Mapper&gt;)</span></code>, uses the specified mapper to map the object.</li>
+<li><code class="docutils literal"><span class="pre">createBox(Object)</span></code>, forces boxing for an object.</li>
+<li><code class="docutils literal"><span class="pre">createUnbox(Object)</span></code>, forces unboxing for a boxed primitive object.</li>
+<li><code class="docutils literal"><span class="pre">createNFloat(Double)</span></code>, forces unboxing for a <code class="docutils literal"><span class="pre">Float</span></code> object and passes it as a native sized floating-point
+value.</li>
+<li><code class="docutils literal"><span class="pre">createNUInt(Long)</span></code>, forces unboxing for a <code class="docutils literal"><span class="pre">Long</span></code> object and passes it as a native sized unsigned integer value.</li>
+<li><code class="docutils literal"><span class="pre">createNInt(Long)</span></code>, forces unboxing for a <code class="docutils literal"><span class="pre">Long</span></code> object and passes it as a native sized signed integer value.</li>
+<li><code class="docutils literal"><span class="pre">createByValue(StructObject)</span></code>, forces by-value passing for a <code class="docutils literal"><span class="pre">StructObject</span></code> object.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Variadic</span><span class="o">()</span>
+<span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;someVariadic::&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">someVariadic</span><span class="o">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span> <span class="n">varargs</span><span class="o">);</span>
+
+<span class="c1">// ...</span>
+
+<span class="n">someVariadic</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span>
+    <span class="n">VariadicArg</span><span class="o">.</span><span class="na">createMap</span><span class="o">(</span><span class="n">myCallbackInstace</span><span class="o">,</span> <span class="n">CCallbackMapper</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
+    <span class="n">VariadicArg</span><span class="o">.</span><span class="na">createUnbox</span><span class="o">(</span><span class="mi">42</span><span class="o">),</span>
+    <span class="n">VariadicArg</span><span class="o">.</span><span class="na">createNFloat</span><span class="o">(</span><span class="mf">42.0f</span><span class="o">),</span>
+    <span class="n">VariadicArg</span><span class="o">.</span><span class="na">createByValue</span><span class="o">(</span><span class="k">new</span> <span class="n">CGPoint</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">)));</span>
+</pre></div>
+</div>
+<p><strong>Using Platform-Dependent Types</strong></p>
+<p>Some native methods may have arguments or return types with  platform-dependent width. To bind such methods
+to Java, use the <em>Unified Java API</em> extension of NatJ. This extension includes three specific types that take
+four bytes on 32-bit platforms and eight bytes on 64-bit platforms. Use the following annotations for
+platform-dependent arguments or return types:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&#64;NUInt</span></code> for unsigned integers, on Java side this is a long</li>
+<li><code class="docutils literal"><span class="pre">&#64;NInt</span></code> for signed integers, on Java side this is a long</li>
+<li><code class="docutils literal"><span class="pre">&#64;NFloat</span></code> for floating point values, on Java side this is a double</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;arrayWithCapacity:&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="n">NSMutableArray</span> <span class="nf">arrayWithCapacity</span><span class="o">(</span><span class="nd">@NUInt</span> <span class="kt">long</span> <span class="n">numItems</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><strong>Passing Regular Java Classes to Objective-C</strong></p>
+<p>You can pass any Java object to native methods. NatJ automatically maps them, let it be a String or anything
+else. For mapping object types, NatJ uses mappers. You can explicitly specify the mapper in a method or one of
+its arguments, and NatJ will use this mapper when converting between the two sides.</p>
+<p>You can extend NatJ by implementing new mappers. For example, you can create a mapper that will be used for
+converting String[] objects to native <code class="docutils literal"><span class="pre">const</span> <span class="pre">char**</span></code>:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CStringArrayMapper</span> <span class="kd">implements</span> <span class="n">Mapper</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">[],</span> <span class="n">Pointer</span><span class="o">&gt;</span> <span class="n">strings2addr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WeakHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">[],</span> <span class="n">Pointer</span><span class="o">&gt;();</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">toNative</span><span class="o">(</span><span class="n">Object</span> <span class="n">instance</span><span class="o">,</span> <span class="n">NativeObjectConstructionInfo</span> <span class="n">info</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">strings</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">[])</span><span class="n">instance</span><span class="o">;</span>
+        <span class="n">Pointer</span> <span class="n">pointer</span><span class="o">;</span>
+        <span class="kd">synchronized</span><span class="o">(</span><span class="n">strings2addr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">pointer</span> <span class="o">=</span> <span class="n">strings2addr</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">strings</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">pointer</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="kt">long</span> <span class="n">peer</span> <span class="o">=</span> <span class="n">CRuntime</span><span class="o">.</span><span class="na">createNativeStringArray</span><span class="o">(</span><span class="n">strings</span><span class="o">);</span>
+                <span class="n">pointer</span> <span class="o">=</span> <span class="n">CRuntime</span><span class="o">.</span><span class="na">createStrongPointer</span><span class="o">(</span><span class="n">peer</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+                <span class="n">strings2addr</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">strings</span><span class="o">,</span> <span class="n">pointer</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">pointer</span><span class="o">.</span><span class="na">getPeer</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">toJava</span><span class="o">(</span><span class="kt">long</span> <span class="n">peer</span><span class="o">,</span> <span class="n">JavaObjectConstructionInfo</span> <span class="n">info</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">&quot;Converting native string array is not supported!&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The info parameters contain all the information needed for the memory management and for the conversion itself.
+After you have implemented your new mapper, you can use it when writing the binding code:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">native</span> <span class="kt">void</span> <span class="nf">parseStrings</span><span class="o">(</span><span class="nd">@Mapped</span><span class="o">(</span><span class="n">CStringArrayMapper</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="n">strings</span><span class="o">);</span>
+
+<span class="c1">//..</span>
+
+<span class="n">parseStrings</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="s">&quot;string1&quot;</span><span class="o">,</span> <span class="s">&quot;string2&quot;</span><span class="o">});</span>
+</pre></div>
+</div>
+<p><strong>Callback Support</strong></p>
+<p>NatJ supports Objective-C blocks and C callbacks. Using this feature, you can pass Java implementations to the
+native side. You can even invoke Objective-C blocks originating from the native side by calling the appropriate
+method of this block.</p>
+<p>For C callbacks use the <code class="docutils literal"><span class="pre">&#64;FunctionPtr</span></code> annotation:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">Object</span> <span class="n">__natjCache</span><span class="o">;</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">NatJ</span><span class="o">.</span><span class="na">register</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Selector</span><span class="o">(</span><span class="s">&quot;countChar:&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">useCallback</span><span class="o">(</span>
+        <span class="nd">@FunctionPtr</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;call_useCallback&quot;</span><span class="o">)</span> <span class="n">Block_useCallback</span> <span class="n">object</span><span class="o">);</span>
+
+    <span class="kd">static</span> <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Block_useCallback</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">call_useCallback</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+<span class="c1">//...</span>
+
+<span class="n">Test</span> <span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Test</span><span class="o">;</span>
+<span class="n">o</span><span class="o">.</span><span class="na">useCallback</span><span class="o">(</span><span class="k">new</span> <span class="n">Block_useCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kt">void</span> <span class="nf">call_useCallback</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//do stuff</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+<p>Java interface to be passed as a function pointer parameter can contain several methods. You have to specify which
+particular method should be called inside this native function. For this purpose, you can use the <code class="docutils literal"><span class="pre">&#64;FunctionPtr</span></code>
+annotation to specify the name of the interface method and list the argument types. These fields are optional and
+NatJ will use the first match with presented information. The <code class="docutils literal"><span class="pre">__natjCache</span></code> field is optional, NatJ can use this
+field for caching. When using the C callback support, you have to use the <code class="docutils literal"><span class="pre">NatJ.disposeFunctionPtr(Object</span> <span class="pre">callback</span>
+<span class="pre">)</span></code> method to release the callback created by NatJ when the callback is not needed anymore.</p>
+<p>For Objective-C blocks, use the <code class="docutils literal"><span class="pre">&#64;ObjCBlock</span></code> instead of the <code class="docutils literal"><span class="pre">&#64;FunctionPtr</span></code> annotation:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">//...</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">useCallback</span><span class="o">(</span>
+    <span class="nd">@ObjCBlock</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;method&quot;</span><span class="o">)</span> <span class="n">Block_useCallback</span> <span class="n">object</span><span class="o">);</span>
+
+<span class="c1">//...</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">&#64;ObjCBlock</span></code> annotation takes the same arguments as the <code class="docutils literal"><span class="pre">&#64;FunctionPtr</span></code> and everything said before about
+the C callbacks applies here as well, except for the <code class="docutils literal"><span class="pre">NatJ.disposeFunctionPtr(Object</span> <span class="pre">callback)</span></code> method. As
+Objective-C has a memory management mechanism, you do not need to release the callback created by NatJ. Disposal
+of blocks is done automatically and any explicit initiations will be ignored.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You cannot bind callback objects by multiple different types as it will cause an exception.</p>
+</div>
+<p><strong>Other Objective-C Support Features</strong></p>
+<p>You also can create Objective-C classes and <code class="docutils literal"><span class="pre">SEL</span></code> objects as follows:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Class</span><span class="o">(</span><span class="s">&quot;classname&quot;</span><span class="o">);</span>
+
+<span class="k">new</span> <span class="n">SEL</span><span class="o">(</span><span class="s">&quot;selector:&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>As Objective-C has a proper memory management, you do not have to do manual retaining, releasing or autoreleasing
+if all your bindings are valid.</p>
+<p><strong>References</strong></p>
+<p>To construct a reference, use <code class="docutils literal"><span class="pre">PtrFactory</span></code>:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">native</span> <span class="kt">void</span> <span class="nf">addTwoInts</span><span class="o">(</span><span class="kt">int</span> <span class="n">lhs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">rhs</span><span class="o">,</span> <span class="n">IntePtr</span> <span class="n">result</span><span class="o">);</span>
+
+<span class="c1">//...</span>
+
+<span class="n">IntPtr</span> <span class="n">ref</span> <span class="o">=</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="na">newIntPtr</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="n">addTwoInts</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="n">ref</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>NatJ provides reference classes for <code class="docutils literal"><span class="pre">StructObject</span></code>, <code class="docutils literal"><span class="pre">ObjCObject</span></code>, and for all primitive types. When working with
+references, NatJ automatically uses the right mapper. Using <code class="docutils literal"><span class="pre">PtrFactory</span></code>, you can construct any type of pointers:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">IntPtr</span> <span class="c1">//int*</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IntPtr</span><span class="o">&gt;</span> <span class="c1">//int**</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IntPtr</span><span class="o">&gt;&gt;</span> <span class="c1">// int***</span>
+<span class="n">ConstPtr</span><span class="o">&lt;</span><span class="n">IntPtr</span><span class="o">&gt;</span> <span class="c1">//int * const *</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span> <span class="c1">//NSObject**, single indirection, because it&#39;s an ID</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">NSRange</span><span class="o">&gt;</span> <span class="c1">//NSRange*, single indirection, because it&#39;s a structure</span>
+</pre></div>
+</div>
+<p><strong>Binding Structures</strong></p>
+<p>To bind structures, use the <code class="docutils literal"><span class="pre">&#64;Structure</span></code> and <code class="docutils literal"><span class="pre">&#64;StructureField</span></code> annotations, as follows:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Structure</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CGPoint</span> <span class="kd">extends</span> <span class="n">StructObject</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">__natjCache</span><span class="o">;</span> <span class="c1">//Used by NatJ for optimizations</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">NatJ</span><span class="o">.</span><span class="na">register</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="nf">CGPoint</span><span class="o">(</span><span class="n">Pointer</span> <span class="n">peer</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">peer</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">CGPoint</span><span class="o">(</span><span class="kt">float</span> <span class="n">x</span><span class="o">,</span> <span class="kt">float</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">CGPoint</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">setX</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+        <span class="n">setY</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@StructureField</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">float</span> <span class="nf">x</span><span class="o">();</span>
+
+    <span class="nd">@StructureField</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">setX</span><span class="o">(</span><span class="kt">float</span> <span class="n">x</span><span class="o">);</span>
+
+    <span class="nd">@StructureField</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">float</span> <span class="nf">y</span><span class="o">();</span>
+
+    <span class="nd">@StructureField</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">setY</span><span class="o">(</span><span class="kt">float</span> <span class="n">y</span><span class="o">);</span>
+
+    <span class="nd">@StructureField</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">float</span> <span class="nf">getStaticArrayElement</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">);</span>
+
+    <span class="nd">@StructureField</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">isGetter</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">native</span> <span class="kt">void</span> <span class="nf">setStaticArrayElement</span><span class="o">(</span><span class="kt">float</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">&#64;Structure</span></code> annotation takes an optional argument that specifies the alignment of the structure. Set
+this argument if the alignment of the structure differs from the one the current architecture would assign
+to the structure.</p>
+<p>The <code class="docutils literal"><span class="pre">&#64;StructureField</span></code> annotation takes the following arguments:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">order</span></code> - specifies the actual field order.</li>
+<li><code class="docutils literal"><span class="pre">isGetter</span></code> - specifies whether this is a getter or a setter method for the field.</li>
+<li><code class="docutils literal"><span class="pre">count</span></code> - Optional. Specifies the element count for the nested static array fields. The default value is 1.</li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NatJ_CornerCases.html" class="btn btn-neutral float-right" title="Nat/J: Corner Cases" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="NatJ_Interoperability.html" class="btn btn-neutral" title="Nat/J: Interoperability with Native Code" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

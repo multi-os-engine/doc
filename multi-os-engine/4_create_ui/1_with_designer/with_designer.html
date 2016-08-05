@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating a UI with the Multi-OS Engine UI Designer &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Creating Your App’s User Interface (UI)" href="../create_ui.html"/>
+        <link rel="next" title="Creating a UI Using an Apple Xcode Storyboard" href="../2_with_storyboard/with_storyboard.html"/>
+        <link rel="prev" title="Creating Your App’s User Interface (UI)" href="../create_ui.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../create_ui.html">Creating Your App&#8217;s User Interface (UI)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Creating a UI with the Multi-OS Engine UI Designer</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../2_with_storyboard/with_storyboard.html">Creating a UI Using an Apple Xcode Storyboard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../create_ui.html">Creating Your App&#8217;s User Interface (UI)</a> &raquo;</li>
+      
+    <li>Creating a UI with the Multi-OS Engine UI Designer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-ui-with-the-multi-os-engine-ui-designer">
+<h1>Creating a UI with the Multi-OS Engine UI Designer<a class="headerlink" href="#creating-a-ui-with-the-multi-os-engine-ui-designer" title="Permalink to this headline">¶</a></h1>
+<p>The Multi-OS Engine provides the UI designer to build Apple iOS* applications. The builder is similar to Android* layout to build but has view objects similar to that of iOS. This tutorial shows you how to build a simple Quiz application for iOS using Multi-OS Engine UI builder.</p>
+<p>Step 1: To build any Multi-OS Engine application, start with creating a stock Android sample application like this.</p>
+<img alt="../../../_images/design1.png" src="../../../_images/design1.png" />
+<p>Step 2: Right click on the Android project and select Multi-OS Engine Project to create a new module.</p>
+<img alt="../../../_images/design2.png" src="../../../_images/design2.png" />
+<p>Step 3: Select Single View Application as a starting point for making the app.</p>
+<img alt="../../../_images/design3.png" src="../../../_images/design3.png" />
+<p>Step 4: Name your application and click Finish.</p>
+<img alt="../../../_images/design4.png" src="../../../_images/design4.png" />
+<p>Step 5: These are the files that are created by the Multi-OS Engine.</p>
+<img alt="../../../_images/design5.png" src="../../../_images/design5.png" />
+<p>Step 6: Click on the sample_design.ixmlfile to start editing your UI.</p>
+<img alt="../../../_images/design6.png" src="../../../_images/design6.png" />
+<p>Step 7: Some parameters are already set by default, such as the initialViewController and its viewController. You can set parameters according to your own needs.</p>
+<img alt="../../../_images/design7.png" src="../../../_images/design7.png" />
+<p>Step 8: After deleting the default label and button, you can start adding your own view objects. Drag and drop objects to add them to the layout.</p>
+<img alt="../../../_images/design8.png" src="../../../_images/design8.png" />
+<p>Step 9: You can set all the parameters related to your UI in the properties tab. The parameters here are quite similar to those seen on Apple Xcode* software.</p>
+<img alt="../../../_images/design9.png" src="../../../_images/design9.png" />
+<p>Step 10: Let&#8217;s add two labels and two buttons to make the UI of the app.</p>
+<img alt="../../../_images/design10.png" src="../../../_images/design10.png" />
+<p>Step 11: Name the iboutlets for all the view objects that you place in your UI.</p>
+<img alt="../../../_images/design11.png" src="../../../_images/design11.png" />
+<p>Step 12: Set up your IBActions for buttons under events.</p>
+<img alt="../../../_images/design12.png" src="../../../_images/design12.png" />
+<p>Step 13: The Multi-OS Engine automatically generates all the IBOutlets and IBActions in the corresponding Java* viewcontroller file.</p>
+<img alt="../../../_images/design13.png" src="../../../_images/design13.png" />
+<p>Step 14: Now add the class variables corresponding to all the view objects in UI and assign them their corresponding IBOutlets in viewDidLoad method.</p>
+<img alt="../../../_images/design14.png" src="../../../_images/design14.png" />
+<p>Step 15: Create a QuizDataSet.java file which can work as a data source for the app and instantiate its object in the AppViewController class.</p>
+<img alt="../../../_images/design15.png" src="../../../_images/design15.png" />
+<p>Step 16: Set the text area of the Question and Answer Labels in the Action methods showQuestion and showAnswer.</p>
+<img alt="../../../_images/design16.png" src="../../../_images/design16.png" />
+<p>Step 17: Run the app.</p>
+<img alt="../../../_images/design17.png" src="../../../_images/design17.png" />
+<p>Now you have designed your first iOS app with the Multi-OS Engine UI designer.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2_with_storyboard/with_storyboard.html" class="btn btn-neutral float-right" title="Creating a UI Using an Apple Xcode Storyboard" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../create_ui.html" class="btn btn-neutral" title="Creating Your App’s User Interface (UI)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

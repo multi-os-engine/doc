@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enabling Javadoc Docs for iOS API in IDEs &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Getting Started" href="../Getting_Started.html"/>
+        <link rel="next" title="Porting an Android Application to Apple iOS Platform Using Multi-OS Engine" href="../7_porting/porting.html"/>
+        <link rel="prev" title="Customizing Your Apple Xcode* Project using a Gradle* Script" href="../4_project_customization_via_gradle/project_customization_via_gradle.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting_Started.html">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../0_prerequisites/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../1_hello_world_app/hello_world_app.html">Creating a Hello World App for Android and iOS Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2_moe_samples/MOE_samples.html">Multi-OS Engine Samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3_remote_build/remote_build.html">Remote Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../4_project_customization_via_gradle/project_customization_via_gradle.html">Customizing Your Apple Xcode* Project using a Gradle* Script</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Enabling Javadoc Docs for iOS API in IDEs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#intellij-idea">Intellij IDEA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#android-studio">Android Studio</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../7_porting/porting.html">Porting an Android Application to Apple iOS Platform Using Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../Getting_Started.html">Getting Started</a> &raquo;</li>
+      
+    <li>Enabling Javadoc Docs for iOS API in IDEs</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enabling-javadoc-docs-for-ios-api-in-ides">
+<h1>Enabling Javadoc Docs for iOS API in IDEs<a class="headerlink" href="#enabling-javadoc-docs-for-ios-api-in-ides" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="intellij-idea">
+<h2>Intellij IDEA<a class="headerlink" href="#intellij-idea" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Open the Project Structure dialog.</li>
+<li>Under Project Settings, select the Modules tab and click your module.</li>
+</ol>
+<img alt="../../../_images/idea_1.png" src="../../../_images/idea_1.png" />
+<ol class="arabic simple" start="3">
+<li>Select moe-ios.jar from dependencies list and click on Edit button:</li>
+</ol>
+<img alt="../../../_images/idea_2.png" src="../../../_images/idea_2.png" />
+<ol class="arabic simple" start="4">
+<li>In the edit dialog click on Plus button and select moe-ios-javadoc.jar:</li>
+</ol>
+<img alt="../../../_images/idea_3.png" src="../../../_images/idea_3.png" />
+<img alt="../../../_images/idea_4.png" src="../../../_images/idea_4.png" />
+<ol class="arabic simple" start="5">
+<li>Close all dialogs by clicking OK button. Open editor, set cursor on any iOS class name and press Ctrl+J.</li>
+</ol>
+<img alt="../../../_images/idea_5.png" src="../../../_images/idea_5.png" />
+</div>
+<div class="section" id="android-studio">
+<h2>Android Studio<a class="headerlink" href="#android-studio" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Select the Project view for your project structure and expand External Library for the Multi-OS Engine module. Select the moe-ios library and open Library Properties in the context menu.</li>
+</ol>
+<img alt="../../../_images/as_1.png" src="../../../_images/as_1.png" />
+<ol class="arabic simple" start="2">
+<li>Select + and select moe-ios-javadoc.jar to add.</li>
+</ol>
+<img alt="../../../_images/as_2.png" src="../../../_images/as_2.png" />
+<ol class="arabic simple" start="3">
+<li>Close all dialogs by clicking the OK button. Open the editor, set the cursor on an iOS class name and press Ctrl+J to see the class documentation.</li>
+</ol>
+<img alt="../../../_images/as_3.png" src="../../../_images/as_3.png" />
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../7_porting/porting.html" class="btn btn-neutral float-right" title="Porting an Android Application to Apple iOS Platform Using Multi-OS Engine" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../4_project_customization_via_gradle/project_customization_via_gradle.html" class="btn btn-neutral" title="Customizing Your Apple Xcode* Project using a Gradle* Script" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Remote Build &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Getting Started" href="../Getting_Started.html"/>
+        <link rel="next" title="Customizing Your Apple Xcode* Project using a Gradle* Script" href="../4_project_customization_via_gradle/project_customization_via_gradle.html"/>
+        <link rel="prev" title="Multi-OS Engine Samples" href="../2_moe_samples/MOE_samples.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting_Started.html">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../0_prerequisites/prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../1_hello_world_app/hello_world_app.html">Creating a Hello World App for Android and iOS Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2_moe_samples/MOE_samples.html">Multi-OS Engine Samples</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Remote Build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-build-configuration-in-android-studio">Creating build configuration in Android Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-and-debug-ios-app">Run and Debug iOS* app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-build-ipa-for-application-deploying">How to build IPA for application deploying</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-apple-developer-certificate-and-provisioning-profile-on-macos">Getting Apple developer certificate and provisioning profile on macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#certificates-generation-using-free-apple-developer-account">Certificates generation using &#8220;free&#8221; Apple developer account</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../4_project_customization_via_gradle/project_customization_via_gradle.html">Customizing Your Apple Xcode* Project using a Gradle* Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../6_how_to_enable_javadoc/how_to_enable_javadoc.html">Enabling Javadoc Docs for iOS API in IDEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../7_porting/porting.html">Porting an Android Application to Apple iOS Platform Using Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../Getting_Started.html">Getting Started</a> &raquo;</li>
+      
+    <li>Remote Build</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="remote-build">
+<h1>Remote Build<a class="headerlink" href="#remote-build" title="Permalink to this headline">¶</a></h1>
+<p>Remote build provides the following capabilities:</p>
+<ul class="simple">
+<li>Building .app and .ipa files for iOS* devices on remote macOS system in located in a local network from Android Studio* on Windows*.</li>
+<li>Run and debug iOS* apps built remotely on iOS* devices connected to Windows* host</li>
+</ul>
+<p>Running iOS* apps on a simulator on Windows* hosts is not possible.</p>
+<p>This tutorial covers information related to the Remote build to get started:</p>
+<ul class="simple">
+<li>How to create remote build configuration and run the build</li>
+<li>Apple* P12 certificate and provisioning profile obtaining</li>
+<li>Known issues and troubleshooting steps</li>
+</ul>
+<p>Requirements for Windows* hosts:</p>
+<ul class="simple">
+<li>Microsoft* Windows* 7 x64 edition or later</li>
+<li>Google* Android Studio* 1.5 or later</li>
+<li>Java* Development Kit (JDK) version 8</li>
+<li>Android* Platform SDK</li>
+<li>Apple* iTunes*</li>
+</ul>
+<div class="section" id="creating-build-configuration-in-android-studio">
+<h2>Creating build configuration in Android Studio<a class="headerlink" href="#creating-build-configuration-in-android-studio" title="Permalink to this headline">¶</a></h2>
+<p>Go to &#8220;Run&#8221; =&gt; &#8220;Edit Configuration&#8221; to create remote build configuration.</p>
+<img alt="../../../_images/edit_build_configuration.png" src="../../../_images/edit_build_configuration.png" />
+<p>Click &#8220;+&#8221; and choose &#8220;Multi-OS Engine Remote build&#8221;</p>
+<img alt="../../../_images/edit_build_configuration2.png" src="../../../_images/edit_build_configuration2.png" />
+<p>Load your provisioning profile and Apple* P12 certificate to the build configuration, enter address of remote macOS machine, enter user name and password:</p>
+<img alt="../../../_images/certificates.png" src="../../../_images/certificates.png" />
+<p>Please make sure that Info.plist in &lt;project_root&gt;/ios/Xcode/&lt;project_name&gt; contains a valid Bundle ID corresponding to the provisioning profile. For more information, please visit: <a class="reference external" href="https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8">About Bundle IDs</a></p>
+<p>Apple developer certificate is needed in order to run the code on a physical iPhone and iPad. Apple Mac machine and membership in Apple Developer Program ($99/year) are needed to generate P12 certificate and to submit your apps to the AppStore. It is possible to generate the certificate using &#8220;free&#8221; Apple developer account on macOS with Xcode 7, but you will not be able to submit your application to AppStore using this certificate.</p>
+</div>
+<div class="section" id="run-and-debug-ios-app">
+<h2>Run and Debug iOS* app<a class="headerlink" href="#run-and-debug-ios-app" title="Permalink to this headline">¶</a></h2>
+<p>Click &#8220;run&#8221; or &#8220;debug&#8221; icon to run or debug sample on device respectively</p>
+<img alt="../../../_images/run2.png" src="../../../_images/run2.png" />
+<p>To see the build progress, open &#8220;Multi-OS Engine&#8221; tab:</p>
+<img alt="../../../_images/build_progress.png" src="../../../_images/build_progress.png" />
+<p>All build logs will be placed in the “&lt;project_root&gt;/ios/build/logs” folder.</p>
+</div>
+<div class="section" id="how-to-build-ipa-for-application-deploying">
+<h2>How to build IPA for application deploying<a class="headerlink" href="#how-to-build-ipa-for-application-deploying" title="Permalink to this headline">¶</a></h2>
+<p>To build IPA file go to the &#8220;Build&#8221; tab and choose &#8220;Export IPA for Application&#8221; option, choose remote build configuration in the popped up window and click &#8220;OK&#8221; to start build</p>
+<img alt="../../../_images/export_ipa.png" src="../../../_images/export_ipa.png" />
+<p>After successful build, you can double click on the .IPA to open by in Apple iTunes*. Click &#8220;Install&#8221; and then &#8220;Sync&#8221; to install it to iOS device connected to the Windows machine:</p>
+<img alt="../../../_images/itunes.png" src="../../../_images/itunes.png" />
+</div>
+<div class="section" id="getting-apple-developer-certificate-and-provisioning-profile-on-macos">
+<h2>Getting Apple developer certificate and provisioning profile on macOS<a class="headerlink" href="#getting-apple-developer-certificate-and-provisioning-profile-on-macos" title="Permalink to this headline">¶</a></h2>
+<p>Go to macOS machine, open Xcode, open the Accounts preferences pane, and check whether your Apple ID is registered. If it&#8217;s not listed, click &#8220;+&#8221; button to add it.</p>
+<img alt="../../../_images/xcode.png" src="../../../_images/xcode.png" />
+<p>Make sure that you have a valid signing identity and provisioning profiles. Choose your account in the accounts preferences pane and click on &#8220;View Details&#8221;.</p>
+<img alt="../../../_images/xcode2.png" src="../../../_images/xcode2.png" />
+<p>To export P12 certificate, start the Apple Keychain Access* application by opening the Applications folder and choosing the Utilities option.</p>
+<img alt="../../../_images/export1.png" src="../../../_images/export1.png" />
+<p>Select the Apple certificate to be exported, click File in your Apple menu and select Export Items from the drop-down menu.</p>
+<img alt="../../../_images/export2.png" src="../../../_images/export2.png" />
+<p>In the Save As field, enter a name for the Export p12 file. Enter a password for your p12 file (1 character minimum). Click OK.</p>
+<img alt="../../../_images/export3.png" src="../../../_images/export3.png" />
+<p>Copy the downloaded p12 file to your Windows* system so you can use it to configure MOE remote build.</p>
+<p>To find existing provisioning profile on your hard drive, go to Xcode -&gt; Preferences -&gt; Accounts -&gt; View Details, right click on the provisioning profile with required Bundle ID and select &#8220;Show in Finder:</p>
+<img alt="../../../_images/profiles.png" src="../../../_images/profiles.png" />
+<p>You can generate new Provisioning Profile on Apple* web site. Go to <a class="reference external" href="https://developer.apple.com">https://developer.apple.com</a>, sign in to Member Center, and open &#8220;Certificates, Identifiers &amp; Profiles&#8221; link:</p>
+<p>After you sign into your Apple* Developer account using a web browser, select Certificates, Identifiers &amp; Profiles. Click Provisioning Profiles, then select &#8220;Distribution&#8221;, click &#8220;+&#8221; button.
+Select your distribution type (&#8220;Ad Hoc&#8221; for testing or &#8220;App Store&#8221; for a final distribution/production build), click continue. Then select your App ID and click Continue.
+Then select your certificate, select the desired devices. Name, generate, and download the  Provisioning Profile.</p>
+<p>You can create multiple Ad Hoc provisioning profiles depending on the testing devices to be used. Typically, create one or more for ad hoc testing purposes. Later, create a production provisioning profile for the final Apple AppStore distribution.</p>
+</div>
+<div class="section" id="certificates-generation-using-free-apple-developer-account">
+<h2>Certificates generation using &#8220;free&#8221; Apple developer account<a class="headerlink" href="#certificates-generation-using-free-apple-developer-account" title="Permalink to this headline">¶</a></h2>
+<p>Prerequisites:</p>
+<ul class="simple">
+<li>macOS machine with installed Xcode 7.x</li>
+<li>iOS device connected to the mac machine</li>
+</ul>
+<p>Limitations of the free certificate:</p>
+<ul class="simple">
+<li>You will not be able to submit your applications to AppStore*</li>
+<li>You can&#8217;t manage your certificates and provisioning profiles using <a class="reference external" href="https://developer.apple.com">https://developer.apple.com</a> site</li>
+</ul>
+<p>Create a free Apple ID if you don&#8217;t have it.</p>
+<p>Open Xcode 7, navigate to Xcode -&gt; Preferences -&gt; Accounts and press &#8220;+&#8221; button to add your Apple ID. Select your account and press the &#8220;View Details&#8221; button.</p>
+<p>The next screen allows you to create the development certificate. To do this, press the Create button next to the iOS development text. Once this process has completed, press Done.</p>
+<img alt="../../../_images/free_cert.png" src="../../../_images/free_cert.png" />
+<p>Now you can find the generated development certificate in &#8220;Keychain Access&#8221; program.</p>
+<img alt="../../../_images/free_cert2.png" src="../../../_images/free_cert2.png" />
+<p>Now connect your iOS* device to the macOS machine. Create new project for iOS* using Xcode* project wizard (File -&gt; New project). Enter the Product name, Organization Name and Organization Identifier sections, press Next and save your project. You should see the following screen:</p>
+<img alt="../../../_images/free_cert3.png" src="../../../_images/free_cert3.png" />
+<p>Select your iOS* device from the target selection drop-down menu. Press the &#8220;Fix Issue&#8221; button to create the provisioning profile for your device. Press the &#8220;Play&#8221; icon to build the project and deploy the application to device to ensure that everything is set up correctly.</p>
+<p>It&#8217;s possible that the first time you get message &#8220;process launch failed: security&#8221;. It indicate that provisioning profile was not approved by device. To fix it you should go Settings -&gt; General -&gt; Profiles and mark corresponding profile trusted. To save the development certificate as .p12 file, go to Keychain Access, select the certificate, open the arrow to also select the private key and export them together as a .p12 file. To find the provisioning profile, go to Xcode* -&gt; Preferences -&gt; Accounts -&gt; View Details. right click on the provisioning profile with required Bundle ID and select &#8220;Show in Finder&#8221;.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../4_project_customization_via_gradle/project_customization_via_gradle.html" class="btn btn-neutral float-right" title="Customizing Your Apple Xcode* Project using a Gradle* Script" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../2_moe_samples/MOE_samples.html" class="btn btn-neutral" title="Multi-OS Engine Samples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Prerequisites &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Getting Started" href="../Getting_Started.html"/>
+        <link rel="next" title="Creating a Hello World App for Android and iOS Devices" href="../1_hello_world_app/hello_world_app.html"/>
+        <link rel="prev" title="Getting Started" href="../Getting_Started.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting_Started.html">Getting Started</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites-for-an-apple-macos-host">Prerequisites for an Apple macOS host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites-for-a-windows-host">Prerequisites for a Windows* host</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../1_hello_world_app/hello_world_app.html">Creating a Hello World App for Android and iOS Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2_moe_samples/MOE_samples.html">Multi-OS Engine Samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3_remote_build/remote_build.html">Remote Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../4_project_customization_via_gradle/project_customization_via_gradle.html">Customizing Your Apple Xcode* Project using a Gradle* Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../6_how_to_enable_javadoc/how_to_enable_javadoc.html">Enabling Javadoc Docs for iOS API in IDEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../7_porting/porting.html">Porting an Android Application to Apple iOS Platform Using Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../Getting_Started.html">Getting Started</a> &raquo;</li>
+      
+    <li>Prerequisites</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="prerequisites">
+<h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h1>
+<p>To download the Multi-OS Engine, open the main <a class="reference external" href="https://software.intel.com/en-us/multi-os-engine">Multi-OS Engine landing page</a>.</p>
+<p>Before installing Multi-OS Engine on your host development machine, set up your development environment.</p>
+<div class="section" id="prerequisites-for-an-apple-macos-host">
+<h2>Prerequisites for an Apple macOS host<a class="headerlink" href="#prerequisites-for-an-apple-macos-host" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>macOS 10.10 or higher</li>
+<li>Apple Xcode* IDE 7.0 or higher</li>
+<li>Xcode Command Line Tools</li>
+<li>iOS* 8 SDK or higher</li>
+<li>Oracle Java* Development Kit (JDK) version 8</li>
+<li>Google Android Studio* IDE 1.5 or higher</li>
+<li>Android SDK with API level 9 or higher</li>
+<li>Enrollment in the Apple Developer Program (required for Apple iOS* device support)</li>
+</ul>
+</div>
+<div class="section" id="prerequisites-for-a-windows-host">
+<h2>Prerequisites for a Windows* host<a class="headerlink" href="#prerequisites-for-a-windows-host" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A computer running Windows 7* OS x64 edition or higher</li>
+<li>Oracle Java* Development Kit (JDK) version 8</li>
+<li>Google Android Studio 1.5 or higher</li>
+<li>Android SDK with API level 9 or higher</li>
+<li>Apple iTunes* for Windows</li>
+<li>Enrollment in the Apple Developer Program (required for iOS device support)</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../1_hello_world_app/hello_world_app.html" class="btn btn-neutral float-right" title="Creating a Hello World App for Android and iOS Devices" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Getting_Started.html" class="btn btn-neutral" title="Getting Started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

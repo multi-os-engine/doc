@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nat/J: Reference &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../../index.html"/>
+        <link rel="up" title="Nat/J: Interoperability with Native Code" href="../NatJ_Interoperability.html"/>
+        <link rel="next" title="org.moe.natj.c" href="org/moe/natj/c/package-index.html"/>
+        <link rel="prev" title="Nat/J: Corner Cases" href="../NatJ_CornerCases.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../NatJ_How_to.html">Using the NatJ Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../NatJ_CornerCases.html">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+          <li><a href="../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a> &raquo;</li>
+      
+    <li>Nat/J: Reference</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nat-j-reference">
+<h1>Nat/J: Reference<a class="headerlink" href="#nat-j-reference" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/c/package-index.html">org.moe.natj.c</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/CRuntime.html">CRuntime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/OpaquePtr.html">OpaquePtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/StructObject.html">StructObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/c/ann/package-index.html">org.moe.natj.c.ann</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/ann/CFunction.html">CFunction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/ann/CVariable.html">CVariable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/ann/FunctionPtr.html">FunctionPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/ann/Inline.html">Inline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/ann/Structure.html">Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/ann/StructureField.html">StructureField</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/ann/Variadic.html">Variadic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/c/map/package-index.html">org.moe.natj.c.map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/map/CCallbackMapper.html">CCallbackMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/map/CCallbackMapper-CallbackInfo.html">CCallbackMapper.CallbackInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/map/CObjectMapper.html">CObjectMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/map/CStringArrayMapper.html">CStringArrayMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/c/map/CStringMapper.html">CStringMapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/cxx/package-index.html">org.moe.natj.cxx</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxBindingObject.html">CxxBindingObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxConstImpl.html">CxxConstImpl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxDirectImpl.html">CxxDirectImpl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxExpectedGeneratedCodeException.html">CxxExpectedGeneratedCodeException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxIllegalInvocationException.html">CxxIllegalInvocationException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxInheritedObject.html">CxxInheritedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxInheritedObject-ICxxConstructor.html">CxxInheritedObject.ICxxConstructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxMethodVirtuality.html">CxxMethodVirtuality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxObject.html">CxxObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxObjectBaseImpl.html">CxxObjectBaseImpl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxOperatorKind.html">CxxOperatorKind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxRuntime.html">CxxRuntime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/CxxRuntime-Releaser.html">CxxRuntime.Releaser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/StdException.html">StdException</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/cxx/ann/package-index.html">org.moe.natj.cxx.ann</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxByReference.html">CxxByReference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxByValue.html">CxxByValue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxCastOperator.html">CxxCastOperator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxChar16T.html">CxxChar16T</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxChar32T.html">CxxChar32T</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxClass.html">CxxClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxConst.html">CxxConst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxConstructor.html">CxxConstructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxCopyConstructorUnavailable.html">CxxCopyConstructorUnavailable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxDefaultConstructorUnavailable.html">CxxDefaultConstructorUnavailable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxDestructorUnavailable.html">CxxDestructorUnavailable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxEnum.html">CxxEnum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxFieldGetter.html">CxxFieldGetter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxFieldSetter.html">CxxFieldSetter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxFunction.html">CxxFunction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxGlobalGetter.html">CxxGlobalGetter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxGlobalSetter.html">CxxGlobalSetter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxHeader.html">CxxHeader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxHeaders.html">CxxHeaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxInheritedClass.html">CxxInheritedClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxInheritedConstructor.html">CxxInheritedConstructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxJavaObject.html">CxxJavaObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxMethod.html">CxxMethod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxOperator.html">CxxOperator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxOperatorFunction.html">CxxOperatorFunction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxSigned.html">CxxSigned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxTemplate.html">CxxTemplate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/ann/CxxUnsigned.html">CxxUnsigned</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/cxx/impl/package-index.html">org.moe.natj.cxx.impl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/impl/ReferenceManager.html">ReferenceManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/cxx/impl/UniqueIndexProvider.html">UniqueIndexProvider</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/general/package-index.html">org.moe.natj.general</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/Mapper.html">Mapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NatJ.html">NatJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NatJ-CacheConstructor.html">NatJ.CacheConstructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NatJ-JavaObjectConstructionInfo.html">NatJ.JavaObjectConstructionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NatJ-NativeObjectConstructionInfo.html">NatJ.NativeObjectConstructionInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NativeException.html">NativeException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NativeObject.html">NativeObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NativeRuntime.html">NativeRuntime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/NilException.html">NilException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/Pointer.html">Pointer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/Pointer-Releaser.html">Pointer.Releaser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/UnSupportedAnnotationException.html">UnSupportedAnnotationException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg.html">VariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-BoxVariadicArg.html">VariadicArg.BoxVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-ByValueVariadicArg.html">VariadicArg.ByValueVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-MapVariadicArg.html">VariadicArg.MapVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-NFloatVariadicArg.html">VariadicArg.NFloatVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-NIntVariadicArg.html">VariadicArg.NIntVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-NLongVariadicArg.html">VariadicArg.NLongVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-NUIntVariadicArg.html">VariadicArg.NUIntVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-NULongVariadicArg.html">VariadicArg.NULongVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-UnboxVariadicArg.html">VariadicArg.UnboxVariadicArg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/VariadicArg-WCharTVariadicArg.html">VariadicArg.WCharTVariadicArg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/general/ann/package-index.html">org.moe.natj.general.ann</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/ByValue.html">ByValue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/Callable.html">Callable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/Generated.html">Generated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/Keep.html">Keep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/Library.html">Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/Mapped.html">Mapped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/MappedReturn.html">MappedReturn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/NFloat.html">NFloat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/NInt.html">NInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/NLong.html">NLong</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/NUInt.html">NUInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/NULong.html">NULong</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/Owned.html">Owned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/ReferenceInfo.html">ReferenceInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/RegisterOnStartup.html">RegisterOnStartup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/Runtime.html">Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/UncertainArgument.html">UncertainArgument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/UncertainReturn.html">UncertainReturn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ann/WCharT.html">WCharT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/general/map/package-index.html">org.moe.natj.general.map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/map/ReferenceMapper.html">ReferenceMapper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/general/ptr/package-index.html">org.moe.natj.general.ptr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/BoolPtr.html">BoolPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/BytePtr.html">BytePtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/CharPtr.html">CharPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstBoolPtr.html">ConstBoolPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstBytePtr.html">ConstBytePtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstCharPtr.html">ConstCharPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstDoublePtr.html">ConstDoublePtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstFloatPtr.html">ConstFloatPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstIntPtr.html">ConstIntPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstLongPtr.html">ConstLongPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstNFloatPtr.html">ConstNFloatPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstNIntPtr.html">ConstNIntPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstNLongPtr.html">ConstNLongPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstNUIntPtr.html">ConstNUIntPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstNULongPtr.html">ConstNULongPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstPtr.html">ConstPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstShortPtr.html">ConstShortPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstVoidPtr.html">ConstVoidPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ConstWCharTPtr.html">ConstWCharTPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/DoublePtr.html">DoublePtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/FloatPtr.html">FloatPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/IElementPtr.html">IElementPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/IGuardablePtr.html">IGuardablePtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/IGuardedPtr.html">IGuardedPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/IntPtr.html">IntPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/LongPtr.html">LongPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/NFloatPtr.html">NFloatPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/NIntPtr.html">NIntPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/NLongPtr.html">NLongPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/NUIntPtr.html">NUIntPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/NULongPtr.html">NULongPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/Ptr.html">Ptr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/ShortPtr.html">ShortPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/VoidPtr.html">VoidPtr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/general/ptr/WCharTPtr.html">WCharTPtr</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/objc/package-index.html">org.moe.natj.objc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/BlockObject.html">BlockObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/Class.html">Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/IFrameworkInitializer.html">IFrameworkInitializer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCAutoreleasePool.html">ObjCAutoreleasePool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCException.html">ObjCException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCObject.html">ObjCObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCOpaqueObject.html">ObjCOpaqueObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCOpaqueObject-ProtocolProxyHandler.html">ObjCOpaqueObject.ProtocolProxyHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCRuntime.html">ObjCRuntime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCRuntime-ProxyExtensionBase.html">ObjCRuntime.ProxyExtensionBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ObjCSelectorsFinder.html">ObjCSelectorsFinder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/SEL.html">SEL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/WeakReference.html">WeakReference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/objc/ann/package-index.html">org.moe.natj.objc.ann</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/CategoryClassMethod.html">CategoryClassMethod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/IBAction.html">IBAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/IBOutlet.html">IBOutlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/IBOutletCollection.html">IBOutletCollection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/InstanceVariable.html">InstanceVariable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/IsOptional.html">IsOptional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/NotImplemented.html">NotImplemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/ObjCBlock.html">ObjCBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/ObjCCategory.html">ObjCCategory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/ObjCClassBinding.html">ObjCClassBinding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/ObjCClassName.html">ObjCClassName</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/ObjCProtocolName.html">ObjCProtocolName</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/Property.html">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/ProtocolClassMethod.html">ProtocolClassMethod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/Selector.html">Selector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/ann/XIB.html">XIB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="org/moe/natj/objc/map/package-index.html">org.moe.natj.objc.map</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/map/ObjCCallbackMapper.html">ObjCCallbackMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/map/ObjCObjectMapper.html">ObjCObjectMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="org/moe/natj/objc/map/ObjCStringMapper.html">ObjCStringMapper</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="org/moe/natj/c/package-index.html" class="btn btn-neutral float-right" title="org.moe.natj.c" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../NatJ_CornerCases.html" class="btn btn-neutral" title="Nat/J: Corner Cases" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

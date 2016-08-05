@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using WrapNatJGen from the Command-Line Interface &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Using Third Party Native Libraries for iOS*" href="../using_thirdparty.html"/>
+        <link rel="next" title="Generating Java* Bindings" href="1_bindings/bindings.html"/>
+        <link rel="prev" title="Using Third Party Native Libraries for iOS*" href="../using_thirdparty.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../using_thirdparty.html">Using Third Party Native Libraries for iOS*</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Using WrapNatJGen from the Command-Line Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_bindings/bindings.html">Generating Java* Bindings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_jarF/jarF.html">Generating JAR Files from the Command Line</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../2_wrap_android/wrap_android.html">Using WrapNatJGen from the Android* Studio Context Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3_troubleshooting/troubleshooting.html">Troubleshooting Compilation Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../using_thirdparty.html">Using Third Party Native Libraries for iOS*</a> &raquo;</li>
+      
+    <li>Using WrapNatJGen from the Command-Line Interface</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-wrapnatjgen-from-the-command-line-interface">
+<h1>Using WrapNatJGen from the Command-Line Interface<a class="headerlink" href="#using-wrapnatjgen-from-the-command-line-interface" title="Permalink to this headline">¶</a></h1>
+<p>You can use the WrapNatJGen tool to complete the following tasks from the command line:</p>
+<ul class="simple">
+<li>Generate Java* Bindings for native headers or based on prototypes.</li>
+<li>Generate JAR Files for libraries, frameworks, or pods.</li>
+</ul>
+<p>The WrapNatJGen tool has the following command-line syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>&lt;code&gt;$ java -jar wrapnatjgen.jar [options]&lt;/code&gt;
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">options</span></code> are as follows:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">--path-to-project</span> <span class="pre">&lt;project-dir&gt;</span></code> : Specifies the path to the output directory that will contain the generated Java bindings under the &lt;project-dir&gt;/src/main/java/&lt;package-name&gt; subdirectory.This option is mandatory for generating Java bindings.</li>
+<li><code class="docutils literal"><span class="pre">--package-name</span> <span class="pre">&lt;package-name&gt;</span></code> : Optional. Sets the package name for the generated files. By default, the package name is org.moe.</li>
+<li><code class="docutils literal"><span class="pre">--output-file-path</span> <span class="pre">&lt;jar-file&gt;</span></code> : Specifies the path to the output JAR file with the generated bindings and the input libraries or frameworks.</li>
+<li><code class="docutils literal"><span class="pre">--framework</span> <span class="pre">&lt;framework-path&gt;</span></code> : Specifies one or more input frameworks for JAR file generation. Paths to several frameworks are separated by colons.You cannot use this option together with the <code class="docutils literal"><span class="pre">--library</span></code> or <code class="docutils literal"><span class="pre">--pod</span></code> options.</li>
+<li><code class="docutils literal"><span class="pre">--library</span> <span class="pre">&lt;library-path&gt;</span></code> : Specifies one or more input libraries for JAR file generation. Paths to several libraries are separated by colons. You cannot use this option together with the <code class="docutils literal"><span class="pre">--framework</span></code> or <code class="docutils literal"><span class="pre">--pod</span></code> options.</li>
+<li><code class="docutils literal"><span class="pre">--headers</span> <span class="pre">&lt;header-path&gt;</span></code> : Specifies the path to the native header files for which Java bindings will be generated. You can specify the path to a single header, a directory containing all the headers for binding generation, or paths to several headers or directories separated by colons. You can omit this option if you are building a JAR file for a framework and you intend to use all the header files included into this framework.</li>
+<li><code class="docutils literal"><span class="pre">--ld-flags</span> <span class="pre">&lt;file-path&gt;</span></code> : Optional. Specifies the path to a TXT file that lists additional flags to pass to the linker. If you need to specify more than one flag, separate the flags by semicolons. For example: <code class="docutils literal"><span class="pre">-framework</span> <span class="pre">Foundation;-framework</span> <span class="pre">CoreGraphics</span></code> Use this option if you need to specify external dependencies for your final application, such as calls to third-party or system library functions. Failing to specify the required linker flags may cause compilation and run-time errors.</li>
+<li><code class="docutils literal"><span class="pre">--create-from-prototype</span></code> : Indicates that the specified header files should be treated as prototypes. Use this option if you want to implement your code in Java.  You can only use this option together with the <code class="docutils literal"><span class="pre">--path-to-project</span></code> and <code class="docutils literal"><span class="pre">--headers</span></code> options.</li>
+<li><code class="docutils literal"><span class="pre">--bundle</span> <span class="pre">&lt;resources-path&gt;</span></code> : Optional. Specifies the path to additional resources to copy into the final application, such as bundles or separate resource files your libraries or frameworks refer to. You can only use this option together with the <code class="docutils literal"><span class="pre">--framework</span></code> or  <code class="docutils literal"><span class="pre">--library</span></code> options.</li>
+<li><code class="docutils literal"><span class="pre">--pod</span> <span class="pre">&lt;filename&gt;</span></code> : Provides the path to a TXT file that lists the pod name and subspecs, if applicable. You should specify this information in the following format: <code class="docutils literal"><span class="pre">pod:</span> <span class="pre">&lt;pod</span> <span class="pre">name&gt;</span></code> <code class="docutils literal"><span class="pre">subspec:</span> <span class="pre">[&lt;subspec</span> <span class="pre">name&gt;]</span></code></li>
+<li><code class="docutils literal"><span class="pre">--help</span></code> : Prints command-line help for WrapNatJGen standard options.</li>
+</ol>
+<p>See Also</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_bindings/bindings.html">Generating Java* Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_jarF/jarF.html">Generating JAR Files from the Command Line</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="1_bindings/bindings.html" class="btn btn-neutral float-right" title="Generating Java* Bindings" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../using_thirdparty.html" class="btn btn-neutral" title="Using Third Party Native Libraries for iOS*" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

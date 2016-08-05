@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CxxOperatorKind &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../../../../../../index.html"/>
+        <link rel="up" title="org.moe.natj.cxx" href="package-index.html"/>
+        <link rel="next" title="CxxRuntime" href="CxxRuntime.html"/>
+        <link rel="prev" title="CxxObjectBaseImpl" href="CxxObjectBaseImpl.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../NatJ.html">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../../NatJ_How_to.html">Using the NatJ Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../NatJ_CornerCases.html">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../packages.html">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator.html">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../working_with_pointers/Working_With_Pointers.html">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../toll_free_bridging/Toll_Free_Bridging.html">Toll-Free Bridging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../../../../../../NatJ.html">Nat/J library for Java to native binding</a> &raquo;</li>
+      
+          <li><a href="../../../../../NatJ_Interoperability.html">Nat/J: Interoperability with Native Code</a> &raquo;</li>
+      
+          <li><a href="../../../../packages.html">Nat/J: Reference</a> &raquo;</li>
+      
+          <li><a href="package-index.html">org.moe.natj.cxx</a> &raquo;</li>
+      
+    <li>CxxOperatorKind</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cxxoperatorkind">
+<h1>CxxOperatorKind<a class="headerlink" href="#cxxoperatorkind" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.moe.natj.cxx.CxxOperatorKind">
+public enum <code class="descname">CxxOperatorKind</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="enum-constants">
+<h2>Enum Constants<a class="headerlink" href="#enum-constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add">
+<h3>ADD<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.ADD">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">ADD</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.ADD" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator+(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="address-of">
+<h3>ADDRESS_OF<a class="headerlink" href="#address-of" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.ADDRESS_OF">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">ADDRESS_OF</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.ADDRESS_OF" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&amp;()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="add-assign">
+<h3>ADD_ASSIGN<a class="headerlink" href="#add-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.ADD_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">ADD_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.ADD_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator+=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="arrow">
+<h3>ARROW<a class="headerlink" href="#arrow" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.ARROW">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">ARROW</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.ARROW" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator-&gt;(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="assign">
+<h3>ASSIGN<a class="headerlink" href="#assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bitwise-and">
+<h3>BITWISE_AND<a class="headerlink" href="#bitwise-and" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.BITWISE_AND">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">BITWISE_AND</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.BITWISE_AND" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&amp;(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bitwise-and-assign">
+<h3>BITWISE_AND_ASSIGN<a class="headerlink" href="#bitwise-and-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.BITWISE_AND_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">BITWISE_AND_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.BITWISE_AND_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&amp;=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bitwise-or">
+<h3>BITWISE_OR<a class="headerlink" href="#bitwise-or" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.BITWISE_OR">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">BITWISE_OR</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.BITWISE_OR" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator|(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bitwise-or-assign">
+<h3>BITWISE_OR_ASSIGN<a class="headerlink" href="#bitwise-or-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.BITWISE_OR_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">BITWISE_OR_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.BITWISE_OR_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator|=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bitwise-xor">
+<h3>BITWISE_XOR<a class="headerlink" href="#bitwise-xor" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.BITWISE_XOR">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">BITWISE_XOR</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.BITWISE_XOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator^(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bitwise-xor-assign">
+<h3>BITWISE_XOR_ASSIGN<a class="headerlink" href="#bitwise-xor-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.BITWISE_XOR_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">BITWISE_XOR_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.BITWISE_XOR_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator^=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="complement">
+<h3>COMPLEMENT<a class="headerlink" href="#complement" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.COMPLEMENT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">COMPLEMENT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.COMPLEMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator~()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="divide">
+<h3>DIVIDE<a class="headerlink" href="#divide" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.DIVIDE">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">DIVIDE</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.DIVIDE" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator/(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="divide-assign">
+<h3>DIVIDE_ASSIGN<a class="headerlink" href="#divide-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.DIVIDE_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">DIVIDE_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.DIVIDE_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator/=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="equal">
+<h3>EQUAL<a class="headerlink" href="#equal" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.EQUAL">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">EQUAL</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.EQUAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator==(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ext-subscript-assign">
+<h3>EXT_SUBSCRIPT_ASSIGN<a class="headerlink" href="#ext-subscript-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.EXT_SUBSCRIPT_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">EXT_SUBSCRIPT_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.EXT_SUBSCRIPT_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subscript operator extension. Allows for the following code to have a cleaner binding: C++ code: vector[idx] = value; Java method: T set(I idx, T value);</p>
+</dd></dl>
+
+</div>
+<div class="section" id="function-call">
+<h3>FUNCTION_CALL<a class="headerlink" href="#function-call" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.FUNCTION_CALL">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">FUNCTION_CALL</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.FUNCTION_CALL" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator()(...)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="greater">
+<h3>GREATER<a class="headerlink" href="#greater" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.GREATER">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">GREATER</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.GREATER" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&gt;(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="greater-equal">
+<h3>GREATER_EQUAL<a class="headerlink" href="#greater-equal" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.GREATER_EQUAL">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">GREATER_EQUAL</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.GREATER_EQUAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&gt;=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indirect">
+<h3>INDIRECT<a class="headerlink" href="#indirect" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.INDIRECT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">INDIRECT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.INDIRECT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator*()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="inequal">
+<h3>INEQUAL<a class="headerlink" href="#inequal" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.INEQUAL">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">INEQUAL</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.INEQUAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator!=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="left-shift">
+<h3>LEFT_SHIFT<a class="headerlink" href="#left-shift" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.LEFT_SHIFT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">LEFT_SHIFT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.LEFT_SHIFT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator</p>
+</dd></dl>
+
+</div>
+<div class="section" id="left-shift-assign">
+<h3>LEFT_SHIFT_ASSIGN<a class="headerlink" href="#left-shift-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.LEFT_SHIFT_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">LEFT_SHIFT_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.LEFT_SHIFT_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator</p>
+</dd></dl>
+
+</div>
+<div class="section" id="less">
+<h3>LESS<a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.LESS">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">LESS</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.LESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator</p>
+</dd></dl>
+
+</div>
+<div class="section" id="less-equal">
+<h3>LESS_EQUAL<a class="headerlink" href="#less-equal" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.LESS_EQUAL">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">LESS_EQUAL</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.LESS_EQUAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator</p>
+</dd></dl>
+
+</div>
+<div class="section" id="logical-and">
+<h3>LOGICAL_AND<a class="headerlink" href="#logical-and" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.LOGICAL_AND">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">LOGICAL_AND</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.LOGICAL_AND" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&amp;&amp;(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="logical-or">
+<h3>LOGICAL_OR<a class="headerlink" href="#logical-or" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.LOGICAL_OR">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">LOGICAL_OR</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.LOGICAL_OR" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator||(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="modulus">
+<h3>MODULUS<a class="headerlink" href="#modulus" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.MODULUS">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">MODULUS</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.MODULUS" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator%(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="modulus-assign">
+<h3>MODULUS_ASSIGN<a class="headerlink" href="#modulus-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.MODULUS_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">MODULUS_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.MODULUS_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator%=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="multiply">
+<h3>MULTIPLY<a class="headerlink" href="#multiply" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.MULTIPLY">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">MULTIPLY</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.MULTIPLY" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator*(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="multiply-assign">
+<h3>MULTIPLY_ASSIGN<a class="headerlink" href="#multiply-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.MULTIPLY_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">MULTIPLY_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.MULTIPLY_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator*=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="negate">
+<h3>NEGATE<a class="headerlink" href="#negate" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.NEGATE">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">NEGATE</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.NEGATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator!()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="post-decrement">
+<h3>POST_DECREMENT<a class="headerlink" href="#post-decrement" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.POST_DECREMENT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">POST_DECREMENT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.POST_DECREMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&#8211;(int)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="post-increment">
+<h3>POST_INCREMENT<a class="headerlink" href="#post-increment" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.POST_INCREMENT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">POST_INCREMENT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.POST_INCREMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator++(int)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pre-decrement">
+<h3>PRE_DECREMENT<a class="headerlink" href="#pre-decrement" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.PRE_DECREMENT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">PRE_DECREMENT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.PRE_DECREMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&#8211;()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pre-increment">
+<h3>PRE_INCREMENT<a class="headerlink" href="#pre-increment" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.PRE_INCREMENT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">PRE_INCREMENT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.PRE_INCREMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator++()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="right-shift">
+<h3>RIGHT_SHIFT<a class="headerlink" href="#right-shift" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.RIGHT_SHIFT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">RIGHT_SHIFT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.RIGHT_SHIFT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&gt;&gt;(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="right-shift-assign">
+<h3>RIGHT_SHIFT_ASSIGN<a class="headerlink" href="#right-shift-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.RIGHT_SHIFT_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">RIGHT_SHIFT_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.RIGHT_SHIFT_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator&gt;&gt;=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="subscript">
+<h3>SUBSCRIPT<a class="headerlink" href="#subscript" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.SUBSCRIPT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">SUBSCRIPT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.SUBSCRIPT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator[](T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="subtract">
+<h3>SUBTRACT<a class="headerlink" href="#subtract" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.SUBTRACT">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">SUBTRACT</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.SUBTRACT" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator-(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="subtract-assign">
+<h3>SUBTRACT_ASSIGN<a class="headerlink" href="#subtract-assign" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.SUBTRACT_ASSIGN">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">SUBTRACT_ASSIGN</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.SUBTRACT_ASSIGN" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator-=(T rhs)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="unary-minus">
+<h3>UNARY_MINUS<a class="headerlink" href="#unary-minus" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.UNARY_MINUS">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">UNARY_MINUS</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.UNARY_MINUS" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator-()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="unary-plus">
+<h3>UNARY_PLUS<a class="headerlink" href="#unary-plus" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.moe.natj.cxx.CxxOperatorKind.UNARY_PLUS">
+public static final <a class="reference internal" href="#org.moe.natj.cxx.CxxOperatorKind" title="org.moe.natj.cxx.CxxOperatorKind">CxxOperatorKind</a> <code class="descname">UNARY_PLUS</code><a class="headerlink" href="#org.moe.natj.cxx.CxxOperatorKind.UNARY_PLUS" title="Permalink to this definition">¶</a></dt>
+<dd><p>C++ equivalent: operator+()</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CxxRuntime.html" class="btn btn-neutral float-right" title="CxxRuntime" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CxxObjectBaseImpl.html" class="btn btn-neutral" title="CxxObjectBaseImpl" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,11 +1,5 @@
-..
-	Copyright (C) 2016 Intel Corporation. All rights reserved.
-
-.. image:: images/200px-Intel-logo.svg.png
-	:align: right
-
 =================================
-Welcome to Intel Multi-OS Engine Documentation!
+Welcome to Multi-OS Engine Documentation!
 =================================
 
 Contents

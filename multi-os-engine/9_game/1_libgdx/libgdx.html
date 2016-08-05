@@ -1,0 +1,1361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using LibGDX &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Creating a Game App" href="../game.html"/>
+        <link rel="next" title="Building your OpenGL App with Multi-OS Engine" href="../2_opengl/opengl.html"/>
+        <link rel="prev" title="Creating a Game App" href="../game.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../7_creating_db_app/creating_db_app.html">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../game.html">Creating a Game App</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Using LibGDX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-your-environment">Set Up Your Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#develop-your-app">Develop Your App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-code-part">Common Code Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#android-code-part">Android Code Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ios-code-part">iOS Code Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug-your-app">Debug Your App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary-and-resources">Summary and Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../2_opengl/opengl.html">Building your OpenGL App with Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../game.html">Creating a Game App</a> &raquo;</li>
+      
+    <li>Using LibGDX</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-libgdx">
+<h1>Using LibGDX<a class="headerlink" href="#using-libgdx" title="Permalink to this headline">¶</a></h1>
+<p>This page shows you how you can create a Java* game using Intel&#8217;s Multi-OS Engine Technical Preview and the libGDX library.</p>
+<dl class="docutils">
+<dt>Contents:</dt>
+<dd><p class="first"><a class="reference internal" href="#set-up-your-environment">Set Up Your Environment</a></p>
+<p><a class="reference internal" href="#develop-your-app">Develop Your App</a></p>
+<p><a class="reference internal" href="#debug-your-app">Debug Your App</a></p>
+<p class="last"><a class="reference internal" href="#summary-and-resources">Summary and Resources</a></p>
+</dd>
+</dl>
+<p>The screen shots below show the game running on an Android* device and an Apple iOS* device. On both operating systems, the game looks and behaves the same way. How is this achieved?</p>
+<p>If you are not yet familiar with libGDX, this tutorial will help you start from scratch. So let&#8217;s begin. Scroll down!</p>
+<img alt="../../../_images/libgdx1.png" src="../../../_images/libgdx1.png" />
+<img alt="../../../_images/libgdx2.png" src="../../../_images/libgdx2.png" />
+<div class="section" id="set-up-your-environment">
+<h2>Set Up Your Environment<a class="headerlink" href="#set-up-your-environment" title="Permalink to this headline">¶</a></h2>
+<p>First, install these applications:</p>
+<ul class="simple">
+<li>Git</li>
+<li>Android Studio</li>
+<li>Ant</li>
+<li>Maven</li>
+<li>Multi-OS Engine, a plugin for Android Studio</li>
+</ul>
+<p>You need to add Git, Maven and Ant to your system path.</p>
+<p>Before we will be create our first libGDX application, we need to set up the environment with right version of libGDX. In our application, we will be use the last version of libGDX (1.7.0 version at the time of this post). To get the last version of libGDX, clone an official libGDX repository from <a class="reference external" href="https://github.com/libgdx/libgdx">GitHub</a>. To do this, execute this command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>git clone https://github.com/libgdx/libgdx.git
+</pre></div>
+</div>
+<p>After that, build the libGDX Library using these commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>ant -f fetch.xml
+mvn install
+</pre></div>
+</div>
+<p>After this build completes, we will have libGDX version with support of Multi-OS Engine in our local maven repository. So we can start to develop our application.</p>
+</div>
+<div class="section" id="develop-your-app">
+<h2>Develop Your App<a class="headerlink" href="#develop-your-app" title="Permalink to this headline">¶</a></h2>
+<p>First, let&#8217;s create a new Android Studio* project. Launch Android Studio and click Start a new Android Studio project line in the right pane.</p>
+<img alt="../../../_images/libgdx3.png" src="../../../_images/libgdx3.png" />
+<p>Next, configure our project. For example, set <cite>LibGDXMisslecommand</cite> as the application name.</p>
+<img alt="../../../_images/libgdx4.png" src="../../../_images/libgdx4.png" />
+<ol class="arabic simple">
+<li>Select Phone and Tablet as the form factor for our application.</li>
+<li>Also select the Minimum SDK (Android) version.</li>
+<li>Click Next.</li>
+</ol>
+<p>Do not add any activities for our Android application. Click Finish.</p>
+<img alt="../../../_images/libgdx5.png" src="../../../_images/libgdx5.png" />
+<p>So, we created our project! Now let’s develop the common part for our application.</p>
+</div>
+<div class="section" id="common-code-part">
+<h2>Common Code Part<a class="headerlink" href="#common-code-part" title="Permalink to this headline">¶</a></h2>
+<p>To create the common part of our app, we need to add a new Android Studio module that has a type Java Library. Select Java Library and click Next.</p>
+<img alt="../../../_images/libgdx6.png" src="../../../_images/libgdx6.png" />
+<p>Set the name of our new module, package for our module, and the name of our common class. We will create a java class with name <cite>MissileCommand</cite>.</p>
+<img alt="../../../_images/libgdx7.png" src="../../../_images/libgdx7.png" />
+<p>After completing this, view the file tree:</p>
+<img alt="../../../_images/libgdx8.png" src="../../../_images/libgdx8.png" />
+<p>First, change the main <cite>build.gradle</cite> file. Write this code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>import groovy.json.JsonSlurper
+buildscript {
+// Download information about the latest versions of libGDX components
+ant.get(src: &#39;http://libgdx.badlogicgames.com/libgdx-site/service/getVersions?release=false&#39;, dest: &#39;versions.json&#39;)
+// Get information from file
+def versionFile = file(&#39;versions.json&#39;)
+def json
+if (versionFile.exists()) {
+        json = new JsonSlurper().parseText(versionFile.text)
+} else throw new GradleException(&quot;Unable to retrieve latest versions, please check your internet connection&quot;)
+ext {
+        // Set versions
+        gdxVersion = json.libgdxSnapshot
+        roboVMVersion = json.robovmVersion
+        roboVMGradleVersion = json.robovmPluginVersion
+        androidToolsVersion = json.androidBuildtoolsVersion
+        androidSDKVersion = json.androidSDKVersion
+        androidGradleToolsVersion = json.androidGradleToolVersion
+        gwtVersion = json.gwtVersion
+        gwtGradleVersion = json.gwtPluginVersion
+}
+repositories {
+        jcenter()
+}
+dependencies {
+        classpath &#39;com.android.tools.build:gradle:1.3.0&#39;
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+}
+}
+// Set repositories for all projects
+allprojects {
+repositories {
+        jcenter()
+        // Maven local repository necessary for our libGDX version
+        mavenLocal()
+}
+}
+</pre></div>
+</div>
+<p>Before we can write a code for the common part of our app, we need to modify the <cite>common/build.gradle</cite> file to add a dependency on the libGDX library:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>apply plugin: &#39;java&#39;
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+dependencies {
+compile fileTree(dir: &#39;libs&#39;, include: [&#39;*.jar&#39;])
+// libGDX common library
+compile &quot;com.badlogicgames.gdx:gdx:$gdxVersion&quot;
+}
+</pre></div>
+</div>
+<p>First of all, create in Common part class <cite>Assets</cite> for loading resources.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+public class Assets {
+public static final float screenWidth = 800;
+public static final float screenHeight = 480;
+// Backgrounds
+public static TextureRegion backgroundRegionMenu;
+public static TextureRegion backgroundLoadGame1TextureRegion;
+public static TextureRegion backgroundLoadGame2TextureRegion;
+public static TextureRegion[] levelsBackgroundsTextureRegions = new TextureRegion[4];
+// Buttons
+public static TextureRegion backButtonTextureRegion;
+public static TextureRegion pauseButtonTextureRegion;
+public static TextureRegion startButtonTextureRegion;
+public static TextureRegion creditsButtonTextureRegion;
+// Player
+public static TextureRegion playerBaseTextureRegion;
+public static TextureRegion playerGunTextureRegion;
+// Missiles
+public static TextureRegion missileTextureRegion;
+public static Sound missileSound;
+// Explosions
+public static Animation explosionAnimation;
+public static Sound explosionSound;
+// Cities
+public static Animation citiesDestroyAnimation;
+public static TextureRegion[] citiesTextureRegions = new TextureRegion[6];
+// Naves
+public static TextureRegion navesTextureRegion;
+// Font file
+public static FileHandle fontFile;
+public static Sound alarmSound;
+private static Texture loadTexture (String file) {
+        return new Texture(Gdx.files.internal(file));
+}
+public static void load() {
+        Texture backgroundMenuTexture = loadTexture(&quot;Splash2.png&quot;);
+        backgroundRegionMenu = new TextureRegion(backgroundMenuTexture, 0, 0, 800, 480);
+        Texture backgroundLoadGame1Texture = loadTexture(&quot;aviso1.png&quot;);
+        backgroundLoadGame1TextureRegion = new TextureRegion(backgroundLoadGame1Texture, 0, 0, 800, 480);
+        Texture backgroundLoadGame2Texture = loadTexture(&quot;aviso2.png&quot;);
+        backgroundLoadGame2TextureRegion = new TextureRegion(backgroundLoadGame2Texture, 0, 0, 800, 480);
+        for (int i = 0; i &lt; levelsBackgroundsTextureRegions.length; i++) {
+        Texture backgroundLevelTexture = loadTexture(&quot;bg&quot; + String.valueOf(i + 1) + &quot;.png&quot;);
+        levelsBackgroundsTextureRegions[i] = new TextureRegion(backgroundLevelTexture, 0, 0, 800, 480);
+        }
+        Texture startButtonTexture = loadTexture(&quot;btStart.png&quot;);
+        startButtonTextureRegion = new TextureRegion(startButtonTexture, 0, 0, 120, 43);
+        Texture creditsButtonTexture = loadTexture(&quot;btCredits.png&quot;);
+        creditsButtonTextureRegion = new TextureRegion(creditsButtonTexture, 0, 0, 144, 43);
+        Texture backButtonTexture = loadTexture(&quot;btBack.png&quot;);
+        backButtonTextureRegion = new TextureRegion(backButtonTexture, 0, 0, 106, 43);
+        Texture pauseButtonTexture = loadTexture(&quot;btPause.png&quot;);
+        pauseButtonTextureRegion = new TextureRegion(pauseButtonTexture, 0, 0, 81, 22);
+        Texture playerBaseTexture = loadTexture(&quot;canhaopart1.png&quot;);
+        playerBaseTextureRegion = new TextureRegion(playerBaseTexture, 0, 0, 75, 45);
+        Texture playerGunTexture = loadTexture(&quot;canhaopart2.png&quot;);
+        playerGunTextureRegion = new TextureRegion(playerGunTexture, 0, 0, 8, 45);
+        Texture missileTexture = loadTexture(&quot;missil.png&quot;);
+        missileTextureRegion = new TextureRegion(missileTexture, 0, 0, 5, 9);
+        for (int i = 0; i &lt; citiesTextureRegions.length; i++) {
+        Texture cityTexture = loadTexture(&quot;city&quot; + String.valueOf(i + 1) + &quot;.png&quot;);
+        citiesTextureRegions[i] = new TextureRegion(cityTexture, 0, 0, 80, 80);
+        }
+        Texture citiesDestroy = loadTexture(&quot;cidade.png&quot;);
+        citiesDestroyAnimation = new Animation(0.2f, new TextureRegion(citiesDestroy,2,53,51,59),
+                new TextureRegion(citiesDestroy,55,2,51,15));
+        fontFile = Gdx.files.internal(&quot;arial.fnt&quot;);
+        alarmSound = Gdx.audio.newSound(Gdx.files.internal(&quot;alarm.mp3&quot;));
+        missileSound = Gdx.audio.newSound(Gdx.files.internal(&quot;missil.mp3&quot;));
+        Texture explosion = loadTexture(&quot;explosao1.png&quot;);
+        explosionAnimation = new Animation(0.2f, new TextureRegion(explosion,8,8,26,22),
+                new TextureRegion(explosion,35,8,40,38), new TextureRegion(explosion,76,8,60,56),
+                new TextureRegion(explosion,137,8,74,76), new TextureRegion(explosion,8,85,74,68),
+                new TextureRegion(explosion,83,85,72,68), new TextureRegion(explosion,156,85,68,62),
+                new TextureRegion(explosion,8,154,62,60), new TextureRegion(explosion,71,154,58,56));
+        explosionSound = Gdx.audio.newSound(Gdx.files.internal(&quot;bomb.mp3&quot;));
+        Texture nave = loadTexture(&quot;naves.png&quot;);
+        navesTextureRegion = new TextureRegion(nave, 12, 20);
+}
+public static void playSound(Sound sound) {
+        sound.play(1);
+}
+}
+</pre></div>
+</div>
+<p>Next, change the <cite>MissileCommand</cite> class. Write the following code in our <cite>MissileCommand.java</cite> file. Use the comments in this code to help understand it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import org.moe.libgdxmissilecommand.common.screens.MainMenuScreen;
+// Main game class
+public class MissileCommand extends Game {
+// used by all screens
+public SpriteBatch batcher;
+@Override
+public void create () {
+        Gdx.input.setCatchBackKey(true);
+        batcher = new SpriteBatch();
+        // Load resources
+        Assets.load();
+        // Draw main menu
+        setScreen(new MainMenuScreen(this));
+}
+@Override
+public void render() {
+        super.render();
+}
+}
+</pre></div>
+</div>
+<p>Next create package for all game screens and create class <cite>MainMenuScreen</cite> for the main menu.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.screens;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector3;
+import org.moe.libgdxmissilecommand.common.MissileCommand;
+import org.moe.libgdxmissilecommand.common.Assets;
+public class MainMenuScreen extends ScreenAdapter {
+MissileCommand game;
+OrthographicCamera guiCam;
+Sprite startButton;
+Sprite creditsButton;
+Vector3 touchPoint;
+public MainMenuScreen (MissileCommand game) {
+        this.game = game;
+        // initialize camera
+        guiCam = new OrthographicCamera(Assets.screenWidth, Assets.screenHeight);
+        guiCam.position.set(Assets.screenWidth / 2, Assets.screenHeight / 2, 0);
+        // Create buttons
+        startButton = new Sprite(Assets.startButtonTextureRegion);
+        startButton.setPosition(Assets.screenWidth / 2 - startButton.getWidth() / 2, startButton.getHeight() * 2.5f);
+        creditsButton = new Sprite(Assets.creditsButtonTextureRegion);
+        creditsButton.setPosition(Assets.screenWidth / 2 - creditsButton.getWidth() / 2, creditsButton.getHeight());
+        touchPoint = new Vector3();
+}
+// Find events
+public void update () {
+        if (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+        Gdx.app.exit();
+        }
+        if (Gdx.input.justTouched()) {
+        guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+        // Update screen
+        if (startButton.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
+                game.setScreen(new MissleCommandGameScreen(game));
+                return;
+        }
+        if (creditsButton.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
+                game.setScreen(new CreditsScreen(game));
+                return;
+        }
+        }
+}
+// Draw elements
+public void draw () {
+        GL20 gl = Gdx.gl;
+        gl.glClearColor(1, 0, 0, 1);
+        gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        guiCam.update();
+        game.batcher.setProjectionMatrix(guiCam.combined);
+        game.batcher.disableBlending();
+        game.batcher.begin();
+        game.batcher.draw(Assets.backgroundRegionMenu, 0, 0, Assets.screenWidth, Assets.screenHeight);
+        game.batcher.end();
+        game.batcher.enableBlending();
+        game.batcher.begin();
+        startButton.draw(game.batcher);
+        creditsButton.draw(game.batcher);
+        game.batcher.end();
+}
+@Override
+public void render (float delta) {
+        update();
+        draw();
+}
+}
+</pre></div>
+</div>
+<p>Create the class <cite>CreditsScreen</cite> with some information about our game.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.screens;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector3;
+import org.moe.libgdxmissilecommand.common.MissileCommand;
+import org.moe.libgdxmissilecommand.common.Assets;
+public class CreditsScreen extends ScreenAdapter {
+MissileCommand game;
+OrthographicCamera guiCam;
+Sprite backButton;
+Vector3 touchPoint;
+BitmapFont font;
+public CreditsScreen(MissileCommand game) {
+        this.game = game;
+        font = new BitmapFont(Assets.fontFile);
+        font.getData().setScale(0.7f);
+        guiCam = new OrthographicCamera(Assets.screenWidth, Assets.screenHeight);
+        guiCam.position.set(Assets.screenWidth / 2, Assets.screenHeight / 2, 0);
+        backButton = new Sprite(Assets.backButtonTextureRegion);
+        backButton.setPosition(Assets.screenWidth / 2 - backButton.getWidth() / 2, backButton.getHeight());
+        touchPoint = new Vector3();
+}
+public void update () {
+        if (Gdx.input.justTouched()) {
+        guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+        if (backButton.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
+                game.setScreen(new MainMenuScreen(game));
+                return;
+        }
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.BACK)){
+        return;
+        }
+}
+public void draw () {
+        GL20 gl = Gdx.gl;
+        gl.glClearColor(1, 0, 0, 1);
+        gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        guiCam.update();
+        game.batcher.setProjectionMatrix(guiCam.combined);
+        game.batcher.disableBlending();
+        game.batcher.begin();
+        game.batcher.draw(Assets.backgroundRegionMenu, 0, 0, Assets.screenWidth, Assets.screenHeight);
+        game.batcher.end();
+        game.batcher.enableBlending();
+        game.batcher.begin();
+        backButton.draw(game.batcher);
+        font.draw(game.batcher, &quot;Programmer: Matheus Palheta\n\nGame Design: Jucimar Jr&quot;, 200, 320);
+        game.batcher.end();
+}
+@Override
+public void render (float delta) {
+        update();
+        draw();
+}
+@Override
+public void pause () {
+        //Settings.save();
+}
+}
+</pre></div>
+</div>
+<p>Create the main game screen class <cite>MissleCommandGameScreen</cite>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.screens;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
+import org.moe.libgdxmissilecommand.common.Assets;
+import org.moe.libgdxmissilecommand.common.MissileCommand;
+import org.moe.libgdxmissilecommand.common.models.City;
+import org.moe.libgdxmissilecommand.common.models.GameObject;
+import org.moe.libgdxmissilecommand.common.models.Nave;
+import java.util.ArrayList;
+public class MissleCommandGameScreen extends ScreenAdapter {
+private MissileCommand game;
+private OrthographicCamera guiCam;
+private BitmapFont fontTime;
+private BitmapFont fontTitle;
+private int levelBackgroung = 0;
+private long lastAttackTime = 0;
+private float time = 0;
+private boolean playing = true;
+private Sprite pauseButton;
+private Sprite backButton;
+private Vector3 touchPoint;
+private int wave = 1;
+private long verNaves = 0;
+private long score = 0;
+private ArrayList&lt;org.moe.libgdxmissilecommand.common.models.Missile&gt; missiles = new ArrayList&lt;&gt;();
+private ArrayList&lt;Nave&gt; naves = new ArrayList&lt;&gt;();
+City[] cities = new City[6];
+org.moe.libgdxmissilecommand.common.models.Player player;
+public MissleCommandGameScreen(MissileCommand game) {
+        this.game = game;
+        fontTime = new BitmapFont(Assets.fontFile);
+        fontTime.getData().setScale(0.5f);
+        fontTitle = new BitmapFont(Assets.fontFile);
+        fontTitle.getData().setScale(0.7f);
+
+        // Initialize camera
+        guiCam = new OrthographicCamera(Assets.screenWidth, Assets.screenHeight);
+        guiCam.position.set(Assets.screenWidth / 2, Assets.screenHeight / 2, 0);
+
+        // Create buttons
+        pauseButton = new Sprite(Assets.pauseButtonTextureRegion);
+        pauseButton.setPosition(Assets.screenWidth - (pauseButton.getWidth() + 2), 5);
+        backButton = new Sprite(Assets.backButtonTextureRegion);
+        backButton.setPosition(Assets.screenWidth - (backButton.getWidth() + 2), 2);
+        touchPoint = new Vector3();
+        // Create player
+        player = new org.moe.libgdxmissilecommand.common.models.Player();
+        player.setPosition(Assets.screenWidth / 2, Assets.screenHeight / 24);
+
+        // Create cities
+        City.resetCounter();
+        for (int i = 0; i &lt; cities.length; i++) {
+        cities[i] = new City();
+        }
+}
+
+// Draw elements
+private void draw() {
+        GL20 gl = Gdx.gl;
+        gl.glClearColor(1, 0, 0, 1);
+        gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        guiCam.update();
+        game.batcher.setProjectionMatrix(guiCam.combined);
+        game.batcher.begin();
+        game.batcher.draw(Assets.levelsBackgroundsTextureRegions[levelBackgroung], 0, 0, Assets.screenWidth, Assets.screenHeight);
+        game.batcher.end();
+        game.batcher.enableBlending();
+        if (playing)
+        checkCollisions();
+        game.batcher.begin();
+        float dt = Gdx.graphics.getDeltaTime();
+        for (City city : cities) {
+        if (playing)
+                city.update(dt);
+        city.draw(game.batcher);
+        }
+        if (playing) {
+        time -= dt;
+        if (time &gt; 20 / wave &amp;&amp; (System.currentTimeMillis() - verNaves &gt; 5000) &amp;&amp; City.getCityCounter() &gt; 0) {
+                addNaves();
+        }
+        }
+        int printTime = (int) time;
+        if (printTime &lt; 0)
+        printTime = 0;
+        fontTime.draw(game.batcher, &quot;Time: &quot; + String.valueOf(printTime) + &quot;s&quot;,
+                Assets.screenWidth - 150, Assets.screenHeight - 25);
+        fontTime.draw(game.batcher, &quot;Score: &quot; + String.valueOf(score),
+                2, Assets.screenHeight - 25);
+        for(int i = 0; i &lt; missiles.size(); i++) {
+        org.moe.libgdxmissilecommand.common.models.Missile missile = missiles.get(i);
+        if (missile.isAlive()) {
+                if (playing)
+                missile.update(dt);
+                missile.draw(game.batcher);
+        } else {
+                missiles.remove(i);
+                i--;
+        }
+        }
+        player.draw(game.batcher);
+        for(int i = 0; i &lt; naves.size(); i++) {
+        Nave nave = naves.get(i);
+        if (nave.isAlive()) {
+                if (playing)
+                nave.update(dt);
+                nave.draw(game.batcher);
+        } else {
+                naves.remove(i);
+                i--;
+        }
+        }
+        if (playing) {
+        if (time &lt;= 0) {
+                fontTitle.draw(game.batcher, &quot;Wave &quot; + String.valueOf(wave) +
+                        &quot; Starts in &quot; + String.valueOf((int)(3 + time)) + &quot;s&quot;,
+                        230, 240);
+                if (time &lt; -3) {
+                time = 60;
+                wave++;
+                levelBackgroung = (wave - 2) % 4;
+                }
+        }
+        pauseButton.draw(game.batcher);
+        } else {
+        if (City.getCityCounter() &gt; 0) {
+                fontTitle.draw(game.batcher, &quot;Touch the screen to resuming the game&quot;,
+                        100, 320 + fontTitle.getLineHeight());
+                fontTitle.draw(game.batcher, &quot;Or press back button to exit in the main menu&quot;,
+                        70, 320 - fontTitle.getLineHeight());
+        } else {
+                fontTitle.draw(game.batcher, &quot;You Lose!&quot;,
+                        320, 320 + fontTitle.getLineHeight());
+                fontTitle.draw(game.batcher, &quot;Score: &quot; + String.valueOf(score),
+                        320, 320 - fontTitle.getLineHeight());
+        }
+        backButton.draw(game.batcher);
+        }
+        fontTime.draw(game.batcher, &quot;fps: &quot; + Gdx.graphics.getFramesPerSecond(), 0, 0);
+        game.batcher.end();
+}
+
+// Check events
+private void update() {
+        if (City.getCityCounter() &lt;= 0) {
+        playing = false;
+        }
+        if (Gdx.input.justTouched()) {
+        guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+        if (pauseButton.getBoundingRectangle().contains(touchPoint.x, touchPoint.y) &amp;&amp; playing) {
+                playing = false;
+                return;
+        }
+        if (backButton.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
+                game.setScreen(new MainMenuScreen(game));
+                return;
+        }
+        if (!playing) {
+                if (City.getCityCounter() &gt; 0)
+                playing = true;
+                return;
+        }
+        if (System.currentTimeMillis() - lastAttackTime &gt; 450 &amp;&amp; touchPoint.y &gt;= player.getY()) {
+                lastAttackTime = System.currentTimeMillis();
+                missiles.add(new org.moe.libgdxmissilecommand.common.models.Missile());
+                missiles.get(missiles.size() - 1).detectTarget(touchPoint.x, touchPoint.y);
+                player.setRotation(missiles.get(missiles.size() - 1).getRotation());
+        }
+        }
+}
+
+// Add new naves
+private void addNaves() {
+        naves.add(new Nave(wave));
+        naves.add(new Nave(wave));
+        naves.add(new Nave(wave));
+        verNaves = System.currentTimeMillis();
+}
+@Override
+public void render (float delta) {
+        update();
+        draw();
+}
+// Check all collisions in the game
+private void checkCollisions() {
+        for(int i = 0; i &lt; naves.size(); i++) {
+        for (City city : cities) {
+                if (isCollision(naves.get(i), city)) {
+                naves.get(i).kill();
+                city.kill();
+                }
+        }
+        for(int j = 0; j &lt; missiles.size(); j++) {
+                if (isCollision(naves.get(i), missiles.get(j)) &amp;&amp; naves.get(i).kill()) {
+                score++;
+                missiles.get(j).kill();
+                }
+        }
+        }
+}
+
+// Check collision
+private &lt;T extends GameObject&gt; boolean isCollision(T obj1, T obj2) {
+        Rectangle r1 = obj1.collisionRectangle();
+        Rectangle r2 = obj2.collisionRectangle();
+        return !(r1 == null || r2 == null) &amp;&amp; r2.overlaps(r1);
+}
+}
+</pre></div>
+</div>
+<p>We created all the screens for our game. So now we should create some models such as Player, Naves and others for our game. Create a new module <cite>models</cite> and create the base class <cite>GameObject</cite> for all objects in our game.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.models;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
+public class GameObject extends Sprite {
+protected boolean alive = true;
+protected float explosionTime;
+GameObject(TextureRegion region) {
+        super(region);
+        explosionTime = -1;4
+}
+
+// Check object
+public boolean isAlive() {
+        return alive;
+}
+
+// update object
+public void update(float deltaTime) {}
+
+// kill object
+public boolean kill() {
+        if (Float.compare(explosionTime, -1) == 0) {
+        explosionTime = -100;
+        return true;
+        }
+        return false;
+}
+
+// get collision rectangle for object
+public Rectangle collisionRectangle() {
+        if (!alive) {
+        return null;
+        }
+        return getBoundingRectangle();
+}
+}
+</pre></div>
+</div>
+<p>Create the <cite>Player</cite> class.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.models;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import org.moe.libgdxmissilecommand.common.Assets;
+public class Player extends GameObject {
+private Sprite playerBase;
+public Player() {
+        super(Assets.playerGunTextureRegion);
+        playerBase = new Sprite(Assets.playerBaseTextureRegion);
+        setOrigin(getWidth() / 2, 0);
+}
+@Override
+public void setPosition(float x, float y) {
+        // Need override only for playerBase sprite
+        super.setPosition(x - getWidth() / 2, y + 10);
+        playerBase.setPosition(x - (playerBase.getWidth() / 2), y);
+}
+@Override
+public void draw(Batch batch) {
+        // Need override only for playerBase sprite
+        super.draw(batch);
+        playerBase.draw(batch);
+}
+}
+</pre></div>
+</div>
+<p>Create the <cite>Missile</cite> class.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.models;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
+import org.moe.libgdxmissilecommand.common.Assets;
+public class Missile extends GameObject {
+// Speed of missile
+private final float speed = 600.0f;
+private float targetY;
+public Missile() {
+        super(Assets.missileTextureRegion);
+        setPosition(Assets.screenWidth / 2, Assets.screenHeight / 24 + 10);
+
+        // Start sound
+        Assets.playSound(Assets.missileSound);
+        targetY = 0;
+}
+
+// Detect missile target
+public void detectTarget(float x, float y) {
+        targetY = y;
+        Vector2 tempVector = new Vector2(x, y);
+        setRotation(tempVector.sub(this.getX(), this.getY()).angle() - 90);
+}
+@Override
+public void update(float deltaTime) {
+        // Move missile
+        if (getY() &gt; targetY || getX() &lt; 0 || getX() &gt; Assets.screenWidth || explosionTime &gt;= 0) {
+        explosionTime += deltaTime;
+        return;
+        }
+        float hypotenuse = speed*deltaTime;
+        float shiftY = (float) Math.abs((hypotenuse * Math.cos(getRotation() * Math.PI/180)));
+        float shiftX = (float) Math.abs((hypotenuse * Math.sin(getRotation() * Math.PI/180)));
+        if (Math.sin(getRotation() * Math.PI / 180) &gt; 0) {
+        shiftX = -shiftX;
+        }
+        setPosition(getX() + shiftX, getY() + shiftY);
+}
+@Override
+public void draw(Batch batch) {
+        if (getY() &gt; targetY || getX() &lt; 0 || getX() &gt; Assets.screenWidth || Float.compare(explosionTime, -1) != 0) {
+                // Draw explosion animation
+        if (explosionTime &lt; 0) {
+                explosionTime = 0;
+                Assets.playSound(Assets.explosionSound);
+        }
+        TextureRegion keyFrame = Assets.explosionAnimation.getKeyFrame(explosionTime, false);
+        batch.draw(keyFrame, getX() - 74 / 2, getY() - 76 / 2, 74, 76);
+        if (Assets.explosionAnimation.isAnimationFinished(explosionTime))
+                alive = false;
+        } else {
+                // Draw missile
+        super.draw(batch);
+        }
+}
+}
+</pre></div>
+</div>
+<p>Now create the class <cite>Naves</cite>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.models;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import org.moe.libgdxmissilecommand.common.Assets;
+import java.security.SecureRandom;
+public class Nave extends GameObject {
+private float velX = 0, velY = 0;
+public Nave(int wave) {
+        super(Assets.navesTextureRegion);
+        SecureRandom random = new SecureRandom();
+        // Init position
+        int posX = random.nextInt((int) Assets.screenWidth);
+        setPosition(posX, Assets.screenHeight);
+        // Calculate init rotation
+                float angle;
+        if (posX &lt; 400) {
+        angle = -random.nextFloat() * 45;
+        velX = (float) (Math.sin(angle * Math.PI/180) * (wave / 2));
+        velY = (float) (Math.cos(angle * Math.PI/180) * (wave / 2));
+        } else {
+        angle = random.nextFloat() * 45;
+        velX = (float) (Math.sin(angle * Math.PI/180) * (wave / 2));
+        velY = (float) (Math.cos(angle * Math.PI/180) * (wave / 2));
+        }
+        setRotation(-angle);
+}
+@Override
+public void update(float deltaTime) {
+        // Move nave
+        if (getY() &lt; 30 || explosionTime &gt;= 0) {
+        explosionTime += deltaTime;
+        return;
+        }
+        setPosition(getX() - velX, getY() - velY);
+}
+@Override
+public void draw(Batch batch) {
+        if (getY() &lt; 30 || Float.compare(explosionTime, -1) != 0) {
+                // Draw explosion animation
+        if (explosionTime &lt; 0) {
+                explosionTime = 0;
+                Assets.playSound(Assets.explosionSound);
+        }
+        TextureRegion keyFrame = Assets.explosionAnimation.getKeyFrame(explosionTime, false);
+        batch.draw(keyFrame, getX() - 74 / 2, getY() - 76 / 2, 74, 76);
+        if (Assets.explosionAnimation.isAnimationFinished(explosionTime))
+                alive = false;
+        } else {
+                // Draw nave
+        super.draw(batch);
+        }
+}
+}
+</pre></div>
+</div>
+<p>And also create class <cite>City</cite> for cities.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.common.models;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import org.moe.libgdxmissilecommand.common.Assets;
+import java.security.SecureRandom;
+public class City extends GameObject {
+// Cities counter
+static long cityCounter = 0;
+public City() {
+        // Take random texture
+        super(Assets.citiesTextureRegions[new SecureRandom().nextInt(6)]);
+        // Init position
+        if (cityCounter &lt; 3) {
+        setPosition(50  + ((Assets.screenWidth - 200) / 6) * cityCounter, Assets.screenHeight / 24);
+        } else {
+        setPosition(50  + ((Assets.screenWidth - 200) / 6) * cityCounter + 120, Assets.screenHeight / 24);
+        }
+        cityCounter++;
+}
+
+// Reset counter
+public static void resetCounter() {
+        cityCounter = 0;
+}
+
+// Get counter
+public static long getCityCounter() {
+        return cityCounter;
+}
+@Override
+public void update(float deltaTime) {
+        // Update explosion animation
+        if (explosionTime &gt;= 0)
+        explosionTime += deltaTime;
+}
+@Override
+public void draw(Batch batch) {
+        if (Float.compare(explosionTime, -1) != 0) {
+                // Draw animation
+        if (explosionTime &lt; 0) {
+                explosionTime = 0;
+                Assets.playSound(Assets.explosionSound);
+        }
+        TextureRegion keyFrame = Assets.citiesDestroyAnimation.getKeyFrame(explosionTime, false);
+        if (Assets.citiesDestroyAnimation.getKeyFrameIndex(explosionTime) == 1) {
+                batch.draw(keyFrame, getX(), getY(), getWidth(), 15);
+                if (isAlive())
+                cityCounter--;
+                alive = false;
+        } else {
+                batch.draw(keyFrame, getX(), getY(), getWidth(), getHeight());
+        }
+        } else {
+                // Draw city
+        super.draw(batch);
+        }
+}
+}
+</pre></div>
+</div>
+<p>That completes the common part of our application! Now we can start to develop the Android and/or iOS parts of our game.</p>
+</div>
+<div class="section" id="android-code-part">
+<h2>Android Code Part<a class="headerlink" href="#android-code-part" title="Permalink to this headline">¶</a></h2>
+<p>To develop the Android part of our app, modify the <cite>build.gradle</cite> for your Android project (app/build.gradle). We need to add to dependencies on some libGDX libraries. We also need to  copy native libGDX libraries to our project. Please write this code in <cite>app/build.gradle</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>apply plugin: &#39;com.android.application&#39;
+android {
+compileSdkVersion 23
+buildToolsVersion &quot;23.0.2&quot;
+defaultConfig {
+        applicationId &quot;org.moe.libgdxmissilecommand.android&quot;
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName &quot;1.0&quot;
+}
+buildTypes {
+        release {
+        minifyEnabled false
+        proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;
+        }
+}
+}
+configurations { natives }
+dependencies {
+compile fileTree(dir: &#39;libs&#39;, include: [&#39;*.jar&#39;])
+compile &#39;com.android.support:appcompat-v7:23.1.1&#39;
+compile project(&#39;:common&#39;)
+compile &quot;com.badlogicgames.gdx:gdx-backend-android:$gdxVersion&quot;
+natives &quot;com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86&quot;
+natives &quot;com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi&quot;
+natives &quot;com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a&quot;
+}
+// needed to add JNI shared libraries to APK when compiling on CLI
+tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask -&gt;
+pkgTask.jniFolders = new HashSet&lt;File&gt;()
+pkgTask.jniFolders.add(new File(projectDir, &#39;libs&#39;))
+}
+// called every time gradle gets executed, takes the native dependencies of
+// the natives configuration, and extracts them to the proper libs/ folders
+// so they get packed with the APK.
+task copyAndroidNatives() {
+file(&quot;libs/armeabi/&quot;).mkdirs();
+file(&quot;libs/armeabi-v7a/&quot;).mkdirs();
+file(&quot;libs/x86/&quot;).mkdirs();
+configurations.natives.files.each { jar -&gt;
+        def outputDir = null
+        if(jar.name.endsWith(&quot;natives-armeabi-v7a.jar&quot;)) outputDir = file(&quot;libs/armeabi-v7a&quot;)
+        if(jar.name.endsWith(&quot;natives-armeabi.jar&quot;)) outputDir = file(&quot;libs/armeabi&quot;)
+        if(jar.name.endsWith(&quot;natives-x86.jar&quot;)) outputDir = file(&quot;libs/x86&quot;)
+        if(outputDir != null) {
+        copy {
+                from zipTree(jar)
+                into outputDir
+                include &quot;*.so&quot;
+        }
+        }
+}
+}
+</pre></div>
+</div>
+<p>Now we can create Main class for our Android application. Let’s create a class named Main.  Modify the <cite>AndroidManifest.xml</cite> file to add to it our activity (Main class). You can see the revised <cite>AndroidManifest.xml</cite> below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+package=&quot;org.moe.libgdxmissilecommand.android&quot;&gt;
+&lt;application android:allowBackup=&quot;true&quot; android:label=&quot;@string/app_name&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot; android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/AppTheme&quot;&gt;
+        &lt;activity
+        android:name=&quot;.Main&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:screenOrientation=&quot;landscape&quot;
+        android:configChanges=&quot;keyboard|keyboardHidden|orientation&quot;&gt;
+        &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+        &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+&lt;/application&gt;
+&lt;/manifest&gt;
+</pre></div>
+</div>
+<p>Next, modify our Main class to create a  libGDX Android activity. It is not hard. We need add <cite>AndroidApplication</cite> from&amp; <cite>com.badlogic.gdx.backends.android</cite> as parent of the Main class and override the <cite>onCreate</cite> function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.android;
+import android.os.Bundle;
+import com.badlogic.gdx.backends.android.AndroidApplication;
+import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import org.moe.libgdxmissilecommand.common.MissileCommand;
+public class Main extends AndroidApplication {
+@Override
+protected void onCreate (Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+        initialize(new MissileCommand(), config);
+}
+}
+</pre></div>
+</div>
+<p>Finally, add images, sounds and others asset files for our game. You can download these files from <a class="reference external" href="https://software.intel.com/file/488437/download">here</a> (All resources were taken from <a class="reference external" href="https://github.com/jucimarjr/html5games/tree/master/cocos2d/MissileCommand">this project</a> and they are distributed under MIT license). After you download these files (archive), create a directory named assets in your source directory tree for your Android application. Extract these downloaded files to the assets folder.</p>
+<img alt="../../../_images/libgdx9.png" src="../../../_images/libgdx9.png" />
+<p>Congratulations! We completed our Android game. Now we can build and run the game! You can see the running app in the screen shot below.</p>
+<img alt="../../../_images/libgdx10.png" src="../../../_images/libgdx10.png" />
+</div>
+<div class="section" id="ios-code-part">
+<h2>iOS Code Part<a class="headerlink" href="#ios-code-part" title="Permalink to this headline">¶</a></h2>
+<p>First, create a new Multi-OS Engine module. Click File &gt; New &gt;Multi-OS Engine Module. After that choose Single View Application as a template for a new module.</p>
+<img alt="../../../_images/libgdx11.png" src="../../../_images/libgdx11.png" />
+<p>Click Next. In the next window, set some module parameters as Xcode Project Name, Product Name, Organization Name and others. Set LibGDXPlain as the Xcode Project name and as Product name.</p>
+<img alt="../../../_images/libgdx12.png" src="../../../_images/libgdx12.png" />
+<p>In the next window, choose a name for new module, such as ios. Click the Finish button to create our module.</p>
+<img alt="../../../_images/libgdx13.png" src="../../../_images/libgdx13.png" />
+<p>After the module gets created, we can remove all layout and storyboard files from resources. Also, remove the ui package with all classes from the source directory.</p>
+<p>Next, change our <cite>build.gradle</cite> file for iOS module by including libGDX libraries.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>buildscript {
+repositories {
+        mavenCentral()
+        maven {
+        url uri(System.getenv(&quot;MOE_HOME&quot;) + &quot;/gradle&quot;)
+        }
+}
+dependencies {
+        classpath &#39;org.intel.gradle:xRTGradlePlugin:1.0&#39;
+}
+}
+apply plugin: &#39;xrt&#39;
+configurations { natives }
+// Extracts native libs (*.a) from the native-ios.jar and places them
+// under build/libs/ios/.
+task copyNatives &lt;&lt; {
+file(&quot;xcode/native/ios/&quot;).mkdirs();
+configurations.natives.files.each { jar -&gt;
+        def outputDir = null
+        if (jar.name.endsWith(&quot;natives-ios.jar&quot;)) outputDir = file(&quot;xcode/native/ios&quot;)
+        if (outputDir != null) {
+        FileCollection fileCollection = zipTree(jar)
+        for (File libFile : fileCollection) {
+                if (libFile.getAbsolutePath().endsWith(&quot;.a&quot;) &amp;&amp; !libFile.getAbsolutePath().contains(&quot;/tvos/&quot;)) {
+                copy {
+                        from libFile.getAbsolutePath()
+                        into outputDir
+                }
+                }
+        }
+        }
+}
+}
+dependencies {
+compile fileTree(dir: &#39;lib&#39;, include: &#39;*.jar&#39;)
+compile project(&quot;:common&quot;)
+compile &quot;com.badlogicgames.gdx:gdx-backend-moe:$gdxVersion&quot;
+natives &quot;com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios&quot;
+}
+xrt {
+}
+buildApp.dependsOn copyNatives
+</pre></div>
+</div>
+<p>Also we will remove some information for detecting main storyboard file and screen orientation from <cite>Info.plist</cite> (module_name/xcode/project_name/Info.plist). Here is the original <cite>Info.plist</cite> before:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot;
+               &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1&quot;&gt;
+&lt;dict&gt;
+        ...
+        &lt;key&gt;UISupportedInterfaceOrientations&lt;/key&gt;
+        &lt;array&gt;
+        &lt;string&gt;UIInterfaceOrientationPortrait&lt;/string&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeLeft&lt;/string&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeRight&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;UISupportedInterfaceOrientations~ipad&lt;/key&gt;
+        &lt;array&gt;
+        &lt;string&gt;UIInterfaceOrientationPortrait&lt;/string&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeLeft&lt;/string&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeRight&lt;/string&gt;
+        &lt;/array&gt;
+        ...
+        &lt;key&gt;UIMainStoryboardFile&lt;/key&gt;
+        &lt;string&gt;MainUI&lt;/string&gt;
+        ...
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre></div>
+</div>
+<p>Here is the <cite>Info.plist</cite> after:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot;
+               &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1&quot;&gt;
+&lt;dict&gt;
+        ...
+        &lt;key&gt;UISupportedInterfaceOrientations&lt;/key&gt;
+        &lt;array&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeLeft&lt;/string&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeRight&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;UISupportedInterfaceOrientations~ipad&lt;/key&gt;
+        &lt;array&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeLeft&lt;/string&gt;
+        &lt;string&gt;UIInterfaceOrientationLandscapeRight&lt;/string&gt;
+        &lt;/array&gt;
+        ...
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre></div>
+</div>
+<p>Modify our Main class to create a libGDX iOS activity.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.ios;
+import com.badlogic.gdx.backends.iosmoe.IOSApplication;
+import com.badlogic.gdx.backends.iosmoe.IOSApplicationConfiguration;
+import org.moe.libgdxmissilecommand.common.MissileCommand;
+import org.moe.natj.general.Pointer;
+import org.moe.natj.objc.ann.ObjCClassName;
+import org.moe.natj.objc.ann.Selector;
+import ios.uikit.c.UIKit;
+@ObjCClassName(&quot;Main&quot;)
+public class Main extends IOSApplication.Delegate {
+   protected Main(Pointer peer) {
+           super(peer);
+    }
+        @Selector(&quot;alloc&quot;)
+        public static native Main alloc();
+        public static void main(String[] args) {
+                UIKit.UIApplicationMain(0, null, null, Main.class.getSimpleName());
+        }
+        @Override
+        protected IOSApplication createApplication() {
+                IOSApplicationConfiguration config = new IOSApplicationConfiguration();
+                return new IOSApplication(new MissileCommand(), config);
+        }
+}
+</pre></div>
+</div>
+<p>Now we will modify the Xcode project. Right-click its name and select Multi-OS Engine &gt; Open Project in Xcode.</p>
+<img alt="../../../_images/libgdx14.png" src="../../../_images/libgdx14.png" />
+<p>The Xcode project will be opened and we should see the next screen:</p>
+<img alt="../../../_images/libgdx15.png" src="../../../_images/libgdx15.png" />
+<p>Remove <cite>MainUI.storyboard</cite> in the Resources directory.</p>
+<p>Next, add resources to Xcode. Click the right mouse button on the Resources directory and choose add files to our project. Next, find our resources in our project (You can use resources from you android module or download from <a class="reference external" href="https://software.intel.com/file/488437/download">here</a>). All resources were taken from <a class="reference external" href="https://github.com/jucimarjr/html5games/tree/master/cocos2d/MissileCommand">this project</a> and they are distributed under MIT license) and add it to the Xcode project. The result you can see below.</p>
+<img alt="../../../_images/libgdx16.png" src="../../../_images/libgdx16.png" />
+<p>Add libGDXLibrary to the Xcode project by changing Linker Flags in Build Settings &gt; Linking &gt;Other Linker Flags and add to it the following parameters:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>-force_load &quot;$(SRCROOT)/native/ios/libObjectAL.a&quot;
+-force_load &quot;$(SRCROOT)/native/ios/libgdx.a&quot;
+</pre></div>
+</div>
+<img alt="../../../_images/libgdx17.png" src="../../../_images/libgdx17.png" />
+<p>Finally, add the necessary frameworks to our application. We need to add these frameworks:</p>
+<ul class="simple">
+<li>AudioToolbox</li>
+<li>AVFoundation</li>
+<li>CoreFoundation</li>
+<li>CoreGraphics</li>
+<li>Foundation</li>
+<li>OpenAL</li>
+<li>OpenGLES</li>
+<li>QuartzCore</li>
+<li>UIKit</li>
+</ul>
+<p>We need to add these to Build Phases &gt; Link Binary With Libraries.</p>
+<img alt="../../../_images/libgdx18.png" src="../../../_images/libgdx18.png" />
+<p>Congratulations! We completed our iOS game and our application. You can see iOS game screenshot below.</p>
+<img alt="../../../_images/libgdx19.png" src="../../../_images/libgdx19.png" />
+</div>
+<div class="section" id="debug-your-app">
+<h2>Debug Your App<a class="headerlink" href="#debug-your-app" title="Permalink to this headline">¶</a></h2>
+<p>We can now explore how you can debug your libGDX application. The libGDX debug process is not specific, so we can debug our libGDX game as usual Multi-OS Engine app. To begin, set some breakpoints.</p>
+<p>For example, set two breakpoints in our common code part. First, set a breakpoint at the start of game creating function (<cite>create()</cite>) at line 15 (<cite>MissleCommand.java:MissleCommand.create():15</cite>).</p>
+<img alt="../../../_images/libgdx20.png" src="../../../_images/libgdx20.png" />
+<p>Set the second breakpoint in file <cite>MainMenuScreen.java</cite>  line 55 (start of draw function). (<cite>MainMenuScreen. MainMenuScreen.draw():55</cite>).</p>
+<img alt="../../../_images/libgdx21.png" src="../../../_images/libgdx21.png" />
+<p>Now we can run our application with debugging. While debugging, use all opportunities to debug your code such as Step Over, Step Into, Resume program. Also you can use stack trace to help debug your application.</p>
+<img alt="../../../_images/libgdx22.png" src="../../../_images/libgdx22.png" />
+<p>Use a stack trace to see values of variables on a previous step. You can see it below.</p>
+<img alt="../../../_images/libgdx23.png" src="../../../_images/libgdx23.png" />
+<p>Download Resources.zip and Multi-OS Samples</p>
+<p>You can download resources.zip <a class="reference external" href="https://software.intel.com/sites/default/files/managed/ac/65/resources.zip">here</a>.</p>
+<p>You can download all Multi-OS Engine samples <a class="reference external" href="https://github.com/moe-java-samples">here</a>.</p>
+</div>
+<div class="section" id="summary-and-resources">
+<h2>Summary and Resources<a class="headerlink" href="#summary-and-resources" title="Permalink to this headline">¶</a></h2>
+<p>LibGDX development with the Multi-OS Engine has many advantages, including:</p>
+<ul class="simple">
+<li>The biggest part of application is the common part.</li>
+<li>The common part uses familiar Java syntax.</li>
+<li>You can debug two targets side-by-side using the powerful iOS simulator and Android emulator.</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2_opengl/opengl.html" class="btn btn-neutral float-right" title="Building your OpenGL App with Multi-OS Engine" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../game.html" class="btn btn-neutral" title="Creating a Game App" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

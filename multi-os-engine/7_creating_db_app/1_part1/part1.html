@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 1 &mdash; Multi-OS Engine Documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Multi-OS Engine Documentation" href="../../../index.html"/>
+        <link rel="up" title="Creating a Database App" href="../creating_db_app.html"/>
+        <link rel="next" title="Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 2" href="../2_part2/part2.html"/>
+        <link rel="prev" title="Creating a Database App" href="../creating_db_app.html"/>
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Multi-OS Engine Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../MultiOSEngine.html">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../1_Overview/Overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2_Introduction/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3_getting_started/Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_create_ui/create_ui.html">Creating Your App&#8217;s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5_using_thirdparty/using_thirdparty.html">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../6_natj/NatJ.html">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../creating_db_app.html">Creating a Database App</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#common-code">Common Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#platform-specific-code">Platform-Specific Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#final-screen-shots">Final Screen Shots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../2_part2/part2.html">Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../8_accessWebServices/accessWebServices.html">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../9_game/game.html">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12_advanced/advanced.html">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13_Troubleshooting/troubleshooting.html">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Multi-OS Engine Documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../MultiOSEngine.html">Multi-OS Engine</a> &raquo;</li>
+      
+          <li><a href="../creating_db_app.html">Creating a Database App</a> &raquo;</li>
+      
+    <li>Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 1</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-persistent-storage-using-the-multi-os-engine-technology-preview-part-1">
+<h1>Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 1<a class="headerlink" href="#working-with-persistent-storage-using-the-multi-os-engine-technology-preview-part-1" title="Permalink to this headline">¶</a></h1>
+<p>This is a two-part tutorial shows how to do persistent storage in Apple iOS* with Java* using Intel’s Multi-OS Engine Technology Preview.</p>
+<p>This first part explains how to create and write to a file in an iOS directory and an Android* directory for persistent storage. We create a simple Note Taking app to create notes and arrange them in a table view, where the most recent notes appear at the top of the table. The second part builds upon this first part by adding SQLite* functionality.</p>
+<p>For this tutorial, we assume that you have gone through our getting started guides for building iOS and Android apps using Multi OS Engine. If not, please read Getting Started pages first.</p>
+<p>The complete sample project can be found at this <a class="reference external" href="https://github.com/moe-java-samples/moe-java-samples/tree/master/NoteTaking">GitHub link</a> for your reference.</p>
+<p>Like other Multi OS Engine apps, this app consists of mostly <a class="reference internal" href="#common-code">Common Code</a> and <a class="reference internal" href="#platform-specific-code">Platform-Specific Code</a>.</p>
+<div class="section" id="common-code">
+<h2>Common Code<a class="headerlink" href="#common-code" title="Permalink to this headline">¶</a></h2>
+<p>First let’s create a common lib folder to hold the Java classes that will be common to both Android and iOS. Create a class that will perform basic file IO operations like creating and opening a file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>package com.example;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+public class Data {
+        private HashMap&lt;String,String&gt; allNotes;
+        private String key;
+        private String baseDir;
+        String fileName = &quot;note_taking.txt&quot;;
+        String filePath;
+
+        public Data(String dir){
+        baseDir = dir;
+        filePath = baseDir + File.separator + fileName;
+}
+public HashMap&lt;String, String&gt; getAllNotes(){
+        File f = new File(filePath);
+        try {
+                if(!f.exists()) {
+                f.createNewFile();
+                }
+                if(allNotes==null) {
+                try{
+                        InputStream fis = new FileInputStream(f);
+                        ObjectInputStream ois = new ObjectInputStream(fis);
+                        allNotes = (HashMap&lt;String, String&gt;) ois.readObject();
+                        fis.close();
+                        ois.close();
+                        }catch (EOFException e){
+                                allNotes = new HashMap&lt;String, String&gt;();
+                        }
+                }
+                }
+        } catch (IOException ioe) {
+                ioe.printStackTrace();
+        } catch (ClassNotFoundException c) {
+                System.out.println(&quot;Class not found&quot;);
+                c.printStackTrace();
+        }
+        return allNotes;
+}
+public void setCurrentKey(String key){
+        this.key = key;
+}
+public String getCurrentKey(){
+        return key;
+}
+public void setNoteForCurrentKey(String note){
+        allNotes.put(key,note);
+}
+public String getNoteForCurrentKey(){return allNotes.get(key);}
+public void setNoteForKey(String k,String note){
+        allNotes.put(k,note);
+}
+public String getNoteForKey(String k){return allNotes.get(k);}
+public void removeNoteForKey(String k){
+        allNotes.remove(k);
+}
+public void saveFile() {
+        try {
+        File f = new File(filePath );
+        if(!f.exists()) {
+                f.createNewFile();
+        }try {
+                FileOutputStream fos = new FileOutputStream(f);
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                oos.writeObject(allNotes);
+                fos.close();
+                oos.close();
+        }catch (Exception e){
+                e.printStackTrace();
+        }
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
+}
+public ArrayList&lt;String&gt; getAllKeys(){
+        ArrayList&lt;String&gt; keys = new ArrayList&lt;String&gt;();
+        keys.addAll(getAllNotes().keySet());
+        Collections.sort(keys,Collections.reverseOrder());
+        return keys;
+}
+}
+</pre></div>
+</div>
+<p>Note that we pass the path of the directory - the only platform-specific part - to the constructor.</p>
+</div>
+<div class="section" id="platform-specific-code">
+<h2>Platform-Specific Code<a class="headerlink" href="#platform-specific-code" title="Permalink to this headline">¶</a></h2>
+<p>Building the iOS project:</p>
+<p>For this application, use the Master - Detail application with storyboard as the base template.</p>
+<img alt="../../../_images/part11.png" src="../../../_images/part11.png" />
+<img alt="../../../_images/part12.png" src="../../../_images/part12.png" />
+<p>This template has necessary methods and code set up to help you get started.</p>
+<p>If you open the project in Apple Xcode, you will see the corresponding MasterViewController.h and .m and DetailViewController.h and .m files. Also the storyboard will consist of the standard view objects.</p>
+<img alt="../../../_images/part13.png" src="../../../_images/part13.png" />
+<p>Add a text view object from the object library to the DetailView and make its referencing outlet in the corresponding DetailViewController.h file</p>
+<img alt="../../../_images/part14.png" src="../../../_images/part14.png" />
+<p>After that, come to Android Studio* side of the project and look for the DetailViewController.h file under Xcode folder of the iOS module.</p>
+<img alt="../../../_images/part15.png" src="../../../_images/part15.png" />
+<p>Generate bindings by clicking on the Generate Bindings menu item. This will generate reference to the Text view object that we added in the DetailView.</p>
+<img alt="../../../_images/part16.png" src="../../../_images/part16.png" />
+<p>Also add our common module as a dependency to the iOS and Android modules.</p>
+<img alt="../../../_images/part17.png" src="../../../_images/part17.png" />
+<p>Building the Android Project:</p>
+<p>For Android, we can start with a simple Blank Activity application and build our UI and add our Activity  and Adapter files. The purpose of this tutorial is to show how to build the app in iOS (so we skip the part of building Android project here).</p>
+<p>File Directory Handling - iOS</p>
+<p>Now let&#8217;s code a bit in our MasterViewController.java file. Here the main thing to understand is how we get the directory path of the filestorage directory of iOS. In iOS, files are stored in Documents directory and its path can be retrieved by this piece of code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    public String &lt;em&gt;&lt;strong&gt;applicationDocumentsDirectory()&lt;/strong&gt;&lt;/em&gt; {
+    NSArray urls = NSFileManager.defaultManager().URLsForDirectoryInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask);
+    NSURL url = (NSURL)urls.lastObject();
+    String path = url.fileSystemRepresentation();
+    return path;
+}
+</pre></div>
+</div>
+<p>This path is passed in the constructor of the Data class we created before.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>    @Override
+@Selector(&quot;viewDidLoad&quot;)
+public void viewDidLoad() {
+    // Do any additional setup after loading the view, typically from a nib.
+    navigationItem().setLeftBarButtonItem(editButtonItem());
+   &lt;em&gt;&lt;strong&gt; data = new Data(this.applicationDocumentsDirectory());&lt;/strong&gt;&lt;/em&gt;
+    }
+</pre></div>
+</div>
+<p>File Directory Handling - Android</p>
+<p>In Android side, get the string of the base directory and pass it to the Data class in our onCreate method.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>&lt;em&gt;&lt;strong&gt;String baseDir = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();&lt;/strong&gt;&lt;/em&gt;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+&lt;em&gt;&lt;strong&gt;data = new Data(baseDir);&lt;/strong&gt;&lt;/em&gt;
+objects = new ArrayList&lt;String&gt;();
+makeObjects();
+        ListView list = (ListView) findViewById(android.R.id.list);
+listAdapter = new ListAdapter(this,objects,data);
+list.setAdapter(listAdapter);
+list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+        data.setCurrentKey(objects.get(position));
+        Intent intent = new Intent(MainActivity.this, EditorActivity.class);
+                // Uri uri = Uri.parse(NotesProvider.CONTENT_URI + &quot;/&quot; + id);
+        intent.putExtra(DEFAULT_TEXT, data.getAllNotes().get(data.getCurrentKey()));
+        startActivityForResult(intent, EDITOR_REQUEST_CODE);
+        }
+});
+}
+</pre></div>
+</div>
+<p>Filling the Table with Notes - iOS</p>
+<p>To fill the tableView, an ArrayList object variable has already been defined by the template. We get all the notes from our file using our Data class and fill the arraylist. In iOS a table is filled by using the following method</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>@Override
+public UITableViewCell tableViewCellForRowAtIndexPath(UITableView uiTableView, NSIndexPath nsIndexPath) {
+UITableViewCell cell = (UITableViewCell) tableView().dequeueReusableCellWithIdentifierForIndexPath(&quot;Cell&quot;, nsIndexPath);
+String objkey = objects.get((int) nsIndexPath.row());
+cell.textLabel().setText(data.getAllNotes().get(objkey));
+return cell;
+}
+</pre></div>
+</div>
+<p>Filling the Table with Notes - Android</p>
+<p>To fill the table on Android, we get the list from the Data class and pass it to our ListAdapter which ultimately does the work of filling the table.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>objects = new ArrayList&lt;String&gt;();
+makeObjects();
+ListView list = (ListView) findViewById(android.R.id.list);
+listAdapter = new ListAdapter(this,objects,data);
+list.setAdapter(listAdapter);
+</pre></div>
+</div>
+<p>Transitioning to Second View - iOS</p>
+<p>In iOS, segues are used to transition from one view to other. The segue part is already setup by the template we just have to make changes in its method as shown below.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>@Override
+public void prepareForSegueSender(UIStoryboardSegue uiStoryboardSegue, @Mapped(ObjCObjectMapper.class) Object o) {
+super.prepareForSegueSender(uiStoryboardSegue, o);
+String object;
+if (uiStoryboardSegue.identifier().equals(&quot;showDetail&quot;)) {
+        NSIndexPath indexPath = tableView().indexPathForSelectedRow();
+        if(indexPath==null){
+        object = objects.get(0);
+        }
+        else {
+        object = objects.get((int) indexPath.row());
+        }
+        DetailViewController controller = (DetailViewController) ((UINavigationController) uiStoryboardSegue.destinationViewController()).topViewController();
+        controller.setDetailItem(object,data);
+        controller.navigationItem().setLeftBarButtonItem(splitViewController().displayModeButtonItem());
+        controller.navigationItem().setLeftItemsSupplementBackButton(true);
+}
+}
+</pre></div>
+</div>
+<p>Transitioning to Second View - Android</p>
+<p>In Android, we set click listener for our ListView that initializes the second Activity on click of a list item</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+@Override
+public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+        data.setCurrentKey(objects.get(position));
+        Intent intent = new Intent(MainActivity.this, EditorActivity.class);
+        intent.putExtra(DEFAULT_TEXT, data.getAllNotes().get(data.getCurrentKey()));
+        startActivityForResult(intent, EDITOR_REQUEST_CODE);
+}
+});
+</pre></div>
+</div>
+<p>Using this method, data can be retrieved from the file storage and displayed, while keeping business logic common for both the platforms.</p>
+</div>
+<div class="section" id="final-screen-shots">
+<h2>Final Screen Shots<a class="headerlink" href="#final-screen-shots" title="Permalink to this headline">¶</a></h2>
+<p>Here are the final screenshots for our app:</p>
+<p>iOS:</p>
+<img alt="../../../_images/part18.png" src="../../../_images/part18.png" />
+<img alt="../../../_images/part19.png" src="../../../_images/part19.png" />
+<p>Android:</p>
+<img alt="../../../_images/part110.png" src="../../../_images/part110.png" />
+<img alt="../../../_images/part111.png" src="../../../_images/part111.png" />
+<p>To add SQLite functionality to our app, see the second part.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2_part2/part2.html" class="btn btn-neutral float-right" title="Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 2" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../creating_db_app.html" class="btn btn-neutral" title="Creating a Database App" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Intel Corporation.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
