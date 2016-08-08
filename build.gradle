@@ -1,0 +1,69 @@
+/*
+ * Copyright 2014-2016 Intel Corporation
+ *
+ * Licensed under the Eclipse Public License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.eclipse.org/org/documents/epl-v10.php
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+configurations {
+    natjSphinx {}
+}
+
+String customRepo = System.getenv("MOE_MAVEN_ADDR")
+if ((customRepo == null) || (customRepo.length() == 0)) {
+    customRepo = System.getenv("MOE_HOME")
+}
+if ((customRepo != null) && (customRepo.length() > 0)) {
+    repositories {
+        maven {
+            url(customRepo)
+        }
+    }
+}
+
+repositories {
+    if (project.hasProperty("moe.natj.repo")) {
+        maven {
+            url project.property("moe.natj.repo")
+        }
+    } else {
+        mavenLocal()
+    }
+}
+
+dependencies {
+    natjSphinx 'org.moe:moe-ios-docs:1.0.+:natj-api-sphinx'
+}
+
+task refreshNatJReference(type: Copy) {
+    configurations.natjSphinx.each {
+        from(zipTree(it)) {
+            exclude "packages.rst"
+        }
+        from(zipTree(it)) {
+            include "packages.rst"
+            int c = 0;
+            filter { line ->
+                c++;
+                print line
+                if (c == 1) {
+                    "================";
+                } else if(c == 2) {
+                    "Nat/J: Reference\n================"
+                } else {
+                    line
+                }
+            }
+        }
+    }
+    into file("source/multi-os-engine/6_natj/natj_interoperability/natj_reference")
+}
