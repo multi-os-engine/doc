@@ -1,4 +1,11 @@
 {% extends "!layout.html" %}
+
+{% set css_files = css_files + ['_static/theme.css'] %}
+
+{% block footer %}
+    {% include "navbar.html" %}
+{% endblock %}
+
 {% block extrahead %}
     {{ super() }}
 <script>

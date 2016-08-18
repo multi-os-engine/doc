@@ -2,7 +2,7 @@
 Prerequisites
 =============
 
-To download the Multi-OS Engine, open the main `Multi-OS Engine landing page <https://software.intel.com/en-us/multi-os-engine>`_.
+To install the Multi-OS Engine, follow the instructions on the project's `GitHub page <https://github.com/multi-os-engine/multi-os-engine/>`_.
 
 Before installing Multi-OS Engine on your host development machine, set up your development environment.
 
