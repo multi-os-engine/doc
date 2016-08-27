@@ -2,17 +2,16 @@
 Multi-OS Engine Samples
 =======================
 
-There are a number of samples that are included in the package and you will find them in your installation directory.
+The Multi-OS Engine samples live in 2 GitHub repositories:
 
-Additional samples are posted to GitHub repository here: `GitHub`_
+* Java samples: https://github.com/multi-os-engine/moe-samples-java
+* Kotlin samples: https://github.com/multi-os-engine/moe-samples-kotlin
 
-.. _GitHub: https://github.com/moe-java-samples
-
-To import a sample project into Android Studio, choose "Import project (Eclipse, ADT, Gradle, etc.)" from the "Welcome window"
+To import a sample project into Android Studio, first clone the repository from GitHub and then choose "Import project (Eclipse, ADT, Gradle, etc.)" from the "Welcome window"
 
 .. image:: images/sample_import.png
 
-Select the sample folder (/Applications/Intel/multi_os_engine/samples/<sample_name> on macOS and C:/Intel/multi_os_engine/samples/<sample_name> on Windows)
+Select the sample folder (where you have cloned the sample repository from GitHub)
 
 To run or debug the sample on iOS Simulator or iOS device, select "Run"->"Edit Configuration" from Android Studio menu bar
 

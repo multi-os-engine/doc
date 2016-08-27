@@ -2,7 +2,7 @@
 Customizing Your Apple Xcode* Project using a Gradle* Script
 =================================================================================
 
-With Intel's Multi-OS Engine, you can customize the Apple Xcode* project for your app right in the Android Studio* IDE. This page describes all properties the Multi-OS Engine Gradle* Plugin supports for project customization. To customize the project, define all necessary properties in the <moe_module> /build.gradle script.
+With Multi-OS Engine, you can customize the Apple Xcode* project for your app right in the Android Studio* IDE. This page describes all properties the Multi-OS Engine Gradle* Plugin supports for project customization. To customize the project, define all necessary properties in the <moe_module> /build.gradle script.
 
 Xcode Project Mandatory Properties
 ----------------------------------
@@ -167,6 +167,11 @@ Proguard Config
 ---------------
 
 The build process includes a proguard step for shrinking application classes. To add custom rules to the default config used by the Multi-OS Engine build system, add your rules to the ``proguard.append.cfg`` file in the Multi-OS Engine module installation folder.
+
+More Information
+----------------
+
+For more information about the Multi-OS Engine Gradle plugin and a complete list of tasks and properties, please refer to the `plugin documentation <https://github.com/multi-os-engine/moe-plugin-gradle>`_.
 
 .. toctree::
     :maxdepth: 2

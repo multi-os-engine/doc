@@ -1,3 +1,5 @@
+.. _getting-started:
+
 ===============
 Getting Started
 ===============
@@ -6,6 +8,7 @@ Getting Started
     :maxdepth: 2
     
     0_prerequisites/prerequisites
+    1_installation/installation
     1_hello_world_app/hello_world_app
     2_moe_samples/MOE_samples
     3_remote_build/remote_build

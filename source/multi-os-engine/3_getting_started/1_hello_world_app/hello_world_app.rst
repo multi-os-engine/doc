@@ -162,19 +162,13 @@ Click Run to run or Debug to run debugging the app code on the simulator or a re
 Building IPA to Deploy App to AppStore
 --------------------------------------
 
-To create an IPA package file, open the "Build" tab and choose the "Export IPA for Application" menu item.
+Building an IPA is currently possible from the command line using Gradle. In the Multi-OS Engine module execute the following command:
 
-.. image:: images/ipa.png
+``./gradlew moeIpaBuild``
 
-For the next step, you need to have an Apple provisioning profile. If you don't have it, see the Creating Apple iOS Ad Hoc and App Store Provisioning Profiles and iOS documentation Maintaining Your Signing Identities and Certificates to learn how to create the provisioning profile and generate necessary certificates for signing your applications.
+The IPA file will be created in the ``build/`` folder.
 
-Choose appropriate parameters in this dialog and click OK to start the build.
-
-.. image:: images/ipa_options.png
-
-After a successful build, the dialog below should appear. It shows where the created IPA file is located and has the Reveal in Finder button to open Finder.
-
-.. image:: images/ipasuccess.png
+For more information about the Multi-OS Engine Gradle plugin, please refer to the `plugin documentation <https://github.com/multi-os-engine/moe-plugin-gradle>`_.
 
 .. toctree::
     :maxdepth: 1

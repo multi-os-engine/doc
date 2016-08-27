@@ -1,75 +1,98 @@
+.. _getting-started-remote-build:
 ===========================
 Remote Build
 ===========================
 
 Remote build provides the following capabilities:
 
-- Building .app and .ipa files for iOS* devices on remote macOS system in located in a local network from Android Studio* on Windows*.
+- Building .app and .ipa files from Android Studio* on Windows* for iOS* devices on a remote macOS system located in a local network.
 - Run and debug iOS* apps built remotely on iOS* devices connected to Windows* host
 
 Running iOS* apps on a simulator on Windows* hosts is not possible.
 
-This tutorial covers information related to the Remote build to get started: 
+This tutorial covers information related to the Remote build to get started:
 
 - How to create remote build configuration and run the build
 - Apple* P12 certificate and provisioning profile obtaining
 - Known issues and troubleshooting steps
 
-Requirements for Windows* hosts:
+The requirements for the Windows and macOS hosts are listed on the :ref:`Prerequisites <getting-started-prerequisites>` page. 
 
-- Microsoft* Windows* 7 x64 edition or later
-- Google* Android Studio* 1.5 or later
-- Java* Development Kit (JDK) version 8
-- Android* Platform SDK
-- Apple* iTunes*
+Setting Up Xcode & Keychain
+---------------------------
 
-Creating build configuration in Android Studio
------------------------------------------------
+Before any remote build can occur, we need to ensure the build server's Xcode is setup correctly.
 
-Go to "Run" => "Edit Configuration" to create remote build configuration.
+Prepare Xcode
+^^^^^^^^^^^^^
 
-.. image:: images/edit_build_configuration.png
+- Go to `Xcode > Preferences > Accounts`.
+- Click on the `+` icon and login with your Apple ID.
+- Select your team.
+- Create an iOS Development signing identity.
+- Download all provisioning profiles.
+- Connect a device to the system and make sure you can run an application on it.
 
-Click "+" and choose "Multi-OS Engine Remote build"
+Prepare Keychain
+^^^^^^^^^^^^^^^^
 
-.. image:: images/edit_build_configuration2.png
+- Open `Keychain Access`
+- Create a new Keychain with `File > New Keychain...`
+- Save as `moeremotebuild`
+- Give it a password, ie.: `devpass`
+- Move the iPhone development certificate and the corresponding private key from the `login` keychain to the new one.
 
-Load your provisioning profile and Apple* P12 certificate to the build configuration, enter address of remote macOS machine, enter user name and password:
+Setting Up OpenSSH
+------------------
 
-.. image:: images/certificates.png
+The Multi-OS Engine remote build system currently requires public-key authentication. For this we must create a private/public-key pair. GitHub has a great description on how to do this [here](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). (Note: the `-C "your_email@example.com"` parameter is not required.)
 
-Please make sure that Info.plist in <project_root>/ios/Xcode/<project_name> contains a valid Bundle ID corresponding to the provisioning profile. For more information, please visit: `About Bundle IDs`_
+Build Server
+^^^^^^^^^^^^
 
-.. _About Bundle IDs: https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8
+We must setup OS X's Remote Login feature to use public keys instead of passwords.
 
-Apple developer certificate is needed in order to run the code on a physical iPhone and iPad. Apple Mac machine and membership in Apple Developer Program ($99/year) are needed to generate P12 certificate and to submit your apps to the AppStore. It is possible to generate the certificate using "free" Apple developer account on macOS with Xcode 7, but you will not be able to submit your application to AppStore using this certificate. 
+- Login to your remote server.
+- Go to `System Preferences > Sharing` and disable Remote Login.
+- Open Terminal.
+- Type `sudo nano /etc/ssh/sshd_config` and enter password to edit.
+- Change the parameters to the following:
 
-Run and Debug iOS* app
------------------------
+```
+RSAAuthentication yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+```
 
-Click "run" or "debug" icon to run or debug sample on device respectively
+- Press `ctrl + O` to save and `ctrl + X` to exit.
+- Type `mkdir -p ~/.ssh && nano ~/.ssh/authorized_keys`
+- Add the contents of your `id_rsa.pub` file into a new line.
+- Press `ctrl + O` to save and `ctrl + X` to exit.
+- Go to `System Preferences > Sharing` and enable Remote Login.
 
-.. image:: images/run.png
+Development Host
+^^^^^^^^^^^^^^^^
 
-To see the build progress, open "Multi-OS Engine" tab:
+Copy the generated RSA private key onto your development host.
 
-.. image:: images/build_progress.png
+Creating run configuration in Android Studio
+--------------------------------------------
 
-All build logs will be placed in the “<project_root>/ios/build/logs” folder.
+To use remote build in Android Studio, fill out the Remote Build tab in the Run Configuration. 
 
-How to build IPA for application deploying
--------------------------------------------
+.. image:: images/run_configuration.png
 
-To build IPA file go to the "Build" tab and choose "Export IPA for Application" option, choose remote build configuration in the popped up window and click "OK" to start build
+* Use the correct file path for the SSH private key file.
+* Specify a path for the known_hosts file, if it does not exist, it will be created automatically.
+* The Gradle repositories field can be left empty by default, it is only required if custom local Maven repositories are required on the build machine.
 
-.. image:: images/export_ipa.png
-
-After successful build, you can double click on the .IPA to open by in Apple iTunes*. Click "Install" and then "Sync" to install it to iOS device connected to the Windows machine:
-
-.. image:: images/itunes.png
+After that the launch will use the remote build settings automatically. 
 
 Getting Apple developer certificate and provisioning profile on macOS
--------------------------------------------------------------------------
+---------------------------------------------------------------------
+
+An Apple developer certificate is needed in order to run the code on a physical iPhone and iPad. Apple Mac machine and membership in Apple Developer Program ($99/year) are needed to generate P12 certificate and to submit your apps to the AppStore. It is possible to generate the certificate using "free" Apple developer account on macOS with Xcode 7, but you will not be able to submit your application to AppStore using this certificate. 
 
 Go to macOS machine, open Xcode, open the Accounts preferences pane, and check whether your Apple ID is registered. If it's not listed, click "+" button to add it.
 
@@ -108,7 +131,7 @@ Then select your certificate, select the desired devices. Name, generate, and do
 You can create multiple Ad Hoc provisioning profiles depending on the testing devices to be used. Typically, create one or more for ad hoc testing purposes. Later, create a production provisioning profile for the final Apple AppStore distribution.
 
 Certificates generation using "free" Apple developer account
--------------------------------------------------------------
+------------------------------------------------------------
 
 Prerequisites:
 

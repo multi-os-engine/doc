@@ -2,7 +2,7 @@
 Creating a UI with the Multi-OS Engine UI Designer
 =============================================
 
-The Multi-OS Engine provides the UI designer to build Apple iOS* applications. The builder is similar to Android* layout to build but has view objects similar to that of iOS. This tutorial shows you how to build a simple Quiz application for iOS using Multi-OS Engine UI builder.
+The Multi-OS Engine provides a UI Designer plugin to build Apple iOS* applications. The builder is similar to Android* layout to build but has view objects similar to that of iOS. This tutorial shows you how to build a simple Quiz application for iOS using Multi-OS Engine UI builder.
 
 Step 1: To build any Multi-OS Engine application, start with creating a stock Android sample application like this.
 

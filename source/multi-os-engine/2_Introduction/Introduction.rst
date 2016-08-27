@@ -17,10 +17,7 @@ The key features of Multi-OS Engine are:
 •   Debugging apps on real devices or the iOS simulator integrated with Android Studio.
 •   Running/deploying apps from Apple App Store*.
 
-To get started:
-
-`Download <https://software.intel.com/en-us/multi-os-engine>`_ and install the Multi-OS Engine Technology Preview on your macOS machine.
-Download one or more of its `Samples <https://github.com/moe-java-samples/>`_.
+To get started, follow the instructions in the :ref:`Getting Started <getting-started>` section.
 
 
 Multi-OS Engine Architecture Overview

@@ -2,6 +2,10 @@
 Using LibGDX
 ============
 
+.. warning::
+
+    This page is outdated. LibGDX is being updated to support the open source Multi-OS Engine version. This page will be updated when the updated LibGDX version is released.
+
 This page shows you how you can create a Java* game using Intel's Multi-OS Engine Technical Preview and the libGDX library.
 
 Contents:
