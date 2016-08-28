@@ -27,7 +27,7 @@ For the OSS build from GitHub:
 
 .. note::
 
-	The Multi-OS Engine sample location changed for the open source SDK. The old repository is not updated anymore and will not work with new SDK. You may find the updated samples `here (Java) <https://github.com/multi-os-engine/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine/moe-samples-kotlin>`_.
+	The Multi-OS Engine sample location changed for the open source SDK. The `old samples repository <https://github.com/moe-java-samples>`_ is not updated anymore and will not work with the new SDK. You may find the updated samples `here (Java) <https://github.com/multi-os-engine/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine/moe-samples-kotlin>`_.
 
 Install Android Studio / IntelliJ IDEA Plugin
 ---------------------------------------------
