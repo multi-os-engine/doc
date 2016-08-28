@@ -8,7 +8,7 @@ This first part explains how to create and write to a file in an iOS directory a
 
 For this tutorial, we assume that you have gone through our getting started guides for building iOS and Android apps using Multi OS Engine. If not, please read Getting Started pages first.
 
-The complete sample project can be found at this `GitHub link <https://github.com/moe-java-samples/moe-java-samples/tree/master/NoteTaking>`_ for your reference.
+The complete sample project can be found at this `GitHub link <https://github.com/multi-os-engine/moe-samples-java/tree/master/NoteTaking>`_ for your reference.
 
 Like other Multi OS Engine apps, this app consists of mostly `Common Code`_ and `Platform-Specific Code`_.
 
