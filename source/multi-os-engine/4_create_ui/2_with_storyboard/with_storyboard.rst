@@ -1,90 +1,222 @@
-=============================================
-Creating a UI Using an Apple Xcode Storyboard
-=============================================
+====================================
+Creating UIs Using Xcode Storyboards
+====================================
 
-For complex UI, you can use Xcode Interface Builder for designing the UI and Intel's Multi-OS Engine Technology Preview for generating the Java* bindings in Android Studio*. This topic demonstrates how to use this approach for building the same Quiz App as in the Creating a UI with the Multi-OS Engine UI Designer topic.
+For complex UIs you can use Xcode's Interface Builder for designing and Multi-OS Engine for generating the Java* bindings in Android Studio*. This topic demonstrates how to use this approach for building the same Quiz App as in the Creating a UI with the Multi-OS Engine UI Designer topic.
 
-As Step 1, create a stock Android* application.
+1. Create a Stock Android Application
+=====================================
 
-.. image:: images/story1.png
+.. image:: images/1-1.png
 
-Step 2: Right click on the new Android project and select Multi-OS Engine Module to create a new iOS* module.
+2. Create a New Multi-OS Engine Module
+======================================
 
-.. image:: images/story2.png
+Right click on the Android project and select New > Multi-OS Engine Module to create a new iOS* module.
 
-Step 3: Select Single View Application as a starting template for your app. This app is named QuizApp.
+.. image:: images/2-1.png
 
-.. image:: images/story3.png
+Select "Single View Application with Storyboard" in the "Multi-OS Engine" category.
 
-Step 4: Build the project to generate the Xcode project for your Multi-OS Engine module:  in Select Run/Debug Configuration choose QuizApp and press the Run button.
+.. image:: images/2-2.png
 
-.. image:: images/story4.png
+Fill out the fields and select "Keep Xcode Project".
 
-Step 5: In the project structure find and delete the files AppViewController, MainUI.storyboard and the folder resources/layout - you will regenerate them after designing the UI in the Xcode Interface Builder. It may prompt you that there are other references and if you still want to delete these files. Go ahead and delete them.
+.. image:: images/2-3.png
 
-.. image:: images/story5.png
+Change the module name and paths to use "ios".
 
-Step 6: Make sure the reference to AppViewController in the imports of Main.java has been removed.
+.. image:: images/2-4.png
 
-.. image:: images/story6.png
+3. Delete Unneeded Files
+========================
 
-Step 7: Right click on QuizApp project and choose Open Project in Xcode from the Multi-OS Engine Actions menu.
+We will create the view controller and the storyboard from scratch, so let's delete the generated ones.
+Select the "ui" package and "MainUI.storyboard" file and delete them.
 
-.. image:: images/story7.png
+.. image:: images/3-1.png
 
-It will bring up the Xcode Editor.
+Open the "Main" class and remove the incorrect import of AppViewController.
 
-.. image:: images/story71.png
+.. image:: images/3-2.png
 
-Step 8: Expand the QuizApp project in Xcode and add a new source file based on Apple Cocoa Touch* class. Next screenshots illustrate how to create the MyViewController.m and MyViewController.h files.
+4. Edit the Xcode Project
+=========================
 
-.. image:: images/story8.png
+Change your view to "Project" in Android Studio.
 
-.. image:: images/story81.png
+.. image:: images/4-1.png
 
-.. image:: images/story82.png
+Right-click on the "ios" module and select "Multi-OS Engine Actions" > "Open Project in Xcode".
 
-Step 9: Right click on the QuizApp project and create a new user interface. Name your Storyboard as MainUI because that is the name defined in the Multi-OS Engine templates in Android Studio which is going to be connected to this interface later. Save the created Storyboard in the <ios_module> /src/main/resources folder (the default folder is the <ios_module> /build/xcode).
+.. image:: images/5-1.png
 
-.. image:: images/story9.png
+Delete the remaining reference to the removed "MainUI.storyboard" file in Xcode.
 
-At the end of this step, you should see the new project structure like below.
+.. image:: images/6-1.png
 
-Step 10: Drag a new ViewController and select the newly created MyViewController in the highlighted section.
+5. Create the View Controller and Storyboard
+============================================
 
-.. image:: images/story10.png
+Right-click on the "QuizApp" group and select "New File...".
 
-Step 11: Pick the UI controls from the bottom right and drag them to the storyboard. For this app, you need two labels and two buttons.
+.. image:: images/6-2.png
 
-Create an entry point in the Storyboard by checking Is Initial View Controller box on the right.
+Select "Cocoa Touch Class" in the "iOS" > "Source" category.
 
-.. image:: images/story11.png
+.. image:: images/6-3.png
 
-Step 12: Click on the circular icon as highlighted and open up MyViewController.h file from the center pane. Create the IBOutlets for the two labels and two buttons and IBActions for the two buttons by control-dragging from the objects in the Xcode Interface Builder to the header file in the assistant editor. Save the project.
+Rename the class to "MyViewController" and make it a subclass of "UIViewController".
 
-.. image:: images/story12.png
+.. image:: images/6-4.png
 
-Step 13:  Go back to Android Studio and right click on the QuizApp project, click Multi-OS Engine Actions and choose Synchronize to Java.
+Save in the Xcode target's (QuizApp) directory. (This should be the default save location)
 
-This will generate the MyViewController.java file. This file will contain the Java bindings for all of the UI controls and actions that you've created in Xcode. Whenever you add, delete or modify a UI element in Xcode, you need to generate UI Interface bindings by the process above.
+.. image:: images/6-5.png
 
-.. image:: images/story13.png
+Create another new file, but now a "Storyboard" from the "iOS" > "User Interface" category.
 
-Step 14: Add a new Java class that implements a simple logic for the Quiz App.
+.. image:: images/6-6.png
 
-.. image:: images/story14.png
+Save it as "Storyboard" to the same location.
 
-Step 15:  It is necessary to delete @Generated and native from the methods that you are going to modify. This is to imply that the originally generated code is overridden by the new Java function.
+.. image:: images/6-7.png
 
-.. image:: images/story15.png
+6. Edit the Storyboard
+======================
 
-Step 16:  Create a new object of class QuizDataSet and initiate it in a separate method viewDidLoad(). Call the necessary methods from the above class in the action handlers defined for the two buttons. The screen below shows all that required to implement the logic.
+Open up the Storyboard file for editing and drag a "View Controller" into the big empty editor area.
 
-.. image:: images/story16.png
+.. image:: images/7-1.png
 
-Step 17: Run the project to see the app in action.
+In the Attributes inspector check in the "Is Initial View Controller" checkbox.
 
-.. image:: images/story17.png
+.. image:: images/7-2.png
+
+In the Identity inspector change the view controller's class to MyViewController.
+
+.. image:: images/7-3.png
+
+7. Add UI Elements
+==================
+
+Add two labels by searching for "label" and dragging them onto the view controller's view.
+
+.. image:: images/8-1.png
+
+Do the same for adding two buttons.
+
+.. image:: images/8-2.png
+
+Edit the controls' text by double-clicking on them and rearrange them by dragging them to their final location.
+
+.. image:: images/8-3.png
+
+Select the view controller's view and in the "Resolve Auto Layout Issues" menu select "Add Missing Constraints".
+
+.. image:: images/8-4.png
+
+8. Binding the UI Elements to the Controller
+============================================
+
+Open up "MyViewController.h" in the Assistant Editor and `ctrl + Drag` the controls from the storyboard editor into the MyViewController's source code.
+
+.. image:: images/9-1.png
+
+Add outlets for the labels, one as `questionLabel`, the other as `answerLabel`.
+
+.. image:: images/9-2.png
+
+Add actions for the buttons, one as `showQuestion`, the other as `showAnswer`.
+
+.. image:: images/9-3.png
+
+The result should look like this.
+
+.. image:: images/9-4.png
+
+9. Edit the Target
+==================
+
+Select the "QuizApp" project in the Project navigator and "QuizApp" in the Targets listing. In the "General" tab set the Version, Build and Main Interface fields.
+
+.. image:: images/10-1.png
+
+10. Editing the Java Code
+=========================
+
+Go back to Android Studio, select your MyViewController.h, right-click on it and select "Multi-OS Engine Actions" > "Synchronize to Java".
+
+.. image:: images/11-1.png
+
+It will ask for a package to generate the bindings into.
+
+.. image:: images/11-2.png
+
+Add a new Java class called QuizDataSet. ::
+
+	public class QuizDataSet {
+		private ArrayList<String> questions = new ArrayList<>();
+		private ArrayList<String> answers = new ArrayList<>();
+
+		public QuizDataSet() {
+			questions.add("What is the State Capital of California?");
+			questions.add("What is the capital city of New York");
+			questions.add("Which state is the Niagara Falls located in?");
+
+			answers.add("Sacramento");
+			answers.add("New York City");
+			answers.add("New York");
+		}
+
+		public String getQuestion(int idx) {
+			return questions.get(idx);
+		}
+
+		public String getAnswer(int idx) {
+			return answers.get(idx);
+		}
+
+		public int getSize() {
+			return questions.size();
+		}
+	}
+
+.. image:: images/12-1.png
+
+Open up your MyViewController class for editing. You should see the two actions "showQuestion" and "showAnswer".
+
+.. image:: images/13-1.png
+
+Remove the `@Generated` annotation and the `native` keyword. Change the code to the following: ::
+
+	private QuizDataSet quiz = new QuizDataSet();
+	private int quizIdx = 0;
+
+	@Selector("showAnswer:")
+	public void showAnswer(UIButton sender) {
+		answerLabel().setText(quiz.getAnswer(quizIdx));
+	}
+
+	@Selector("showQuestion:")
+	public void showQuestion(UIButton sender) {
+		quizIdx = (quizIdx + 1) % quiz.getSize();
+		questionLabel().setText(quiz.getQuestion(quizIdx));
+		answerLabel().setText("???");
+	}
+
+.. image:: images/14-1.png
+
+Go to the top of the file and change the annotations as follows:
+
+.. image:: images/14-2.png
+
+11. Running the Application
+===========================
+
+Select the ios module's run configurations and hit Run.
+
+.. image:: images/15-1.png
 
 .. toctree::
-    :maxdepth: 1
+	:maxdepth: 1

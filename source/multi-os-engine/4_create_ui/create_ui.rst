@@ -10,7 +10,7 @@ The Multi-OS Engine provides two options for defining the layout and UI for your
 For more information about each approach, see:
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     1_with_designer/with_designer
     2_with_storyboard/with_storyboard
