@@ -56,14 +56,12 @@ We must setup OS X's Remote Login feature to use public keys instead of password
 - Go to `System Preferences > Sharing` and disable Remote Login.
 - Open Terminal.
 - Type `sudo nano /etc/ssh/sshd_config` and enter password to edit.
-- Change the parameters to the following:
+- Change the parameters to the following: ::
 
-```
-RSAAuthentication yes
-PubkeyAuthentication yes
-PasswordAuthentication no
-ChallengeResponseAuthentication no
-```
+	RSAAuthentication yes
+	PubkeyAuthentication yes
+	PasswordAuthentication no
+	ChallengeResponseAuthentication no
 
 - Press `ctrl + O` to save and `ctrl + X` to exit.
 - Type `mkdir -p ~/.ssh && nano ~/.ssh/authorized_keys`
