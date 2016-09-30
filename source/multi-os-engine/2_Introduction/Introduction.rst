@@ -51,7 +51,7 @@ iOS* Development Workflow with the Multi-OS Engine
 .. image:: images/intro3.png
 
 #. Create an Android project in Android Studio. To configure your iOS app, add a new configuration Multi-OS Engine Project. Other steps below explain only the creation of iOS* App with Multi-OS Engine, and assume you are aware of the build process of an Android app in Android Studio.
-#. Design a User Interface (UI) for iOS in Apple Xcode* or Multi-OS Engine’s UI designer in Android Studio.
+#. Design a User Interface (UI) for iOS in Apple Xcode*.
 #. Bind UI to Java* using the NatJ runtime libraries.
 #. Android Studio is equipped with the Intellisense capabilities to bind the action handlers to the UI elements for iOS.
 #. A local build is supported on macOS development machines where iOS Simulators can be invoked. For Windows* development systems, cloud build is supported.

@@ -22,11 +22,8 @@ Start the process with dividing the entire functionality of your app into common
 Designing UI Using Multi-OS Engine
 ==================================
 
-Provide the native iOS  look for you app. You can create the UI design with the Xcode Storyboard or Multi-OS Engine UI Designer with the UI logic from existing Android app.
+The Multi-OS Engine provides support for defining the layout and UI for your Apple iOS applications, by using Apple Xcode* Interface Builder and generating Java bindings in Android Studio.
 
-See theese topics to learn about creating UI with Xcode Storyboard or Multi-OS Engine UI Designer tools:
-
-•   `Creating a UI with the Multi-OS Engine UI Designer <../../4_create_ui/1_with_designer/with_designer.html>`_
 •   `Creating a UI Using an Apple Xcode Storyboard <../../4_create_ui/2_with_storyboard/with_storyboard.html>`_
 
 Binding UI to Java

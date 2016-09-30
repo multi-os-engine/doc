@@ -2,6 +2,10 @@
 Creating Webview using Intel's Multi-OS Engine
 ==============================================
 
+.. warning::
+
+	UI Designer was removed in Multi-OS Engine 1.2.0. This document page is outdated and will be re-written in the future.
+
 One of the new features introduced with Intel's Multi-OS Engine Technical Preview is UIWebView. You can use this WebView to display online web sites as well as local html files.
 
 This tutorial shows a very simple example of how to create a UIWebView with the Intel's Multi-OS Engine Technical Preview on an Apple macOS development system.

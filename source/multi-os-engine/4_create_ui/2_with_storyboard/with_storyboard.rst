@@ -2,7 +2,7 @@
 Creating UIs Using Xcode Storyboards
 ====================================
 
-For complex UIs you can use Xcode's Interface Builder for designing and Multi-OS Engine for generating the Java* bindings in Android Studio*. This topic demonstrates how to use this approach for building the same Quiz App as in the Creating a UI with the Multi-OS Engine UI Designer topic.
+For complex UIs you can use Xcode's Interface Builder for designing and Multi-OS Engine for generating the Java* bindings in Android Studio*. This topic demonstrates how to use this approach for building a sample Quiz App.
 
 1. Create a Stock Android Application
 =====================================
