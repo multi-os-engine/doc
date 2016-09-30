@@ -4,8 +4,8 @@
 Installation
 ============
 
-Remove old versions of the Multi-OS Engine
-------------------------------------------
+Remove old versions of the Multi-OS Engine (MOE 1.0 or older)
+-------------------------------------------------------------
 
 For Intel Builds: Run ``/Applications/intel/multi_os_engine/uninstall.app``
 
@@ -35,10 +35,65 @@ Install Android Studio / IntelliJ IDEA Plugin
 * Open Android Studio or IntelliJ IDEA
 * Open the Plugins menu in Settings
 * Install the Multi-OS Engine Plugin from the standard plugin repository (just search for it)
-* If you want to use the Multi-OS Engine UI Designer, install the plugin separately
 * You can now create your first project, or import a sample. Enjoy!
 
 	* The SDK installation will happen automatically when you create or import your first project.
+
+Install Eclipse Plugin
+----------------------
+
+* Open Eclipse 4.5 (Mars) or later 
+* Click the Install New Software window in the Help menu
+* Add the Multi-OS Engine plugin repository:
+	* ``https://dl.bintray.com/multi-os-engine/eclipse``
+* Install the Multi-OS Engine Plugin from the newly added repository
+* You can now create your first project, or import a sample. Enjoy!
+
+	* The SDK installation will happen automatically when you create or import your first project.
+
+Set Up Code Signing for On Device Execution in Xcode 8
+------------------------------------------------------
+
+Xcode 8 has more strict requirements with regards to the code signing configuration. Code signing can be set up in your build.gradle file. 
+
+.. code-block:: groovy
+
+	moe {
+	    signing {
+	        // String, ID of the development team.
+	        developmentTeam
+
+	        // String, path to the provisioning profile.
+	        provisioningProfile
+
+	        // String, name of the signing identity
+	        signingIdentity
+	    }
+	}
+
+Xcode 8 also supports "automatic" signing configuration during development, but at the very least you will have to set your Development Team Id. MOE provides a way to set a default Id in a separate file, so you don't have to edit every project's build.gradle just to try it out.
+
+In order to set the default id, you have to create a file with the path ``${user.home}/.moe/default.properties`` with the following contents:
+
+.. code-block:: text
+
+	developmentTeam=ABCDEFGHIJ
+
+For more details, please refer to the `MOE Gradle Plugin configuration documentation <https://github.com/multi-os-engine/moe-plugin-gradle>`_
+
+
+Upgrading from MOE 1.1 or later
+-------------------------------
+
+Upgrading the a new release of the MOE plugin can be done using the standard plugin upgrade procedure inside Android Studio / IntelliJ or Eclipse.
+
+To upgrade a project to use a newer MOE SDK, you need to update the version of the MOE plugin in its ``build.gradle`` file.
+
+.. note::
+
+	Starting with MOE 1.2, the Multi-OS Engine UI Designer is not included in the release. The UI Designer plugin is incompatible with the MOE 1.2 Plugin, thus you will have to uninstall it from your IDE. You may read more details about the reasons for this decision in our `Behind The Scenes blog post <https://multi-os-engine.org/blog/2016-09-30-removed-features/>`_.
+
+
 
 .. toctree::
     :maxdepth: 1
