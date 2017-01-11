@@ -42,6 +42,14 @@ Prepare Keychain
 - Give it a password, ie.: `devpass`
 - Move the iPhone development certificate and the corresponding private key from the `login` keychain to the new one.
 
+.. warning::
+
+	On **macOS Sierra** remote servers open Terminal and run::
+
+		security set-key-partition-list -S apple-tool:,apple: -k devpass moeremotebuild.keychain
+
+	If this is not done, builds might fail with ``SecKey API returned: -25308, (null)...: unknown error -1=ffffffffffffffff``
+
 Setting Up OpenSSH
 ------------------
 
