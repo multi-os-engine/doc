@@ -34,8 +34,8 @@ Prepare Xcode
 - Download all provisioning profiles.
 - Connect a device to the system and make sure you can run an application on it.
 
-_`Prepare Keychain` (Opentional, Recommended)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_`Prepare Keychain` (Optional, Recommended)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Open `Keychain Access`
 - Create a new Keychain with `File > New Keychain...`
 - Save as `moeremotebuild`
