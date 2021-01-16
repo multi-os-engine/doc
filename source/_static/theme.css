@@ -1,6 +1,5 @@
 @media screen and (min-width: 1400px) {
 	.wy-nav-content {
-		height: auto;
 		max-width: 100%;
 	}
 }
@@ -20,6 +19,7 @@ footer {
 }
 
 .wy-nav-content {
+	height: auto;
 	padding-top: 6em;
 }
 
