@@ -57,27 +57,29 @@ Creating an Android App Module
 Creating a Multi-OS Engine App Module
 -------------------------------------
 
-1. Right click anywhere inside the Project tab on the left side. This creates the module in the root of the Android project. Choose New and Multi-OS Engine Module.
+1. Right click anywhere inside the Project tab on the left side. This creates the module in the root of the Android project. Choose New and New Module.
 
 .. image:: images/add_module.png
 
-2. There are seven available templates: 
+.. note::
+
+	If you are using Android Studio and no "New Module" dialog popped up, make sure you did not install any Kotlin plugin update and use the Kotlin plugin bundled with the Android Studio. You could check this by openning the Plugins settings and see if there is Kotlin plugin under the "Downloaded" category. If so, uninstall it and restart the IDE to use the bundled version instead.
+
+    .. image:: images/uninstall_kotlin.png
+
+2. There are six available templates: 
 
 .. image:: images/modules.png
 
 •	Master-Detail Application with storyboard template provides a starting point for a master-detail app. It provides a user interface configured with a navigation controller to display a list of items and also a split view on iPad devices.
-•	Page-Based Application template provides a starting point for a page-based app that uses a page view controller.
-•	Page-Based Application with storyboard template provides a starting point for a page-based app that uses a page view controller.
 •	Single-View Application template provides a starting point for an app that uses a single view. It provides a view controller to manage the view, and a storyboard or nib file that contains the view.
-•	Single-View Application with storyboard template provides a starting point for an app that uses a single view. It provides a view controller to manage the view, and a storyboard or nib file that contains the view.
-•	Tabbed Application template provides a starting point for an app that uses a tab bar. It provides a user interface configured with a tab bar controller, and view controllers for the tab bar items.
 •	Game template provides a starting point for games.
 
-These templates mirror the standard Xcode templates for iOS and have the same names as the corresponding templates in Xcode. Some of these templates use storyboards, while others use a generated storyboard from .ixml files. Using these templates, you can see how your Apple Objective-C* project migrates to a Multi-OS Engine solution: the plug-in replaces all Objective-C components with Java analogues when possible.
+These templates mirror the standard Xcode templates for iOS and have the same names as the corresponding templates in Xcode. Using these templates, you can see how your Apple Objective-C* project migrates to a Multi-OS Engine solution: the plug-in replaces all Objective-C components with Java analogues when possible.
 
 Select the template which fits your needs (such as Single-View Application) and press Next.
 
-3. In the next window, create an Xcode project. After you create the project you can open it in Xcode, for example, if you would like to use an Xcode storyboard to design your native user interface. Specify the Xcode Project Name, Product Name (app name), Organization and Company Identifier.
+3. In the next window, create an Xcode project. After you create the project you can open it in Xcode, for example, if you would like to use an Xcode storyboard to design your native user interface. Specify the Project Name (app name), Package Name (where your Java code belongs to), Organization Name and Identifier.
 
 .. image:: images/xcode_settings.png
 
@@ -168,7 +170,7 @@ Building an IPA is currently possible from the command line using Gradle. In the
 
 The IPA file will be created in the ``build/`` folder.
 
-For more information about the Multi-OS Engine Gradle plugin, please refer to the `plugin documentation <https://github.com/multi-os-engine/moe-plugin-gradle>`_.
+For more information about the Multi-OS Engine Gradle plugin, please refer to the `plugin documentation <https://github.com/multi-os-engine-community/moe-plugin-gradle>`_.
 
 .. toctree::
     :maxdepth: 1
