@@ -1214,7 +1214,7 @@ Download Resources.zip and Multi-OS Samples
 
 You can download resources.zip `here <https://software.intel.com/sites/default/files/managed/ac/65/resources.zip>`_.
 
-You can download all Multi-OS Engine samples `here (Java) <https://github.com/multi-os-engine/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine/moe-samples-kotlin>`_.
+You can download all Multi-OS Engine samples `here (Java) <https://github.com/multi-os-engine-community/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine-community/moe-samples-kotlin>`_.
 
 
 Summary and Resources

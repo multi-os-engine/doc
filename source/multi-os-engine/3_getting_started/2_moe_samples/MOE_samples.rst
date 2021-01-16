@@ -4,8 +4,8 @@ Multi-OS Engine Samples
 
 The Multi-OS Engine samples live in 2 GitHub repositories:
 
-* Java samples: https://github.com/multi-os-engine/moe-samples-java
-* Kotlin samples: https://github.com/multi-os-engine/moe-samples-kotlin
+* Java samples: https://github.com/multi-os-engine-community/moe-samples-java
+* Kotlin samples: https://github.com/multi-os-engine-community/moe-samples-kotlin
 
 To import a sample project into Android Studio, first clone the repository from GitHub and then choose "Import project (Eclipse, ADT, Gradle, etc.)" from the "Welcome window"
 
