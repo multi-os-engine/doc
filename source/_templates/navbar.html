@@ -1,6 +1,6 @@
 <header>
   <div class="header__container">
-    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+    <a href="https://moe.noisyfox.io/doc" class="header__logo">
       <img width="176" src="{{ pathto('_static/moelogo-02.png', 1) }}">
     </a>
     <div class="links__icon">
@@ -8,13 +8,9 @@
     </div>
     <ul class="header__links">
       {% set navlinks = [
-        {'name': "Home",   'link': ["https://multi-os-engine.org/", True] },
-        {'name': "Features",   'link': ["https://multi-os-engine.org/features/", True] },
-        {'name': "Docs",       'link': ["https://doc.multi-os-engine.org", True] },
-        {'name': "Blog",       'link': ["https://multi-os-engine.org/blog/", True] },
-        {'name': "Support",    'link': ["https://multi-os-engine.org/support/", True] },
+        {'name': "Docs", 'link': ["https://moe.noisyfox.io/doc", True] },
         {'name': "Forum", 'link': ["https://discuss.multi-os-engine.org", True] },
-        {'name': "GitHub", 'link': ["https://github.com/multi-os-engine/multi-os-engine", True] },
+        {'name': "GitHub", 'link': ["https://github.com/multi-os-engine-community/multi-os-engine", True] },
       ] %}
       {%- for link in navlinks %}
         <li><a href="{{ pathto(*link['link']) }}">{{ link['name'] }}</a></li>
