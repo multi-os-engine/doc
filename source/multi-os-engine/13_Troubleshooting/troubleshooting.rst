@@ -7,13 +7,10 @@ This topic describes troubleshooting tips for common Multi-OS Engine Technology 
 Content
 
 #.   `Proxy Settings Issues`_
-#.   `Multi-OS Engine Installation Issues`_
 #.   `Integration with Android Studio Issues`_
-#.   `Cloud Build Issues on Windows Host`_
 #.   `Runtime Issues`_
 #.   `Apple iOS API Bindings Issues`_
 #.   `UI Binding Generator Issues`_
-#.   `Layout Editor Issues`_
 
 Proxy Settings Issues
 =====================
@@ -196,15 +193,6 @@ Corresponding Java bindings code::
 		// Java compilation error, foo(Object) not implemented
 		void foo(MyProtocol3 c);
 	}
-
-Layout Editor Issues
-====================
-
-- For the correct rendering of widgets, you must have Android SDK* with exactly API level 22 installed.
-
-- Constraints can be conflicted for difficult UI written in iXML. Xcode* cannot manage conflict situations with constraints. As a result, generated constraints do not match with Xcode* constraints.
-
-- If you manually edited .ixml file, Android Studio may not be able to open it or final UI layout could be wrong.
 
 .. toctree::
     :maxdepth: 2
