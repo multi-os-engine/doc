@@ -107,7 +107,7 @@ Choose one of these two ways to add a splash to your Multi-OS Engine app:
 
 
         NOTE:
-            For an example of adding a splash screen by specifying a launch image catalog, see the `FlipView sample <https://github.com/multi-os-engine-community/moe-samples-java/tree/master/FlipView>`_.
+            For an example of adding a splash screen by specifying a launch image catalog, see the `FlipView sample <https://github.com/multi-os-engine/moe-samples-java/tree/master/FlipView>`_.
 
 •   Using .xib or .storyboard files
 
@@ -121,7 +121,7 @@ Choose one of these two ways to add a splash to your Multi-OS Engine app:
 
         
         NOTE:
-            For an example of adding splash screen by using LaunchScreen.xib, see the `DateCell sample <https://github.com/multi-os-engine-community/moe-samples-java/tree/master/DateCell>`_.
+            For an example of adding splash screen by using LaunchScreen.xib, see the `DateCell sample <https://github.com/multi-os-engine/moe-samples-java/tree/master/DateCell>`_.
 
 App Icons
 =========
@@ -141,7 +141,7 @@ App Icons
 
 
     NOTE
-        Example of adding app icons is demonstrated in the `Calculator sample <https://github.com/multi-os-engine-community/moe-samples-java/tree/master/Calculator>`_.
+        Example of adding app icons is demonstrated in the `Calculator sample <https://github.com/multi-os-engine/moe-samples-java/tree/master/Calculator>`_.
 
 Catalog Assets
 ==============
@@ -171,7 +171,7 @@ The build process includes a proguard step for shrinking application classes. To
 More Information
 ----------------
 
-For more information about the Multi-OS Engine Gradle plugin and a complete list of tasks and properties, please refer to the `plugin documentation <https://github.com/multi-os-engine-community/moe-plugin-gradle>`_.
+For more information about the Multi-OS Engine Gradle plugin and a complete list of tasks and properties, please refer to the `plugin documentation <https://github.com/multi-os-engine/moe-plugin-gradle>`_.
 
 .. toctree::
     :maxdepth: 2

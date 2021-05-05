@@ -170,7 +170,7 @@ Building an IPA is currently possible from the command line using Gradle. In the
 
 The IPA file will be created in the ``build/`` folder.
 
-For more information about the Multi-OS Engine Gradle plugin, please refer to the `plugin documentation <https://github.com/multi-os-engine-community/moe-plugin-gradle>`_.
+For more information about the Multi-OS Engine Gradle plugin, please refer to the `plugin documentation <https://github.com/multi-os-engine/moe-plugin-gradle>`_.
 
 .. toctree::
     :maxdepth: 1

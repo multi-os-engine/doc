@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Multi-OS Engine Community Documentation'
+project = u'Multi-OS Engine Documentation'
 copyright = u'2021, Intel Corporation, Migeran & Multi-OS Engine Community'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -118,10 +118,10 @@ if not os.environ.get('READTHEDOCS', None) == 'True':
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = "Multi-OS Engine Community Documentation"
+html_title = "Multi-OS Engine Documentation"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'MOEC Docs'
+html_short_title = 'MOE Docs'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -179,7 +179,7 @@ html_show_sphinx = False
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Multi-OS Engine Community Documentation'
+htmlhelp_basename = 'Multi-OS Engine Documentation'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -193,8 +193,8 @@ htmlhelp_basename = 'Multi-OS Engine Community Documentation'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'MOEHelp.tex', u'Multi-OS Engine Community Documentation',
-   u'MOEC', 'manual'),
+  ('index', 'MOEHelp.tex', u'Multi-OS Engine Documentation',
+   u'MOE', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -226,8 +226,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'moehelp', u'Multi-OS Engine Community Documentation',
-     ['MOEC'], [u''], 1)
+    ('index', 'moehelp', u'Multi-OS Engine Documentation',
+     ['MOE'], [u''], 1)
 ]
 
 

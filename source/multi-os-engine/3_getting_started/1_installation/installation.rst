@@ -27,14 +27,14 @@ For the OSS build from GitHub:
 
 .. note::
 
-	The Multi-OS Engine sample location changed for the open source SDK. The `old samples repository <https://github.com/moe-java-samples>`_ is not updated anymore and will not work with the new SDK. You may find the updated samples `here (Java) <https://github.com/multi-os-engine-community/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine-community/moe-samples-kotlin>`_.
+	The Multi-OS Engine sample location changed for the open source SDK. The `old samples repository <https://github.com/moe-java-samples>`_ is not updated anymore and will not work with the new SDK. You may find the updated samples `here (Java) <https://github.com/multi-os-engine/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine/moe-samples-kotlin>`_.
 
 Install Android Studio / IntelliJ IDEA Plugin
 ---------------------------------------------
 
 * Open Android Studio or IntelliJ IDEA
 * Open the Plugins menu in Settings
-* Install the Multi-OS Engine Community Edition plugin from the standard plugin repository (just search for it)
+* Install the Multi-OS Engine Edition plugin from the standard plugin repository (just search for it)
 * You can now create your first project, or import a sample. Enjoy!
 
 	* The SDK installation will happen automatically when you create or import your first project.
@@ -61,13 +61,13 @@ Xcode 8 has more strict requirements with regards to the code signing configurat
 
 Xcode 8 also supports "automatic" signing configuration during development, but at the very least you will have to set your Development Team Id. MOE provides a way to set a default Id in a separate file, so you don't have to edit every project's build.gradle just to try it out.
 
-In order to set the default id, you have to create a file with the path ``${user.home}/.moe-community/default.properties`` with the following contents:
+In order to set the default id, you have to create a file with the path ``${user.home}/.moe/default.properties`` with the following contents:
 
 .. code-block:: text
 
 	developmentTeam=ABCDEFGHIJ
 
-For more details, please refer to the `MOE Gradle Plugin configuration documentation <https://github.com/multi-os-engine-community/moe-plugin-gradle>`_
+For more details, please refer to the `MOE Gradle Plugin configuration documentation <https://github.com/multi-os-engine/moe-plugin-gradle>`_
 
 
 Upgrading from MOE 1.1 or later
