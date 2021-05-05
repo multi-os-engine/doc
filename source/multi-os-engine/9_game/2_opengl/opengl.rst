@@ -2,7 +2,7 @@
 Building your OpenGL App with Multi-OS Engine
 =============================================
 
-This page describes the `OpenGLBox <https://github.com/multi-os-engine/moe-samples-java/tree/master/OpenGLBox>`_ sample in Multi-OS Engine Technical Preview. This is a truly cross-platform sample. The screenshots below show that the same Java*-based application running on Apple iOS and Android devices, which looks and behaves the same way. Applications for different platforms share the data and part of the source code. How is this achieved? Scroll down!
+This page describes the `OpenGLBox <https://github.com/multi-os-engine-community/moe-samples-java/tree/master/OpenGLBox>`_ sample in Multi-OS Engine Technical Preview. This is a truly cross-platform sample. The screenshots below show that the same Java*-based application running on Apple iOS and Android devices, which looks and behaves the same way. Applications for different platforms share the data and part of the source code. How is this achieved? Scroll down!
 
 .. image:: images/opengl1.png
 
@@ -355,7 +355,7 @@ OpenGL development with Java on iOS is quite similar to that on Android with man
 •   Familiar Java syntax.
 •   Debugging two targets side by side use the powerful iOS simulator and Android emulator.
 
-You can download all Multi-OS Engine samples `here (Java) <https://github.com/multi-os-engine/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine/moe-samples-kotlin>`_.
+You can download all Multi-OS Engine samples `here (Java) <https://github.com/multi-os-engine-community/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine-community/moe-samples-kotlin>`_.
 
 .. toctree::
     :maxdepth: 1

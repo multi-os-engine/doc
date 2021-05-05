@@ -1,4 +1,5 @@
 .. _getting-started-remote-build:
+
 ===========================
 Remote Build
 ===========================
@@ -33,14 +34,17 @@ Prepare Xcode
 - Download all provisioning profiles.
 - Connect a device to the system and make sure you can run an application on it.
 
-Prepare Keychain
-^^^^^^^^^^^^^^^^
-
+_`Prepare Keychain` (Optional, Recommended)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Open `Keychain Access`
 - Create a new Keychain with `File > New Keychain...`
 - Save as `moeremotebuild`
 - Give it a password, ie.: `devpass`
 - Move the iPhone development certificate and the corresponding private key from the `login` keychain to the new one.
+- Double click the private key, make sure the `Access Control` is set to `Allow all applications to access this item`,
+  or make sure `/usr/bin/codesign` is added to the allow list.
+
+.. image:: images/access_control.png
 
 .. warning::
 
@@ -92,6 +96,7 @@ To use remote build in Android Studio, fill out the Remote Build tab in the Run 
 * Use the correct file path for the SSH private key file.
 * Specify a path for the known_hosts file, if it does not exist, it will be created automatically.
 * The Gradle repositories field can be left empty by default, it is only required if custom local Maven repositories are required on the build machine.
+* If you skipped the `Prepare Keychain`_ step and would like to use the login keychain, then enter "login.keychain" as the "Keychain.name" and your login password as the "Keychain.pass".
 
 After that the launch will use the remote build settings automatically. 
 

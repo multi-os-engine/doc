@@ -1,6 +1,5 @@
 @media screen and (min-width: 1400px) {
 	.wy-nav-content {
-		height: auto;
 		max-width: 100%;
 	}
 }
@@ -20,6 +19,7 @@ footer {
 }
 
 .wy-nav-content {
+	height: auto;
 	padding-top: 6em;
 }
 
@@ -221,7 +221,7 @@ header .header__links li a {
 		top: 0;
 	}
 	header .header__logo img {
-		width: 176px;
+		width: 255px;
 	}
 	header .header__links {
 		display: none;
@@ -240,4 +240,9 @@ header .header__links li a {
 		max-width: 100%;
 		width: auto;
 	}
+}
+
+.section {
+    padding-top: 100px;
+    margin-top: -100px;
 }
