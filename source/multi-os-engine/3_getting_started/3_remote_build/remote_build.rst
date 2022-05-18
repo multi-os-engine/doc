@@ -58,6 +58,7 @@ Setting Up OpenSSH
 ------------------
 
 The Multi-OS Engine remote build system currently requires public-key authentication. For this we must create a private/public-key pair. GitHub has a great description on how to do this [here](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). (Note: the `-C "your_email@example.com"` parameter is not required.)
+NOTE: Make sure to generate the key in the "PEM" format. For that add "-m PEM" to the `ssh-keygen` command.
 
 Build Server
 ^^^^^^^^^^^^
