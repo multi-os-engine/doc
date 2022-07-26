@@ -2,11 +2,8 @@
 Using LibGDX
 ============
 
-.. warning::
 
-    This page is outdated. LibGDX is being updated to support the open source Multi-OS Engine version. This page will be updated when the updated LibGDX version is released.
-
-This page shows you how you can create a Java* game using Intel's Multi-OS Engine Technical Preview and the libGDX library.
+This page shows you how you can create a Java* game using Multi-OS Engine and the libGDX library.
 
 Contents:
     `Set Up Your Environment`_
@@ -33,124 +30,35 @@ First, install these applications:
 
 •   Git
 •   Android Studio
-•   Ant
-•   Maven
 •   Multi-OS Engine, a plugin for Android Studio
 
-You need to add Git, Maven and Ant to your system path.
+You need to add Git to your system path.
 
-Before we will be create our first libGDX application, we need to set up the environment with right version of libGDX. In our application, we will be use the last version of libGDX (1.7.0 version at the time of this post). To get the last version of libGDX, clone an official libGDX repository from `GitHub <https://github.com/libgdx/libgdx>`_. To do this, execute this command:
+Generating a new project
+================
 
-::
+Download the newest release of [gdx-liftoff](https://github.com/tommyettinger/gdx-liftoff).
+Run the jar and configure the project. Make sure to select "iOS Multi-OS Engine" as backend, not iOS!
 
-	git clone https://github.com/libgdx/libgdx.git
-
-After that, build the libGDX Library using these commands:
-
-::
-
-	ant -f fetch.xml
-	mvn install
-
-After this build completes, we will have libGDX version with support of Multi-OS Engine in our local maven repository. So we can start to develop our application.
+.. image:: images/libgdx3.png
 
 Develop Your App
 ================
 
-First, let's create a new Android Studio* project. Launch Android Studio and click Start a new Android Studio project line in the right pane.
-
-.. image:: images/libgdx3.png
-
-Next, configure our project. For example, set `LibGDXMisslecommand` as the application name.
+Open the generated project in Android Studio.
 
 .. image:: images/libgdx4.png
 
-1.   Select Phone and Tablet as the form factor for our application.
-2.   Also select the Minimum SDK (Android) version.
-3.   Click Next.
+So, we imported our project! Now let’s develop the common part for our application.
 
-Do not add any activities for our Android application. Click Finish.
-
-.. image:: images/libgdx5.png
-
-So, we created our project! Now let’s develop the common part for our application.
-
-Common Code Part
+Core Code Part
 ================
 
-To create the common part of our app, we need to add a new Android Studio module that has a type Java Library. Select Java Library and click Next.
-
-.. image:: images/libgdx6.png
-
-Set the name of our new module, package for our module, and the name of our common class. We will create a java class with name `MissileCommand`.
-
-.. image:: images/libgdx7.png
-
-After completing this, view the file tree:
-
-.. image:: images/libgdx8.png
-
-First, change the main `build.gradle` file. Write this code:
+First of all, create in the Core part a class called Assets for loading resources.
 
 ::
 
-	import groovy.json.JsonSlurper
-	buildscript {
-    	// Download information about the latest versions of libGDX components 
-    	ant.get(src: 'http://libgdx.badlogicgames.com/libgdx-site/service/getVersions?release=false', dest: 'versions.json')
-    	// Get information from file
-    	def versionFile = file('versions.json')
-    	def json
-    	if (versionFile.exists()) {
-        	json = new JsonSlurper().parseText(versionFile.text)
-    	} else throw new GradleException("Unable to retrieve latest versions, please check your internet connection")
-    	ext {
-        	// Set versions
-        	gdxVersion = json.libgdxSnapshot
-        	roboVMVersion = json.robovmVersion
-        	roboVMGradleVersion = json.robovmPluginVersion
-        	androidToolsVersion = json.androidBuildtoolsVersion
-        	androidSDKVersion = json.androidSDKVersion
-        	androidGradleToolsVersion = json.androidGradleToolVersion
-        	gwtVersion = json.gwtVersion
-        	gwtGradleVersion = json.gwtPluginVersion
-    	}
-    	repositories {
-        	jcenter()
-    	}
-    	dependencies {
-        	classpath 'com.android.tools.build:gradle:1.3.0'
-        	// NOTE: Do not place your application dependencies here; they belong
-        	// in the individual module build.gradle files
-    	}
-	}
-	// Set repositories for all projects
-	allprojects {
-    	repositories {
-        	jcenter()
-        	// Maven local repository necessary for our libGDX version
-        	mavenLocal()
-    	}
-	}
-
-Before we can write a code for the common part of our app, we need to modify the `common/build.gradle` file to add a dependency on the libGDX library:
-
-::
-
-	apply plugin: 'java'
-	sourceCompatibility = 1.7
-	targetCompatibility = 1.7
-	dependencies {
-    	compile fileTree(dir: 'libs', include: ['*.jar'])
-    	// libGDX common library
-    	compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-	}
-
-First of all, create in Common part class `Assets` for loading resources.
-
-::
-
-	package org.moe.libgdxmissilecommand.common;
+	package org.moe.libgdxmissilecommand;
 	import com.badlogic.gdx.Gdx;
 	import com.badlogic.gdx.audio.Sound;
 	import com.badlogic.gdx.files.FileHandle;
@@ -177,10 +85,10 @@ First of all, create in Common part class `Assets` for loading resources.
     	public static TextureRegion missileTextureRegion;
     	public static Sound missileSound;
     	// Explosions
-    	public static Animation explosionAnimation;
+    	public static Animation<TextureRegion> explosionAnimation;
     	public static Sound explosionSound;
     	// Cities
-    	public static Animation citiesDestroyAnimation;
+    	public static Animation<TextureRegion> citiesDestroyAnimation;
     	public static TextureRegion[] citiesTextureRegions = new TextureRegion[6];
     	// Naves
     	public static TextureRegion navesTextureRegion;
@@ -222,7 +130,7 @@ First of all, create in Common part class `Assets` for loading resources.
         	Texture citiesDestroy = loadTexture("cidade.png");
         	citiesDestroyAnimation = new Animation(0.2f, new TextureRegion(citiesDestroy,2,53,51,59),
                 	new TextureRegion(citiesDestroy,55,2,51,15));
-        	fontFile = Gdx.files.internal("arial.fnt");
+            fontFile = Gdx.files.classpath("com/badlogic/gdx/utils/lsans-15.fnt");
         	alarmSound = Gdx.audio.newSound(Gdx.files.internal("alarm.mp3"));
         	missileSound = Gdx.audio.newSound(Gdx.files.internal("missil.mp3"));
         	Texture explosion = loadTexture("explosao1.png");
@@ -244,11 +152,11 @@ Next, change the `MissileCommand` class. Write the following code in our `Missil
 
 ::
 
-	package org.moe.libgdxmissilecommand.common;
+	package org.moe.libgdxmissilecommand;
 	import com.badlogic.gdx.Game;
 	import com.badlogic.gdx.Gdx;
 	import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-	import org.moe.libgdxmissilecommand.common.screens.MainMenuScreen;
+	import org.moe.libgdxmissilecommand.screens.MainMenuScreen;
 	// Main game class
 	public class MissileCommand extends Game {
     	// used by all screens
@@ -268,11 +176,11 @@ Next, change the `MissileCommand` class. Write the following code in our `Missil
     	}
 	}
 
-Next create package for all game screens and create class `MainMenuScreen` for the main menu.
+Next create package "screens" for all game screens and create class `MainMenuScreen` for the main menu.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.screens;
+	package org.moe.libgdxmissilecommand.screens;
 	import com.badlogic.gdx.Gdx;
 	import com.badlogic.gdx.Input;
 	import com.badlogic.gdx.ScreenAdapter;
@@ -280,8 +188,8 @@ Next create package for all game screens and create class `MainMenuScreen` for t
 	import com.badlogic.gdx.graphics.OrthographicCamera;
 	import com.badlogic.gdx.graphics.g2d.Sprite;
 	import com.badlogic.gdx.math.Vector3;
-	import org.moe.libgdxmissilecommand.common.MissileCommand;
-	import org.moe.libgdxmissilecommand.common.Assets;
+	import org.moe.libgdxmissilecommand.MissileCommand;
+	import org.moe.libgdxmissilecommand.Assets;
 	public class MainMenuScreen extends ScreenAdapter {
     	MissileCommand game;
     	OrthographicCamera guiCam;
@@ -346,7 +254,7 @@ Create the class `CreditsScreen` with some information about our game.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.screens;
+	package org.moe.libgdxmissilecommand.screens;
 	import com.badlogic.gdx.Gdx;
 	import com.badlogic.gdx.Input;
 	import com.badlogic.gdx.ScreenAdapter;
@@ -355,8 +263,8 @@ Create the class `CreditsScreen` with some information about our game.
 	import com.badlogic.gdx.graphics.g2d.BitmapFont;
 	import com.badlogic.gdx.graphics.g2d.Sprite;
 	import com.badlogic.gdx.math.Vector3;
-	import org.moe.libgdxmissilecommand.common.MissileCommand;
-	import org.moe.libgdxmissilecommand.common.Assets;
+	import org.moe.libgdxmissilecommand.MissileCommand;
+	import org.moe.libgdxmissilecommand.Assets;
 	public class CreditsScreen extends ScreenAdapter {
     	MissileCommand game;
     	OrthographicCamera guiCam;
@@ -416,7 +324,7 @@ Create the main game screen class `MissleCommandGameScreen`.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.screens;
+	package org.moe.libgdxmissilecommand.screens;
 	import com.badlogic.gdx.Gdx;
 	import com.badlogic.gdx.ScreenAdapter;
 	import com.badlogic.gdx.graphics.GL20;
@@ -425,11 +333,11 @@ Create the main game screen class `MissleCommandGameScreen`.
 	import com.badlogic.gdx.graphics.g2d.Sprite;
 	import com.badlogic.gdx.math.Rectangle;
 	import com.badlogic.gdx.math.Vector3;
-	import org.moe.libgdxmissilecommand.common.Assets;
-	import org.moe.libgdxmissilecommand.common.MissileCommand;
-	import org.moe.libgdxmissilecommand.common.models.City;
-	import org.moe.libgdxmissilecommand.common.models.GameObject;
-	import org.moe.libgdxmissilecommand.common.models.Nave;
+	import org.moe.libgdxmissilecommand.Assets;
+	import org.moe.libgdxmissilecommand.MissileCommand;
+	import org.moe.libgdxmissilecommand.models.City;
+	import org.moe.libgdxmissilecommand.models.GameObject;
+	import org.moe.libgdxmissilecommand.models.Nave;
 	import java.util.ArrayList;
 	public class MissleCommandGameScreen extends ScreenAdapter {
     	private MissileCommand game;
@@ -446,21 +354,21 @@ Create the main game screen class `MissleCommandGameScreen`.
     	private int wave = 1;
     	private long verNaves = 0;
     	private long score = 0;
-    	private ArrayList<org.moe.libgdxmissilecommand.common.models.Missile> missiles = new ArrayList<>();
+    	private ArrayList<org.moe.libgdxmissilecommand.models.Missile> missiles = new ArrayList<>();
     	private ArrayList<Nave> naves = new ArrayList<>();
     	City[] cities = new City[6];
-    	org.moe.libgdxmissilecommand.common.models.Player player;
+    	org.moe.libgdxmissilecommand.models.Player player;
     	public MissleCommandGameScreen(MissileCommand game) {
         	this.game = game;
         	fontTime = new BitmapFont(Assets.fontFile);
         	fontTime.getData().setScale(0.5f);
         	fontTitle = new BitmapFont(Assets.fontFile);
         	fontTitle.getData().setScale(0.7f);
-                
+
                 // Initialize camera
         	guiCam = new OrthographicCamera(Assets.screenWidth, Assets.screenHeight);
         	guiCam.position.set(Assets.screenWidth / 2, Assets.screenHeight / 2, 0);
-                
+
                 // Create buttons
         	pauseButton = new Sprite(Assets.pauseButtonTextureRegion);
         	pauseButton.setPosition(Assets.screenWidth - (pauseButton.getWidth() + 2), 5);
@@ -468,16 +376,16 @@ Create the main game screen class `MissleCommandGameScreen`.
         	backButton.setPosition(Assets.screenWidth - (backButton.getWidth() + 2), 2);
         	touchPoint = new Vector3();
                 // Create player
-        	player = new org.moe.libgdxmissilecommand.common.models.Player();
+        	player = new org.moe.libgdxmissilecommand.models.Player();
         	player.setPosition(Assets.screenWidth / 2, Assets.screenHeight / 24);
-                
+
                 // Create cities
         	City.resetCounter();
         	for (int i = 0; i < cities.length; i++) {
             	cities[i] = new City();
         	}
     	}
-        
+
         // Draw elements
     	private void draw() {
         	GL20 gl = Gdx.gl;
@@ -512,7 +420,7 @@ Create the main game screen class `MissleCommandGameScreen`.
         	fontTime.draw(game.batcher, "Score: " + String.valueOf(score),
                 	2, Assets.screenHeight - 25);
         	for(int i = 0; i < missiles.size(); i++) {
-            	org.moe.libgdxmissilecommand.common.models.Missile missile = missiles.get(i);
+            	org.moe.libgdxmissilecommand.models.Missile missile = missiles.get(i);
             	if (missile.isAlive()) {
                 	if (playing)
                     	missile.update(dt);
@@ -563,7 +471,7 @@ Create the main game screen class `MissleCommandGameScreen`.
         	fontTime.draw(game.batcher, "fps: " + Gdx.graphics.getFramesPerSecond(), 0, 0);
         	game.batcher.end();
     	}
-        
+
         // Check events
     	private void update() {
         	if (City.getCityCounter() <= 0) {
@@ -586,13 +494,13 @@ Create the main game screen class `MissleCommandGameScreen`.
             	}
             	if (System.currentTimeMillis() - lastAttackTime > 450 && touchPoint.y >= player.getY()) {
                 	lastAttackTime = System.currentTimeMillis();
-                	missiles.add(new org.moe.libgdxmissilecommand.common.models.Missile());
+                	missiles.add(new org.moe.libgdxmissilecommand.models.Missile());
                 	missiles.get(missiles.size() - 1).detectTarget(touchPoint.x, touchPoint.y);
                 	player.setRotation(missiles.get(missiles.size() - 1).getRotation());
             	}
         	}
     	}
-        
+
         // Add new naves
     	private void addNaves() {
         	naves.add(new Nave(wave));
@@ -622,7 +530,7 @@ Create the main game screen class `MissleCommandGameScreen`.
             	}
         	}
     	}
-        
+
         // Check collision
     	private <T extends GameObject> boolean isCollision(T obj1, T obj2) {
         	Rectangle r1 = obj1.collisionRectangle();
@@ -631,11 +539,11 @@ Create the main game screen class `MissleCommandGameScreen`.
     	}
 	}
 
-We created all the screens for our game. So now we should create some models such as Player, Naves and others for our game. Create a new module `models` and create the base class `GameObject` for all objects in our game.
+We created all the screens for our game. So now we should create some models such as Player, Naves and others for our game. Create a new package `models` and create the base class `GameObject` for all objects in our game.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.models;
+	package org.moe.libgdxmissilecommand.models;
 	import com.badlogic.gdx.graphics.g2d.Sprite;
 	import com.badlogic.gdx.graphics.g2d.TextureRegion;
 	import com.badlogic.gdx.math.Rectangle;
@@ -644,17 +552,17 @@ We created all the screens for our game. So now we should create some models suc
     	protected float explosionTime;
     	GameObject(TextureRegion region) {
         	super(region);
-        	explosionTime = -1;4
+        	explosionTime = -1;
     	}
-        
+
         // Check object
     	public boolean isAlive() {
         	return alive;
     	}
-        
+
         // update object
     	public void update(float deltaTime) {}
-        
+
         // kill object
     	public boolean kill() {
         	if (Float.compare(explosionTime, -1) == 0) {
@@ -663,7 +571,7 @@ We created all the screens for our game. So now we should create some models suc
         	}
         	return false;
     	}
-        
+
         // get collision rectangle for object
     	public Rectangle collisionRectangle() {
         	if (!alive) {
@@ -677,10 +585,10 @@ Create the `Player` class.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.models;
+	package org.moe.libgdxmissilecommand.models;
 	import com.badlogic.gdx.graphics.g2d.Batch;
 	import com.badlogic.gdx.graphics.g2d.Sprite;
-	import org.moe.libgdxmissilecommand.common.Assets;
+	import org.moe.libgdxmissilecommand.Assets;
 	public class Player extends GameObject {
     	private Sprite playerBase;
     	public Player() {
@@ -706,11 +614,11 @@ Create the `Missile` class.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.models;
+	package org.moe.libgdxmissilecommand.models;
 	import com.badlogic.gdx.graphics.g2d.Batch;
 	import com.badlogic.gdx.graphics.g2d.TextureRegion;
 	import com.badlogic.gdx.math.Vector2;
-	import org.moe.libgdxmissilecommand.common.Assets;
+	import org.moe.libgdxmissilecommand.Assets;
 	public class Missile extends GameObject {
         // Speed of missile
     	private final float speed = 600.0f;
@@ -718,12 +626,12 @@ Create the `Missile` class.
     	public Missile() {
         	super(Assets.missileTextureRegion);
         	setPosition(Assets.screenWidth / 2, Assets.screenHeight / 24 + 10);
-                
+
                 // Start sound
         	Assets.playSound(Assets.missileSound);
         	targetY = 0;
     	}
-        
+
         // Detect missile target
     	public void detectTarget(float x, float y) {
         	targetY = y;
@@ -764,14 +672,14 @@ Create the `Missile` class.
     	}
 	}
 
-Now create the class `Naves`.
+Now create the class `Nave`.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.models;
+	package org.moe.libgdxmissilecommand.models;
 	import com.badlogic.gdx.graphics.g2d.Batch;
 	import com.badlogic.gdx.graphics.g2d.TextureRegion;
-	import org.moe.libgdxmissilecommand.common.Assets;
+	import org.moe.libgdxmissilecommand.Assets;
 	import java.security.SecureRandom;
 	public class Nave extends GameObject {
     	private float velX = 0, velY = 0;
@@ -826,10 +734,10 @@ And also create class `City` for cities.
 
 ::
 
-	package org.moe.libgdxmissilecommand.common.models;
+	package org.moe.libgdxmissilecommand.models;
 	import com.badlogic.gdx.graphics.g2d.Batch;
 	import com.badlogic.gdx.graphics.g2d.TextureRegion;
-	import org.moe.libgdxmissilecommand.common.Assets;
+	import org.moe.libgdxmissilecommand.Assets;
 	import java.security.SecureRandom;
 	public class City extends GameObject {
         // Cities counter
@@ -845,12 +753,12 @@ And also create class `City` for cities.
         	}
         	cityCounter++;
     	}
-        
+
         // Reset counter
     	public static void resetCounter() {
         	cityCounter = 0;
     	}
-        
+
         // Get counter
     	public static long getCityCounter() {
         	return cityCounter;
@@ -890,302 +798,53 @@ That completes the common part of our application! Now we can start to develop t
 Android Code Part
 =================
 
-To develop the Android part of our app, modify the `build.gradle` for your Android project (app/build.gradle). We need to add to dependencies on some libGDX libraries. We also need to  copy native libGDX libraries to our project. Please write this code in `app/build.gradle`:
+All configuartion is already done by the generator.
 
-::
+Asset Part
+=================
 
-	apply plugin: 'com.android.application'
-	android {
-    	compileSdkVersion 23
-    	buildToolsVersion "23.0.2"
-    	defaultConfig {
-        	applicationId "org.moe.libgdxmissilecommand.android"
-        	minSdkVersion 15
-        	targetSdkVersion 23
-        	versionCode 1
-        	versionName "1.0"
-    	}
-    	buildTypes {
-        	release {
-            	minifyEnabled false
-            	proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        	}
-    	}
-	}
-	configurations { natives }
-	dependencies {
-    	compile fileTree(dir: 'libs', include: ['*.jar'])
-    	compile 'com.android.support:appcompat-v7:23.1.1'
-    	compile project(':common')
-    	compile "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
-    	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
-    	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi"
-    	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
-	}
-	// needed to add JNI shared libraries to APK when compiling on CLI
-	tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
-    	pkgTask.jniFolders = new HashSet<File>()
-    	pkgTask.jniFolders.add(new File(projectDir, 'libs'))
-	}
-	// called every time gradle gets executed, takes the native dependencies of
-	// the natives configuration, and extracts them to the proper libs/ folders
-	// so they get packed with the APK.
-	task copyAndroidNatives() {
-    	file("libs/armeabi/").mkdirs();
-    	file("libs/armeabi-v7a/").mkdirs();
-    	file("libs/x86/").mkdirs();
-    	configurations.natives.files.each { jar ->
-        	def outputDir = null
-        	if(jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
-        	if(jar.name.endsWith("natives-armeabi.jar")) outputDir = file("libs/armeabi")
-        	if(jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
-        	if(outputDir != null) {
-            	copy {
-                	from zipTree(jar)
-                	into outputDir
-                	include "*.so"
-            	}
-        	}
-    	}
-	}
 
-Now we can create Main class for our Android application. Let’s create a class named Main.  Modify the `AndroidManifest.xml` file to add to it our activity (Main class). You can see the revised `AndroidManifest.xml` below.
+Finally, add images, sounds and others asset files for our game. You can download these files from `here https://github.com/jucimarjr/html5games/tree/master/cocos2d/MissileCommand/assets`_ (All resources are distributed under MIT license). After you download these files, copy them to the "assets" directory. Rename the files a.png-g.png to city[1...6].png.
 
-::
-
-	<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    	package="org.moe.libgdxmissilecommand.android">
-    	<application android:allowBackup="true" android:label="@string/app_name"
-        	android:icon="@mipmap/ic_launcher" android:supportsRtl="true"
-        	android:theme="@style/AppTheme">
-        	<activity
-            	android:name=".Main"
-            	android:label="@string/app_name"
-            	android:screenOrientation="landscape"
-            	android:configChanges="keyboard|keyboardHidden|orientation">
-            	<intent-filter>
-                	<action android:name="android.intent.action.MAIN" />
-                	<category android:name="android.intent.category.LAUNCHER" />
-            	</intent-filter>
-        	</activity>
-    	</application>
-	</manifest>
-
-Next, modify our Main class to create a  libGDX Android activity. It is not hard. We need add `AndroidApplication` from& `com.badlogic.gdx.backends.android` as parent of the Main class and override the `onCreate` function.
-
-::
-
-	package org.moe.libgdxmissilecommand.android;
-	import android.os.Bundle;
-	import com.badlogic.gdx.backends.android.AndroidApplication;
-	import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-	import org.moe.libgdxmissilecommand.common.MissileCommand;
-	public class Main extends AndroidApplication {
-    	@Override
-    	protected void onCreate (Bundle savedInstanceState) {
-        	super.onCreate(savedInstanceState);
-        	AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-        	initialize(new MissileCommand(), config);
-    	}
-	}
-
-Finally, add images, sounds and others asset files for our game. You can download these files from `here <https://software.intel.com/file/488437/download>`_ (All resources were taken from `this project <https://github.com/jucimarjr/html5games/tree/master/cocos2d/MissileCommand>`_ and they are distributed under MIT license). After you download these files (archive), create a directory named assets in your source directory tree for your Android application. Extract these downloaded files to the assets folder.
-
-.. image:: images/libgdx9.png
+.. image:: images/libgdx5.png
 
 Congratulations! We completed our Android game. Now we can build and run the game! You can see the running app in the screen shot below.
 
-.. image:: images/libgdx10.png
+.. image:: images/libgdx6.png
 
 
 iOS Code Part
 =============
 
-First, create a new Multi-OS Engine module. Click File > New >Multi-OS Engine Module. After that choose Single View Application as a template for a new module.
-
-.. image:: images/libgdx11.png
-
-Click Next. In the next window, set some module parameters as Xcode Project Name, Product Name, Organization Name and others. Set LibGDXPlain as the Xcode Project name and as Product name.
-
-.. image:: images/libgdx12.png
-
-In the next window, choose a name for new module, such as ios. Click the Finish button to create our module.
-
-.. image:: images/libgdx13.png
-
-After the module gets created, we can remove all layout and storyboard files from resources. Also, remove the ui package with all classes from the source directory.
-
-Next, change our `build.gradle` file for iOS module by including libGDX libraries.
-
-::
-
-	buildscript {
-    	repositories {
-        	mavenCentral()
-        	maven {
-            	url uri(System.getenv("MOE_HOME") + "/gradle")
-        	}
-    	}
-    	dependencies {
-        	classpath 'org.intel.gradle:xRTGradlePlugin:1.0'
-    	}
-	}
-	apply plugin: 'xrt'
-	configurations { natives }
-	// Extracts native libs (*.a) from the native-ios.jar and places them
-	// under build/libs/ios/.
-	task copyNatives << {
-    	file("xcode/native/ios/").mkdirs();
-    	configurations.natives.files.each { jar ->
-        	def outputDir = null
-        	if (jar.name.endsWith("natives-ios.jar")) outputDir = file("xcode/native/ios")
-        	if (outputDir != null) {
-            	FileCollection fileCollection = zipTree(jar)
-            	for (File libFile : fileCollection) {
-                	if (libFile.getAbsolutePath().endsWith(".a") && !libFile.getAbsolutePath().contains("/tvos/")) {
-                    	copy {
-                        	from libFile.getAbsolutePath()
-                        	into outputDir
-                    	}
-                	}
-            	}
-        	}
-    	}
-	}
-	dependencies {
-    	compile fileTree(dir: 'lib', include: '*.jar')
-    	compile project(":common")
-    	compile "com.badlogicgames.gdx:gdx-backend-moe:$gdxVersion"
-    	natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios"
-	}
-	xrt {
-	}
-	buildApp.dependsOn copyNatives 
-
-Also we will remove some information for detecting main storyboard file and screen orientation from `Info.plist` (module_name/xcode/project_name/Info.plist). Here is the original `Info.plist` before:
-
-::
-
-	<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-                       "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-	<plist version="1">
-    	<dict>
-       		...
-        	<key>UISupportedInterfaceOrientations</key>
-        	<array>
-            	<string>UIInterfaceOrientationPortrait</string>
-            	<string>UIInterfaceOrientationLandscapeLeft</string>
-            	<string>UIInterfaceOrientationLandscapeRight</string>
-        	</array>
-        	<key>UISupportedInterfaceOrientations~ipad</key>
-        	<array>
-            	<string>UIInterfaceOrientationPortrait</string>
-            	<string>UIInterfaceOrientationLandscapeLeft</string>
-            	<string>UIInterfaceOrientationLandscapeRight</string>
-        	</array>
-        	...
-        	<key>UIMainStoryboardFile</key>
-        	<string>MainUI</string>
-        	...
-    	</dict>
-	</plist>
-
-Here is the `Info.plist` after:
-
-::
-
-	<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-                       "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-	<plist version="1">
-    	<dict>
-        	...
-        	<key>UISupportedInterfaceOrientations</key>
-        	<array>
-            	<string>UIInterfaceOrientationLandscapeLeft</string>
-            	<string>UIInterfaceOrientationLandscapeRight</string>
-        	</array>
-        	<key>UISupportedInterfaceOrientations~ipad</key>
-        	<array>
-            	<string>UIInterfaceOrientationLandscapeLeft</string>
-            	<string>UIInterfaceOrientationLandscapeRight</string>
-        	</array>
-        	...
-    	</dict>
-	</plist>
-
-Modify our Main class to create a libGDX iOS activity.
-
-::
-
-	package org.moe.libgdxmissilecommand.ios;
-	import com.badlogic.gdx.backends.iosmoe.IOSApplication; 
-	import com.badlogic.gdx.backends.iosmoe.IOSApplicationConfiguration; 
-	import org.moe.libgdxmissilecommand.common.MissileCommand;
-	import org.moe.natj.general.Pointer;
-	import org.moe.natj.objc.ann.ObjCClassName;
-	import org.moe.natj.objc.ann.Selector;
-	import ios.uikit.c.UIKit; 
-	@ObjCClassName("Main") 
-	public class Main extends IOSApplication.Delegate { 
-	   protected Main(Pointer peer) { 
-	           super(peer); 
-	    } 
-		@Selector("alloc") 
-		public static native Main alloc(); 
-		public static void main(String[] args) { 
-			UIKit.UIApplicationMain(0, null, null, Main.class.getSimpleName());
-		}
-		@Override 
-		protected IOSApplication createApplication() {
-			IOSApplicationConfiguration config = new IOSApplicationConfiguration();
-			return new IOSApplication(new MissileCommand(), config); 
-		}
-	} 
+The code is already fully functional generated.
 
 Now we will modify the Xcode project. Right-click its name and select Multi-OS Engine > Open Project in Xcode.
 
-.. image:: images/libgdx14.png
+.. image:: images/libgdx7.png
 
 The Xcode project will be opened and we should see the next screen:
 
-.. image:: images/libgdx15.png
+.. image:: images/libgdx8.png
 
-Remove `MainUI.storyboard` in the Resources directory.
+Than, add the necessary frameworks to our application.
 
-Next, add resources to Xcode. Click the right mouse button on the Resources directory and choose add files to our project. Next, find our resources in our project (You can use resources from you android module or download from `here <https://software.intel.com/file/488437/download>`_). All resources were taken from `this project <https://github.com/jucimarjr/html5games/tree/master/cocos2d/MissileCommand>`_ and they are distributed under MIT license) and add it to the Xcode project. The result you can see below.
+.. image:: images/libgdx9.png
 
-.. image:: images/libgdx16.png
+.. image:: images/libgdx10.png
 
-Add libGDXLibrary to the Xcode project by changing Linker Flags in Build Settings > Linking >Other Linker Flags and add to it the following parameters:
+.. image:: images/libgdx11.png
 
-::
+.. image:: images/libgdx12.png
 
-	-force_load "$(SRCROOT)/native/ios/libObjectAL.a" 
- 	-force_load "$(SRCROOT)/native/ios/libgdx.a"
+Add all xcframeworks available.
 
-.. image:: images/libgdx17.png
+Change all the xcframeworks to "Embed & Sign".
 
-Finally, add the necessary frameworks to our application. We need to add these frameworks:
-
-•   AudioToolbox
-•   AVFoundation
-•   CoreFoundation
-•   CoreGraphics
-•   Foundation
-•   OpenAL
-•   OpenGLES
-•   QuartzCore
-•   UIKit
-
-We need to add these to Build Phases > Link Binary With Libraries.
-
-.. image:: images/libgdx18.png
+.. image:: images/libgdx13.png
 
 Congratulations! We completed our iOS game and our application. You can see iOS game screenshot below.
 
-.. image:: images/libgdx19.png
+.. image:: images/libgdx14.png
 
 
 Debug Your App
@@ -1209,11 +868,6 @@ Use a stack trace to see values of variables on a previous step. You can see it 
 
 .. image:: images/libgdx23.png
 
-Download Resources.zip and Multi-OS Samples
-
-
-You can download resources.zip `here <https://software.intel.com/sites/default/files/managed/ac/65/resources.zip>`_.
-
 You can download all Multi-OS Engine samples `here (Java) <https://github.com/multi-os-engine/moe-samples-java>`_ and `here (Kotlin) <https://github.com/multi-os-engine/moe-samples-kotlin>`_.
 
 
@@ -1225,7 +879,3 @@ LibGDX development with the Multi-OS Engine has many advantages, including:
 •   The biggest part of application is the common part.
 •   The common part uses familiar Java syntax.
 •   You can debug two targets side-by-side using the powerful iOS simulator and Android emulator.
-
-
-.. toctree::
-    :maxdepth: 1
