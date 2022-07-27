@@ -838,10 +838,6 @@ Than, add the necessary frameworks to our application.
 
 Add all xcframeworks available.
 
-Change all the xcframeworks to "Embed & Sign".
-
-.. image:: images/libgdx13.png
-
 Congratulations! We completed our iOS game and our application. You can see iOS game screenshot below.
 
 .. image:: images/libgdx14.png
